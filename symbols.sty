@@ -1,0 +1,168 @@
+% Custom math
+\newcommand{\tbf}{\textbf}% text bold
+\newcommand{\tit}{\textit}% text italic
+\newcommand{\tsl}{\textsl}% text slanted
+\newcommand{\tsc}{\textsc}% text small cap
+\newcommand{\ttt}{\texttt}% text typewriter
+\newcommand{\trm}{\textrm}% text roman
+\newcommand{\tsf}{\textsf}% text sans serif
+\newcommand{\tup}{\textup}% text upright
+\newcommand{\mbf}{\mathbf}% math bold
+\providecommand{\mit}{\mathit}% math italic
+\newcommand{\msf}{\mathsf}% math sans serif
+\newcommand{\mrm}{\mathrm}% math roman
+\newcommand{\mtt}{\mathtt}% math typewriter
+\newcommand{\dcdot}{\mathbf{:}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+% \newcommand{\vec}[1]{\\overrightarrow{#1} }
+% \newcommand{\tr}[1]{\text{tr}\left(#1\right)}
+\newcommand{\checkanddefine}[2]{
+    \ifundef{#1}{\newcommand{#1}{#2}}{\renewcommand{#1}{#2}}
+}
+\ifundef{\tr}{
+    \newcommand{\tr}[1]{\text{tr}\left(#1\right)}
+    }{
+    \renewcommand{\tr}[1]{\text{tr}\left(#1\right)}
+    }
+
+
+% \DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+\newcommand{\fourtens}{\mathbfcal}
+
+%Phase related nomenclature
+\newcommand{\pha}[1]{#1^{\alpha}}
+\newcommand{\Pha}[1]{#1_{\alpha}}
+\newcommand{\phb}[1]{#1^{\beta}}
+\newcommand{\Phb}[1]{#1_{\beta}}
+\newcommand{\phu}[2]{#1^{\trm{#2}}}
+\newcommand{\Phu}[2]{#1_{\trm{#2}}}
+\newcommand{\phuR}[2]{#1^{\trm{{#2}R}}}
+\newcommand{\phaR}[1]{#1^{\alpha R}}
+\newcommand{\phbR}[1]{#1^{\beta R}}
+
+\newcommand{\setC}{\left\{S,G,L,l\right\}}
+\newcommand{\tot}{^{\trm{tot}}}
+%\renewcommand{\Grad}{\nabla_{X}\,}
+%\renewcommand{\Grad}[1]{\nabla_{X}\left(#1\right)}
+%\renewcommand{\grad}{\nabla_{x}\,}
+%\renewcommand{\grad}[1]{\nabla_{x}\left(#1\right)}
+%\renewcommand{\Div}{\nabla_{X}\cdot\,}
+%\renewcommand{\Div}[1]{\nabla_{X}\cdot \left(#1\right)}
+%\renewcommand{\div}{\nabla_{x}\cdot\,}
+%\renewcommand{\div}[1]{\nabla_{x}\cdot \left(#1\right)}
+
+\newcommand{\Grad}{\trm{Grad}\,}
+\renewcommand{\Grad}[1]{\trm{Grad}\left(#1\right)}
+\@ifundefined{grad}{\newcommand{\grad}{\mathrm{grad}\,}}{\renewcommand{\grad}{\mathrm{grad}\,}}
+\renewcommand{\grad}[1]{\trm{grad}\left(#1\right)}
+\newcommand{\Div}{\trm{Div}\,}
+\renewcommand{\Div}[1]{\trm{Div} \left(#1\right)}
+\renewcommand{\div}{\trm{div}\,}
+\renewcommand{\div}[1]{\trm{div} \left(#1\right)}
+
+
+%\renewcommand{\div}{\trm{div}\,}
+%\renewcommand{\div}[1]{\trm{div} \left(#1\right)}
+\newcommand{\Lin}{\textrm{Lin}\,}
+\newcommand{\intd}{\,{\rom{d}}}
+\newcommand{\la}{\, \leftarrow \,}
+
+%Infinitesimal Elements
+\newcommand{\dV}{\; \textrm{d}V}
+\newcommand{\dViso}{\; \textrm{d}V_{\square}}
+\newcommand{\dA}{\; \textrm{d}A}
+\newcommand{\da}{\; \textrm{d}a}
+\newcommand{\dx}{\; \textrm{ d}x}
+\newcommand{\dy}{\; \textrm{ d}y}
+\newcommand{\dz}{\; \textrm{ d}z}
+\newcommand{\dX}{\; \textrm{ d}X}
+\newcommand{\dY}{\; \textrm{ d}Y}
+\newcommand{\dZ}{\; \textrm{ d}Z}
+\newcommand{\dxi}{\; \textrm{ d}\xi}
+\newcommand{\deta}{\; \textrm{ d}\eta}
+\newcommand{\dzeta}{\; \textrm{ d}\zeta}
+
+
+%Integral
+\newcommand{\Ibt}{\int_{\mathcal{B}_t}}
+\newcommand{\Ist}{\int_{\Gamma_t}}
+
+\newcommand{\Ibref}{\int_{\mathcal{B}\rs{0}}}
+\newcommand{\Isref}{\int_{\Gamma\rs{0}}}
+\newcommand{\sref}{{\Gamma\rs{0}}}
+\newcommand{\Bref}{{\mathcal{B}\rs{0}}}
+\newcommand{\Ibiso}{\int_{\mathcal{B}_{\square}}}
+\newcommand{\siso}{{\Gamma_{\square}}}
+
+
+
+%Material Time Derivative
+\newcommand{\Mtd}[1]{\left(#1\right)^{,}}
+\newcommand{\MtdFull}[1]{\frac{D \, #1}{D \, t}}
+\newcommand{\Mtda}[1]{\left(#1\right)^{,}_{\alpha}}
+\newcommand{\Mtdu}[2]{\left(#1\right)^{,}_{\trm{#2}}}
+\newcommand{\Pd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\dt}[1]{#1 ^{\bullet}}
+
+%Material History
+\newcommand{\hist}{\mid_{\tau=0}^t}
+
+%Roman Exponment
+\newcommand{\rom}[1]{\textrm{#1} }
+\newcommand{\rp}[1]{^{\rom{#1}}}
+\newcommand{\rs}[1]{_{\rom{#1}}}
+%Transposed
+\newcommand{\T}{\rp{T}}
+\newcommand{\mT}{\rp{-T}}
+
+%Deviator, Spherical, iso, vol
+\newcommand{\dev}{\rs{dev}}
+\newcommand{\sph}{\rs{sph}}
+\newcommand{\hyd}{\rs{hyd}}
+\newcommand{\iso}{\rs{iso}}
+\newcommand{\vol}{\rs{vol}}
+\newcommand{\vM}{\rs{vM}}
+\newcommand{\sym}{\rs{sym}}
+\newcommand{\dil}{\rs{dil}}
+\renewcommand{\ln}[1]{\textrm{ln}\left(#1\right)}
+
+%Combined Fields
+\newcommand{\uft}{\mathfrak{\boldsymbol{u}}}
+
+%FEM Contributions
+\newcommand{\Pext}{\mathcal{P}\rp{ext}}
+\newcommand{\Pint}{\mathcal{P}\rp{int}}
+
+%Kinematics
+\newcommand{\Cg}{\boldsymbol{C}}
+\newcommand{\detC}{\det \Cg}
+\newcommand{\F}{\bm{F}}
+\newcommand{\s}{\bm{\sigma}}
+\newcommand{\ie}{\rp{e}}
+\newcommand{\ipl}{\rp{p}}
+\newcommand{\e}{\bm{\varepsilon}}
+\newcommand{\ee}{{\e}\ie}
+\newcommand{\ep}{{\e}\ipl}
+\newcommand{\E}{\bm{E}}
+\newcommand{\Ee}{\E\ie}
+\newcommand{\Ep}{\E\ipl}
+\newcommand{\Fe}{\bm{\F}\ie}
+\newcommand{\Fp}{\bm{\F}\ipl}
+\newcommand{\Cge}{\tilde{\Cg}\ie}
+\newcommand{\Cgp}{\Cg\ipl}
+\newcommand{\Se}{\tilde{\bm{S}}\ie}
+\newcommand{\Me}{\tilde{\bm{M}}\ie}
+\newcommand{\Lp}{\tilde{\bm{L}}\ipl}
+\newcommand{\Dp}{\tilde{\bm{D}}\ipl}
+\newcommand{\sw}{\rs{sw}}
+
+%inner Variables
+\newcommand{\IV}{\bm{Y}}
+\newcommand{\iv}{Y}
+
+%EffectiveStress Concept
+\newcommand{\psiCap}{\psi\rs{cap}}
+\newcommand{\psiCapcv}{\psi\rs{cap-cv}}
+\newcommand{\psiAd}{\psi\rs{ad}}
+\newcommand{\pCap}{p\rs{cap}}
+\newcommand{\pCapcv}{p\rs{cap-cv}}

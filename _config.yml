@@ -1,0 +1,162 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Finite Elemente Methode 1
+author: Prof. Dr.-Ing. Steffen Beese
+logo: logo.jpeg
+copyright: "2025"
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_enginge: xelatex
+  latex_args: [
+    "-synctex=1",
+    "-interaction=nonstopmode",
+    "-f",
+    "-file-line-error",
+  ]
+  latex_documents:
+    targetname: fem_I_skript.tex
+    # preamble: 
+      
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/steffenbeese/FEMI_Tutorial  # Online location of your book
+  path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - dollarmath
+    - amsmath
+    
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    bibtex_bibfiles:
+      - references.bib
+    bibtex_reference_style: author_year
+    latex_elements:
+      preamble: |
+        \usepackage{amsmath}
+        \newcommand{\tbf}{\textbf}% text bold
+        \newcommand{\tit}{\textit}% text italic
+        \newcommand{\tsl}{\textsl}% text slanted
+        \newcommand{\tsc}{\textsc}% text small cap
+        \newcommand{\ttt}{\texttt}% text typewriter
+        \newcommand{\trm}{\textrm}% text roman
+        \newcommand{\tsf}{\textsf}% text sans serif
+        \newcommand{\tup}{\textup}% text upright
+        \newcommand{\mbf}{\mathbf}% math bold
+        \providecommand{\mit}{\mathit}% math italic
+        \newcommand{\msf}{\mathsf}% math sans serif
+        \newcommand{\mrm}{\mathrm}% math roman
+        \newcommand{\mtt}{\mathtt}% math typewriter
+        \newcommand{\dcdot}{\mathbf{:}}
+        \newcommand{\bm}[1]{\boldsymbol{#1}}
+        \newcommand{\checkanddefine}[2]{
+          \ifundef{#1}{\newcommand{#1}{#2}}{\renewcommand{#1}{#2}}
+        }
+        \ifundef{\tr}{
+        \newcommand{\tr}[1]{\text{tr}\left(#1\right)}
+        }{
+          \renewcommand{\tr}[1]{\text{tr}\left(#1\right)}
+        }
+        \newcommand{\Grad}{\trm{Grad}\,}
+        \renewcommand{\Grad}[1]{\trm{Grad}\left(#1\right)}
+        \newcommand{\grad}{\mathrm{grad}\,}
+        \renewcommand{\grad}[1]{\trm{grad}\left(#1\right)}
+        \newcommand{\Div}{\trm{Div}\,}
+        \renewcommand{\Div}[1]{\trm{Div} \left(#1\right)}
+        \renewcommand{\div}{\trm{div}\,}
+        \renewcommand{\div}[1]{\trm{div} \left(#1\right)}
+        \newcommand{\Lin}{\textrm{Lin}\,}
+        \newcommand{\intd}{\,{\rom{d}}}
+        \newcommand{\la}{\, \leftarrow \,}
+        \newcommand{\dV}{\; \textrm{d}V}
+        \newcommand{\dViso}{\; \textrm{d}V_{\square}}
+        \newcommand{\dA}{\; \textrm{d}A}
+        \newcommand{\da}{\; \textrm{d}a}
+        \newcommand{\dx}{\; \textrm{ d}x}
+        \newcommand{\dy}{\; \textrm{ d}y}
+        \newcommand{\dz}{\; \textrm{ d}z}
+        \newcommand{\dX}{\; \textrm{ d}X}
+        \newcommand{\dY}{\; \textrm{ d}Y}
+        \newcommand{\dZ}{\; \textrm{ d}Z}
+        \newcommand{\dxi}{\; \textrm{ d}\xi}
+        \newcommand{\deta}{\; \textrm{ d}\eta}
+        \newcommand{\dzeta}{\; \textrm{ d}\zeta}
+        \newcommand{\Ibt}{\int_{\mathcal{B}_t}}
+        \newcommand{\Ist}{\int_{\Gamma_t}}
+        \newcommand{\Ibref}{\int_{\mathcal{B}\rs{0}}}
+        \newcommand{\Isref}{\int_{\Gamma\rs{0}}}
+        \newcommand{\sref}{{\Gamma\rs{0}}}
+        \newcommand{\Bref}{{\mathcal{B}\rs{0}}}
+        \newcommand{\Ibiso}{\int_{\mathcal{B}_{\square}}}
+        \newcommand{\siso}{{\Gamma_{\square}}}
+        \newcommand{\Mtd}[1]{\left(#1\right)^{,}}
+        \newcommand{\MtdFull}[1]{\frac{D \, #1}{D \, t}}
+        \newcommand{\Pd}[2]{\frac{\partial #1}{\partial #2}}
+        \newcommand{\dt}[1]{#1 ^{\bullet}}
+        \newcommand{\rom}[1]{\textrm{#1} }
+        \newcommand{\rp}[1]{^{\rom{#1}}}
+        \newcommand{\rs}[1]{_{\rom{#1}}}
+        \newcommand{\T}{\rp{T}}
+        \newcommand{\mT}{\rp{-T}}
+        \newcommand{\dev}{\rs{dev}}
+        \newcommand{\sph}{\rs{sph}}
+        \newcommand{\hyd}{\rs{hyd}}
+        \newcommand{\iso}{\rs{iso}}
+        \newcommand{\vol}{\rs{vol}}
+        \newcommand{\vM}{\rs{vM}}
+        \newcommand{\sym}{\rs{sym}}
+        \newcommand{\dil}{\rs{dil}}
+        \renewcommand{\ln}[1]{\textrm{ln}\left(#1\right)}
+        \newcommand{\uft}{\mathfrak{\boldsymbol{u}}}
+        \newcommand{\Pext}{\mathcal{P}\rp{ext}}
+        \newcommand{\Pint}{\mathcal{P}\rp{int}}
+        \newcommand{\Cg}{\boldsymbol{C}}
+        \newcommand{\detC}{\det \Cg}
+        \newcommand{\F}{\bm{F}}
+        \newcommand{\s}{\bm{\sigma}}
+        \newcommand{\ie}{\rp{e}}
+        \newcommand{\ipl}{\rp{p}}
+        \newcommand{\e}{\bm{\varepsilon}}
+        \newcommand{\ee}{{\e}\ie}
+        \newcommand{\ep}{{\e}\ipl}
+        \newcommand{\E}{\bm{E}}
+        \newcommand{\Ee}{\E\ie}
+        \newcommand{\Ep}{\E\ipl}
+        \newcommand{\Fe}{\bm{\F}\ie}
+        \newcommand{\Fp}{\bm{\F}\ipl}
+        \newcommand{\Cge}{\tilde{\Cg}\ie}
+        \newcommand{\Cgp}{\Cg\ipl}
+        \newcommand{\Se}{\tilde{\bm{S}}\ie}
+        \newcommand{\Me}{\tilde{\bm{M}}\ie}
+        \newcommand{\Lp}{\tilde{\bm{L}}\ipl}
+        \newcommand{\Dp}{\tilde{\bm{D}}\ipl}
+        \newcommand{\sw}{\rs{sw}}
+        \newcommand{\td}[1]{\dot{#1}}
+        \newcommand{\tdd}[1]{\ddot{#1}}
+# sphinx:
+#  config:
+#    latex_elements:
+#      preamble:
+#        \input{symbols.tex}

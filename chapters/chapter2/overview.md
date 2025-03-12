@@ -7,10 +7,7 @@ jupytext:
     jupytext_version: 1.16.7
 ---
 
-# Überblick über verschiedene Lösungsmethoden
+# Die Finite Elemente Methode
 
-## FDM
+In den nachfolgenden Abschnitten werden die Grundzüge der Finiten Elemente Methode eingeführt. Bei dieser Einführung handelt es sich um eine Ingenieurwissenschaftliche Darstellung. Auf mathematische Anforderungen und Restriktionen wird nur bei Bedarf eingegangen. Für eine mathematisch rigorose Herleitung sei an dieser Stelle auf das Buch von Braess {cite}`braess2013finite` verwiesen. 
 
-## FVM
-
-## FEM

@@ -7,16 +7,25 @@ parts:
 - caption: Einführung
   numbered: true
   chapters:
-  - file: chapters/chapter1/Einführung
+  - file: chapters/chapter1/Einführung_Konstruktion
     sections:
+      - file: chapters/chapter1/Einführung_Modellklassifikation
+      - file: chapters/chapter1/Einführung_Loesungsverfahren
       - file: chapters/chapter1/elasticity
       - file: chapters/chapter1/strukturgleichungen
-- caption: Numerische Lösungsverfahren
+- caption: Theorie der Finiten Elemente Methode
   numbered: true
   chapters:
   - file: chapters/chapter2/overview
     sections:
-    - file: chapters/chapter2/FEM
+    - file: chapters/chapter2/1dFEM
+    - file: chapters/chapter2/isoparametrischeFEM
+- caption: Diskretisierung
+  numbered: true
+  chapters:
+  - file: chapters/chapter3/Discretization
+    sections:
+    - file: chapters/chapter3/Elementtopologie
 - caption: Quellenverzeichnis
   numbered: true
   chapters:

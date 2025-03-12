@@ -160,3 +160,7 @@ sphinx:
 #    latex_elements:
 #      preamble:
 #        \input{symbols.tex}
+
+execute:
+  execute_notebooks: cache
+  run_in_temp: true

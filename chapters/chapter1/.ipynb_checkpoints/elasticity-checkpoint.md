@@ -389,7 +389,7 @@ Bei der Berechnung der Wärmeleitungsgleichung wird oftmals **Fourier**sche Wär
 Hierbei ist $\bm{k}$ die Konduktivitätstensor, welche für isotrope Materialien wie folgt aussieht:
 ```{math}
 :label: konduktivitaetsmatrixIsotrop
- \bm{k} = k \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}  \, ,
+ \bm{k} = k \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}  \, ,
 ```
 mit der Wärmeleitfähigkeit $k$ in $\frac{\text{W}}{\text{m}\cdot\text{K}}$. Der Wärmestromvektor hat damit die Einheit $\frac{\text{W}}{\text{m}^2}$.
 
@@ -419,7 +419,7 @@ Bei der Berechnung der Fluidgeschwindigkeit in Sickerströmungen wird oftmals da
 Hierbei ist $\bm{k}_{\varepsilon}$ die hydraulische Konduktivität. Für isotrope Materialien gilt:
 
 ```{math}
- \bm{k}_{\varepsilon} = \frac{k_{\varepsilon}}{\mu} \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{pmatrix}  \, ,
+ \bm{k}_{\varepsilon} = \frac{k_{\varepsilon}}{\mu} \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}  \, ,
 ```
 mit der hydraulischen Permeabilität $k_{\varepsilon}$ in $\text{m}^2$ und der dynamischen Viskosität $\mu$ in $\text{Pa}\cdot \text{s}$. 
 
@@ -445,21 +445,21 @@ wobei von der Einsteinschen Summenkonvention gebrauch gemacht wurde. In der Stru
 
 ```{math}
 :label: generalHook2
-\begin{pmatrix} 
+\begin{bmatrix} 
 \sigma_{11} \\
 \sigma_{22} \\
 \sigma_{33} \\
 \sigma_{12} \\
 \sigma_{23} \\
 \sigma_{13} 
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 C_{1111} & C_{1122} & C_{1133} & C_{1112} & C_{1123} & C_{1113} \\
 C_{2211} & C_{2222} & C_{2233} & C_{2212} & C_{2223} & C_{2213} \\
 C_{3311} & C_{3322} & C_{3333} & C_{3312} & C_{3323} & C_{3313} \\
 C_{1211} & C_{1222} & C_{1233} & C_{1212} & C_{1223} & C_{1213} \\
 C_{2311} & C_{2322} & C_{2333} & C_{2312} & C_{2323} & C_{2313} \\
 C_{1311} & C_{1322} & C_{1333} & C_{1312} & C_{1323} & C_{1313} \\ 
-\end{pmatrix} \begin{pmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \epsilon_{33} \\ 2\epsilon_{12} \\ 2\epsilon_{23} \\ 2\epsilon_{13} \end{pmatrix}
+\end{bmatrix} \begin{bmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \epsilon_{33} \\ 2\epsilon_{12} \\ 2\epsilon_{23} \\ 2\epsilon_{13} \end{bmatrix}
 ```
 
 Für isotrope lineare Elastizität mit dem Materialkonstanten:
@@ -471,41 +471,41 @@ erhält man dann:
 
 ```{math}
 :label: generalHook3
-\begin{pmatrix} 
+\begin{bmatrix} 
 \sigma_{11} \\
 \sigma_{22} \\
 \sigma_{33} \\
 \sigma_{12} \\
 \sigma_{23} \\
 \sigma_{13} 
-\end{pmatrix} = \frac{E}{(1+\nu)(1-2\nu)}\begin{pmatrix}
+\end{bmatrix} = \frac{E}{(1+\nu)(1-2\nu)}\begin{bmatrix}
 1-\nu & \nu & \nu & 0 & 0 & 0 \\
 \nu & 1-\nu & \nu & 0 & 0 & 0 \\
 \nu & \nu & 1-\nu & 0 & 0 & 0 \\
 0 & 0 & 0 & \frac{1-2\nu}{2} & 0 & 0 \\
 0 & 0 & 0 & 0 & \frac{1-2\nu}{2} & 0 \\
 0 & 0 & 0 & 0 & 0 & \frac{1-2\nu}{2} \\ 
-\end{pmatrix} \begin{pmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \epsilon_{33} \\ 2\epsilon_{12} \\ 2\epsilon_{23} \\ 2\epsilon_{13} \end{pmatrix}
+\end{bmatrix} \begin{bmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \epsilon_{33} \\ 2\epsilon_{12} \\ 2\epsilon_{23} \\ 2\epsilon_{13} \end{bmatrix}
 ```
 
 Für die inverse Beziehung $\bm{\epsilon} = \bm{C}^{-1} \bm{\sigma}$ mit der Nachgiebiegkeitsmatrix $\bm{C}^{-1}$ erhält man:
 ```{math}
 :label: generalHook4
-\begin{pmatrix} 
+\begin{bmatrix} 
 \epsilon_{11} \\
 \epsilon_{22} \\
 \epsilon_{33} \\
 2\epsilon_{12} \\
 2\epsilon_{23} \\
 2\epsilon_{13} 
-\end{pmatrix} =\begin{pmatrix}
+\end{bmatrix} =\begin{bmatrix}
 \frac{1}{E} & \frac{-\nu}{E} & \frac{-\nu}{E} & 0 & 0 & 0 \\
 \frac{-\nu}{E} & \frac{1}{E} & \frac{-\nu}{E} & 0 & 0 & 0 \\
 \frac{-\nu}{E} & \frac{-\nu}{E} & \frac{1}{E} & 0 & 0 & 0 \\
 0 & 0 & 0 & \frac{1}{G} & 0 & 0 \\
 0 & 0 & 0 & 0 & \frac{1}{G} & 0 \\
 0 & 0 & 0 & 0 & 0 & \frac{1}{G} \\ 
-\end{pmatrix} \begin{pmatrix} \sigma_{11} \\ \sigma_{22} \\ \sigma_{33} \\ \sigma_{12} \\ \sigma_{23} \\ \sigma_{13} \end{pmatrix}
+\end{bmatrix} \begin{bmatrix} \sigma_{11} \\ \sigma_{22} \\ \sigma_{33} \\ \sigma_{12} \\ \sigma_{23} \\ \sigma_{13} \end{bmatrix}
 ```
 
 wobei $G=\frac{E}{2(1+\nu)}$ den Schubmodul in $\text{MPa}$ darstellt.
@@ -537,39 +537,39 @@ Die Kelvin Notation und die Voigt Notation sind zwei verschiedene Methoden um te
 
 |                    |   Voigt Notation    |
 |--------------------|---------------------|
-|$\sigma_{ij}$       | $\bm{\sigma}= \begin{pmatrix} \sigma_{11} & \sigma_{22} & \sigma_{33} & \sigma_{12} & \sigma_{23} & \sigma_{13} \end{pmatrix}\T $ |
-|$\epsilon_{ij}$       | $\bm{\epsilon}= \begin{pmatrix} \epsilon_{11} & \epsilon_{22} & \epsilon_{33} & 2\epsilon_{12} & 2\epsilon_{23} & 2\epsilon_{13} \end{pmatrix}\T $ |
+|$\sigma_{ij}$       | $\bm{\sigma}= \begin{bmatrix} \sigma_{11} & \sigma_{22} & \sigma_{33} & \sigma_{12} & \sigma_{23} & \sigma_{13} \end{bmatrix}\T $ |
+|$\epsilon_{ij}$       | $\bm{\epsilon}= \begin{bmatrix} \epsilon_{11} & \epsilon_{22} & \epsilon_{33} & 2\epsilon_{12} & 2\epsilon_{23} & 2\epsilon_{13} \end{bmatrix}\T $ |
 | $\sigma_{ij}=\mathbb{C}_{ijkl}\epsilon_{kl}$| $\bm{\sigma} = \bm{C} \bm{\epsilon} $|
 | $\mathcal{E}=\sigma_{ij}\epsilon_{ij}$| $ \mathcal{E} = \bm{\sigma}\T\bm{\epsilon}$|
 
 $$
-\mathbb{C}_{ijkl} \quad \rightarrow \quad \bm{C}=\begin{pmatrix}
+\mathbb{C}_{ijkl} \quad \rightarrow \quad \bm{C}=\begin{bmatrix}
 C_{1111} & C_{1122} & C_{1133} & C_{1112} & C_{1123} & C_{1113} \\
 C_{2211} & C_{2222} & C_{2233} & C_{2212} & C_{2223} & C_{2213} \\
 C_{3311} & C_{3322} & C_{3333} & C_{3312} & C_{3323} & C_{3313} \\
 C_{1211} & C_{1222} & C_{1233} & C_{1212} & C_{1223} & C_{1213} \\
 C_{2311} & C_{2322} & C_{2333} & C_{2312} & C_{2323} & C_{2313} \\
 C_{1311} & C_{1322} & C_{1333} & C_{1312} & C_{1323} & C_{1313} \\ 
-\end{pmatrix} 
+\end{bmatrix} 
 $$
 
 
 |                    |    Kelvin Notation  |
 |--------------------|---------------------|
-|$\sigma_{ij}$        | $\bm{\sigma}= \begin{pmatrix} \sigma_{11} & \sigma_{22} & \sigma_{33} & \sqrt{2}\sigma_{12} & \sqrt{2}\sigma_{23} & \sqrt{2}\sigma_{13} \end{pmatrix}\T $ |
-|$\epsilon_{ij}$        | $\bm{\epsilon}= \begin{pmatrix} \epsilon_{11} & \epsilon_{22} & \epsilon_{33} & \sqrt{2}\epsilon_{12} & \sqrt{2}\epsilon_{23} & \sqrt{2}\epsilon_{13} \end{pmatrix}\T $ |
+|$\sigma_{ij}$        | $\bm{\sigma}= \begin{bmatrix} \sigma_{11} & \sigma_{22} & \sigma_{33} & \sqrt{2}\sigma_{12} & \sqrt{2}\sigma_{23} & \sqrt{2}\sigma_{13} \end{bmatrix}\T $ |
+|$\epsilon_{ij}$        | $\bm{\epsilon}= \begin{bmatrix} \epsilon_{11} & \epsilon_{22} & \epsilon_{33} & \sqrt{2}\epsilon_{12} & \sqrt{2}\epsilon_{23} & \sqrt{2}\epsilon_{13} \end{bmatrix}\T $ |
 | $\sigma_{ij}=\mathbb{C}_{ijkl}\epsilon_{kl}$| $\bm{\sigma} = \bm{C} \bm{\epsilon}$ |
 | $\mathcal{E}=\sigma_{ij}\epsilon_{ij}$| $ \mathcal{E} = \bm{\sigma}\T\bm{\epsilon}$|
 
 $$
-\mathbb{C}_{ijkl} \quad \rightarrow \quad \bm{C}=\begin{pmatrix}
+\mathbb{C}_{ijkl} \quad \rightarrow \quad \bm{C}=\begin{bmatrix}
 C_{1111} & C_{1122} & C_{1133} & \sqrt{2}C_{1112} & \sqrt{2}C_{1123} & \sqrt{2}C_{1113} \\
 C_{2211} & C_{2222} & C_{2233} & \sqrt{2}C_{2212} & \sqrt{2}C_{2223} & \sqrt{2}C_{2213} \\
 C_{3311} & C_{3322} & C_{3333} & \sqrt{2}C_{3312} & \sqrt{2}C_{3323} & \sqrt{2}C_{3313} \\
 \sqrt{2}C_{1211} & \sqrt{2}C_{1222} & \sqrt{2}C_{1233} & 2C_{1212} & 2C_{1223} & 2C_{1213} \\
 \sqrt{2}C_{2311} & \sqrt{2}C_{2322} & \sqrt{2}C_{2333} & 2C_{2312} & 2C_{2323} & 2C_{2313} \\
 \sqrt{2}C_{1311} & \sqrt{2}C_{1322} & \sqrt{2}C_{1333} & 2C_{1312} & 2C_{1323} & 2C_{1313} \\ 
-\end{pmatrix} 
+\end{bmatrix} 
 $$
 
 ```
@@ -605,54 +605,54 @@ In Abbildung {numref}`shellformulation` auf der rechten Seite ist eine Disketisi
 Startpunkt für die konstitutive Beziehung ist die Gleichung {eq}`generalHook4`. Zunächst streichen wir alle Spalten welche den 0-Spannungen zugeordnet werden können:
 ```{math}
 :label: generalHookESZ1
-\begin{pmatrix} 
+\begin{bmatrix} 
 \epsilon_{11} \\
 \epsilon_{22} \\
 \epsilon_{33} \\
 2\epsilon_{12} \\
 2\epsilon_{23} \\
 2\epsilon_{13} 
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 \frac{1}{E} & \frac{-\nu}{E} & \cancel{\frac{-\nu}{E}} & 0 & \cancel{0} & \cancel{0} \\
 \frac{-\nu}{E} & \frac{1}{E} & \cancel{\frac{-\nu}{E}} & 0 & \cancel{0} & \cancel{0} \\
 {\frac{-\nu}{E}} & {\frac{-\nu}{E}} & \cancel{\frac{1}{E}} & {0} & \cancel{0} & \cancel{0} \\
 0 & 0 & \cancel{0} & \frac{1}{G} & 0 & 0 \\
 {0} & {0} & \cancel{0} & {0} & \cancel{\frac{1}{G}} & \cancel{0} \\
 {0} & {0} & \cancel{0} & {0} & \cancel{0} & \cancel{\frac{1}{G}} \\ 
-\end{pmatrix} \begin{pmatrix} \sigma_{11} \\ \sigma_{22} \\ \cancel{\sigma_{33}} \\ \sigma_{12} \\ \cancel{\sigma_{23}} \\ \cancel{\sigma_{13}} \end{pmatrix}
+\end{bmatrix} \begin{bmatrix} \sigma_{11} \\ \sigma_{22} \\ \cancel{\sigma_{33}} \\ \sigma_{12} \\ \cancel{\sigma_{23}} \\ \cancel{\sigma_{13}} \end{bmatrix}
 ```
 
 Hier fällt auf, dass das resultierende System nicht mehr quadratisch ist, da die Dehnung in Dickenrichtung $\epsilon_{33}$ ungleich null ist:
 
 ```{math}
 :label: generalHookESZ2
-\begin{pmatrix} 
+\begin{bmatrix} 
 \epsilon_{11} \\
 \epsilon_{22} \\
 \epsilon_{33} \\
 2\epsilon_{12} \\
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 \frac{1}{E} & \frac{-\nu}{E}  & 0  \\
 \frac{-\nu}{E} & \frac{1}{E}  & 0  \\
 {\frac{-\nu}{E}} & {\frac{-\nu}{E}} & {0} \\
 0 & 0 & \frac{1}{G}  \\
-\end{pmatrix} \begin{pmatrix} \sigma_{11} \\ \sigma_{22} \\ \sigma_{12} \end{pmatrix} \; .
+\end{bmatrix} \begin{bmatrix} \sigma_{11} \\ \sigma_{22} \\ \sigma_{12} \end{bmatrix} \; .
 ```
 
 Dieses System hat eine Gleichung zu viel. Zweckmäßig vernachlässigt man die Gleichung für die Dehnung in Dickenrichtung (diese Dehnung berechnet man in einer Nachlaufrechnung). Somit lautet die Nachgiebigkeitsmatrix $\bm{C}^{-1}\rs{ESZ}$ und die Materielle Steifigkeitsmatrix $\bm{C}\rs{ESZ}$ für den ebenen Spannungszustand:
 
 ```{math}
 :label: generalHookESZ3
-\bm{C}^{-1} = \frac{1}{E} \begin{pmatrix}
+\bm{C}^{-1} = \frac{1}{E} \begin{bmatrix}
 1 & -\nu & 0  \\
 -\nu & 1  & 0  \\
 0 & 0 & 2(1+\nu)  \\
-\end{pmatrix}  \qquad 
-\bm{C} = \frac{E}{(1-\nu^2)}\begin{pmatrix}
+\end{bmatrix}  \qquad 
+\bm{C} = \frac{E}{(1-\nu^2)}\begin{bmatrix}
 1 & \nu  & 0  \\
 \nu & 1  & 0  \\
 0 & 0 & \frac{1-\nu}{2}  \\
-\end{pmatrix}
+\end{bmatrix}
 ```
 
 ```{code-cell} ipython3

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.4. Grundgleichungen einfacher Strukturelemente &#8212; Finite Elemente Methode 1</title>
+    <title>1.2. Numerische Lösungsverfahren &#8212; Finite Elemente Methode 1</title>
   
   
   
@@ -62,11 +62,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter1/strukturgleichungen';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter1/Einführung_Loesungsverfahren';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2. Die Finite Elemente Methode" href="../chapter2/overview.html" />
-    <link rel="prev" title="1.3. Mathematische Modellbildung in der Kontinuumstheorie" href="elasticity.html" />
+    <link rel="next" title="1.3. Mathematische Modellbildung in der Kontinuumstheorie" href="elasticity.html" />
+    <link rel="prev" title="1.1. Numerische Modelle in der Mechanik" href="Einf%C3%BChrung_Modellklassifikation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -174,9 +174,9 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Modellklassifikation.html">1.1. Numerische Modelle in der Mechanik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Loesungsverfahren.html">1.2. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.2. Numerische Lösungsverfahren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="elasticity.html">1.3. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. Grundgleichungen einfacher Strukturelemente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strukturgleichungen.html">1.4. Grundgleichungen einfacher Strukturelemente</a></li>
 </ul>
 </details></li>
 </ul>
@@ -275,7 +275,7 @@
       
       
       
-      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter1/strukturgleichungen.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter1/Einführung_Loesungsverfahren.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +305,7 @@
       
       
       
-      <li><a href="../../_sources/chapters/chapter1/strukturgleichungen.md" target="_blank"
+      <li><a href="../../_sources/chapters/chapter1/Einführung_Loesungsverfahren.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -381,7 +381,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Grundgleichungen einfacher Strukturelemente</h1>
+    <h1>Numerische Lösungsverfahren</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -391,8 +391,11 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-stabes">1.4.1. Differentialgleichung des Stabes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-balkens">1.4.2. Differentialgleichung des Balkens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-differenzen-methode-fdm">1.2.1. Finite Differenzen Methode (FDM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-volumen-methode-fvm">1.2.2. Finite Volumen Methode (FVM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randelemente-methode-bem">1.2.3. Randelemente Methode (BEM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-elemente-methode-fem">1.2.4. Finite Elemente Methode (FEM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">1.2.5. Zusammenfassung</a></li>
 </ul>
             </nav>
         </div>
@@ -404,64 +407,136 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="grundgleichungen-einfacher-strukturelemente">
-<h1><span class="section-number">1.4. </span>Grundgleichungen einfacher Strukturelemente<a class="headerlink" href="#grundgleichungen-einfacher-strukturelemente" title="Link to this heading">#</a></h1>
-<figure class="align-default" id="strukturkontinua">
-<a class="reference internal image-reference" href="../../_images/Strukturelemente_Knothe.png"><img alt="../../_images/Strukturelemente_Knothe.png" src="../../_images/Strukturelemente_Knothe.png" style="width: 600px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Fig. 1.11 </span><span class="caption-text">Übersicht über die Klassifizierung von Strukturvereinfachungen nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span></span><a class="headerlink" href="#strukturkontinua" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Die im vorherigen Abschnitt eingeführten Feldgleichungen lassen sich für viele Ingenieurwissenschaftlichen Problemstellungen deutlich vereinfachen. In <a class="reference internal" href="#strukturkontinua"><span class="std std-numref">Fig. 1.11</span></a> sind solche Vereinfachungen gezeigt.</p>
-<p>Für die Impulsbilanz haben wir bereits in der Vorlesung zur “Technischen Mechanik 2” zwei Vereinfachungen kennengelernt:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="numerische-losungsverfahren">
+<h1><span class="section-number">1.2. </span>Numerische Lösungsverfahren<a class="headerlink" href="#numerische-losungsverfahren" title="Link to this heading">#</a></h1>
+<p>Der kontinuierliche Modellansatz führt zu Feldgleichungen in Form von partielle Differentialgleichungen. Anwendungsgebiete sind hier die Strukturmechanik, der Stoff- und Wärmetransport oder auch die Elektostatik  und vielen weitere. Diese partiellen Differentialgleichungen können in der Regel nicht geschlossen analytisch gelöst werden, weshalb sich numerische Berechnungsschemen hierfür etabliert haben. Die heute gebräuchlichsten werden in der Folge kurz beschrieben:</p>
 <ul class="simple">
-<li><p>den Dehnstab</p></li>
-<li><p>den Balken</p></li>
+<li><p>Netzbasiertierte Methoden:</p>
+<ul>
+<li><p><strong>Finite Elemente Methode (FEM)</strong></p></li>
+<li><p><strong>Finite Volumen Methode (FVM)</strong></p></li>
+<li><p><strong>Finite Differenzen Methode (FDM)</strong></p></li>
+<li><p><strong>Randelementmethode (BEM)</strong></p></li>
+<li><p>Discontinous Galerkin Methods (DG)</p></li>
 </ul>
-<p>Nachfolgen werden lediglich die Differentialgleichungen dieser beiden Strukturelemente eingeführt. Für eine Herleitung der Gleichung sei auf die entsprechende Vorlesung verwiesen.</p>
-<section id="differentialgleichung-des-stabes">
-<h2><span class="section-number">1.4.1. </span>Differentialgleichung des Stabes<a class="headerlink" href="#differentialgleichung-des-stabes" title="Link to this heading">#</a></h2>
-<p>Wird ein prismatisches Bauteil nur entlang seiner Achse <span class="math notranslate nohighlight">\(x\)</span> belastet, so resultieren hieraus nur Normalspannungen <span class="math notranslate nohighlight">\(\sigma_x\)</span>. Solche Belastungsszenarien können über die Differentialgleichung des <strong>Stabes</strong> in guter Näherung bestimmt werden.</p>
-<figure class="align-default" id="stab">
-<a class="reference internal image-reference" href="../../_images/Stab_TMKompakt.png"><img alt="../../_images/Stab_TMKompakt.png" src="../../_images/Stab_TMKompakt.png" style="width: 600px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">Kräftegleichgewicht und Spannungen am geraden Stab nach <span id="id2">[]</span></span><a class="headerlink" href="#stab" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Die Differentialgleichung des Stabes lautet:</p>
-<div class="math notranslate nohighlight" id="equation-stabdgl">
-<span class="eqno">(1.25)<a class="headerlink" href="#equation-stabdgl" title="Link to this equation">#</a></span>\[\frac{\text{d } \left( E(x)A(x) \frac{\text{d } u}{\text{d } x} \right) }{\text{d } x} =  \frac{\text{d } \left(E(x)A(x) \alpha_T(x) \Delta \theta\right)}{\text{d } x} - n(x)\]</div>
-<p>mit:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(E\)</span> - Elastizitätsmodul in MPa</p></li>
-<li><p><span class="math notranslate nohighlight">\(A\)</span> - Querschnittsfläche in mm<span class="math notranslate nohighlight">\(^2\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(u\)</span> - Axiale Verschiebung in mm</p></li>
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> - Wärmeausdehnungskoeffizient in mm/K</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Delta \theta\)</span> - Temperaturänderung in K</p></li>
-<li><p><span class="math notranslate nohighlight">\(n\)</span> - axiale Streckenlast in N/mm</p></li>
+</li>
+<li><p>Netzunabhängige Methoden:</p>
+<ul>
+<li><p>Optimal Transport Method (OTM)</p></li>
+<li><p>Element-Free Galerkin (EFG)</p></li>
+<li><p>Moving Least Squares (MLS)</p></li>
 </ul>
-<p>Für einen konstanten <span class="math notranslate nohighlight">\(E\)</span>-Modul und eine konstante Querschnittsfläche <span class="math notranslate nohighlight">\(A\)</span>, sowie eine konstante Temperaturdifferenz <span class="math notranslate nohighlight">\(\Delta \theta\)</span> kann diese Differentialgleichung vereinfacht werden zu:</p>
-<div class="math notranslate nohighlight" id="equation-stabdglsimple">
-<span class="eqno">(1.26)<a class="headerlink" href="#equation-stabdglsimple" title="Link to this equation">#</a></span>\[ u^{\prime \prime} = \frac{\text{d}^2\,  u  }{\text{d } x^2} =  - \frac{n(x)}{EA}\]</div>
+</li>
+<li><p>Kombination:</p>
+<ul>
+<li><p>Material Point Method (MPM)</p></li>
+</ul>
+</li>
+<li><p>…</p></li>
+</ul>
+<p>Alle diese Methoden haben eine Gemeinsamkeit: Sie führen auf ein Gleichungssystem der Form:</p>
+<div class="math notranslate nohighlight" id="equation-lgs">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-lgs" title="Link to this equation">#</a></span>\[\boldsymbol{Ax}=\boldsymbol{b} \]</div>
+<p>mit der Systemmatrix <span class="math notranslate nohighlight">\(\boldsymbol{A}\)</span>. Im folgenden soll nur kurz auf die 4 am weitest verbreitetsten Methoden eingehen.</p>
+<section id="finite-differenzen-methode-fdm">
+<h2><span class="section-number">1.2.1. </span>Finite Differenzen Methode (FDM)<a class="headerlink" href="#finite-differenzen-methode-fdm" title="Link to this heading">#</a></h2>
+<p>Die Finite Differenzen Methode (FDM) ist ein numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das auf der Approximation der Ableitungen durch Differenzenquotienten basiert. Hier sind die grundlegenden Schritte und Konzepte der FDM:</p>
+<ol class="arabic simple">
+<li><p><strong>Diskretisierung des Raums</strong>: Der kontinuierliche Raum wird in ein Gitter unterteilt. Die Punkte auf diesem Gitter werden als Gitterpunkte bezeichnet.</p></li>
+<li><p><strong>Approximation der Ableitungen</strong>: Die Ableitungen in der PDE werden durch finite Differenzen approximiert. Zum Beispiel kann die erste Ableitung einer Funktion <span class="math notranslate nohighlight">\(u\)</span> an einem Punkt <span class="math notranslate nohighlight">\(i\)</span> durch den zentralen Differenzenquotienten approximiert werden:
+\begin{equation}
+\frac{du}{dx} \approx \frac{u_{i+1} - u_{i-1}}{2\Delta x}
+\end{equation}
+oder durch den vorwärts gerichteten Differenzenquotienten:
+\begin{equation}
+\frac{du}{dx} \approx \frac{u_{i+1} - u_i}{\Delta x}
+\end{equation}</p></li>
+<li><p><strong>Aufstellen eines Gleichungssystems</strong>: Durch das Einsetzen der approximierten Ableitungen in die ursprüngliche PDE wird ein System von algebraischen Gleichungen aufgestellt, das die Werte der Funktion an den Gitterpunkten beschreibt.</p></li>
+<li><p><strong>Lösen des Gleichungssystems</strong>: Das resultierende Gleichungssystem kann mit verschiedenen numerischen Verfahren gelöst werden.</p></li>
+</ol>
+<p>Die Finite Differenzen Methode ist einfach zu implementieren und eignet sich gut für Probleme mit regelmäßigen Gitterstrukturen. Sie hat jedoch Einschränkungen bei der Behandlung komplexer Geometrien und kann in der Nähe von Randbedingungen oder Singularitäten weniger genau sein.</p>
 </section>
-<section id="differentialgleichung-des-balkens">
-<h2><span class="section-number">1.4.2. </span>Differentialgleichung des Balkens<a class="headerlink" href="#differentialgleichung-des-balkens" title="Link to this heading">#</a></h2>
-<p>Balken sind Tragstrukturen, die eindimensional modelliert werden, da ihre Breite und Höhe im Verhältnis zu ihrer Länge sehr gering sind. Im Unterschied zu Stäben, bei denen die Belastung nur in Längsrichtung erfolgt, werden Balken zusätzlich senkrecht zur Längsachse belastet. Dies führt dazu, dass in Stäben ausschließlich Normalkräfte auftreten, während sich in Balken Momente und Querkräfte als Schnittgrößen ergeben.</p>
-<figure class="align-default" id="balken">
-<a class="reference internal image-reference" href="../../_images/Balken_TM2.png"><img alt="../../_images/Balken_TM2.png" src="../../_images/Balken_TM2.png" style="width: 600px;" />
+<section id="finite-volumen-methode-fvm">
+<h2><span class="section-number">1.2.2. </span>Finite Volumen Methode (FVM)<a class="headerlink" href="#finite-volumen-methode-fvm" title="Link to this heading">#</a></h2>
+<p>Die Finite Volumen Methode  ist ein numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das insbesondere in der Strömungsmechanik und bei der Simulation von Transportphänomenen weit verbreitet ist. Hier sind die grundlegenden Schritte und Konzepte der FVM:</p>
+<ol class="arabic simple">
+<li><p><strong>Diskretisierung des Raums</strong>: Der kontinuierliche Raum wird in eine endliche Anzahl von Kontrollvolumen unterteilt. Jedes Kontrollvolumen ist ein kleines Volumen, das um einen Gitterpunkt zentriert ist. Diese Volumina können regelmäßig oder unregelmäßig sein, je nach der Geometrie des Problems.</p></li>
+<li><p><strong>Integralform der PDE und Flussdiskretisierung</strong>: Die PDE wird in ihrer Integralform formuliert und über jedes Kontrollvolumen integriert. Durch Anwendung des Gauss’schen Integralsatzes wird die Integralform in eine Form umgewandelt, die die Flüsse an den Grenzen der Kontrollvolumen berücksichtigt. Die Flüsse an den Grenzen werden approximiert, häufig durch Mittelwerte der Variablen an den benachbarten Kontrollvolumen oder durch spezielle Interpolationsmethoden.</p></li>
+<li><p><strong>Aufstellen eines Gleichungssystems</strong>: Durch die Diskretisierung der Flüsse und das Einsetzen in die Integralform wird ein System von algebraischen Gleichungen aufgestellt, das die Werte der gesuchten Variablen an den Gitterpunkten beschreibt.</p></li>
+<li><p><strong>Lösen des Gleichungssystems</strong>: Das resultierende Gleichungssystem kann mit verschiedenen numerischen Verfahren gelöst werden.</p></li>
+</ol>
+<p>Die Finite Volumen Methode ist besonders vorteilhaft, da sie die Erhaltungsgesetze direkt in die Berechnungen integriert und somit eine physikalisch konsistente Lösung gewährleistet. Sie eignet sich gut für Probleme mit komplexen Geometrien und ist robust gegenüber nichtlinearen Effekten. FVM wird häufig in der Strömungsmechanik, Wärmeübertragung und anderen Bereichen eingesetzt, in denen der Transport von Stoffen oder Energie eine Rolle spielt.</p>
+</section>
+<section id="randelemente-methode-bem">
+<h2><span class="section-number">1.2.3. </span>Randelemente Methode (BEM)<a class="headerlink" href="#randelemente-methode-bem" title="Link to this heading">#</a></h2>
+<p>Die Randelemente Methode (BEM) ist ein numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das sich auf die Randbedingungen des Problems konzentriert. Hier sind die grundlegenden Schritte und Konzepte der BEM:</p>
+<ol class="arabic simple">
+<li><p><strong>Reduktion des Problems auf den Rand</strong>: Anstatt das gesamte Volumen des Problems zu diskretisieren, wird nur der Rand des betrachteten Gebiets in Betracht gezogen. Dies reduziert die Dimension des Problems, da nur die Randflächen (2D) oder Randlinien (1D) diskretisiert werden müssen.</p></li>
+<li><p><strong>Formulierung der Integralgleichungen</strong>: Die PDE wird in eine Integralform umgewandelt, die die Randbedingungen berücksichtigt. Diese Integralgleichungen beschreiben die Beziehung zwischen den Werten der gesuchten Funktion und ihren Ableitungen auf dem Rand des Gebiets.</p></li>
+<li><p><strong>Diskretisierung des Randes</strong>: Der Rand wird in eine endliche Anzahl von Elementen unterteilt, und die gesuchte Funktion wird durch Basisfunktionen approximiert, die auf diesen Elementen definiert sind. Dies führt zu einem System von algebraischen Gleichungen, das die Werte der gesuchten Funktion an den Randpunkten beschreibt.</p></li>
+<li><p><strong>Lösen des Gleichungssystems</strong>: Das resultierende Gleichungssystem kann mit verschiedenen numerischen Verfahren gelöst werden.</p></li>
+</ol>
+<p>Die Randelemente Methode ist besonders vorteilhaft, da sie die Dimension des Problems reduziert und somit die Anzahl der benötigten Berechnungen verringert. Sie ist besonders effektiv für Probleme mit unendlichen oder halbunendlichen Domänen, wie z.B. in der Elastizitätstheorie oder der Akustik. BEM ist jedoch oft auf Probleme mit linearen PDEs und gut definierten Randbedingungen beschränkt. Das heißt, Materielle nichtlinearitäten können nicht berücksichtigt werden (keine Plastizität!).</p>
+</section>
+<section id="finite-elemente-methode-fem">
+<h2><span class="section-number">1.2.4. </span>Finite Elemente Methode (FEM)<a class="headerlink" href="#finite-elemente-methode-fem" title="Link to this heading">#</a></h2>
+<p>Die Finite Elemente Methode (FEM) ist ein weit verbreitetes numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das insbesondere in der Ingenieurwissenschaft und der Physik Anwendung findet. Hier sind die grundlegenden Schritte und Konzepte der FEM:</p>
+<ol class="arabic simple">
+<li><p><strong>Diskretisierung des Gebiets</strong>: Der kontinuierliche Raum wird in eine endliche Anzahl von kleinen, nicht überlappenden Elementen unterteilt, die zusammen ein Netz (Mesh) bilden. Diese Elemente können verschiedene Formen haben, wie Dreiecke, Vierecke (in 2D) oder Tetraeder, Würfel (in 3D).</p></li>
+<li><p><strong>Aufstellen der Elementgleichungen</strong>: Für jedes Element wird eine lokale Formulierung der PDE aufgestellt, die die physikalischen Gesetze und Randbedingungen berücksichtigt. Dies geschieht häufig durch die Anwendung des prinzips der vituellen Verrückungen oder der Galerkin-Methode, um die Differentialgleichung in eine schwache Form zu überführen.</p></li>
+<li><p><strong>Zusammenfügen der Elementgleichungen</strong>: Die lokalen Gleichungen der einzelnen Elemente werden zu einem globalen Gleichungssystem zusammengefügt. Dies geschieht unter Berücksichtigung der Koppelung zwischen benachbarten Elementen und der gemeinsamen Knotenpunkte.</p></li>
+<li><p><strong>Lösen des Gleichungssystems</strong>: Das resultierende globale Gleichungssystem wird mit numerischen Verfahren gelöst.</p></li>
+</ol>
+<p>Die Finite Elemente Methode ist besonders vorteilhaft, da sie komplexe Geometrien und Materialverhalten effizient behandeln kann. Sie ermöglicht die Analyse von statischen und dynamischen Problemen in verschiedenen Bereichen, wie Strukturmechanik, Wärmeübertragung und Fluiddynamik. FEM ist flexibel und anpassungsfähig, erfordert jedoch eine sorgfältige Netzgenerierung und kann bei sehr feinen Netzen rechenintensiv sein.</p>
+</section>
+<section id="zusammenfassung">
+<h2><span class="section-number">1.2.5. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="diskretisierungsvergleich">
+<a class="reference internal image-reference" href="../../_images/Diskretisierungsverfahren_knothe.png"><img alt="../../_images/Diskretisierungsverfahren_knothe.png" src="../../_images/Diskretisierungsverfahren_knothe.png" style="height: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Kräftegleichgewicht, Spannungen und Schnittgrößen am geraden Balken nach <span id="id3">[]</span></span><a class="headerlink" href="#balken" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Vergleich verschiedener Diskretisierungsverfahen nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span></span><a class="headerlink" href="#diskretisierungsvergleich" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Die Differentialgleichung des Balken lautet:</p>
-<div class="math notranslate nohighlight" id="equation-balkendgl">
-<span class="eqno">(1.27)<a class="headerlink" href="#equation-balkendgl" title="Link to this equation">#</a></span>\[ \left(E I_y w^{\prime \prime}\right)^{\prime\prime} =  q(x)\]</div>
-<p>Für eine konstante Biegesteifigkeit <span class="math notranslate nohighlight">\(EI\)</span> vereinfacht sich diese zu:</p>
-<div class="math notranslate nohighlight" id="equation-balkendglsimple">
-<span class="eqno">(1.28)<a class="headerlink" href="#equation-balkendglsimple" title="Link to this equation">#</a></span>\[  w^{IV} =  \frac{q(x)}{E I_y}\]</div>
+<p>Jede der oben genannten Methoden hat ihre Daseinsberechtigung für gewählte Problemstellungen. Für die Strukturmechanik hat sich die Finite Elemente Methode durchgesetzt, da sie am flexibelsten und effizientesten eingesetzt werden kann. Dies wird in Abbildung <a class="reference internal" href="#diskretisierungsvergleich"><span class="std std-numref">Fig. 1.3</span></a> deutlich. Die resultierende Systemmatrix <span class="math notranslate nohighlight">\(A\)</span> ist für viele Problemstellungen symmetrische und weißt eine ausgesprochene Bandstruktur auf, was für die Lösung des Gleichungssystems erhebliche Vorteile bringt.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Methode</p></th>
+<th class="head"><p>Dimension</p></th>
+<th class="head"><p>Ansatz</p></th>
+<th class="head"><p>Vorteile</p></th>
+<th class="head"><p>Nachteile</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>FEM</strong></p></td>
+<td><p>Volumen</p></td>
+<td><p>Diskretisierung des gesamten Gebiets in Elemente</p></td>
+<td><p>Flexibel für komplexe Geometrien und Materialverhalten; gut für statische und dynamische Probleme</p></td>
+<td><p>Erfordert sorgfältige Netzgenerierung; rechenintensiv bei feinen Netzen</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>BEM</strong></p></td>
+<td><p>Rand</p></td>
+<td><p>Reduktion des Problems auf den Rand des Gebiets</p></td>
+<td><p>Reduziert die Dimension des Problems; effizient bei unendlichen oder halbunendlichen Domänen</p></td>
+<td><p>Beschränkt auf Probleme mit gut definierten Randbedingungen; oft nur für lineare PDEs geeignet</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>FDM</strong></p></td>
+<td><p>Volumen</p></td>
+<td><p>Diskretisierung des Gebiets in Gitterpunkte</p></td>
+<td><p>Einfach zu implementieren; gut für regelmäßige Geometrien</p></td>
+<td><p>Schwierigkeiten bei komplexen Geometrien; weniger genau in der Nähe von Singularitäten</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>FVM</strong></p></td>
+<td><p>Volumen</p></td>
+<td><p>Diskretisierung des Gebiets in Kontrollvolumen</p></td>
+<td><p>Berücksichtigt Erhaltungsgesetze direkt; robust bei nichtlinearen Effekten</p></td>
+<td><p>Kann komplexer in der Implementierung sein; erfordert sorgfältige Flussapproximation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Jede Methode hat ihre eigenen Stärken und Schwächen, und die Wahl der Methode hängt oft von der spezifischen Anwendung ab.</p>
 </section>
 </section>
 
@@ -496,20 +571,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="elasticity.html"
+       href="Einf%C3%BChrung_Modellklassifikation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>Mathematische Modellbildung in der Kontinuumstheorie</p>
+        <p class="prev-next-title"><span class="section-number">1.1. </span>Numerische Modelle in der Mechanik</p>
       </div>
     </a>
     <a class="right-next"
-       href="../chapter2/overview.html"
+       href="elasticity.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Die Finite Elemente Methode</p>
+        <p class="prev-next-title"><span class="section-number">1.3. </span>Mathematische Modellbildung in der Kontinuumstheorie</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -530,8 +605,11 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-stabes">1.4.1. Differentialgleichung des Stabes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-balkens">1.4.2. Differentialgleichung des Balkens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-differenzen-methode-fdm">1.2.1. Finite Differenzen Methode (FDM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-volumen-methode-fvm">1.2.2. Finite Volumen Methode (FVM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#randelemente-methode-bem">1.2.3. Randelemente Methode (BEM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-elemente-methode-fem">1.2.4. Finite Elemente Methode (FEM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">1.2.5. Zusammenfassung</a></li>
 </ul>
   </nav></div>
 

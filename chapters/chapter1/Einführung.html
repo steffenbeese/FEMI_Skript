@@ -173,10 +173,10 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Modellklassifikation.html">1.1. Numerische Modelle in der Mechanik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Loesungsverfahren.html">1.2. Numerische Lösungsverfahren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="elasticity.html">1.3. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="strukturgleichungen.html">1.4. Grundgleichungen einfacher Strukturelemente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strukturgleichungen.html">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
 </ul>
 </details></li>
 </ul>
@@ -185,20 +185,12 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.1. Von der starken zur schwachen Form</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/isoparametrischeFEM.html">2.3. Isoparametrische FEM</a></li>
-</ul>
-</details></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskretisierung</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter3/Discretization.html">3. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter3/Elementtopologie.html">3.1. Elementbibliothek</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">4. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">3. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -419,8 +411,8 @@
 <p>Diskrete Modelle der Mechanik basieren auf massebehafteten, starren Massepunkten oder Körpern, die durch Kraftpotentiale oder Federverbindungen miteinander in Wechselwirkung stehen. Solche Potentiale werden verwendet, um Interaktionen zwischen atomaren Partikeln (Molekulardynamik) oder Planeten (Gravitationsgesetze) zu modellieren.</p>
 <p>Ein weiteres Anwendungsgebiet in der diskreten Modellierung der Mechanik sind Mechanismen: Systeme aus kinematisch verbundenen, starren oder verformbaren Körpern, verbunden durch Kontakte und diskret modellierte elastische Feder- und Dämpferelementen. Beispiele hierfür sind industrielle Fertigungsmaschinen oder der Mechanismus eines Kugelschreibers, von Spannelementen oder Fahrwerken.</p>
 <p>Die mathematische Beschreibung solcher Modelle resultiert typischerweise in einem System gekoppelter Bewegungsgleichungen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d6fd6a48-5a84-4858-bd44-5e05eb543ade">
-<span class="eqno">()<a class="headerlink" href="#equation-d6fd6a48-5a84-4858-bd44-5e05eb543ade" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5523ea71-e460-40a1-9d2f-043f42af1b5e">
+<span class="eqno">()<a class="headerlink" href="#equation-5523ea71-e460-40a1-9d2f-043f42af1b5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boldsymbol{M} \ddot{\boldsymbol{x}} + \boldsymbol{D} \dot{\boldsymbol{x}} + \boldsymbol{K} \boldsymbol{x} = \boldsymbol{f}(t)
 \end{equation}\]</div>
 <p>Hierbei repräsentiert <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> die Position des Massepunktes im Raum und <span class="math notranslate nohighlight">\(\ddot{\boldsymbol{x}}\)</span> dessen Beschleunigung. Die Trägheitsmatrix <span class="math notranslate nohighlight">\(\boldsymbol{M}\)</span> approximiert die Massenträgheit der Körper, während die Steifigkeitsmatrix <span class="math notranslate nohighlight">\(\boldsymbol{K}\)</span> die elastischen Bindungen darstellt. Die Matrix <span class="math notranslate nohighlight">\(\boldsymbol{D}\)</span> führt Dämpfungsterme in das System ein und <span class="math notranslate nohighlight">\(\boldsymbol{f}(t)\)</span> sind äußere zeitabhängige Kräfte.</p>

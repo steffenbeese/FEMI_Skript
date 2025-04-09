@@ -65,7 +65,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter2/1dFEM';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.3. Isoparametrische FEM" href="isoparametrischeFEM.html" />
+    <link rel="next" title="3. Quellenverzeichnis" href="../../quellen.html" />
     <link rel="prev" title="2. Die Finite Elemente Methode" href="overview.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -173,10 +173,10 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Modellklassifikation.html">1.1. Numerische Modelle in der Mechanik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Loesungsverfahren.html">1.2. Numerische Lösungsverfahren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/elasticity.html">1.3. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/strukturgleichungen.html">1.4. Grundgleichungen einfacher Strukturelemente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/elasticity.html">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/strukturgleichungen.html">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
 </ul>
 </details></li>
 </ul>
@@ -185,20 +185,12 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">2. Die Finite Elemente Methode</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Von der starken zur schwachen Form</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="isoparametrischeFEM.html">2.3. Isoparametrische FEM</a></li>
-</ul>
-</details></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskretisierung</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter3/Discretization.html">3. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter3/Elementtopologie.html">3.1. Elementbibliothek</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">4. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">3. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -496,25 +488,25 @@
 </figcaption>
 </figure>
 <p>Auch hier beginnen wir mit der starken Form der Differentialgleichung:</p>
-<div class="math notranslate nohighlight" id="equation-stabdglsimple">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-stabdglsimple" title="Link to this equation">#</a></span>\[ {EA} u^{\prime \prime} =  - {n(x)} A \; ,\]</div>
+<div class="math notranslate nohighlight" id="equation-stabdglsimple-2">
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-stabdglsimple-2" title="Link to this equation">#</a></span>\[ {EA} u^{\prime \prime} =  - {n(x)} A \; ,\]</div>
 <div class="tip admonition">
 <p class="admonition-title">Analytische Lösung</p>
 <p>Die analytische Lösung erhalten wir durch zweifache Integration und einsetzen der Randbedingungen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0a2ccb5a-c4a9-4b86-b3e1-0146778ae6a2">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-0a2ccb5a-c4a9-4b86-b3e1-0146778ae6a2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-73d04052-759c-49b2-8c9a-80d9248685ea">
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-73d04052-759c-49b2-8c9a-80d9248685ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u(x) = \left( \frac{F}{EA} + \frac{n \ell}{E}\right)\cdot x - \frac{1}{2} \frac{n}{E} x^2 \; . 
 \end{equation}\]</div>
 <p>Die Schnittkraft <span class="math notranslate nohighlight">\(N\)</span> berechnet sich wie folgt:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-246131af-31da-46ba-a1f7-685c8fcf9eda">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-246131af-31da-46ba-a1f7-685c8fcf9eda" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-25bdf6ff-64e7-44d1-a656-3d793f0b4d20">
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-25bdf6ff-64e7-44d1-a656-3d793f0b4d20" title="Permalink to this equation">#</a></span>\[\begin{equation}
 N(x) = F + n A (\ell-x). 
 \end{equation}\]</div>
 </div>
 <p>Zur Herleitung der Finiten Elemente Form multiplizieren  wir die starke Form mit der Testfunktion <span class="math notranslate nohighlight">\(\delta u\)</span> und integrieren die Gleichung über das Gebiet:</p>
 <div class="math notranslate nohighlight" id="equation-stabdglsimple-weak">
 <span class="eqno">(2.10)<a class="headerlink" href="#equation-stabdglsimple-weak" title="Link to this equation">#</a></span>\[ \int_{0}^{\ell} \delta u u^{\prime \prime} \dx = \int_{0}^{\ell} - \delta u \frac{n(x)}{EA} \dx\; .\]</div>
-<p>Der Ausdruck auf der rechten Seite wird umgeformt zu:</p>
+<p>Der Ausdruck auf der linken Seite wird umgeformt zu:</p>
 <div class="math notranslate nohighlight" id="equation-stabdglsimple-product">
 <span class="eqno">(2.11)<a class="headerlink" href="#equation-stabdglsimple-product" title="Link to this equation">#</a></span>\[ \int_{0}^{\ell} \delta u u^{\prime \prime} \dx = \int_{0}^{\ell} \left(\delta u u^{\prime}\right)^{\prime} - \delta u^{\prime}  u^{\prime}  \dx\; .\]</div>
 <p>Ersetzen wir nun <span class="math notranslate nohighlight">\(\delta u^{\prime}=\delta \e\)</span> und <span class="math notranslate nohighlight">\(u^{\prime}=\e\)</span> und setzen die obige Produktregel in Gleichung <a class="reference internal" href="#equation-stabdglsimple-weak">(2.10)</a>, so erhalten wir:</p>
@@ -551,6 +543,10 @@ N(x) = F + n A (\ell-x).
 <div class="math notranslate nohighlight">
 \[u_h(x) = \left(\frac{F}{EA} + \frac{n \ell}{E}\right)x - \left(\frac{n}{2E}\right)x^2.\]</div>
 <p>Man kann leicht erkennen, dass mit diesem quadratischen Ansatz die analytische Lösung der Differentialgleichung rekonstruiert werden konnte.</p>
+<div class="warning admonition">
+<p class="admonition-title">Problem</p>
+<p>Ein Problem bei dem Ritz’schen Verfahren ist die Wahl der Ansatzfunktion. Diese muss die Randbedingungen erfüllen und die Stetigkeitsanforderungen der schwachen Form. Für komplexere Probleme ist die Wahl der Ansatzfunktion nicht trivial - und oft auch nicht möglich.</p>
+</div>
 </section>
 <section id="finite-elemente-formulierung-fur-den-stab">
 <h2><span class="section-number">2.2.2. </span>Finite Elemente Formulierung für den Stab<a class="headerlink" href="#finite-elemente-formulierung-fur-den-stab" title="Link to this heading">#</a></h2>
@@ -654,7 +650,7 @@ u_2^{e} \text{ Verschiebung u am lokalen Knoten 2 von Element e}
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f15929acc40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f74407a9d20&gt;
 </pre></div>
 </div>
 <img alt="../../_images/c7ce0870469968c74561338cf1ac8522e40620c8f17b286370fc0a18b34d24e7.png" src="../../_images/c7ce0870469968c74561338cf1ac8522e40620c8f17b286370fc0a18b34d24e7.png" />
@@ -692,7 +688,7 @@ u_2^{e} \text{ Verschiebung u am lokalen Knoten 2 von Element e}
 \end{align}\end{split}\]</div>
 <p>Dabei ist <span class="math notranslate nohighlight">\(\bm{K}^{(e)}\)</span> die <strong>Elementsteifigkeitsmatrix</strong>, <span class="math notranslate nohighlight">\(\bm{F}_V^{(e)}\)</span> ist der <strong>Vektor der äquivalenten Knotenkräfte</strong> aus den verteilten Lasten und <span class="math notranslate nohighlight">\(\bm{F}_K^{(e)}\)</span> sind die an den Knotenpunkten <strong>eingeprägten Kräfte</strong>. Für dieses einfache Element können die Integrale in Gleichung <a class="reference internal" href="#equation-stabfem3">(2.17)</a> analytisch berechnet werden. Nach der Integration erhält man:</p>
 <div class="math notranslate nohighlight" id="equation-stabfem4">
-<span class="eqno">(2.20)<a class="headerlink" href="#equation-stabfem4" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+<span class="eqno">(2.18)<a class="headerlink" href="#equation-stabfem4" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
  \bm{K}^{(e)} &amp; = EA \frac{1}{\ell_e} \begin{bmatrix} 1 &amp; -1 \\ -1 &amp; 1\end{bmatrix} \\
  \bm{F}_V^{(e)} &amp; = n \ell_e A  \begin{bmatrix} \frac{1}{2} \\ \frac{1}{2} \end{bmatrix} 
 \end{align}\end{split}\]</div>
@@ -704,12 +700,12 @@ u_2^{e} \text{ Verschiebung u am lokalen Knoten 2 von Element e}
 <p>Die Elemente im unserem dargestellten Beispiel (<a class="reference internal" href="#stabelement"><span class="std std-numref">Fig. 2.3</span></a>) werden mit den Nummern 1 und 2 bezeichnet, während die Knoten von 1 bis 3 nummeriert sind; weder die Knoten noch die Elemente müssen in einem FEM-Netz in einer bestimmten Reihenfolge nummeriert sein. Wir kommen hierzu nochmal später in der Vorlesung.</p>
 <p>Beachten Sie, dass die Kraftgrößen der Elemente <span class="math notranslate nohighlight">\(S_i^{(e)}\)</span> mit den Indizes 1 und 2 versehen sind. Dies sind die lokalen Knotennummern. Die Knoten des Netzes sind die globalen Knotennummern. Die lokalen Knotennummern eines Stabelements sind immer in der positiven <span class="math notranslate nohighlight">\(\xi\)</span>-Richtung mit 1, 2 nummeriert. Die globalen Knotennummern hingegen sind willkürlich.</p>
 <p>Wir versuchen nun, die lokalen Kräfte <span class="math notranslate nohighlight">\(S_i^{(e)}\)</span> für das Element 1 mit den globalen Verschiebungen in Verbindung zu bringen. Betrachten wir zunächst den Knoten 2, welchen sich Element 1 und 2 teilen. Hier gilt für die Verschiebung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a4e08ad7-b584-4c1f-ae01-971a5606fd23">
-<span class="eqno">(2.19)<a class="headerlink" href="#equation-a4e08ad7-b584-4c1f-ae01-971a5606fd23" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-07c163d2-c9be-4689-9c1f-1ffede242ab7">
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-07c163d2-c9be-4689-9c1f-1ffede242ab7" title="Permalink to this equation">#</a></span>\[\begin{align}
   u_2^{(1)} = u_1^{(2)} = u_2 \; .
 \end{align}\]</div>
-<div class="math notranslate nohighlight" id="equation-stabfem4">
-<span class="eqno">(2.20)<a class="headerlink" href="#equation-stabfem4" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-stabfem5">
+<span class="eqno">(2.20)<a class="headerlink" href="#equation-stabfem5" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
 \begin{bmatrix}
 0 \\
 S_2^{(1)}\\
@@ -729,8 +725,8 @@ u_3
 \end{bmatrix}
 \end{align} \; .\end{split}\]</div>
 <p>Dazu haben wir lediglich das Elementgleichungssystem <a class="reference internal" href="#equation-stabfem3">(2.17)</a> genommen und die lokalen Freiheitsgrade <span class="math notranslate nohighlight">\(u_i^{(e)}\)</span> durch ihre zugeordneten globalen Freiheitsgrade <span class="math notranslate nohighlight">\(u_i\)</span> gemäß den globalen Knotennummern ersetzt. Gleichzeitig haben wir bereits eine zusätzliche Gleichung (1. Zeile) eingeführt. Deren Sinn wird gleich ersichtlich. Das gleiche Vorgehen wenden wir nun auf das Element 2 an:</p>
-<div class="math notranslate nohighlight" id="equation-stabfem5">
-<span class="eqno">(2.21)<a class="headerlink" href="#equation-stabfem5" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-stabfem6">
+<span class="eqno">(2.21)<a class="headerlink" href="#equation-stabfem6" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
 \begin{bmatrix}
 S_2^{(2)} \\
 S_1^{(2)} \\
@@ -750,8 +746,8 @@ u_3
 \end{bmatrix}
 \end{align} \; .\end{split}\]</div>
 <p>Nun liegen uns zwei Gleichungssysteme vor, welche sich auf die gleichen Freiheitsgrade beziehen. Durch eine Addition erhalten wir schließlich:</p>
-<div class="math notranslate nohighlight" id="equation-stabfem6">
-<span class="eqno">(2.22)<a class="headerlink" href="#equation-stabfem6" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-stabfem7">
+<span class="eqno">(2.22)<a class="headerlink" href="#equation-stabfem7" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
 \begin{bmatrix}
 S_2^{(2)} \\
 S_1^{(2)} + S_2^{(1)} \\
@@ -771,8 +767,8 @@ u_3
 \end{bmatrix}
 \end{align} \; .\end{split}\]</div>
 <p>Es bleibt noch übrig die Stabkräfte (innere Kräfte) <span class="math notranslate nohighlight">\(S_i\)</span> mit den externen Kräften in Beziehung zu setzen. Für jeden Knoten kann das Kräftegleichgewicht aufgestellt werden:</p>
-<div class="math notranslate nohighlight" id="equation-stabfem7">
-<span class="eqno">(2.23)<a class="headerlink" href="#equation-stabfem7" title="Link to this equation">#</a></span>\[\begin{split}\underbrace{\begin{bmatrix}
+<div class="math notranslate nohighlight" id="equation-stabfem8">
+<span class="eqno">(2.23)<a class="headerlink" href="#equation-stabfem8" title="Link to this equation">#</a></span>\[\begin{split}\underbrace{\begin{bmatrix}
 S_2^{(2)} \\
 S_1^{(2)} \\
 0
@@ -790,8 +786,8 @@ F \\
 R
 \end{bmatrix}}_{\bm{R}} \;.\end{split}\]</div>
 <p>Somit können wir die inneren Stabkräfte durch die externen Lasten <span class="math notranslate nohighlight">\(\bm{F}\rs{ext}\)</span> und Reaktionskräfte <span class="math notranslate nohighlight">\(\bm{R}\)</span> ersetzen:</p>
-<div class="math notranslate nohighlight" id="equation-stabfem8">
-<span class="eqno">(2.24)<a class="headerlink" href="#equation-stabfem8" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+<div class="math notranslate nohighlight" id="equation-stabfem9">
+<span class="eqno">(2.24)<a class="headerlink" href="#equation-stabfem9" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
 \begin{bmatrix}
 F \\
 0 \\
@@ -853,8 +849,8 @@ u_3
 \bar{\bm{u}}
 \end{bmatrix}- \bm{F}_v\]</div>
 <p>Im vorliegenden Beispiel erhalten wir für das Gleichungssystem <a class="reference internal" href="#equation-lgssolve2">(2.26)</a>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e0fa6bf7-b8e6-4178-94ef-2ba73131915f">
-<span class="eqno">(2.28)<a class="headerlink" href="#equation-e0fa6bf7-b8e6-4178-94ef-2ba73131915f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d9cfbf57-bf4f-463e-b5d9-9e4af4b5af1e">
+<span class="eqno">(2.28)<a class="headerlink" href="#equation-d9cfbf57-bf4f-463e-b5d9-9e4af4b5af1e" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 F \\
 0 \\
@@ -886,8 +882,8 @@ u_2\\
 \end{bmatrix} 
 \end{align}\]</div>
 <p>mit der Lösung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b2f3319-84c4-4853-9001-a206dbcbaafd">
-<span class="eqno">(2.29)<a class="headerlink" href="#equation-0b2f3319-84c4-4853-9001-a206dbcbaafd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-aadd00a6-6982-43dc-a255-6aa5fb0e09db">
+<span class="eqno">(2.29)<a class="headerlink" href="#equation-aadd00a6-6982-43dc-a255-6aa5fb0e09db" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 u_1 \\
 u_2\\
@@ -897,8 +893,8 @@ u_2\\
 \end{bmatrix} 
 \end{align}\]</div>
 <p>Die unbekannte Reaktionskraft am Knoten 3 berechnet sich dann zu:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6a7325fb-d53b-4b2e-adf7-218fda4643d5">
-<span class="eqno">(2.30)<a class="headerlink" href="#equation-6a7325fb-d53b-4b2e-adf7-218fda4643d5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-411a8cf8-68ee-4cb2-a97a-5b1346c7c1b5">
+<span class="eqno">(2.30)<a class="headerlink" href="#equation-411a8cf8-68ee-4cb2-a97a-5b1346c7c1b5" title="Permalink to this equation">#</a></span>\[\begin{align}
 R + F_v &amp; = \frac{2EA}{\ell} \begin{bmatrix}
 0 &amp; -1 
 \end{bmatrix} \begin{bmatrix}
@@ -979,11 +975,11 @@ N^{(2)} &amp; = 2\frac{EA}{\ell} \begin{bmatrix} -1 &amp; 1 \end{bmatrix} \begin
       </div>
     </a>
     <a class="right-next"
-       href="isoparametrischeFEM.html"
+       href="../../quellen.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.3. </span>Isoparametrische FEM</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Quellenverzeichnis</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -16,17 +16,17 @@ kernelspec:
 
 Der kontinuierliche Modellansatz führt zu Feldgleichungen in Form von partielle Differentialgleichungen. Anwendungsgebiete sind hier die Strukturmechanik, der Stoff- und Wärmetransport oder auch die Elektostatik  und vielen weitere. Diese partiellen Differentialgleichungen können in der Regel nicht geschlossen analytisch gelöst werden, weshalb sich numerische Berechnungsschemen hierfür etabliert haben. Die heute gebräuchlichsten werden in der Folge kurz beschrieben:
   - Netzbasiertierte Methoden:
-    - **Finite Elemente Methode (FEM)**
-    - **Finite Volumen Methode (FVM)**
-    - **Finite Differenzen Methode (FDM)**
-    - **Randelementmethode (BEM)**
-    - Discontinous Galerkin Methods (DG)
+    - Finite Elemente Methode **(FEM)**
+    - Finite Volumen Methode **(FVM)**
+    - Finite Differenzen Methode **(FDM)**
+    - Randelementmethode **(BEM)**
+    - Discontinous Galerkin Methods **(DG)**
   - Netzunabhängige Methoden:
-    - Optimal Transport Method (OTM)
-    - Element-Free Galerkin (EFG) 
-    - Moving Least Squares (MLS)
+    - Optimal Transport Method **(OTM)**
+    - Element-Free Galerkin **(EFG)** 
+    - Moving Least Squares **(MLS)**
   - Kombination:
-    - Material Point Method (MPM)
+    - Material Point Method **(MPM)**
   - ...
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}

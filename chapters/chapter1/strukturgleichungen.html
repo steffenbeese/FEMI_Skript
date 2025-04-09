@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.4. Grundgleichungen einfacher Strukturelemente &#8212; Finite Elemente Methode 1</title>
+    <title>1.9. Grundgleichungen einfacher Strukturelemente &#8212; Finite Elemente Methode 1</title>
   
   
   
@@ -66,7 +66,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2. Die Finite Elemente Methode" href="../chapter2/overview.html" />
-    <link rel="prev" title="1.3. Mathematische Modellbildung in der Kontinuumstheorie" href="elasticity.html" />
+    <link rel="prev" title="1.8. Mathematische Modellbildung in der Kontinuumstheorie" href="elasticity.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -173,10 +173,10 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Modellklassifikation.html">1.1. Numerische Modelle in der Mechanik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Loesungsverfahren.html">1.2. Numerische Lösungsverfahren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="elasticity.html">1.3. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. Grundgleichungen einfacher Strukturelemente</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
 </ul>
 </details></li>
 </ul>
@@ -185,20 +185,12 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.1. Von der starken zur schwachen Form</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/isoparametrischeFEM.html">2.3. Isoparametrische FEM</a></li>
-</ul>
-</details></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskretisierung</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter3/Discretization.html">3. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter3/Elementtopologie.html">3.1. Elementbibliothek</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">4. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">3. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -391,8 +383,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-stabes">1.4.1. Differentialgleichung des Stabes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-balkens">1.4.2. Differentialgleichung des Balkens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-stabes">1.9.1. Differentialgleichung des Stabes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-balkens">1.9.2. Differentialgleichung des Balkens</a></li>
 </ul>
             </nav>
         </div>
@@ -405,15 +397,15 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="grundgleichungen-einfacher-strukturelemente">
-<h1><span class="section-number">1.4. </span>Grundgleichungen einfacher Strukturelemente<a class="headerlink" href="#grundgleichungen-einfacher-strukturelemente" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">1.9. </span>Grundgleichungen einfacher Strukturelemente<a class="headerlink" href="#grundgleichungen-einfacher-strukturelemente" title="Link to this heading">#</a></h1>
 <figure class="align-default" id="strukturkontinua">
 <a class="reference internal image-reference" href="../../_images/Strukturelemente_Knothe.png"><img alt="../../_images/Strukturelemente_Knothe.png" src="../../_images/Strukturelemente_Knothe.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.11 </span><span class="caption-text">Übersicht über die Klassifizierung von Strukturvereinfachungen nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span></span><a class="headerlink" href="#strukturkontinua" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Übersicht über die Klassifizierung von Strukturvereinfachungen nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span></span><a class="headerlink" href="#strukturkontinua" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Die im vorherigen Abschnitt eingeführten Feldgleichungen lassen sich für viele Ingenieurwissenschaftlichen Problemstellungen deutlich vereinfachen. In <a class="reference internal" href="#strukturkontinua"><span class="std std-numref">Fig. 1.11</span></a> sind solche Vereinfachungen gezeigt.</p>
+<p>Die im vorherigen Abschnitt eingeführten Feldgleichungen lassen sich für viele Ingenieurwissenschaftlichen Problemstellungen deutlich vereinfachen. In <a class="reference internal" href="#strukturkontinua"><span class="std std-numref">Fig. 1.14</span></a> sind solche Vereinfachungen gezeigt.</p>
 <p>Für die Impulsbilanz haben wir bereits in der Vorlesung zur “Technischen Mechanik 2” zwei Vereinfachungen kennengelernt:</p>
 <ul class="simple">
 <li><p>den Dehnstab</p></li>
@@ -421,13 +413,13 @@
 </ul>
 <p>Nachfolgen werden lediglich die Differentialgleichungen dieser beiden Strukturelemente eingeführt. Für eine Herleitung der Gleichung sei auf die entsprechende Vorlesung verwiesen.</p>
 <section id="differentialgleichung-des-stabes">
-<h2><span class="section-number">1.4.1. </span>Differentialgleichung des Stabes<a class="headerlink" href="#differentialgleichung-des-stabes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.1. </span>Differentialgleichung des Stabes<a class="headerlink" href="#differentialgleichung-des-stabes" title="Link to this heading">#</a></h2>
 <p>Wird ein prismatisches Bauteil nur entlang seiner Achse <span class="math notranslate nohighlight">\(x\)</span> belastet, so resultieren hieraus nur Normalspannungen <span class="math notranslate nohighlight">\(\sigma_x\)</span>. Solche Belastungsszenarien können über die Differentialgleichung des <strong>Stabes</strong> in guter Näherung bestimmt werden.</p>
 <figure class="align-default" id="stab">
 <a class="reference internal image-reference" href="../../_images/Stab_TMKompakt.png"><img alt="../../_images/Stab_TMKompakt.png" src="../../_images/Stab_TMKompakt.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">Kräftegleichgewicht und Spannungen am geraden Stab nach <span id="id2">[]</span></span><a class="headerlink" href="#stab" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Kräftegleichgewicht und Spannungen am geraden Stab nach <span id="id2">[<a class="reference internal" href="../../quellen.html#id12" title="Peter Wriggers, Udo Nackenhorst, Sascha Beuermann, Holger Spiess, and Stefan Löhnert. Technische Mechanik Kompakt. Springer, 2006.">Wriggers <em>et al.</em>, 2006</a>]</span></span><a class="headerlink" href="#stab" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Die Differentialgleichung des Stabes lautet:</p>
@@ -447,13 +439,13 @@
 <span class="eqno">(1.26)<a class="headerlink" href="#equation-stabdglsimple" title="Link to this equation">#</a></span>\[ u^{\prime \prime} = \frac{\text{d}^2\,  u  }{\text{d } x^2} =  - \frac{n(x)}{EA}\]</div>
 </section>
 <section id="differentialgleichung-des-balkens">
-<h2><span class="section-number">1.4.2. </span>Differentialgleichung des Balkens<a class="headerlink" href="#differentialgleichung-des-balkens" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.2. </span>Differentialgleichung des Balkens<a class="headerlink" href="#differentialgleichung-des-balkens" title="Link to this heading">#</a></h2>
 <p>Balken sind Tragstrukturen, die eindimensional modelliert werden, da ihre Breite und Höhe im Verhältnis zu ihrer Länge sehr gering sind. Im Unterschied zu Stäben, bei denen die Belastung nur in Längsrichtung erfolgt, werden Balken zusätzlich senkrecht zur Längsachse belastet. Dies führt dazu, dass in Stäben ausschließlich Normalkräfte auftreten, während sich in Balken Momente und Querkräfte als Schnittgrößen ergeben.</p>
 <figure class="align-default" id="balken">
 <a class="reference internal image-reference" href="../../_images/Balken_TM2.png"><img alt="../../_images/Balken_TM2.png" src="../../_images/Balken_TM2.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Kräftegleichgewicht, Spannungen und Schnittgrößen am geraden Balken nach <span id="id3">[]</span></span><a class="headerlink" href="#balken" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Kräftegleichgewicht, Spannungen und Schnittgrößen am geraden Balken nach <span id="id3">[<a class="reference internal" href="../../quellen.html#id13" title="Dietmar Gross, Werner Hauger, Jörg Schröder, and Wolfgang A Wall. Technische Mechanik: Band 2: Elastostatik. Springer, 2007.">Gross <em>et al.</em>, 2007</a>]</span></span><a class="headerlink" href="#balken" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Die Differentialgleichung des Balken lautet:</p>
@@ -501,7 +493,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>Mathematische Modellbildung in der Kontinuumstheorie</p>
+        <p class="prev-next-title"><span class="section-number">1.8. </span>Mathematische Modellbildung in der Kontinuumstheorie</p>
       </div>
     </a>
     <a class="right-next"
@@ -530,8 +522,8 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-stabes">1.4.1. Differentialgleichung des Stabes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-balkens">1.4.2. Differentialgleichung des Balkens</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-stabes">1.9.1. Differentialgleichung des Stabes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-balkens">1.9.2. Differentialgleichung des Balkens</a></li>
 </ul>
   </nav></div>
 

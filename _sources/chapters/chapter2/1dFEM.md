@@ -133,7 +133,7 @@ Stab unter Eigengewicht und externer Kraft.
 ```
 Auch hier beginnen wir mit der starken Form der Differentialgleichung:
 ```{math}
-:label: stabdglsimple
+:label: stabdglsimple_2
  {EA} u^{\prime \prime} =  - {n(x)} A \; ,
 ```
 
@@ -157,7 +157,7 @@ Zur Herleitung der Finiten Elemente Form multiplizieren  wir die starke Form mit
 :label: stabdglsimple_weak
  \int_{0}^{\ell} \delta u u^{\prime \prime} \dx = \int_{0}^{\ell} - \delta u \frac{n(x)}{EA} \dx\; .
 ```
-Der Ausdruck auf der rechten Seite wird umgeformt zu:
+Der Ausdruck auf der linken Seite wird umgeformt zu:
 ```{math}
 :label: stabdglsimple_product
  \int_{0}^{\ell} \delta u u^{\prime \prime} \dx = \int_{0}^{\ell} \left(\delta u u^{\prime}\right)^{\prime} - \delta u^{\prime}  u^{\prime}  \dx\; .
@@ -243,6 +243,11 @@ Man kann leicht erkennen, dass mit diesem quadratischen Ansatz die analytische L
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
+
+```{admonition} Problem
+:class: warning
+Ein Problem bei dem Ritz'schen Verfahren ist die Wahl der Ansatzfunktion. Diese muss die Randbedingungen erfüllen und die Stetigkeitsanforderungen der schwachen Form. Für komplexere Probleme ist die Wahl der Ansatzfunktion nicht trivial - und oft auch nicht möglich.
+```
 
 ## Finite Elemente Formulierung für den Stab
 
@@ -447,7 +452,7 @@ Wir versuchen nun, die lokalen Kräfte $S_i^{(e)}$ für das Element 1 mit den gl
 \end{align}
 
 ```{math}
-:label: stabFEM4
+:label: stabFEM5
 \begin{align}
 \begin{bmatrix}
 0 \\
@@ -473,7 +478,7 @@ u_3
 Dazu haben wir lediglich das Elementgleichungssystem {eq}`stabFEM3` genommen und die lokalen Freiheitsgrade $u_i^{(e)}$ durch ihre zugeordneten globalen Freiheitsgrade $u_i$ gemäß den globalen Knotennummern ersetzt. Gleichzeitig haben wir bereits eine zusätzliche Gleichung (1. Zeile) eingeführt. Deren Sinn wird gleich ersichtlich. Das gleiche Vorgehen wenden wir nun auf das Element 2 an:
 
 ```{math}
-:label: stabFEM5
+:label: stabFEM6
 \begin{align}
 \begin{bmatrix}
 S_2^{(2)} \\
@@ -499,7 +504,7 @@ Nun liegen uns zwei Gleichungssysteme vor, welche sich auf die gleichen Freiheit
 
 
 ```{math}
-:label: stabFEM6
+:label: stabFEM7
 \begin{align}
 \begin{bmatrix}
 S_2^{(2)} \\
@@ -527,7 +532,7 @@ u_3
 Es bleibt noch übrig die Stabkräfte (innere Kräfte) $S_i$ mit den externen Kräften in Beziehung zu setzen. Für jeden Knoten kann das Kräftegleichgewicht aufgestellt werden:
 
 ```{math}
-:label: stabFEM7
+:label: stabFEM8
 \underbrace{\begin{bmatrix}
 S_2^{(2)} \\
 S_1^{(2)} \\
@@ -550,7 +555,7 @@ R
 Somit können wir die inneren Stabkräfte durch die externen Lasten $\bm{F}\rs{ext}$ und Reaktionskräfte $\bm{R}$ ersetzen:
 
 ```{math}
-:label: stabFEM8
+:label: stabFEM9
 \begin{align}
 \begin{bmatrix}
 F \\
@@ -719,8 +724,6 @@ N^{(2)} & = 2\frac{EA}{\ell} \begin{bmatrix} -1 & 1 \end{bmatrix} \begin{bmatrix
 ```{code-cell} ipython3
 ---
 mystnb:
-  image:
-    width: 100
   figure:
     caption: |
       Vergleich der analytischen Lösung mit der FE-Lösung.

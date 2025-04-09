@@ -9,8 +9,78 @@ jupytext:
 
 # Grundgleichungen einfacher Strukturelemente
 
+```{figure} images/Strukturelemente_Knothe.png
+---
+width: 600px
+name: strukturkontinua
+---
+Übersicht über die Klassifizierung von Strukturvereinfachungen nach {cite}`knothe1991finite`
+```
+
+Die im vorherigen Abschnitt eingeführten Feldgleichungen lassen sich für viele Ingenieurwissenschaftlichen Problemstellungen deutlich vereinfachen. In {numref}`strukturkontinua` sind solche Vereinfachungen gezeigt.
+
+Für die Impulsbilanz haben wir bereits in der Vorlesung zur "Technischen Mechanik 2" zwei Vereinfachungen kennengelernt:
+
+- den Dehnstab
+- den Balken
+
+Nachfolgen werden lediglich die Differentialgleichungen dieser beiden Strukturelemente eingeführt. Für eine Herleitung der Gleichung sei auf die entsprechende Vorlesung verwiesen.
+
+
 ## Differentialgleichung des Stabes
+
+Wird ein prismatisches Bauteil nur entlang seiner Achse $x$ belastet, so resultieren hieraus nur Normalspannungen $\sigma_x$. Solche Belastungsszenarien können über die Differentialgleichung des **Stabes** in guter Näherung bestimmt werden.
+
+```{figure} images/Stab_TMKompakt.png
+---
+width: 600px
+name: stab
+---
+Kräftegleichgewicht und Spannungen am geraden Stab nach {cite}`wriggers2006technische`
+```
+
+Die Differentialgleichung des Stabes lautet:
+
+```{math}
+:label: stabdgl
+\frac{\text{d } \left( E(x)A(x) \frac{\text{d } u}{\text{d } x} \right) }{\text{d } x} =  \frac{\text{d } \left(E(x)A(x) \alpha_T(x) \Delta \theta\right)}{\text{d } x} - n(x)
+```
+mit:
+- $E$ - Elastizitätsmodul in MPa
+- $A$ - Querschnittsfläche in mm$^2$
+- $u$ - Axiale Verschiebung in mm
+- $\alpha$ - Wärmeausdehnungskoeffizient in mm/K
+- $\Delta \theta$ - Temperaturänderung in K
+- $n$ - axiale Streckenlast in N/mm
+
+Für einen konstanten $E$-Modul und eine konstante Querschnittsfläche $A$, sowie eine konstante Temperaturdifferenz $\Delta \theta$ kann diese Differentialgleichung vereinfacht werden zu:
+
+```{math}
+:label: stabdglsimple
+ u^{\prime \prime} = \frac{\text{d}^2\,  u  }{\text{d } x^2} =  - \frac{n(x)}{EA}
+```
+
 
 ## Differentialgleichung des Balkens
 
-## Partielle Differentialgleichung der Scheibe
+Balken sind Tragstrukturen, die eindimensional modelliert werden, da ihre Breite und Höhe im Verhältnis zu ihrer Länge sehr gering sind. Im Unterschied zu Stäben, bei denen die Belastung nur in Längsrichtung erfolgt, werden Balken zusätzlich senkrecht zur Längsachse belastet. Dies führt dazu, dass in Stäben ausschließlich Normalkräfte auftreten, während sich in Balken Momente und Querkräfte als Schnittgrößen ergeben.
+
+```{figure} images/Balken_TM2.png
+---
+width: 600px
+name: balken
+---
+Kräftegleichgewicht, Spannungen und Schnittgrößen am geraden Balken nach {cite}`gross2007technische`
+```
+
+Die Differentialgleichung des Balken lautet:
+
+```{math}
+:label: balkendgl
+ \left(E I_y w^{\prime \prime}\right)^{\prime\prime} =  q(x)
+```
+Für eine konstante Biegesteifigkeit $EI$ vereinfacht sich diese zu:
+```{math}
+:label: balkendglsimple
+  w^{IV} =  \frac{q(x)}{E I_y}
+```

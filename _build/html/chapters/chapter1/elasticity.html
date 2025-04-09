@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.3. Mathematische Modellbildung in der Kontinuumstheorie &#8212; Finite Elemente Methode 1</title>
+    <title>1.8. Mathematische Modellbildung in der Kontinuumstheorie &#8212; Finite Elemente Methode 1</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -65,8 +65,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter1/elasticity';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.4. Grundgleichungen einfacher Strukturelemente" href="strukturgleichungen.html" />
-    <link rel="prev" title="1. Einführung in die Numerische Mechanik" href="Einf%C3%BChrung.html" />
+    <link rel="next" title="1.9. Grundgleichungen einfacher Strukturelemente" href="strukturgleichungen.html" />
+    <link rel="prev" title="1.7. Numerische Lösungsverfahren" href="Einf%C3%BChrung_Loesungsverfahren.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -172,16 +172,19 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Einf%C3%BChrung.html">1. Einführung in die Numerische Mechanik</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.3. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="strukturgleichungen.html">1.4. Grundgleichungen einfacher Strukturelemente</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="strukturgleichungen.html">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerische Lösungsverfahren</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Überblick über verschiedene Lösungsmethoden</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.4. Die Finite Elemente Methode</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.1. Von der starken zur schwachen Form</a></li>
+
 </ul>
 </details></li>
 </ul>
@@ -380,26 +383,27 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">1.3.1. Notation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bilanzgleichungen-der-kontinuumsmechanik">1.3.2. Bilanzgleichungen der Kontinuumsmechanik</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#massenerhaltung">1.3.2.1. Massenerhaltung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulserhaltung">1.3.2.2. Impulserhaltung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energieerhaltung">1.3.2.3. Energieerhaltung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">1.3.2.4. Zusammenfassung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">1.8.1. Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bilanzgleichungen-der-kontinuumsmechanik">1.8.2. Bilanzgleichungen der Kontinuumsmechanik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#massenerhaltung">1.8.2.1. Massenerhaltung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulserhaltung">1.8.2.2. Impulserhaltung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energieerhaltung">1.8.2.3. Energieerhaltung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">1.8.2.4. Zusammenfassung</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematik">1.3.3. Kinematik</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materialmodell">1.3.4. Materialmodell</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warmeleitung">1.3.4.1. Wärmeleitung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#durchstromung">1.3.4.2. Durchströmung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineare-elastizitat">1.3.4.3. Lineare Elastizität</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ebener-verzerrungszustand">1.3.4.3.1. Ebener Verzerrungszustand</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ebener-spannungszustand">1.3.4.3.2. Ebener Spannungszustand</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotationssymmetrie">1.3.4.3.3. Rotationssymmetrie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematik">1.8.3. Kinematik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materialmodell">1.8.4. Materialmodell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warmeleitung">1.8.4.1. Wärmeleitung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#durchstromung">1.8.4.2. Durchströmung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineare-elastizitat">1.8.4.3. Lineare Elastizität</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ebener-verzerrungszustand">1.8.4.3.1. Ebener Verzerrungszustand</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ebener-spannungszustand">1.8.4.3.2. Ebener Spannungszustand</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotationssymmetrie">1.8.4.3.3. Rotationssymmetrie</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1.8.5. Zusammenfassung</a></li>
 </ul>
             </nav>
         </div>
@@ -470,10 +474,10 @@
 </ul>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="mathematische-modellbildung-in-der-kontinuumstheorie">
-<h1><span class="section-number">1.3. </span>Mathematische Modellbildung in der Kontinuumstheorie<a class="headerlink" href="#mathematische-modellbildung-in-der-kontinuumstheorie" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">1.8. </span>Mathematische Modellbildung in der Kontinuumstheorie<a class="headerlink" href="#mathematische-modellbildung-in-der-kontinuumstheorie" title="Link to this heading">#</a></h1>
 <p>In diesem Kapitel werden die grundlegenden Gleichungen der Kontinuumsmechanik vorgestellt. Dies dient als Ausgangspunkt für die numerische Lösung mechanischer Problemstellungen. Während der Vorstellung der Ausgangsgleichungen wird zudem die verwendete Notation eigeführt.</p>
 <section id="notation">
-<h2><span class="section-number">1.3.1. </span>Notation<a class="headerlink" href="#notation" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.1. </span>Notation<a class="headerlink" href="#notation" title="Link to this heading">#</a></h2>
 <p>Im Rahmen dieses Moduls wird die folgende symbolische Schreibweise verwendet:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -505,7 +509,7 @@
 <p>Soweit möglich erhalten Tensoren der Stufe 2 Großbuchstaben als Symbol, während Vektoren mit Kleinbuchstaben dargestellt werden. Handschriftlich wird ein Tensor durch einen Unterstrich repräsentiert <span class="math notranslate nohighlight">\(\underline{A}=\bm{A}\)</span>. Für Vektoren ist alternativ auch der Vektorpfeil gebräuchlich <span class="math notranslate nohighlight">\(\underline{a} = \vec{a} = \bm{a}\)</span>.</p>
 </section>
 <section id="bilanzgleichungen-der-kontinuumsmechanik">
-<h2><span class="section-number">1.3.2. </span>Bilanzgleichungen der Kontinuumsmechanik<a class="headerlink" href="#bilanzgleichungen-der-kontinuumsmechanik" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.2. </span>Bilanzgleichungen der Kontinuumsmechanik<a class="headerlink" href="#bilanzgleichungen-der-kontinuumsmechanik" title="Link to this heading">#</a></h2>
 <p>In diesem Abschnitt werden wir die grundlegenden Bilanzgleichungen der Kontinuumsmechanik einführen. Diese Gleichungen sind das Fundament für die Beschreibung des physikalischen Verhaltens und bilden den Ausgangspunkt für die Finite-Elemente-Methode. Die Bilanzgleichungen repräsentieren Erhaltungsprinzipien, die für jedes Kontinuum gelten, unabhängig von den spezifischen Materialeigenschaften. Die Bilanzgleichungen dienen als Bestimmungsgleichung für die Feldgrößen:</p>
 <ul class="simple">
 <li><p>Druck <span class="math notranslate nohighlight">\(p(\bm{x},t)\)</span></p></li>
@@ -521,28 +525,28 @@
 <li><p>Energieerhaltung (1. Hauptsatz der Thermodynamik)</p></li>
 </ul>
 <section id="massenerhaltung">
-<h3><span class="section-number">1.3.2.1. </span>Massenerhaltung<a class="headerlink" href="#massenerhaltung" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.2.1. </span>Massenerhaltung<a class="headerlink" href="#massenerhaltung" title="Link to this heading">#</a></h3>
 <figure class="align-default" id="massenbilanz">
 <a class="reference internal image-reference" href="../../_images/Massenbilanz.jpg"><img alt="../../_images/Massenbilanz.jpg" src="../../_images/Massenbilanz.jpg" style="height: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Ein- und Ausfluss eines infinitesimalen Volumenelementes <strong>Austauschen</strong></span><a class="headerlink" href="#massenbilanz" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.7 </span><span class="caption-text">Ein- und Ausfluss eines infinitesimalen Volumenelementes <strong>Austauschen</strong></span><a class="headerlink" href="#massenbilanz" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Die Massenerhaltung besagt, dass die Masse eines geschlossenen Systems konstant bleibt, oder wie in der Abbildung, dass die zeitliche Änderung der Masse eines Systems gleich der Differenz von Zustrom und Abfluss ist. In Abwesenheit von Massenquellen oder -senken kann dies mathematisch ausgedrückt werden als:</p>
 <div class="math notranslate nohighlight" id="equation-massenbilanz">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-massenbilanz" title="Link to this equation">#</a></span>\[\dot{\varrho} +  \div{\varrho {\bm{v}}} = 0\]</div>
+<span class="eqno">(1.3)<a class="headerlink" href="#equation-massenbilanz" title="Link to this equation">#</a></span>\[\dot{\varrho} +  \div{\varrho {\bm{v}}} = 0\]</div>
 <p>Hier ist <span class="math notranslate nohighlight">\(\varrho\)</span> die Dichte und <span class="math notranslate nohighlight">\(\bm{v}\)</span> die Geschwindigkeit des Materials. Die zeitliche Ableitung einer Größe <span class="math notranslate nohighlight">\(\square\)</span> wird durch einen Punkt über der Größe dargestellt <span class="math notranslate nohighlight">\(\td{\square}\)</span>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Die Massenbilanz ist für gewöhnliche Festkörper stets erfüllt und muss nicht separat gelöst werden. Anders sieht dies im Bereich der Biomechanik oder Geomechanik aus. Hier gibt es z.B. Wachstumsprozesse (Knochen) oder Sickerströmungen. Mit der Massenbilanz kann man die Konzentration <span class="math notranslate nohighlight">\(c(\bm{x},t)\)</span> eines Bestandteils oder den Druck <span class="math notranslate nohighlight">\(p(\bm{x},t)\)</span> einer Phase bestimmen.</p>
 </div>
-<p>Formuliert man die Massenbilanz für Fluide, dann ist die Massendichte eine Funktion des Druckes <span class="math notranslate nohighlight">\(p\)</span> und man kann die Zeitableitung in <a class="reference internal" href="#equation-massenbilanz">(1.2)</a> über die Kettenregel auswerten:</p>
+<p>Formuliert man die Massenbilanz für Fluide, dann ist die Massendichte eine Funktion des Druckes <span class="math notranslate nohighlight">\(p\)</span> und man kann die Zeitableitung in <a class="reference internal" href="#equation-massenbilanz">(1.3)</a> über die Kettenregel auswerten:</p>
 <div class="math notranslate nohighlight" id="equation-massenbilanz2">
-<span class="eqno">(1.3)<a class="headerlink" href="#equation-massenbilanz2" title="Link to this equation">#</a></span>\[ \underbrace{\Pd{\varrho}{p}}_{=:\frac{\varrho}{\kappa}} \td{p} + \div{\varrho {\bm{v}}} = 0 \; .\]</div>
-<p>Die primäre Größe nach der die partielle Differentialgleichung gelöst wird ist damit der Druck <span class="math notranslate nohighlight">\(p\)</span>. Als sekundäre Größe bezeichnet man Feldgrößen, welche von den primären Größen abgeleitet wurden. Im Fall der Massenbilanz des Fluides ist dies die Geschwindigkeit der Materialpartikel <span class="math notranslate nohighlight">\(\bm{v}\)</span>. Die Gleichungen <a class="reference internal" href="#equation-massenbilanz">(1.2)</a> und <a class="reference internal" href="#equation-massenbilanz2">(1.3)</a> beschreiben wie sich die bilanzierte Größe (<span class="math notranslate nohighlight">\(p\)</span>) in der Zeit verändert, eine Information über den absoluten Wert der Größe erhält man erst mit der Einführung von Anfangs- und Randwerten:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5846d25a-ba91-450e-af07-4bc027dc2261">
-<span class="eqno">(1.4)<a class="headerlink" href="#equation-5846d25a-ba91-450e-af07-4bc027dc2261" title="Permalink to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(1.4)<a class="headerlink" href="#equation-massenbilanz2" title="Link to this equation">#</a></span>\[ \underbrace{\Pd{\varrho}{p}}_{=:\frac{\varrho}{\kappa}} \td{p} + \div{\varrho {\bm{v}}} = 0 \; .\]</div>
+<p>Die primäre Größe nach der die partielle Differentialgleichung gelöst wird ist damit der Druck <span class="math notranslate nohighlight">\(p\)</span>. Als sekundäre Größe bezeichnet man Feldgrößen, welche von den primären Größen abgeleitet wurden. Im Fall der Massenbilanz des Fluides ist dies die Geschwindigkeit der Materialpartikel <span class="math notranslate nohighlight">\(\bm{v}\)</span>. Die Gleichungen <a class="reference internal" href="#equation-massenbilanz">(1.3)</a> und <a class="reference internal" href="#equation-massenbilanz2">(1.4)</a> beschreiben wie sich die bilanzierte Größe (<span class="math notranslate nohighlight">\(p\)</span>) in der Zeit verändert, eine Information über den absoluten Wert der Größe erhält man erst mit der Einführung von Anfangs- und Randwerten:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-95018829-3746-47b9-bc32-2bea5d3fa371">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-95018829-3746-47b9-bc32-2bea5d3fa371" title="Permalink to this equation">#</a></span>\[\begin{align}
 p(\bm{x},t=t_0) &amp; = \tilde{p}_0 \qquad &amp;\forall \bm{x} \in \mathcal{B}&amp; \\
 p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B}_p&amp; \\
 \varrho \bm{v}\T \bm{n} &amp; = \tilde{q}_m \qquad &amp;\forall \bm{x} \in \partial\mathcal{B}_m&amp;
@@ -567,17 +571,17 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 </div>
 </section>
 <section id="impulserhaltung">
-<h3><span class="section-number">1.3.2.2. </span>Impulserhaltung<a class="headerlink" href="#impulserhaltung" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.2.2. </span>Impulserhaltung<a class="headerlink" href="#impulserhaltung" title="Link to this heading">#</a></h3>
 <figure class="align-default" id="impulsbilanz">
 <a class="reference internal image-reference" href="../../_images/Impulsbilanz.jpg"><img alt="../../_images/Impulsbilanz.jpg" src="../../_images/Impulsbilanz.jpg" style="height: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Körper <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> unter Einwirkung der externen Oberflächenkraft <span class="math notranslate nohighlight">\(\tilde{\bm{t}}\)</span> und der Volumenlast <span class="math notranslate nohighlight">\(\bm{b}\)</span></span><a class="headerlink" href="#impulsbilanz" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.8 </span><span class="caption-text">Körper <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> unter Einwirkung der externen Oberflächenkraft <span class="math notranslate nohighlight">\(\tilde{\bm{t}}\)</span> und der Volumenlast <span class="math notranslate nohighlight">\(\bm{b}\)</span></span><a class="headerlink" href="#impulsbilanz" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Die Impulserhaltung, oft formuliert als Newtons zweites Gesetz, besagt, dass die Änderung des Impulses <span class="math notranslate nohighlight">\(\rho \bm{v}\)</span> eines Körpers gleich der Summe der auf ihn wirkenden Kräfte ist. Für ein Kontinuum wird dies durch die Cauchy-Bewegungsgleichungen ausgedrückt:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9c915d59-ea6f-4bc4-8e6e-19ad340352e1">
-<span class="eqno">(1.5)<a class="headerlink" href="#equation-9c915d59-ea6f-4bc4-8e6e-19ad340352e1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f86bc65a-daa6-425d-b743-d62dd3a06a9f">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-f86bc65a-daa6-425d-b743-d62dd3a06a9f" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \varrho \td{\bm{v}} =\div{\bm{\sigma}} + \rho \bm{b}
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(\boldsymbol{\sigma}\)</span> steht hierbei für den Spannungstensor und <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> für die Volumenkraft pro Masseneinheit.</p>
@@ -604,18 +608,18 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 </div>
 </section>
 <section id="energieerhaltung">
-<h3><span class="section-number">1.3.2.3. </span>Energieerhaltung<a class="headerlink" href="#energieerhaltung" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.2.3. </span>Energieerhaltung<a class="headerlink" href="#energieerhaltung" title="Link to this heading">#</a></h3>
 <p>Die Energieerhaltung stellt sicher, dass die gesamte Energie in einem abgeschlossenen System erhalten bleibt. Für ein Kontinuum kann die Energiebilanz folgendermaßen ausgedrückt werden:</p>
 <div class="math notranslate nohighlight" id="equation-1hs-01">
-<span class="eqno">(1.6)<a class="headerlink" href="#equation-1hs-01" title="Link to this equation">#</a></span>\[\rho \MtdFull{e} = \bm{\sigma}\T \td{\bm{\epsilon}} - \div{\bm{q}} + \varrho r\]</div>
+<span class="eqno">(1.7)<a class="headerlink" href="#equation-1hs-01" title="Link to this equation">#</a></span>\[\rho \MtdFull{e} = \bm{\sigma}\T \td{\bm{\epsilon}} - \div{\bm{q}} + \varrho r\]</div>
 <p>Hier ist <span class="math notranslate nohighlight">\(e\)</span> die spezifische innere Energie, <span class="math notranslate nohighlight">\(\bm{q}\)</span> der Wärmeflussvektor und <span class="math notranslate nohighlight">\(r\)</span> die Wärmequelle pro Masseneinheit.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Die skalare Energiebilanzgleichung dient zur Berechnung des Temperaturfeldes <span class="math notranslate nohighlight">\(\theta(\bm{x},t)\)</span>.</p>
 </div>
-<p>Vernachlässigt man die Kopplung zwischen Verschiebung und Temperatur erhält man aus Gleichung <a class="reference internal" href="#equation-1hs-01">(1.6)</a> die bekannte instationäre Wärmeleitungsgleichung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c63687cf-942b-497f-8862-7aad915531eb">
-<span class="eqno">(1.7)<a class="headerlink" href="#equation-c63687cf-942b-497f-8862-7aad915531eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Vernachlässigt man die Kopplung zwischen Verschiebung und Temperatur erhält man aus Gleichung <a class="reference internal" href="#equation-1hs-01">(1.7)</a> die bekannte instationäre Wärmeleitungsgleichung:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-99fc609b-05fb-4119-bcff-ade1b43600d6">
+<span class="eqno">(1.8)<a class="headerlink" href="#equation-99fc609b-05fb-4119-bcff-ade1b43600d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \varrho c_e \Pd{\theta}{t} + \div{\bm{q}} - \varrho r = 0
 \end{equation}\]</div>
 <p>Hier ist die primäre Variable die Temperatur <span class="math notranslate nohighlight">\(\theta(\bm{x},t)\)</span> und die sekundäre Variable der Wärmeflussvektor <span class="math notranslate nohighlight">\(\bm{q}(\bm{x},t)\)</span>. Gemeinsam mit den Rand- und Anfangsbedingungen erhält man das Anfangsrandwertproblem:</p>
@@ -637,7 +641,7 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 </div>
 </section>
 <section id="zusammenfassung">
-<h3><span class="section-number">1.3.2.4. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.2.4. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Link to this heading">#</a></h3>
 <p>In den vorangestellten Abschnitten wurde die Bilanzgleichungen der Kontinuumsmechanik verwendet um die für die Ingenieurpraxis wichtigen Anfangsrandwertprobleme der Fluid-, Struktur- und Thermomechanik aufzustellen. Für diese Systeme von gekoppelten partiellen Differentialgleichungen gibt es nur in wenigen Sonderfällen analytische Lösungen. Einige Davon sind uns aus den Vorlesungen zur Elastostatik und Stömungslehr bekannt. Aus diesem Grund haben sich numerische Berechnungsverfahren durchgesetzt. Um zu überprüfen ob die Anfangsrandwertprobleme in der obigen Form lösbar sind werden in der nachfolgenden Tabelle die Bestimmungsgleichungen und die Unbekannten gegenübergestellt.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -678,36 +682,36 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 </section>
 </section>
 <section id="kinematik">
-<h2><span class="section-number">1.3.3. </span>Kinematik<a class="headerlink" href="#kinematik" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.3. </span>Kinematik<a class="headerlink" href="#kinematik" title="Link to this heading">#</a></h2>
 <p>Der Kinemtischen Bedingungen haben besonders im Bereich der Strukturmechanik und der Lösung der Impulsbilanz eine hervorgehobene Bedeutung. So ist zum Beispiel die Forderung vom ebenbleiben des Querschnitts in der Bernoulli Balkentheorie eine starke kinematische Restriktion, welche auf die bekannte Differentialgleichung der Durchbiegung <span class="math notranslate nohighlight">\(w(x)\)</span> führt.
 Im Rahmen der linearen Kontinuumsmechanik wird die Dehnung <span class="math notranslate nohighlight">\(\bm{\epsilon}\)</span> als symmetrischer Anteil des Verschiebungsgradienten <span class="math notranslate nohighlight">\(\grad{\bm{u}}\)</span> verstanden:</p>
 <div class="math notranslate nohighlight" id="equation-linearstrain">
-<span class="eqno">(1.8)<a class="headerlink" href="#equation-linearstrain" title="Link to this equation">#</a></span>\[\bm{\epsilon} = \frac{1}{2} \left(\grad{\bm{u}}\T + \grad{\bm{u}} \right) \; .\]</div>
+<span class="eqno">(1.9)<a class="headerlink" href="#equation-linearstrain" title="Link to this equation">#</a></span>\[\bm{\epsilon} = \frac{1}{2} \left(\grad{\bm{u}}\T + \grad{\bm{u}} \right) \; .\]</div>
 <p>Dieses Dehnungsmaß wird oft auch als Ingenieurdehnung bezeichnet und sollte nur in einem Dehnungsbereich &lt; 10% angewendet werden. Zudem ist hervorzuheben, dass Starrkörpertranslationen keine Ingenieurdehnung hervorrufen, Starrkörperrotationen hingegen sehrwohl. Aus diesem Grunde ist darauf zu achten, dass beim Auftreten größerer Rotationen stehts eine nichtlineare Theorie (2.Ordnung oder allgemein nichtlinear) verwendet wird.</p>
 <p>Aufgrund der Symmetrie des Dehnungstensors erhalten wir <strong>6</strong> zusätzliche Bedingungen zur Lösung der Anfangsrandwertproblems der Impulsbilanz.</p>
 </section>
 <section id="materialmodell">
-<h2><span class="section-number">1.3.4. </span>Materialmodell<a class="headerlink" href="#materialmodell" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.8.4. </span>Materialmodell<a class="headerlink" href="#materialmodell" title="Link to this heading">#</a></h2>
 <p>Was zur Schließung der mathematischen Problemstellung jetzt noch fehlt ist eine Relation zwischen der primären Feldgröße und ihrer zugeordneten Flussgröße (sekundäre Größe). Die oben beschriebenen Bilanzgleichungen sind physikalische Prinzipien die unabhängig vom Werkstoff Gültigkeit besitzen. Die spezifischen Werkstoffeigenschaften werden über Materialmodelle, sogenannte konstitutive Modelle, in das Anfangsrandwertproblem eingebracht. Die konstitutive Materialtheorie ist eine Wissenschaft für sich und soll in dieser Vorlesung nicht weiter behandelt werden. In der Strukturmechanik können Materialien entsprechend ihrer Eigenschaften eingeteilt werden in:</p>
 <figure class="align-default" id="materialklassen">
 <a class="reference internal image-reference" href="../../_images/Materialklassen.png"><img alt="../../_images/Materialklassen.png" src="../../_images/Materialklassen.png" style="height: 500px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Klassifizierung von Materialmodellen anhand ihrer Systemantwort. Abbildung nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id7" title="Peter Haupt. Continuum mechanics and theory of materials. Springer Science &amp; Business Media, 2013.">Haupt, 2013</a>]</span></span><a class="headerlink" href="#materialklassen" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.9 </span><span class="caption-text">Klassifizierung von Materialmodellen anhand ihrer Systemantwort. Abbildung nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id7" title="Peter Haupt. Continuum mechanics and theory of materials. Springer Science &amp; Business Media, 2013.">Haupt, 2013</a>]</span></span><a class="headerlink" href="#materialklassen" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="warmeleitung">
-<h3><span class="section-number">1.3.4.1. </span>Wärmeleitung<a class="headerlink" href="#warmeleitung" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.4.1. </span>Wärmeleitung<a class="headerlink" href="#warmeleitung" title="Link to this heading">#</a></h3>
 <p>Bei der Berechnung der Wärmeleitungsgleichung wird oftmals <strong>Fourier</strong>sche Wärmeleitung zugrunde gelegt. Diese basiert auf der Annahme, dass der Wärmestrom proportional zum negativen Temperaturgradienten ist:</p>
 <div class="math notranslate nohighlight" id="equation-fourier">
-<span class="eqno">(1.9)<a class="headerlink" href="#equation-fourier" title="Link to this equation">#</a></span>\[\bm{q} = - \bm{k}\T  \grad{\theta} \, .\]</div>
+<span class="eqno">(1.10)<a class="headerlink" href="#equation-fourier" title="Link to this equation">#</a></span>\[\bm{q} = - \bm{k}\T  \grad{\theta} \, .\]</div>
 <p>Hierbei ist <span class="math notranslate nohighlight">\(\bm{k}\)</span> die Konduktivitätstensor, welche für isotrope Materialien wie folgt aussieht:</p>
 <div class="math notranslate nohighlight" id="equation-konduktivitaetsmatrixisotrop">
-<span class="eqno">(1.10)<a class="headerlink" href="#equation-konduktivitaetsmatrixisotrop" title="Link to this equation">#</a></span>\[\begin{split} \bm{k} = k \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix}  \, ,\end{split}\]</div>
+<span class="eqno">(1.11)<a class="headerlink" href="#equation-konduktivitaetsmatrixisotrop" title="Link to this equation">#</a></span>\[\begin{split} \bm{k} = k \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1\end{bmatrix}  \, ,\end{split}\]</div>
 <p>mit der Wärmeleitfähigkeit <span class="math notranslate nohighlight">\(k\)</span> in <span class="math notranslate nohighlight">\(\frac{\text{W}}{\text{m}\cdot\text{K}}\)</span>. Der Wärmestromvektor hat damit die Einheit <span class="math notranslate nohighlight">\(\frac{\text{W}}{\text{m}^2}\)</span>.</p>
 <div class="warning admonition">
 <p class="admonition-title">Zusätzliche Gleichungen</p>
-<p>Aus Gleichung <a class="reference internal" href="#equation-fourier">(1.9)</a> erhalten wir <strong>3</strong> zusätzliche Gleichungen. Wir haben jetzt genausoviele Gleichungen wie Unbekannte.</p>
+<p>Aus Gleichung <a class="reference internal" href="#equation-fourier">(1.10)</a> erhalten wir <strong>3</strong> zusätzliche Gleichungen. Wir haben jetzt genausoviele Gleichungen wie Unbekannte.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Materialsymmetrie (Auswahl)</p>
@@ -719,41 +723,41 @@ Im Rahmen der linearen Kontinuumsmechanik wird die Dehnung <span class="math not
 </div>
 </section>
 <section id="durchstromung">
-<h3><span class="section-number">1.3.4.2. </span>Durchströmung<a class="headerlink" href="#durchstromung" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">1.8.4.2. </span>Durchströmung<a class="headerlink" href="#durchstromung" title="Link to this heading">#</a></h3>
 <p>Bei der Berechnung der Fluidgeschwindigkeit in Sickerströmungen wird oftmals das <strong>Darcy</strong>sche hydraulische Strömungsgesetz angewendet. Dies ist analog zur Wärmeleitung definiert als proportional zum negativer Druckgradienten:</p>
 <div class="math notranslate nohighlight" id="equation-darcy">
-<span class="eqno">(1.11)<a class="headerlink" href="#equation-darcy" title="Link to this equation">#</a></span>\[\bm{v} = - \bm{k}_{\varepsilon}\T  \grad{p} \, .\]</div>
+<span class="eqno">(1.12)<a class="headerlink" href="#equation-darcy" title="Link to this equation">#</a></span>\[\bm{v} = - \bm{k}_{\varepsilon}\T  \grad{p} \, .\]</div>
 <p>Hierbei ist <span class="math notranslate nohighlight">\(\bm{k}_{\varepsilon}\)</span> die hydraulische Konduktivität. Für isotrope Materialien gilt:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \bm{k}_{\varepsilon} = \frac{k_{\varepsilon}}{\mu} \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix}  \, ,\end{split}\]</div>
+\[\begin{split} \bm{k}_{\varepsilon} = \frac{k_{\varepsilon}}{\mu} \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1\end{bmatrix}  \, ,\end{split}\]</div>
 <p>mit der hydraulischen Permeabilität <span class="math notranslate nohighlight">\(k_{\varepsilon}\)</span> in <span class="math notranslate nohighlight">\(\text{m}^2\)</span> und der dynamischen Viskosität <span class="math notranslate nohighlight">\(\mu\)</span> in <span class="math notranslate nohighlight">\(\text{Pa}\cdot \text{s}\)</span>.</p>
 <div class="warning admonition">
 <p class="admonition-title">Zusätzliche Gleichungen</p>
-<p>Aus Gleichung <a class="reference internal" href="#equation-darcy">(1.11)</a> erhalten wir <strong>3</strong> zusätzliche Gleichungen. Wir haben jetzt genausoviele Gleichungen wie Unbekannte.</p>
+<p>Aus Gleichung <a class="reference internal" href="#equation-darcy">(1.12)</a> erhalten wir <strong>3</strong> zusätzliche Gleichungen. Wir haben jetzt genausoviele Gleichungen wie Unbekannte.</p>
 </div>
 </section>
 <section id="lineare-elastizitat">
-<h3><span class="section-number">1.3.4.3. </span>Lineare Elastizität<a class="headerlink" href="#lineare-elastizitat" title="Link to this heading">#</a></h3>
-<p>In <a class="reference internal" href="#materialklassen"><span class="std std-numref">Fig. 1.3</span></a> sind verschiedene Klassen von Festkörpermaterialien dargestellt. In dieser Vorlesung behandeln wir lediglich eine Unterklasse der ratenunabhängigen Materialien ohne Hystere. Die Lineare Elastizität ist gekennzeichnet durch einen linearen Zusammenhang zwischen Spannung <span class="math notranslate nohighlight">\(\bm{\sigma}\)</span> und Dehnungen <span class="math notranslate nohighlight">\(\bm{\epsilon}\)</span>. In tensorieller Notation stellt sich das verallgemeinerte Hook’sche Gesetz wie folgt dar:</p>
+<h3><span class="section-number">1.8.4.3. </span>Lineare Elastizität<a class="headerlink" href="#lineare-elastizitat" title="Link to this heading">#</a></h3>
+<p>In <a class="reference internal" href="#materialklassen"><span class="std std-numref">Fig. 1.9</span></a> sind verschiedene Klassen von Festkörpermaterialien dargestellt. In dieser Vorlesung behandeln wir lediglich eine Unterklasse der ratenunabhängigen Materialien ohne Hystere. Die Lineare Elastizität ist gekennzeichnet durch einen linearen Zusammenhang zwischen Spannung <span class="math notranslate nohighlight">\(\bm{\sigma}\)</span> und Dehnungen <span class="math notranslate nohighlight">\(\bm{\epsilon}\)</span>. In tensorieller Notation stellt sich das verallgemeinerte Hook’sche Gesetz wie folgt dar:</p>
 <div class="math notranslate nohighlight" id="equation-generalhook">
-<span class="eqno">(1.12)<a class="headerlink" href="#equation-generalhook" title="Link to this equation">#</a></span>\[\sigma_{ij} = \mathbb{C}_{ijkl} \epsilon_{kl} \;\]</div>
-<p>wobei von der Einsteinschen Summenkonvention gebrauch gemacht wurde. In der Strukturmechanik ist es jedoch unüblich mit Tensoren 4. Stufe explizit zu rechnen. Es werden Symmetrieeigenschaften der Tensoren <span class="math notranslate nohighlight">\(\sigma_{ij}=\sigma_{ji}\)</span>, <span class="math notranslate nohighlight">\(\epsilon_{ij}=\epsilon_{ji}\)</span> und <span class="math notranslate nohighlight">\(\mathbb{C}_{ijkl}=\mathbb{C}_{klij}\)</span> ausgenutzt um Tensorprodukte wie z.B. in Gleichung <a class="reference internal" href="#equation-generalhook">(1.12)</a> in Matrix-Vektor-Operationen zu überführen. Dies ist vor allem für die numerische Implementierung von großem Vorteil.</p>
+<span class="eqno">(1.13)<a class="headerlink" href="#equation-generalhook" title="Link to this equation">#</a></span>\[\sigma_{ij} = \mathbb{C}_{ijkl} \epsilon_{kl} \;\]</div>
+<p>wobei von der Einsteinschen Summenkonvention gebrauch gemacht wurde. In der Strukturmechanik ist es jedoch unüblich mit Tensoren 4. Stufe explizit zu rechnen. Es werden Symmetrieeigenschaften der Tensoren <span class="math notranslate nohighlight">\(\sigma_{ij}=\sigma_{ji}\)</span>, <span class="math notranslate nohighlight">\(\epsilon_{ij}=\epsilon_{ji}\)</span> und <span class="math notranslate nohighlight">\(\mathbb{C}_{ijkl}=\mathbb{C}_{klij}\)</span> ausgenutzt um Tensorprodukte wie z.B. in Gleichung <a class="reference internal" href="#equation-generalhook">(1.13)</a> in Matrix-Vektor-Operationen zu überführen. Dies ist vor allem für die numerische Implementierung von großem Vorteil.</p>
 <div class="math notranslate nohighlight" id="equation-generalhook2">
-<span class="eqno">(1.13)<a class="headerlink" href="#equation-generalhook2" title="Link to this equation">#</a></span>\[\begin{split}\begin{pmatrix} 
+<span class="eqno">(1.14)<a class="headerlink" href="#equation-generalhook2" title="Link to this equation">#</a></span>\[\begin{split}\begin{bmatrix} 
 \sigma_{11} \\
 \sigma_{22} \\
 \sigma_{33} \\
 \sigma_{12} \\
 \sigma_{23} \\
 \sigma_{13} 
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 C_{1111} &amp; C_{1122} &amp; C_{1133} &amp; C_{1112} &amp; C_{1123} &amp; C_{1113} \\
 C_{2211} &amp; C_{2222} &amp; C_{2233} &amp; C_{2212} &amp; C_{2223} &amp; C_{2213} \\
 C_{3311} &amp; C_{3322} &amp; C_{3333} &amp; C_{3312} &amp; C_{3323} &amp; C_{3313} \\
 C_{1211} &amp; C_{1222} &amp; C_{1233} &amp; C_{1212} &amp; C_{1223} &amp; C_{1213} \\
 C_{2311} &amp; C_{2322} &amp; C_{2333} &amp; C_{2312} &amp; C_{2323} &amp; C_{2313} \\
 C_{1311} &amp; C_{1322} &amp; C_{1333} &amp; C_{1312} &amp; C_{1323} &amp; C_{1313} \\ 
-\end{pmatrix} \begin{pmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \epsilon_{33} \\ 2\epsilon_{12} \\ 2\epsilon_{23} \\ 2\epsilon_{13} \end{pmatrix}\end{split}\]</div>
+\end{bmatrix} \begin{bmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \epsilon_{33} \\ 2\epsilon_{12} \\ 2\epsilon_{23} \\ 2\epsilon_{13} \end{bmatrix}\end{split}\]</div>
 <p>Für isotrope lineare Elastizität mit dem Materialkonstanten:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(E\)</span> - Elastizitätsmodul in <span class="math notranslate nohighlight">\(\text{MPa}\)</span></p></li>
@@ -761,42 +765,42 @@ C_{1311} &amp; C_{1322} &amp; C_{1333} &amp; C_{1312} &amp; C_{1323} &amp; C_{13
 </ul>
 <p>erhält man dann:</p>
 <div class="math notranslate nohighlight" id="equation-generalhook3">
-<span class="eqno">(1.14)<a class="headerlink" href="#equation-generalhook3" title="Link to this equation">#</a></span>\[\begin{split}\begin{pmatrix} 
+<span class="eqno">(1.15)<a class="headerlink" href="#equation-generalhook3" title="Link to this equation">#</a></span>\[\begin{split}\begin{bmatrix} 
 \sigma_{11} \\
 \sigma_{22} \\
 \sigma_{33} \\
 \sigma_{12} \\
 \sigma_{23} \\
 \sigma_{13} 
-\end{pmatrix} = \frac{E}{(1+\nu)(1-2\nu)}\begin{pmatrix}
+\end{bmatrix} = \frac{E}{(1+\nu)(1-2\nu)}\begin{bmatrix}
 1-\nu &amp; \nu &amp; \nu &amp; 0 &amp; 0 &amp; 0 \\
 \nu &amp; 1-\nu &amp; \nu &amp; 0 &amp; 0 &amp; 0 \\
 \nu &amp; \nu &amp; 1-\nu &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; \frac{1-2\nu}{2} &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1-2\nu}{2} &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1-2\nu}{2} \\ 
-\end{pmatrix} \begin{pmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \epsilon_{33} \\ 2\epsilon_{12} \\ 2\epsilon_{23} \\ 2\epsilon_{13} \end{pmatrix}\end{split}\]</div>
+\end{bmatrix} \begin{bmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \epsilon_{33} \\ 2\epsilon_{12} \\ 2\epsilon_{23} \\ 2\epsilon_{13} \end{bmatrix}\end{split}\]</div>
 <p>Für die inverse Beziehung <span class="math notranslate nohighlight">\(\bm{\epsilon} = \bm{C}^{-1} \bm{\sigma}\)</span> mit der Nachgiebiegkeitsmatrix <span class="math notranslate nohighlight">\(\bm{C}^{-1}\)</span> erhält man:</p>
 <div class="math notranslate nohighlight" id="equation-generalhook4">
-<span class="eqno">(1.15)<a class="headerlink" href="#equation-generalhook4" title="Link to this equation">#</a></span>\[\begin{split}\begin{pmatrix} 
+<span class="eqno">(1.16)<a class="headerlink" href="#equation-generalhook4" title="Link to this equation">#</a></span>\[\begin{split}\begin{bmatrix} 
 \epsilon_{11} \\
 \epsilon_{22} \\
 \epsilon_{33} \\
 2\epsilon_{12} \\
 2\epsilon_{23} \\
 2\epsilon_{13} 
-\end{pmatrix} =\begin{pmatrix}
+\end{bmatrix} =\begin{bmatrix}
 \frac{1}{E} &amp; \frac{-\nu}{E} &amp; \frac{-\nu}{E} &amp; 0 &amp; 0 &amp; 0 \\
 \frac{-\nu}{E} &amp; \frac{1}{E} &amp; \frac{-\nu}{E} &amp; 0 &amp; 0 &amp; 0 \\
 \frac{-\nu}{E} &amp; \frac{-\nu}{E} &amp; \frac{1}{E} &amp; 0 &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; \frac{1}{G} &amp; 0 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1}{G} &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{1}{G} \\ 
-\end{pmatrix} \begin{pmatrix} \sigma_{11} \\ \sigma_{22} \\ \sigma_{33} \\ \sigma_{12} \\ \sigma_{23} \\ \sigma_{13} \end{pmatrix}\end{split}\]</div>
+\end{bmatrix} \begin{bmatrix} \sigma_{11} \\ \sigma_{22} \\ \sigma_{33} \\ \sigma_{12} \\ \sigma_{23} \\ \sigma_{13} \end{bmatrix}\end{split}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(G=\frac{E}{2(1+\nu)}\)</span> den Schubmodul in <span class="math notranslate nohighlight">\(\text{MPa}\)</span> darstellt.</p>
 <div class="warning admonition">
 <p class="admonition-title">Zusätzliche Gleichungen</p>
-<p>Aus Gleichung <a class="reference internal" href="#equation-generalhook3">(1.14)</a> und <a class="reference internal" href="#equation-generalhook4">(1.15)</a> erhalten wir <strong>6</strong> zusätzliche Gleichungen. Wir haben jetzt genausoviele Gleichungen wie Unbekannte.</p>
+<p>Aus Gleichung <a class="reference internal" href="#equation-generalhook3">(1.15)</a> und <a class="reference internal" href="#equation-generalhook4">(1.16)</a> erhalten wir <strong>6</strong> zusätzliche Gleichungen. Wir haben jetzt genausoviele Gleichungen wie Unbekannte.</p>
 </div>
 <div class="note admonition">
 <p class="admonition-title">Einsteinsche Summenkonvention</p>
@@ -817,10 +821,10 @@ c_i = \sum_{j=1}^{n} a_{ij} b_j \qquad \rightarrow \qquad  c_i=a_{ij} b_j
 </thead>
 <tbody>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sigma_{ij}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\bm{\sigma}= \begin{pmatrix} \sigma_{11} &amp; \sigma_{22} &amp; \sigma_{33} &amp; \sigma_{12} &amp; \sigma_{23} &amp; \sigma_{13} \end{pmatrix}\T \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\bm{\sigma}= \begin{bmatrix} \sigma_{11} &amp; \sigma_{22} &amp; \sigma_{33} &amp; \sigma_{12} &amp; \sigma_{23} &amp; \sigma_{13} \end{bmatrix}\T \)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\epsilon_{ij}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\bm{\epsilon}= \begin{pmatrix} \epsilon_{11} &amp; \epsilon_{22} &amp; \epsilon_{33} &amp; 2\epsilon_{12} &amp; 2\epsilon_{23} &amp; 2\epsilon_{13} \end{pmatrix}\T \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\bm{\epsilon}= \begin{bmatrix} \epsilon_{11} &amp; \epsilon_{22} &amp; \epsilon_{33} &amp; 2\epsilon_{12} &amp; 2\epsilon_{23} &amp; 2\epsilon_{13} \end{bmatrix}\T \)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sigma_{ij}=\mathbb{C}_{ijkl}\epsilon_{kl}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\bm{\sigma} = \bm{C} \bm{\epsilon} \)</span></p></td>
@@ -833,14 +837,14 @@ c_i = \sum_{j=1}^{n} a_{ij} b_j \qquad \rightarrow \qquad  c_i=a_{ij} b_j
 </div>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\mathbb{C}_{ijkl} \quad \rightarrow \quad \bm{C}=\begin{pmatrix}
+\mathbb{C}_{ijkl} \quad \rightarrow \quad \bm{C}=\begin{bmatrix}
 C_{1111} &amp; C_{1122} &amp; C_{1133} &amp; C_{1112} &amp; C_{1123} &amp; C_{1113} \\
 C_{2211} &amp; C_{2222} &amp; C_{2233} &amp; C_{2212} &amp; C_{2223} &amp; C_{2213} \\
 C_{3311} &amp; C_{3322} &amp; C_{3333} &amp; C_{3312} &amp; C_{3323} &amp; C_{3313} \\
 C_{1211} &amp; C_{1222} &amp; C_{1233} &amp; C_{1212} &amp; C_{1223} &amp; C_{1213} \\
 C_{2311} &amp; C_{2322} &amp; C_{2333} &amp; C_{2312} &amp; C_{2323} &amp; C_{2313} \\
 C_{1311} &amp; C_{1322} &amp; C_{1333} &amp; C_{1312} &amp; C_{1323} &amp; C_{1313} \\ 
-\end{pmatrix} 
+\end{bmatrix} 
 \end{split}\]</div>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -850,10 +854,10 @@ C_{1311} &amp; C_{1322} &amp; C_{1333} &amp; C_{1312} &amp; C_{1323} &amp; C_{13
 </thead>
 <tbody>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sigma_{ij}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\bm{\sigma}= \begin{pmatrix} \sigma_{11} &amp; \sigma_{22} &amp; \sigma_{33} &amp; \sqrt{2}\sigma_{12} &amp; \sqrt{2}\sigma_{23} &amp; \sqrt{2}\sigma_{13} \end{pmatrix}\T \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\bm{\sigma}= \begin{bmatrix} \sigma_{11} &amp; \sigma_{22} &amp; \sigma_{33} &amp; \sqrt{2}\sigma_{12} &amp; \sqrt{2}\sigma_{23} &amp; \sqrt{2}\sigma_{13} \end{bmatrix}\T \)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\epsilon_{ij}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\bm{\epsilon}= \begin{pmatrix} \epsilon_{11} &amp; \epsilon_{22} &amp; \epsilon_{33} &amp; \sqrt{2}\epsilon_{12} &amp; \sqrt{2}\epsilon_{23} &amp; \sqrt{2}\epsilon_{13} \end{pmatrix}\T \)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\bm{\epsilon}= \begin{bmatrix} \epsilon_{11} &amp; \epsilon_{22} &amp; \epsilon_{33} &amp; \sqrt{2}\epsilon_{12} &amp; \sqrt{2}\epsilon_{23} &amp; \sqrt{2}\epsilon_{13} \end{bmatrix}\T \)</span></p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sigma_{ij}=\mathbb{C}_{ijkl}\epsilon_{kl}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\bm{\sigma} = \bm{C} \bm{\epsilon}\)</span></p></td>
@@ -866,26 +870,26 @@ C_{1311} &amp; C_{1322} &amp; C_{1333} &amp; C_{1312} &amp; C_{1323} &amp; C_{13
 </div>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\mathbb{C}_{ijkl} \quad \rightarrow \quad \bm{C}=\begin{pmatrix}
+\mathbb{C}_{ijkl} \quad \rightarrow \quad \bm{C}=\begin{bmatrix}
 C_{1111} &amp; C_{1122} &amp; C_{1133} &amp; \sqrt{2}C_{1112} &amp; \sqrt{2}C_{1123} &amp; \sqrt{2}C_{1113} \\
 C_{2211} &amp; C_{2222} &amp; C_{2233} &amp; \sqrt{2}C_{2212} &amp; \sqrt{2}C_{2223} &amp; \sqrt{2}C_{2213} \\
 C_{3311} &amp; C_{3322} &amp; C_{3333} &amp; \sqrt{2}C_{3312} &amp; \sqrt{2}C_{3323} &amp; \sqrt{2}C_{3313} \\
 \sqrt{2}C_{1211} &amp; \sqrt{2}C_{1222} &amp; \sqrt{2}C_{1233} &amp; 2C_{1212} &amp; 2C_{1223} &amp; 2C_{1213} \\
 \sqrt{2}C_{2311} &amp; \sqrt{2}C_{2322} &amp; \sqrt{2}C_{2333} &amp; 2C_{2312} &amp; 2C_{2323} &amp; 2C_{2313} \\
 \sqrt{2}C_{1311} &amp; \sqrt{2}C_{1322} &amp; \sqrt{2}C_{1333} &amp; 2C_{1312} &amp; 2C_{1323} &amp; 2C_{1313} \\ 
-\end{pmatrix} 
+\end{bmatrix} 
 \end{split}\]</div>
 </div>
 <section id="ebener-verzerrungszustand">
-<h4><span class="section-number">1.3.4.3.1. </span>Ebener Verzerrungszustand<a class="headerlink" href="#ebener-verzerrungszustand" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">1.8.4.3.1. </span>Ebener Verzerrungszustand<a class="headerlink" href="#ebener-verzerrungszustand" title="Link to this heading">#</a></h4>
 <figure class="align-default" id="evz">
 <a class="reference internal image-reference" href="../../_images/EVZ.png"><img alt="../../_images/EVZ.png" src="../../_images/EVZ.png" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Beispiel für das Auftreten eines ebenen Verzerrungszustandes <span id="id3">[<a class="reference internal" href="../../quellen.html#id10" title="Eduardo WV Chaves. Notes on continuum mechanics. Springer Science &amp; Business Media, 2013.">Chaves, 2013</a>]</span></span><a class="headerlink" href="#evz" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.10 </span><span class="caption-text">Beispiel für das Auftreten eines ebenen Verzerrungszustandes <span id="id3">[<a class="reference internal" href="../../quellen.html#id10" title="Eduardo WV Chaves. Notes on continuum mechanics. Springer Science &amp; Business Media, 2013.">Chaves, 2013</a>]</span></span><a class="headerlink" href="#evz" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Betrachten wir ein Strukturelement mit prismatischen Merkmalen, bei dem die Dimension in Richtung der prismatischen Achse deutlich größer ist als die anderen Dimensionen. Die aufgebrachten Lasten wirken senkrecht zur prismatischen Achse (<a class="reference internal" href="#evz"><span class="std std-numref">Fig. 1.4</span></a>). Unter diesen Bedingungen sind die Dehnungskomponenten <span class="math notranslate nohighlight">\(\e_{13},\, \e_{23}, \, \e_{33}\)</span> gleich null. Dieser Zustand wird als ebener Verzerrungszustand bezeichnet. Beispiele hierfür sind Stützmauern, unter Druck stehende Zylinder, Dämme , Tunnel und Flachgründungen.</p>
+<p>Betrachten wir ein Strukturelement mit prismatischen Merkmalen, bei dem die Dimension in Richtung der prismatischen Achse deutlich größer ist als die anderen Dimensionen. Die aufgebrachten Lasten wirken senkrecht zur prismatischen Achse (<a class="reference internal" href="#evz"><span class="std std-numref">Fig. 1.10</span></a>). Unter diesen Bedingungen sind die Dehnungskomponenten <span class="math notranslate nohighlight">\(\e_{13},\, \e_{23}, \, \e_{33}\)</span> gleich null. Dieser Zustand wird als ebener Verzerrungszustand bezeichnet. Beispiele hierfür sind Stützmauern, unter Druck stehende Zylinder, Dämme , Tunnel und Flachgründungen.</p>
 <p>Es muss betont werden, dass die Variablen (Last, Querschnitt, Material) entlang der prismatischen Achse konstant sein müssen, um einen ebenen Verzerrungszustand zu betrachten. Andernfalls können erhebliche Fehler auftreten.</p>
 <div class="note admonition">
 <p class="admonition-title">Prismatische Merkmale</p>
@@ -896,153 +900,153 @@ C_{3311} &amp; C_{3322} &amp; C_{3333} &amp; \sqrt{2}C_{3312} &amp; \sqrt{2}C_{3
 </ul>
 <p><strong>Beispiele:</strong> Balken, Säulen, Rohre</p>
 </div>
-<p>Um die konstitutive Beziehung <span class="math notranslate nohighlight">\(\sb(\eb)\)</span> zu erhalten starten wir vom generalisierten Hook’schen Gesetz <a class="reference internal" href="#equation-generalhook3">(1.14)</a> indem wir alle Spalten mit korrespondierenden 0-Dehnungen eliminieren:</p>
+<p>Um die konstitutive Beziehung <span class="math notranslate nohighlight">\(\sb(\eb)\)</span> zu erhalten starten wir vom generalisierten Hook’schen Gesetz <a class="reference internal" href="#equation-generalhook3">(1.15)</a> indem wir alle Spalten mit korrespondierenden 0-Dehnungen eliminieren:</p>
 <div class="math notranslate nohighlight" id="equation-evz1">
-<span class="eqno">(1.16)<a class="headerlink" href="#equation-evz1" title="Link to this equation">#</a></span>\[\begin{split}\begin{pmatrix} 
+<span class="eqno">(1.17)<a class="headerlink" href="#equation-evz1" title="Link to this equation">#</a></span>\[\begin{split}\begin{bmatrix} 
 \sigma_{11} \\
 \sigma_{22} \\
 \sigma_{33} \\
 \sigma_{12} \\
 \sigma_{23} \\
 \sigma_{13} 
-\end{pmatrix} = \frac{E}{(1+\nu)(1-2\nu)}\begin{pmatrix}
+\end{bmatrix} = \frac{E}{(1+\nu)(1-2\nu)}\begin{bmatrix}
 1-\nu &amp; \nu &amp; \cancel{\nu} &amp; 0 &amp; \cancel{0} &amp; \cancel{0} \\
 \nu &amp; 1-\nu &amp; \cancel{\nu} &amp; 0 &amp; \cancel{0} &amp; \cancel{0} \\
 \nu &amp; \nu &amp; \cancel{1-\nu} &amp; 0 &amp; \cancel{0} &amp; \cancel{0} \\
 0 &amp; 0 &amp; \cancel{0} &amp; \frac{1-2\nu}{2} &amp; \cancel{0} &amp; \cancel{0} \\
 0 &amp; 0 &amp; \cancel{0} &amp; 0 &amp; \cancel{\frac{1-2\nu}{2}} &amp; \cancel{0} \\
 0 &amp; 0 &amp; \cancel{0} &amp; 0 &amp; \cancel{0} &amp; \cancel{\frac{1-2\nu}{2}} \\ 
-\end{pmatrix} \begin{pmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \cancel{\epsilon_{33}} \\ 2\epsilon_{12} \\ \cancel{2\epsilon_{23}} \\ \cancel{2\epsilon_{13}} \end{pmatrix}\end{split}\]</div>
+\end{bmatrix} \begin{bmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \cancel{\epsilon_{33}} \\ 2\epsilon_{12} \\ \cancel{2\epsilon_{23}} \\ \cancel{2\epsilon_{13}} \end{bmatrix}\end{split}\]</div>
 <p>Wir sehen sofort, dass die Komponenten <span class="math notranslate nohighlight">\(\s_{23},\, \s_{13}\)</span> verschwinden. Die Spannungskomponente entlang der prismatischen Achse <span class="math notranslate nohighlight">\(\s_{33}\)</span> hingegen berechnet sich zu:</p>
 <div class="math notranslate nohighlight">
 \[\s_{33} = \frac{E \nu}{(1+\nu)(1-2\nu)} \left(\e_{11} + \e_{22} \right)\]</div>
 <p>Arrangiert man die verbleibenden Einträge, so erhält man für <span class="math notranslate nohighlight">\(\bm{C}\rs{EVZ}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-evz2">
-<span class="eqno">(1.17)<a class="headerlink" href="#equation-evz2" title="Link to this equation">#</a></span>\[\begin{split} \begin{pmatrix} 
+<span class="eqno">(1.18)<a class="headerlink" href="#equation-evz2" title="Link to this equation">#</a></span>\[\begin{split} \begin{bmatrix} 
 \s_{11} \\
 \s_{22} \\
 \s_{12} 
-\end{pmatrix}= \underbrace{\frac{E }{(1+\nu)(1-2\nu)} \begin{pmatrix}
+\end{bmatrix}= \underbrace{\frac{E }{(1+\nu)(1-2\nu)} \begin{bmatrix}
 1-\nu &amp; \nu &amp; 0 \\
 \nu &amp; 1-\nu &amp; 0 \\
 0 &amp; 0 &amp; \frac{1-2\nu}{2}
-\end{pmatrix}}_{\bm{C}\rs{EVZ}}  \begin{pmatrix} 
+\end{bmatrix}}_{\bm{C}\rs{EVZ}}  \begin{bmatrix} 
 \e_{11} \\
 \e_{22} \\
 \e_{12} 
-\end{pmatrix}\end{split}\]</div>
+\end{bmatrix}\end{split}\]</div>
 <p>Für die Nachgiebiegkeit <span class="math notranslate nohighlight">\(\bm{C}\rs{EVZ}^{-1}\)</span> erhält man die inverse Beziehung:</p>
 <div class="math notranslate nohighlight" id="equation-evz3">
-<span class="eqno">(1.18)<a class="headerlink" href="#equation-evz3" title="Link to this equation">#</a></span>\[\begin{split} \begin{pmatrix} 
+<span class="eqno">(1.19)<a class="headerlink" href="#equation-evz3" title="Link to this equation">#</a></span>\[\begin{split} \begin{bmatrix} 
 \e_{11} \\
 \e_{22} \\
 \e_{12} 
-\end{pmatrix}= \underbrace{\frac{1+\nu }{E} \begin{pmatrix}
+\end{bmatrix}= \underbrace{\frac{1+\nu }{E} \begin{bmatrix}
 1-\nu &amp; -\nu &amp; 0 \\
 -\nu &amp; 1-\nu &amp; 0 \\
 0 &amp; 0 &amp; 2
-\end{pmatrix}}_{\bm{C}\rs{EVZ}^{-1}}  \begin{pmatrix} 
+\end{bmatrix}}_{\bm{C}\rs{EVZ}^{-1}}  \begin{bmatrix} 
 \s_{11} \\
 \s_{22} \\
 \s_{12} 
-\end{pmatrix}\end{split}\]</div>
+\end{bmatrix}\end{split}\]</div>
 </section>
 <section id="ebener-spannungszustand">
-<h4><span class="section-number">1.3.4.3.2. </span>Ebener Spannungszustand<a class="headerlink" href="#ebener-spannungszustand" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">1.8.4.3.2. </span>Ebener Spannungszustand<a class="headerlink" href="#ebener-spannungszustand" title="Link to this heading">#</a></h4>
 <figure class="align-default" id="carcrash">
 <a class="reference internal image-reference" href="../../_images/CarCrash.jpg"><img alt="../../_images/CarCrash.jpg" src="../../_images/CarCrash.jpg" style="height: 500px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.5 </span><span class="caption-text">FEM Crash Simulation eines Pickup-Trucks gegen eine starre Wand <a class="reference external" href="https://enteknograte.com/wp-content/uploads/2022/06/truck-crash-Car-vehicle-Finite-Element-Simulation-Crash-Test-MSC-dytran-Crashworthiness-Ls-Dyna-Abaqus-PAM-CRASH.jpg">Quelle</a></span><a class="headerlink" href="#carcrash" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.11 </span><span class="caption-text">FEM Crash Simulation eines Pickup-Trucks gegen eine starre Wand <a class="reference external" href="https://enteknograte.com/wp-content/uploads/2022/06/truck-crash-Car-vehicle-Finite-Element-Simulation-Crash-Test-MSC-dytran-Crashworthiness-Ls-Dyna-Abaqus-PAM-CRASH.jpg">Quelle</a></span><a class="headerlink" href="#carcrash" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Der ebene Spannungszustand tritt überall dort auf wo Flächenelemente vor allem in ihrer Ebene belastet werden und die Flächenabmessungen deutlich größer sind als die dazugehörige Dicke. Dies ist zum Beispiel bei Karosserieblechen wie in <a class="reference internal" href="#carcrash"><span class="std std-numref">Fig. 1.5</span></a> der Fall.</p>
+<p>Der ebene Spannungszustand tritt überall dort auf wo Flächenelemente vor allem in ihrer Ebene belastet werden und die Flächenabmessungen deutlich größer sind als die dazugehörige Dicke. Dies ist zum Beispiel bei Karosserieblechen wie in <a class="reference internal" href="#carcrash"><span class="std std-numref">Fig. 1.11</span></a> der Fall.</p>
 <figure class="align-default" id="shellformulation">
 <a class="reference internal image-reference" href="../../_images/Shellformulation.png"><img alt="../../_images/Shellformulation.png" src="../../_images/Shellformulation.png" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.6 </span><span class="caption-text">FEM Diskretisierung von Schalenelementen als degenerierte Volumenelemente (links) oder über eine Mittelflächendarstellung (rechts). <span id="id4">[<a class="reference internal" href="../../quellen.html#id9" title="Peter Wriggers. Nonlinear finite element methods. Springer Science &amp; Business Media, 2008.">Wriggers, 2008</a>]</span></span><a class="headerlink" href="#shellformulation" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">FEM Diskretisierung von Schalenelementen als degenerierte Volumenelemente (links) oder über eine Mittelflächendarstellung (rechts). <span id="id4">[<a class="reference internal" href="../../quellen.html#id9" title="Peter Wriggers. Nonlinear finite element methods. Springer Science &amp; Business Media, 2008.">Wriggers, 2008</a>]</span></span><a class="headerlink" href="#shellformulation" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In Abbildung <a class="reference internal" href="#shellformulation"><span class="std std-numref">Fig. 1.6</span></a> auf der rechten Seite ist eine Disketisierung für den ebenen Spannungszustand mit Mittelflächenelementen zu sehen.</p>
-<p>Startpunkt für die konstitutive Beziehung ist die Gleichung <a class="reference internal" href="#equation-generalhook4">(1.15)</a>. Zunächst streichen wir alle Spalten welche den 0-Spannungen zugeordnet werden können:</p>
+<p>In Abbildung <a class="reference internal" href="#shellformulation"><span class="std std-numref">Fig. 1.12</span></a> auf der rechten Seite ist eine Disketisierung für den ebenen Spannungszustand mit Mittelflächenelementen zu sehen.</p>
+<p>Startpunkt für die konstitutive Beziehung ist die Gleichung <a class="reference internal" href="#equation-generalhook4">(1.16)</a>. Zunächst streichen wir alle Spalten welche den 0-Spannungen zugeordnet werden können:</p>
 <div class="math notranslate nohighlight" id="equation-generalhookesz1">
-<span class="eqno">(1.19)<a class="headerlink" href="#equation-generalhookesz1" title="Link to this equation">#</a></span>\[\begin{split}\begin{pmatrix} 
+<span class="eqno">(1.20)<a class="headerlink" href="#equation-generalhookesz1" title="Link to this equation">#</a></span>\[\begin{split}\begin{bmatrix} 
 \epsilon_{11} \\
 \epsilon_{22} \\
 \epsilon_{33} \\
 2\epsilon_{12} \\
 2\epsilon_{23} \\
 2\epsilon_{13} 
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 \frac{1}{E} &amp; \frac{-\nu}{E} &amp; \cancel{\frac{-\nu}{E}} &amp; 0 &amp; \cancel{0} &amp; \cancel{0} \\
 \frac{-\nu}{E} &amp; \frac{1}{E} &amp; \cancel{\frac{-\nu}{E}} &amp; 0 &amp; \cancel{0} &amp; \cancel{0} \\
 {\frac{-\nu}{E}} &amp; {\frac{-\nu}{E}} &amp; \cancel{\frac{1}{E}} &amp; {0} &amp; \cancel{0} &amp; \cancel{0} \\
 0 &amp; 0 &amp; \cancel{0} &amp; \frac{1}{G} &amp; 0 &amp; 0 \\
 {0} &amp; {0} &amp; \cancel{0} &amp; {0} &amp; \cancel{\frac{1}{G}} &amp; \cancel{0} \\
 {0} &amp; {0} &amp; \cancel{0} &amp; {0} &amp; \cancel{0} &amp; \cancel{\frac{1}{G}} \\ 
-\end{pmatrix} \begin{pmatrix} \sigma_{11} \\ \sigma_{22} \\ \cancel{\sigma_{33}} \\ \sigma_{12} \\ \cancel{\sigma_{23}} \\ \cancel{\sigma_{13}} \end{pmatrix}\end{split}\]</div>
+\end{bmatrix} \begin{bmatrix} \sigma_{11} \\ \sigma_{22} \\ \cancel{\sigma_{33}} \\ \sigma_{12} \\ \cancel{\sigma_{23}} \\ \cancel{\sigma_{13}} \end{bmatrix}\end{split}\]</div>
 <p>Hier fällt auf, dass das resultierende System nicht mehr quadratisch ist, da die Dehnung in Dickenrichtung <span class="math notranslate nohighlight">\(\epsilon_{33}\)</span> ungleich null ist:</p>
 <div class="math notranslate nohighlight" id="equation-generalhookesz2">
-<span class="eqno">(1.20)<a class="headerlink" href="#equation-generalhookesz2" title="Link to this equation">#</a></span>\[\begin{split}\begin{pmatrix} 
+<span class="eqno">(1.21)<a class="headerlink" href="#equation-generalhookesz2" title="Link to this equation">#</a></span>\[\begin{split}\begin{bmatrix} 
 \epsilon_{11} \\
 \epsilon_{22} \\
 \epsilon_{33} \\
 2\epsilon_{12} \\
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 \frac{1}{E} &amp; \frac{-\nu}{E}  &amp; 0  \\
 \frac{-\nu}{E} &amp; \frac{1}{E}  &amp; 0  \\
 {\frac{-\nu}{E}} &amp; {\frac{-\nu}{E}} &amp; {0} \\
 0 &amp; 0 &amp; \frac{1}{G}  \\
-\end{pmatrix} \begin{pmatrix} \sigma_{11} \\ \sigma_{22} \\ \sigma_{12} \end{pmatrix} \; .\end{split}\]</div>
+\end{bmatrix} \begin{bmatrix} \sigma_{11} \\ \sigma_{22} \\ \sigma_{12} \end{bmatrix} \; .\end{split}\]</div>
 <p>Dieses System hat eine Gleichung zu viel. Zweckmäßig vernachlässigt man die Gleichung für die Dehnung in Dickenrichtung (diese Dehnung berechnet man in einer Nachlaufrechnung). Somit lautet die Nachgiebigkeitsmatrix <span class="math notranslate nohighlight">\(\bm{C}^{-1}\rs{ESZ}\)</span> und die Materielle Steifigkeitsmatrix <span class="math notranslate nohighlight">\(\bm{C}\rs{ESZ}\)</span> für den ebenen Spannungszustand:</p>
 <div class="math notranslate nohighlight" id="equation-generalhookesz3">
-<span class="eqno">(1.21)<a class="headerlink" href="#equation-generalhookesz3" title="Link to this equation">#</a></span>\[\begin{split}\bm{C}^{-1} = \frac{1}{E} \begin{pmatrix}
+<span class="eqno">(1.22)<a class="headerlink" href="#equation-generalhookesz3" title="Link to this equation">#</a></span>\[\begin{split}\bm{C}^{-1} = \frac{1}{E} \begin{bmatrix}
 1 &amp; -\nu &amp; 0  \\
 -\nu &amp; 1  &amp; 0  \\
 0 &amp; 0 &amp; 2(1+\nu)  \\
-\end{pmatrix}  \qquad 
-\bm{C} = \frac{E}{(1-\nu^2)}\begin{pmatrix}
+\end{bmatrix}  \qquad 
+\bm{C} = \frac{E}{(1-\nu^2)}\begin{bmatrix}
 1 &amp; \nu  &amp; 0  \\
 \nu &amp; 1  &amp; 0  \\
 0 &amp; 0 &amp; \frac{1-\nu}{2}  \\
-\end{pmatrix}\end{split}\]</div>
+\end{bmatrix}\end{split}\]</div>
 </section>
 <section id="rotationssymmetrie">
-<h4><span class="section-number">1.3.4.3.3. </span>Rotationssymmetrie<a class="headerlink" href="#rotationssymmetrie" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">1.8.4.3.3. </span>Rotationssymmetrie<a class="headerlink" href="#rotationssymmetrie" title="Link to this heading">#</a></h4>
 <figure class="align-default" id="rotsym">
 <a class="reference internal image-reference" href="../../_images/Rotsym.png"><img alt="../../_images/Rotsym.png" src="../../_images/Rotsym.png" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.7 </span><span class="caption-text">Rotationssymmetrischer Körper im zylinderkoordinatensystem <span class="math notranslate nohighlight">\(\{r,z,\theta\}\)</span>. Nach <span id="id5">[<a class="reference internal" href="../../quellen.html#id10" title="Eduardo WV Chaves. Notes on continuum mechanics. Springer Science &amp; Business Media, 2013.">Chaves, 2013</a>]</span></span><a class="headerlink" href="#rotsym" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Rotationssymmetrischer Körper im zylinderkoordinatensystem <span class="math notranslate nohighlight">\(\{r,z,\theta\}\)</span>. Nach <span id="id5">[<a class="reference internal" href="../../quellen.html#id10" title="Eduardo WV Chaves. Notes on continuum mechanics. Springer Science &amp; Business Media, 2013.">Chaves, 2013</a>]</span></span><a class="headerlink" href="#rotsym" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Die Dehnungen für rotationssymmetrische Problemstellungen werden berechnet zu:</p>
 <div class="math notranslate nohighlight" id="equation-rotsymstrain">
-<span class="eqno">(1.22)<a class="headerlink" href="#equation-rotsymstrain" title="Link to this equation">#</a></span>\[\begin{split}\begin{pmatrix}
+<span class="eqno">(1.23)<a class="headerlink" href="#equation-rotsymstrain" title="Link to this equation">#</a></span>\[\begin{split}\begin{bmatrix}
 \e_{r} \\
 \e_z \\
 \e_{\theta} \\
 \gamma_{rz}
-\end{pmatrix} = \begin{pmatrix}
+\end{bmatrix} = \begin{bmatrix}
 \Pd{u}{r} \\
 \Pd{v}{z} \\
 \frac{u}{r} \\
 \Pd{u}{z} + \Pd{v}{r}
-\end{pmatrix} \end{split}\]</div>
+\end{bmatrix} \end{split}\]</div>
 <p>Das generalisierte Hook’sche Gesetz lautet:</p>
 <div class="math notranslate nohighlight" id="equation-generalhookrotsym">
-<span class="eqno">(1.23)<a class="headerlink" href="#equation-generalhookrotsym" title="Link to this equation">#</a></span>\[\begin{split}\begin{pmatrix} 
+<span class="eqno">(1.24)<a class="headerlink" href="#equation-generalhookrotsym" title="Link to this equation">#</a></span>\[\begin{split}\begin{bmatrix} 
 \sigma_{rr} \\
 \sigma_{zz} \\
 \sigma_{\theta} \\
 \sigma_{rz} \\
-\end{pmatrix} = \frac{E}{(1+\nu)(1-2\nu)}\begin{pmatrix}
+\end{bmatrix} = \frac{E}{(1+\nu)(1-2\nu)}\begin{bmatrix}
 1-\nu &amp; \nu &amp; \nu &amp; 0  \\
 \nu &amp; 1-\nu &amp; \nu &amp; 0  \\
 \nu &amp; \nu &amp; 1-\nu &amp; 0  \\
 0 &amp; 0 &amp; 0 &amp; \frac{1-2\nu}{2} \\
-\end{pmatrix} \begin{pmatrix} \epsilon_{r} \\ \epsilon_{\theta} \\ \epsilon_{z} \\ 2\epsilon_{rz}  \end{pmatrix}\end{split}\]</div>
+\end{bmatrix} \begin{bmatrix} \epsilon_{r} \\ \epsilon_{\theta} \\ \epsilon_{z} \\ 2\epsilon_{rz}  \end{bmatrix}\end{split}\]</div>
 <div class="note admonition">
 <p class="admonition-title">Berechnung Dehung <span class="math notranslate nohighlight">\(\e_{\theta}\)</span></p>
 <p>Die Dehnung in Umfangsrichtung kann bestimmt werden als Längenänderung des Umfangs infolge einer radialen Verschiebung <span class="math notranslate nohighlight">\(u\)</span>:</p>
@@ -1052,6 +1056,16 @@ C_{3311} &amp; C_{3322} &amp; C_{3333} &amp; \sqrt{2}C_{3312} &amp; \sqrt{2}C_{3
 </div>
 </section>
 </section>
+</section>
+<section id="id6">
+<h2><span class="section-number">1.8.5. </span>Zusammenfassung<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>Um ein valides mechanisches Modell zu erlangen benötigt man:</p>
+<ol class="arabic simple">
+<li><p>Die beschreibende partielle Differentialgleichung (physikalische Erhaltungssätze)</p></li>
+<li><p>Die Kinematischen Beziehungen (Verbindung von primärer Größe zur abgeleiten Größe)</p></li>
+<li><p>Materialmodell (Verbindung von sekundärer Größe zur kinematischen Größe)</p></li>
+</ol>
+<p>Eindeutig lösbar wird das Modell zudem erst, wenn die Randbedingungen entsprechend vorgegeben wurden.</p>
 </section>
 </section>
 
@@ -1086,12 +1100,12 @@ C_{3311} &amp; C_{3322} &amp; C_{3333} &amp; \sqrt{2}C_{3312} &amp; \sqrt{2}C_{3
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Einf%C3%BChrung.html"
+       href="Einf%C3%BChrung_Loesungsverfahren.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Einführung in die Numerische Mechanik</p>
+        <p class="prev-next-title"><span class="section-number">1.7. </span>Numerische Lösungsverfahren</p>
       </div>
     </a>
     <a class="right-next"
@@ -1099,7 +1113,7 @@ C_{3311} &amp; C_{3322} &amp; C_{3333} &amp; \sqrt{2}C_{3312} &amp; \sqrt{2}C_{3
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1.4. </span>Grundgleichungen einfacher Strukturelemente</p>
+        <p class="prev-next-title"><span class="section-number">1.9. </span>Grundgleichungen einfacher Strukturelemente</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1120,26 +1134,27 @@ C_{3311} &amp; C_{3322} &amp; C_{3333} &amp; \sqrt{2}C_{3312} &amp; \sqrt{2}C_{3
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">1.3.1. Notation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bilanzgleichungen-der-kontinuumsmechanik">1.3.2. Bilanzgleichungen der Kontinuumsmechanik</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#massenerhaltung">1.3.2.1. Massenerhaltung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulserhaltung">1.3.2.2. Impulserhaltung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energieerhaltung">1.3.2.3. Energieerhaltung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">1.3.2.4. Zusammenfassung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notation">1.8.1. Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bilanzgleichungen-der-kontinuumsmechanik">1.8.2. Bilanzgleichungen der Kontinuumsmechanik</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#massenerhaltung">1.8.2.1. Massenerhaltung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#impulserhaltung">1.8.2.2. Impulserhaltung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#energieerhaltung">1.8.2.3. Energieerhaltung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">1.8.2.4. Zusammenfassung</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematik">1.3.3. Kinematik</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materialmodell">1.3.4. Materialmodell</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warmeleitung">1.3.4.1. Wärmeleitung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#durchstromung">1.3.4.2. Durchströmung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineare-elastizitat">1.3.4.3. Lineare Elastizität</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ebener-verzerrungszustand">1.3.4.3.1. Ebener Verzerrungszustand</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ebener-spannungszustand">1.3.4.3.2. Ebener Spannungszustand</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotationssymmetrie">1.3.4.3.3. Rotationssymmetrie</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematik">1.8.3. Kinematik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materialmodell">1.8.4. Materialmodell</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#warmeleitung">1.8.4.1. Wärmeleitung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#durchstromung">1.8.4.2. Durchströmung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineare-elastizitat">1.8.4.3. Lineare Elastizität</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ebener-verzerrungszustand">1.8.4.3.1. Ebener Verzerrungszustand</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ebener-spannungszustand">1.8.4.3.2. Ebener Spannungszustand</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rotationssymmetrie">1.8.4.3.3. Rotationssymmetrie</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">1.8.5. Zusammenfassung</a></li>
 </ul>
   </nav></div>
 

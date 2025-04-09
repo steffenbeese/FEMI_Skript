@@ -56,105 +56,105 @@ sphinx:
     latex_elements:
       preamble: |
         \usepackage{amsmath}
-        \newcommand{\tbf}{\textbf}% text bold
-        \newcommand{\tit}{\textit}% text italic
-        \newcommand{\tsl}{\textsl}% text slanted
-        \newcommand{\tsc}{\textsc}% text small cap
-        \newcommand{\ttt}{\texttt}% text typewriter
-        \newcommand{\trm}{\textrm}% text roman
-        \newcommand{\tsf}{\textsf}% text sans serif
-        \newcommand{\tup}{\textup}% text upright
-        \newcommand{\mbf}{\mathbf}% math bold
-        \providecommand{\mit}{\mathit}% math italic
-        \newcommand{\msf}{\mathsf}% math sans serif
-        \newcommand{\mrm}{\mathrm}% math roman
-        \newcommand{\mtt}{\mathtt}% math typewriter
-        \newcommand{\dcdot}{\mathbf{:}}
-        \newcommand{\bm}[1]{\boldsymbol{#1}}
-        \newcommand{\checkanddefine}[2]{
-          \ifundef{#1}{\newcommand{#1}{#2}}{\renewcommand{#1}{#2}}
-        }
-        \ifundef{\tr}{
-        \newcommand{\tr}[1]{\text{tr}\left(#1\right)}
-        }{
-          \renewcommand{\tr}[1]{\text{tr}\left(#1\right)}
-        }
-        \newcommand{\Grad}{\trm{Grad}\,}
-        \renewcommand{\Grad}[1]{\trm{Grad}\left(#1\right)}
-        \newcommand{\grad}{\mathrm{grad}\,}
-        \renewcommand{\grad}[1]{\trm{grad}\left(#1\right)}
-        \newcommand{\Div}{\trm{Div}\,}
-        \renewcommand{\Div}[1]{\trm{Div} \left(#1\right)}
-        \renewcommand{\div}{\trm{div}\,}
-        \renewcommand{\div}[1]{\trm{div} \left(#1\right)}
-        \newcommand{\Lin}{\textrm{Lin}\,}
-        \newcommand{\intd}{\,{\rom{d}}}
-        \newcommand{\la}{\, \leftarrow \,}
-        \newcommand{\dV}{\; \textrm{d}V}
-        \newcommand{\dViso}{\; \textrm{d}V_{\square}}
-        \newcommand{\dA}{\; \textrm{d}A}
-        \newcommand{\da}{\; \textrm{d}a}
-        \newcommand{\dx}{\; \textrm{ d}x}
-        \newcommand{\dy}{\; \textrm{ d}y}
-        \newcommand{\dz}{\; \textrm{ d}z}
-        \newcommand{\dX}{\; \textrm{ d}X}
-        \newcommand{\dY}{\; \textrm{ d}Y}
-        \newcommand{\dZ}{\; \textrm{ d}Z}
-        \newcommand{\dxi}{\; \textrm{ d}\xi}
-        \newcommand{\deta}{\; \textrm{ d}\eta}
-        \newcommand{\dzeta}{\; \textrm{ d}\zeta}
-        \newcommand{\Ibt}{\int_{\mathcal{B}_t}}
-        \newcommand{\Ist}{\int_{\Gamma_t}}
-        \newcommand{\Ibref}{\int_{\mathcal{B}\rs{0}}}
-        \newcommand{\Isref}{\int_{\Gamma\rs{0}}}
-        \newcommand{\sref}{{\Gamma\rs{0}}}
-        \newcommand{\Bref}{{\mathcal{B}\rs{0}}}
-        \newcommand{\Ibiso}{\int_{\mathcal{B}_{\square}}}
-        \newcommand{\siso}{{\Gamma_{\square}}}
-        \newcommand{\Mtd}[1]{\left(#1\right)^{,}}
-        \newcommand{\MtdFull}[1]{\frac{D \, #1}{D \, t}}
-        \newcommand{\Pd}[2]{\frac{\partial #1}{\partial #2}}
-        \newcommand{\dt}[1]{#1 ^{\bullet}}
-        \newcommand{\rom}[1]{\textrm{#1} }
-        \newcommand{\rp}[1]{^{\rom{#1}}}
-        \newcommand{\rs}[1]{_{\rom{#1}}}
-        \newcommand{\T}{\rp{T}}
-        \newcommand{\mT}{\rp{-T}}
-        \newcommand{\dev}{\rs{dev}}
-        \newcommand{\sph}{\rs{sph}}
-        \newcommand{\hyd}{\rs{hyd}}
-        \newcommand{\iso}{\rs{iso}}
-        \newcommand{\vol}{\rs{vol}}
-        \newcommand{\vM}{\rs{vM}}
-        \newcommand{\sym}{\rs{sym}}
-        \newcommand{\dil}{\rs{dil}}
-        \renewcommand{\ln}[1]{\textrm{ln}\left(#1\right)}
-        \newcommand{\uft}{\mathfrak{\boldsymbol{u}}}
-        \newcommand{\Pext}{\mathcal{P}\rp{ext}}
-        \newcommand{\Pint}{\mathcal{P}\rp{int}}
-        \newcommand{\Cg}{\boldsymbol{C}}
-        \newcommand{\detC}{\det \Cg}
-        \newcommand{\F}{\bm{F}}
-        \newcommand{\s}{\bm{\sigma}}
-        \newcommand{\ie}{\rp{e}}
-        \newcommand{\ipl}{\rp{p}}
-        \newcommand{\e}{\bm{\varepsilon}}
-        \newcommand{\ee}{{\e}\ie}
-        \newcommand{\ep}{{\e}\ipl}
-        \newcommand{\E}{\bm{E}}
-        \newcommand{\Ee}{\E\ie}
-        \newcommand{\Ep}{\E\ipl}
-        \newcommand{\Fe}{\bm{\F}\ie}
-        \newcommand{\Fp}{\bm{\F}\ipl}
-        \newcommand{\Cge}{\tilde{\Cg}\ie}
-        \newcommand{\Cgp}{\Cg\ipl}
-        \newcommand{\Se}{\tilde{\bm{S}}\ie}
-        \newcommand{\Me}{\tilde{\bm{M}}\ie}
-        \newcommand{\Lp}{\tilde{\bm{L}}\ipl}
-        \newcommand{\Dp}{\tilde{\bm{D}}\ipl}
-        \newcommand{\sw}{\rs{sw}}
-        \newcommand{\td}[1]{\dot{#1}}
-        \newcommand{\tdd}[1]{\ddot{#1}}
+# \newcommand{\tbf}{\textbf}% text bold
+# \newcommand{\tit}{\textit}% text italic
+# \newcommand{\tsl}{\textsl}% text slanted
+# \newcommand{\tsc}{\textsc}% text small cap
+# \newcommand{\ttt}{\texttt}% text typewriter
+# \newcommand{\trm}{\textrm}% text roman
+# \newcommand{\tsf}{\textsf}% text sans serif
+# \newcommand{\tup}{\textup}% text upright
+# \newcommand{\mbf}{\mathbf}% math bold
+# \providecommand{\mit}{\mathit}% math italic
+# \newcommand{\msf}{\mathsf}% math sans serif
+# \newcommand{\mrm}{\mathrm}% math roman
+# \newcommand{\mtt}{\mathtt}% math typewriter
+# \newcommand{\dcdot}{\mathbf{:}}
+# \newcommand{\bm}[1]{\boldsymbol{#1}}
+# \newcommand{\checkanddefine}[2]{
+#   \ifundef{#1}{\newcommand{#1}{#2}}{\renewcommand{#1}{#2}}
+# }
+# \ifundef{\tr}{
+# \newcommand{\tr}[1]{\text{tr}\left(#1\right)}
+# }{
+#   \renewcommand{\tr}[1]{\text{tr}\left(#1\right)}
+# }
+# \newcommand{\Grad}{\trm{Grad}\,}
+# \renewcommand{\Grad}[1]{\trm{Grad}\left(#1\right)}
+# \newcommand{\grad}{\mathrm{grad}\,}
+# \renewcommand{\grad}[1]{\trm{grad}\left(#1\right)}
+# \newcommand{\Div}{\trm{Div}\,}
+# \renewcommand{\Div}[1]{\trm{Div} \left(#1\right)}
+# \renewcommand{\div}{\trm{div}\,}
+# \renewcommand{\div}[1]{\trm{div} \left(#1\right)}
+# \newcommand{\Lin}{\textrm{Lin}\,}
+# \newcommand{\intd}{\,{\rom{d}}}
+# \newcommand{\la}{\, \leftarrow \,}
+# \newcommand{\dV}{\; \textrm{d}V}
+# \newcommand{\dViso}{\; \textrm{d}V_{\square}}
+# \newcommand{\dA}{\; \textrm{d}A}
+# \newcommand{\da}{\; \textrm{d}a}
+# \newcommand{\dx}{\; \textrm{ d}x}
+# \newcommand{\dy}{\; \textrm{ d}y}
+# \newcommand{\dz}{\; \textrm{ d}z}
+# \newcommand{\dX}{\; \textrm{ d}X}
+# \newcommand{\dY}{\; \textrm{ d}Y}
+# \newcommand{\dZ}{\; \textrm{ d}Z}
+# \newcommand{\dxi}{\; \textrm{ d}\xi}
+# \newcommand{\deta}{\; \textrm{ d}\eta}
+# \newcommand{\dzeta}{\; \textrm{ d}\zeta}
+# \newcommand{\Ibt}{\int_{\mathcal{B}_t}}
+# \newcommand{\Ist}{\int_{\Gamma_t}}
+# \newcommand{\Ibref}{\int_{\mathcal{B}\rs{0}}}
+# \newcommand{\Isref}{\int_{\Gamma\rs{0}}}
+# \newcommand{\sref}{{\Gamma\rs{0}}}
+# \newcommand{\Bref}{{\mathcal{B}\rs{0}}}
+# \newcommand{\Ibiso}{\int_{\mathcal{B}_{\square}}}
+# \newcommand{\siso}{{\Gamma_{\square}}}
+# \newcommand{\Mtd}[1]{\left(#1\right)^{,}}
+# \newcommand{\MtdFull}[1]{\frac{D \, #1}{D \, t}}
+# \newcommand{\Pd}[2]{\frac{\partial #1}{\partial #2}}
+# \newcommand{\dt}[1]{#1 ^{\bullet}}
+# \newcommand{\rom}[1]{\textrm{#1} }
+# \newcommand{\rp}[1]{^{\rom{#1}}}
+# \newcommand{\rs}[1]{_{\rom{#1}}}
+# \newcommand{\T}{\rp{T}}
+# \newcommand{\mT}{\rp{-T}}
+# \newcommand{\dev}{\rs{dev}}
+# \newcommand{\sph}{\rs{sph}}
+# \newcommand{\hyd}{\rs{hyd}}
+# \newcommand{\iso}{\rs{iso}}
+# \newcommand{\vol}{\rs{vol}}
+# \newcommand{\vM}{\rs{vM}}
+# \newcommand{\sym}{\rs{sym}}
+# \newcommand{\dil}{\rs{dil}}
+# \renewcommand{\ln}[1]{\textrm{ln}\left(#1\right)}
+# \newcommand{\uft}{\mathfrak{\boldsymbol{u}}}
+# \newcommand{\Pext}{\mathcal{P}\rp{ext}}
+# \newcommand{\Pint}{\mathcal{P}\rp{int}}
+# \newcommand{\Cg}{\boldsymbol{C}}
+# \newcommand{\detC}{\det \Cg}
+# \newcommand{\F}{\bm{F}}
+# \newcommand{\s}{\bm{\sigma}}
+# \newcommand{\ie}{\rp{e}}
+# \newcommand{\ipl}{\rp{p}}
+# \newcommand{\e}{\bm{\varepsilon}}
+# \newcommand{\ee}{{\e}\ie}
+# \newcommand{\ep}{{\e}\ipl}
+# \newcommand{\E}{\bm{E}}
+# \newcommand{\Ee}{\E\ie}
+# \newcommand{\Ep}{\E\ipl}
+# \newcommand{\Fe}{\bm{\F}\ie}
+# \newcommand{\Fp}{\bm{\F}\ipl}
+# \newcommand{\Cge}{\tilde{\Cg}\ie}
+# \newcommand{\Cgp}{\Cg\ipl}
+# \newcommand{\Se}{\tilde{\bm{S}}\ie}
+# \newcommand{\Me}{\tilde{\bm{M}}\ie}
+# \newcommand{\Lp}{\tilde{\bm{L}}\ipl}
+# \newcommand{\Dp}{\tilde{\bm{D}}\ipl}
+# \newcommand{\sw}{\rs{sw}}
+# \newcommand{\td}[1]{\dot{#1}}
+# \newcommand{\tdd}[1]{\ddot{#1}}
 # sphinx:
 #  config:
 #    latex_elements:

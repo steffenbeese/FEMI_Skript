@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>1.4. Grundgleichungen einfacher Strukturelemente &#8212; Finite Elemente Methode 1</title>
+    <title>1.9. Grundgleichungen einfacher Strukturelemente &#8212; Finite Elemente Methode 1</title>
   
   
   
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,11 +60,13 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter1/strukturgleichungen';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2. Überblick über verschiedene Lösungsmethoden" href="../chapter2/overview.html" />
-    <link rel="prev" title="1.3. Mathematische Modellbildung in der Kontinuumstheorie" href="elasticity.html" />
+    <link rel="next" title="2. Die Finite Elemente Methode" href="../chapter2/overview.html" />
+    <link rel="prev" title="1.8. Mathematische Modellbildung in der Kontinuumstheorie" href="elasticity.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -170,16 +172,19 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Einf%C3%BChrung.html">1. Einführung in die Numerische Mechanik</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="elasticity.html">1.3. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.4. Grundgleichungen einfacher Strukturelemente</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="elasticity.html">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerische Lösungsverfahren</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Überblick über verschiedene Lösungsmethoden</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.4. Die Finite Elemente Methode</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.1. Von der starken zur schwachen Form</a></li>
+
 </ul>
 </details></li>
 </ul>
@@ -378,9 +383,8 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-stabes">1.4.1. Differentialgleichung des Stabes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-balkens">1.4.2. Differentialgleichung des Balkens</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partielle-differentialgleichung-der-scheibe">1.4.3. Partielle Differentialgleichung der Scheibe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-stabes">1.9.1. Differentialgleichung des Stabes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-balkens">1.9.2. Differentialgleichung des Balkens</a></li>
 </ul>
             </nav>
         </div>
@@ -393,15 +397,63 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="grundgleichungen-einfacher-strukturelemente">
-<h1><span class="section-number">1.4. </span>Grundgleichungen einfacher Strukturelemente<a class="headerlink" href="#grundgleichungen-einfacher-strukturelemente" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">1.9. </span>Grundgleichungen einfacher Strukturelemente<a class="headerlink" href="#grundgleichungen-einfacher-strukturelemente" title="Link to this heading">#</a></h1>
+<figure class="align-default" id="strukturkontinua">
+<a class="reference internal image-reference" href="../../_images/Strukturelemente_Knothe.png"><img alt="../../_images/Strukturelemente_Knothe.png" src="../../_images/Strukturelemente_Knothe.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Übersicht über die Klassifizierung von Strukturvereinfachungen nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span></span><a class="headerlink" href="#strukturkontinua" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die im vorherigen Abschnitt eingeführten Feldgleichungen lassen sich für viele Ingenieurwissenschaftlichen Problemstellungen deutlich vereinfachen. In <a class="reference internal" href="#strukturkontinua"><span class="std std-numref">Fig. 1.14</span></a> sind solche Vereinfachungen gezeigt.</p>
+<p>Für die Impulsbilanz haben wir bereits in der Vorlesung zur “Technischen Mechanik 2” zwei Vereinfachungen kennengelernt:</p>
+<ul class="simple">
+<li><p>den Dehnstab</p></li>
+<li><p>den Balken</p></li>
+</ul>
+<p>Nachfolgen werden lediglich die Differentialgleichungen dieser beiden Strukturelemente eingeführt. Für eine Herleitung der Gleichung sei auf die entsprechende Vorlesung verwiesen.</p>
 <section id="differentialgleichung-des-stabes">
-<h2><span class="section-number">1.4.1. </span>Differentialgleichung des Stabes<a class="headerlink" href="#differentialgleichung-des-stabes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.1. </span>Differentialgleichung des Stabes<a class="headerlink" href="#differentialgleichung-des-stabes" title="Link to this heading">#</a></h2>
+<p>Wird ein prismatisches Bauteil nur entlang seiner Achse <span class="math notranslate nohighlight">\(x\)</span> belastet, so resultieren hieraus nur Normalspannungen <span class="math notranslate nohighlight">\(\sigma_x\)</span>. Solche Belastungsszenarien können über die Differentialgleichung des <strong>Stabes</strong> in guter Näherung bestimmt werden.</p>
+<figure class="align-default" id="stab">
+<a class="reference internal image-reference" href="../../_images/Stab_TMKompakt.png"><img alt="../../_images/Stab_TMKompakt.png" src="../../_images/Stab_TMKompakt.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Kräftegleichgewicht und Spannungen am geraden Stab nach <span id="id2">[<a class="reference internal" href="../../quellen.html#id12" title="Peter Wriggers, Udo Nackenhorst, Sascha Beuermann, Holger Spiess, and Stefan Löhnert. Technische Mechanik Kompakt. Springer, 2006.">Wriggers <em>et al.</em>, 2006</a>]</span></span><a class="headerlink" href="#stab" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die Differentialgleichung des Stabes lautet:</p>
+<div class="math notranslate nohighlight" id="equation-stabdgl">
+<span class="eqno">(1.25)<a class="headerlink" href="#equation-stabdgl" title="Link to this equation">#</a></span>\[\frac{\text{d } \left( E(x)A(x) \frac{\text{d } u}{\text{d } x} \right) }{\text{d } x} =  \frac{\text{d } \left(E(x)A(x) \alpha_T(x) \Delta \theta\right)}{\text{d } x} - n(x)\]</div>
+<p>mit:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(E\)</span> - Elastizitätsmodul in MPa</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> - Querschnittsfläche in mm<span class="math notranslate nohighlight">\(^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(u\)</span> - Axiale Verschiebung in mm</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> - Wärmeausdehnungskoeffizient in mm/K</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta \theta\)</span> - Temperaturänderung in K</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> - axiale Streckenlast in N/mm</p></li>
+</ul>
+<p>Für einen konstanten <span class="math notranslate nohighlight">\(E\)</span>-Modul und eine konstante Querschnittsfläche <span class="math notranslate nohighlight">\(A\)</span>, sowie eine konstante Temperaturdifferenz <span class="math notranslate nohighlight">\(\Delta \theta\)</span> kann diese Differentialgleichung vereinfacht werden zu:</p>
+<div class="math notranslate nohighlight" id="equation-stabdglsimple">
+<span class="eqno">(1.26)<a class="headerlink" href="#equation-stabdglsimple" title="Link to this equation">#</a></span>\[ u^{\prime \prime} = \frac{\text{d}^2\,  u  }{\text{d } x^2} =  - \frac{n(x)}{EA}\]</div>
 </section>
 <section id="differentialgleichung-des-balkens">
-<h2><span class="section-number">1.4.2. </span>Differentialgleichung des Balkens<a class="headerlink" href="#differentialgleichung-des-balkens" title="Link to this heading">#</a></h2>
-</section>
-<section id="partielle-differentialgleichung-der-scheibe">
-<h2><span class="section-number">1.4.3. </span>Partielle Differentialgleichung der Scheibe<a class="headerlink" href="#partielle-differentialgleichung-der-scheibe" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">1.9.2. </span>Differentialgleichung des Balkens<a class="headerlink" href="#differentialgleichung-des-balkens" title="Link to this heading">#</a></h2>
+<p>Balken sind Tragstrukturen, die eindimensional modelliert werden, da ihre Breite und Höhe im Verhältnis zu ihrer Länge sehr gering sind. Im Unterschied zu Stäben, bei denen die Belastung nur in Längsrichtung erfolgt, werden Balken zusätzlich senkrecht zur Längsachse belastet. Dies führt dazu, dass in Stäben ausschließlich Normalkräfte auftreten, während sich in Balken Momente und Querkräfte als Schnittgrößen ergeben.</p>
+<figure class="align-default" id="balken">
+<a class="reference internal image-reference" href="../../_images/Balken_TM2.png"><img alt="../../_images/Balken_TM2.png" src="../../_images/Balken_TM2.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Kräftegleichgewicht, Spannungen und Schnittgrößen am geraden Balken nach <span id="id3">[<a class="reference internal" href="../../quellen.html#id13" title="Dietmar Gross, Werner Hauger, Jörg Schröder, and Wolfgang A Wall. Technische Mechanik: Band 2: Elastostatik. Springer, 2007.">Gross <em>et al.</em>, 2007</a>]</span></span><a class="headerlink" href="#balken" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die Differentialgleichung des Balken lautet:</p>
+<div class="math notranslate nohighlight" id="equation-balkendgl">
+<span class="eqno">(1.27)<a class="headerlink" href="#equation-balkendgl" title="Link to this equation">#</a></span>\[ \left(E I_y w^{\prime \prime}\right)^{\prime\prime} =  q(x)\]</div>
+<p>Für eine konstante Biegesteifigkeit <span class="math notranslate nohighlight">\(EI\)</span> vereinfacht sich diese zu:</p>
+<div class="math notranslate nohighlight" id="equation-balkendglsimple">
+<span class="eqno">(1.28)<a class="headerlink" href="#equation-balkendglsimple" title="Link to this equation">#</a></span>\[  w^{IV} =  \frac{q(x)}{E I_y}\]</div>
 </section>
 </section>
 
@@ -441,7 +493,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1.3. </span>Mathematische Modellbildung in der Kontinuumstheorie</p>
+        <p class="prev-next-title"><span class="section-number">1.8. </span>Mathematische Modellbildung in der Kontinuumstheorie</p>
       </div>
     </a>
     <a class="right-next"
@@ -449,7 +501,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Überblick über verschiedene Lösungsmethoden</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Die Finite Elemente Methode</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -470,9 +522,8 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-stabes">1.4.1. Differentialgleichung des Stabes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-balkens">1.4.2. Differentialgleichung des Balkens</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partielle-differentialgleichung-der-scheibe">1.4.3. Partielle Differentialgleichung der Scheibe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-stabes">1.9.1. Differentialgleichung des Stabes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differentialgleichung-des-balkens">1.9.2. Differentialgleichung des Balkens</a></li>
 </ul>
   </nav></div>
 

@@ -19,13 +19,13 @@ parts:
   - file: chapters/chapter2/overview
     sections:
     - file: chapters/chapter2/1dFEM
-    - file: chapters/chapter2/isoparametrischeFEM
-- caption: Diskretisierung
-  numbered: true
-  chapters:
-  - file: chapters/chapter3/Discretization
-    sections:
-    - file: chapters/chapter3/Elementtopologie
+    # - file: chapters/chapter2/isoparametrischeFEM
+# - caption: Diskretisierung
+#   numbered: true
+#   chapters:
+#   - file: chapters/chapter3/Discretization
+#     sections:
+#     - file: chapters/chapter3/Elementtopologie
 - caption: Quellenverzeichnis
   numbered: true
   chapters:

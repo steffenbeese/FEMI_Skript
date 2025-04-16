@@ -18,7 +18,10 @@ parts:
   chapters:
   - file: chapters/chapter2/overview
     sections:
+    - file: chapters/chapter2/FEM
     - file: chapters/chapter2/1dFEM
+    - file: chapters/chapter2/BalkenFEM
+
     # - file: chapters/chapter2/isoparametrischeFEM
 # - caption: Diskretisierung
 #   numbered: true

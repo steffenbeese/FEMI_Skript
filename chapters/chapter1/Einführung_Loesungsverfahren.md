@@ -14,7 +14,7 @@ kernelspec:
 
 # Numerische Lösungsverfahren
 
-Der kontinuierliche Modellansatz führt zu Feldgleichungen in Form von partielle Differentialgleichungen. Anwendungsgebiete sind hier die Strukturmechanik, der Stoff- und Wärmetransport oder auch die Elektostatik  und vielen weitere. Diese partiellen Differentialgleichungen können in der Regel nicht geschlossen analytisch gelöst werden, weshalb sich numerische Berechnungsschemen hierfür etabliert haben. Die heute gebräuchlichsten werden in der Folge kurz beschrieben:
+Der kontinuierliche Modellansatz führt zu Feldgleichungen in Form von partielle Differentialgleichungen. Anwendungsgebiete sind hier die Strukturmechanik, der Stoff- und Wärmetransport oder auch die Elektrostatik  und vielen weitere. Diese partiellen Differentialgleichungen können in der Regel nicht geschlossen analytisch gelöst werden, weshalb sich numerische Berechnungsschemen hierfür etabliert haben. Die heute gebräuchlichsten werden in der Folge kurz beschrieben:
   - Netzbasiertierte Methoden:
     - Finite Elemente Methode **(FEM)**
     - Finite Volumen Methode **(FVM)**
@@ -84,7 +84,7 @@ Die Randelemente Methode (BEM) ist ein numerisches Verfahren zur Lösung partiel
   3. **Diskretisierung des Randes**: Der Rand wird in eine endliche Anzahl von Elementen unterteilt, und die gesuchte Funktion wird durch Basisfunktionen approximiert, die auf diesen Elementen definiert sind. Dies führt zu einem System von algebraischen Gleichungen, das die Werte der gesuchten Funktion an den Randpunkten beschreibt. 
   4. **Lösen des Gleichungssystems**: Das resultierende Gleichungssystem kann mit verschiedenen numerischen Verfahren gelöst werden.
 
-Die Randelemente Methode ist besonders vorteilhaft, da sie die Dimension des Problems reduziert und somit die Anzahl der benötigten Berechnungen verringert. Sie ist besonders effektiv für Probleme mit unendlichen oder halbunendlichen Domänen, wie z.B. in der Elastizitätstheorie oder der Akustik. BEM ist jedoch oft auf Probleme mit linearen PDEs und gut definierten Randbedingungen beschränkt. Das heißt, Materielle nichtlinearitäten können nicht berücksichtigt werden (keine Plastizität!).
+Die Randelemente Methode ist besonders vorteilhaft, da sie die Dimension des Problems reduziert und somit die Anzahl der benötigten Berechnungen verringert. Sie ist besonders effektiv für Probleme mit unendlichen oder halbunendlichen Domänen, wie z.B. in der Elastizitätstheorie oder der Akustik. BEM ist jedoch oft auf Probleme mit linearen PDEs und gut definierten Randbedingungen beschränkt. Das heißt, Materielle Nichtlinearitäten können nicht berücksichtigt werden (keine Plastizität!).
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -94,7 +94,7 @@ Die Randelemente Methode ist besonders vorteilhaft, da sie die Dimension des Pro
 Die Finite Elemente Methode (FEM) ist ein weit verbreitetes numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das insbesondere in der Ingenieurwissenschaft und der Physik Anwendung findet. Hier sind die grundlegenden Schritte und Konzepte der FEM:
 
   1. **Diskretisierung des Gebiets**: Der kontinuierliche Raum wird in eine endliche Anzahl von kleinen, nicht überlappenden Elementen unterteilt, die zusammen ein Netz (Mesh) bilden. Diese Elemente können verschiedene Formen haben, wie Dreiecke, Vierecke (in 2D) oder Tetraeder, Würfel (in 3D).
-  2. **Aufstellen der Elementgleichungen**: Für jedes Element wird eine lokale Formulierung der PDE aufgestellt, die die physikalischen Gesetze und Randbedingungen berücksichtigt. Dies geschieht häufig durch die Anwendung des prinzips der vituellen Verrückungen oder der Galerkin-Methode, um die Differentialgleichung in eine schwache Form zu überführen.
+  2. **Aufstellen der Elementgleichungen**: Für jedes Element wird eine lokale Formulierung der PDE aufgestellt, die die physikalischen Gesetze und Randbedingungen berücksichtigt. Dies geschieht häufig durch die Anwendung des Prinzips der virtuellen Verrückungen oder der Galerkin-Methode, um die Differentialgleichung in eine schwache Form zu überführen.
   3. **Zusammenfügen der Elementgleichungen**: Die lokalen Gleichungen der einzelnen Elemente werden zu einem globalen Gleichungssystem zusammengefügt. Dies geschieht unter Berücksichtigung der Koppelung zwischen benachbarten Elementen und der gemeinsamen Knotenpunkte.
   4. **Lösen des Gleichungssystems**: Das resultierende globale Gleichungssystem wird mit numerischen Verfahren gelöst.
 

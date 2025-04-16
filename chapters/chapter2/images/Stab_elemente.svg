@@ -8,8 +8,8 @@
    version="1.1"
    id="svg5"
    sodipodi:docname="Stab_elemente.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   inkscape:export-filename="/home/steffen/EAH/FEM_I/FEM_I_Skript/chapters/chapter2/images/Stab_element.png"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   inkscape:export-filename="Stab_element.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -30,79 +30,96 @@
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:zoom="1.6051208"
-     inkscape:cx="364.77006"
-     inkscape:cy="83.794318"
+     inkscape:cx="365.08156"
+     inkscape:cy="84.417322"
      inkscape:window-width="1920"
-     inkscape:window-height="1029"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-height="1094"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      fit-margin-top="5"
      fit-margin-left="5"
      fit-margin-right="5"
      fit-margin-bottom="5"
-     inkscape:snap-global="true">
+     inkscape:snap-global="true"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1">
     <sodipodi:guide
        position="30.120894,52.990386"
        orientation="0,-1"
-       id="guide857" />
+       id="guide857"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="30.120896,55.712156"
        orientation="1,0"
-       id="guide859" />
+       id="guide859"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="32.516057,59.196026"
        orientation="1,0"
-       id="guide861" />
+       id="guide861"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="37.306377,14.776676"
        orientation="0,-1"
-       id="guide943" />
+       id="guide943"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="31.264039,48.853296"
        orientation="1,0"
-       id="guide1335" />
+       id="guide1335"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="27.01807,52.990396"
        orientation="1,0"
-       id="guide2009" />
+       id="guide2009"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="51.965624,41.614575"
        orientation="1,0"
-       id="guide3512" />
+       id="guide3512"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="31.264038,33.756918"
        orientation="0,-1"
-       id="guide4491" />
+       id="guide4491"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="32.516057,50.705301"
        orientation="0,-1"
-       id="guide4741" />
+       id="guide4741"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="54.741834,39.546027"
        orientation="1,0"
-       id="guide8382" />
+       id="guide8382"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="83.308446,40.215018"
        orientation="0,-1"
-       id="guide19652" />
+       id="guide19652"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="63.027462,72.967642"
        orientation="1,0"
-       id="guide19689" />
+       id="guide19689"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="100.0927,52.990386"
        orientation="1,0"
-       id="guide19691" />
+       id="guide19691"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="76.712438,47.837689"
        orientation="0,-1"
-       id="guide19697" />
+       id="guide19697"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="100.0927,24.735669"
        orientation="0,-1"
-       id="guide28955" />
+       id="guide28955"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <defs
      id="defs2">
@@ -1934,7 +1951,7 @@
     </g>
     <g
        inkscape:label=""
-       transform="matrix(0.33333333,0,0,0.33333333,105.00419,57.05561)"
+       transform="matrix(0.33333333,0,0,0.33333333,67.91586,56.725936)"
        id="g28129">
       <g
          id="g206">
@@ -1975,7 +1992,7 @@
     </g>
     <g
        inkscape:label=""
-       transform="matrix(0.33333333,0,0,0.33333333,68.311506,56.861565)"
+       transform="matrix(0.33333333,0,0,0.33333333,104.90532,56.531891)"
        id="g28820">
       <g
          id="g1217">

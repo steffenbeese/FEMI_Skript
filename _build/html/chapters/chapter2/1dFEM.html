@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="de" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.1. Von der starken zur schwachen Form &#8212; Finite Elemente Methode 1</title>
+    <title>2.2. Die Schwache Form am Beispiel des Stabes &#8212; Finite Elemente Methode 1</title>
   
   
   
@@ -44,7 +44,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/documentation_options.js?v=91fba89f"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -54,21 +54,22 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/translations.js?v=79cc9f76"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1], "tbf": ["\\textbf{#1}", 1], "tit": ["\\textit{#1}", 1], "tsl": ["\\textsl{#1}", 1], "tsc": ["\\textsc{#1}", 1], "ttt": ["\\texttt{#1}", 1], "trm": ["\\textrm{#1}", 1], "tsf": ["\\textsf{#1}", 1], "tup": ["\\textup{#1}", 1], "mbf": ["\\mathbf{#1}", 1], "mit": ["\\mathit{#1}", 1], "msf": ["\\mathsf{#1}", 1], "mrm": ["\\mathrm{#1}", 1], "mtt": ["\\mathtt{#1}", 1], "dcdot": "\\mathbf{:}", "pha": ["#1^{\\alpha}", 1], "Pha": ["#1_{\\alpha}", 1], "phb": ["#1^{\\beta}", 1], "Phb": ["#1_{\\beta}", 1], "phu": ["#1^{\\textrm{#2}}", 2], "Phu": ["#1_{\\textrm{#2}}", 2], "phuR": ["#1^{\\textrm{#2R}}", 2], "phaR": ["#1^{\\alpha R}", 1], "phbR": ["#1^{\\beta R}", 1], "setC": "\\left\\{S,G,L,l\\right\\}", "tot": "^{ \\textrm{tot} }", "Grad": ["\\textrm{Grad}\\left(#1\\right)", 1], "grad": ["\\textrm{grad}\\left(#1\\right)", 1], "Div": ["\\textrm{Div} \\left(#1\\right)", 1], "div": ["\\textrm{div} \\left(#1\\right)", 1], "Lin": "\\textrm{Lin}", "intd": "\\ \\textrm{d}", "la": "\\, \\leftarrow \\,", "dV": "\\; \\textrm{d}V", "dViso": "\\; \\textrm{d}V_{\\square}", "dA": "\\; \\textrm{d}A", "da": "\\; \\textrm{d}a", "dx": "\\; \\textrm{ d}x", "dxi": "\\; \\textrm{ d}\\xi", "d": "\\; \\textrm{ d}", "dy": "\\; \\textrm{ d}y", "dz": "\\; \\textrm{ d}z", "dX": "\\; \\textrm{ d}X", "dY": "\\; \\textrm{ d}Y", "dZ": "\\; \\textrm{ d}Z", "deta": "\\; \\textrm{ d}\\eta", "dzeta": "\\; \\textrm{ d}\\zeta", "Ibt": "\\int_{\\mathcal{B}_t}", "Ist": "\\int_{\\Gamma_t}", "Ibref": "\\int_{\\mathcal{B}\\rs{0}}", "Isref": "\\int_{\\Gamma\\rs{0}}", "sref": "{\\Gamma\\rs{0}}", "Bref": "{\\mathcal{B}\\rs{0}}", "Ibiso": "\\int_{\\mathcal{B}_{\\square}}", "siso": "{\\Gamma_{\\square}}", "Mtd": ["\\left(#1\\right)^{,}", 1], "Mtda": ["\\left(#1\\right)^{,}_{\\alpha}", 1], "Mtdu": ["\\left(#1\\right)^{,}_{\\textrm{#2}}", 2], "td": ["\\dot{#1}", 1], "tdd": ["\\ddot{#1}", 1], "Pd": ["\\frac{\\partial #1}{\\partial #2}", 2], "Dd": ["\\frac{\\text{d }  #1}{\\text{d } #2}", 2], "dt": ["#1 ^{\\bullet}", 1], "hist": "\\mid_{\\tau=0}^t", "rom": ["\\textrm{#1}", 1], "rp": ["^{ \\textrm{#1} }", 1], "rs": ["_{ \\textrm{#1} }", 1], "T": "^{ \\textrm{T} }", "mT": "^{ -\\textrm{T} }", "dev": "_{ \\textrm{dev} }", "sph": "_{ \\textrm{sph} }", "hyd": "_{ \\textrm{hyd} }", "iso": "_{ \\textrm{iso} }", "vol": "_{ \\textrm{vol} }", "vM": "_{ \\textrm{vM} }", "sym": "_{ \\textrm{sym} }", "dil": "_{ \\textrm{dil} }", "ln": ["\\textrm{ln}\\left(#1\\right)", 1], "uft": "\\mathfrak{\\boldsymbol{u}}", "Pext": "\\mathcal{P}\\rp{ext}", "Pint": "\\mathcal{P}\\rp{int}", "Cg": "\\boldsymbol{C}", "detC": "\\det \\Cg", "F": "\\bm{F}", "s": "\\bm{\\sigma}", "ie": "\\rp{e}", "ipl": "\\rp{p}", "e": "\\varepsilon", "eb": "\\bm{\\varepsilon}", "ee": ["\\e\\ie", 0], "ep": ["\\e\\ipl", 0], "E": "\\bm{E}", "Ee": ["\\E\\ie", 0], "Ep": ["\\E\\ipl", 0], "Fe": ["\\bm{\\F}\\ie", 0], "Fp": ["\\bm{\\F}\\ipl", 0], "Cge": "\\tilde{\\Cg}\\ie", "Cgp": ["\\Cg\\ipl", 0], "Se": "\\tilde{\\bm{S}}\\ie", "Me": "\\tilde{\\bm{M}}\\ie", "Lp": "\\tilde{\\bm{L}}\\ipl", "Dp": "\\tilde{\\bm{D}}\\ipl", "sw": "\\rs{sw}", "IV": "\\bm{Y}", "iv": "Y", "psiCap": "\\psi\\rs{cap}", "psiCapcv": "\\psi\\rs{cap-cv}", "psiAd": "\\psi\\rs{ad}", "pCap": "p\\rs{cap}", "pCapcv": "p\\rs{cap-cv}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter2/1dFEM';</script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="3. Quellenverzeichnis" href="../../quellen.html" />
-    <link rel="prev" title="2. Die Finite Elemente Methode" href="overview.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="2.3. Die Balken-FEM" href="BalkenFEM.html" />
+    <link rel="prev" title="2.1. Von der starken zur schwachen Form" href="FEM.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
   </head>
   
@@ -155,9 +156,9 @@
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
  <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
+ <span class="search-button__default-text">Suche</span>
  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
 </button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
@@ -183,8 +184,9 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="overview.html">2. Die Finite Elemente Methode</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Von der starken zur schwachen Form</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="FEM.html">2.1. Von der starken zur schwachen Form</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Die Schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BalkenFEM.html">2.3. Die Balken-FEM</a></li>
 </ul>
 </details></li>
 </ul>
@@ -252,7 +254,7 @@
       
       <li><a href="https://github.com/steffenbeese/FEMI_Tutorial" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
+   title="Quell-Repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -269,7 +271,7 @@
       
       <li><a href="https://github.com/steffenbeese/FEMI_Tutorial/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter2/1dFEM.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
+   title="Öffnen Sie ein Problem"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -290,7 +292,7 @@
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -299,7 +301,7 @@
       
       <li><a href="../../_sources/chapters/chapter2/1dFEM.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Download source file"
+   title="Quelldatei herunterladen"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -317,7 +319,7 @@
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Print to PDF"
+  title="In PDF drucken"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -337,7 +339,7 @@
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
+  title="Vollbildmodus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -357,7 +359,7 @@
 </button>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -373,18 +375,16 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Von der starken zur schwachen Form</h1>
+    <h1>Die Schwache Form am Beispiel des Stabes</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
             <div>
-                <h2> Contents </h2>
+                <h2> Inhalt </h2>
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.1. Von der starken zur schwachen Form</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#die-schwache-form-am-beispiel-des-stabes">2.2. Die Schwache Form am Beispiel des Stabes</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-verfahren-von-ritz">2.2.1. Das Verfahren von Ritz</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-elemente-formulierung-fur-den-stab">2.2.2. Finite Elemente Formulierung für den Stab</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diskretisierung-der-schwachen-form">2.2.2.1. Diskretisierung der schwachen Form</a></li>
@@ -395,9 +395,6 @@
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -408,7 +405,7 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p><span class="math notranslate nohighlight">\(
+  <!-- $
 \newcommand{\MtdFull}[1]{\frac{D \, #1}{D \, t}}
 \newcommand{\Pd}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\d}{\text{d} }
@@ -434,57 +431,13 @@
 \newcommand{\eb}{\bm{\e}}
 \newcommand{\s}{\sigma}
 \newcommand{\sb}{\bm{\sigma}}
-\)</span></p>
-<section class="tex2jax_ignore mathjax_ignore" id="von-der-starken-zur-schwachen-form">
-<h1><span class="section-number">2.1. </span>Von der starken zur schwachen Form<a class="headerlink" href="#von-der-starken-zur-schwachen-form" title="Link to this heading">#</a></h1>
-<p>Für die in Kapitel 1 eingeführten Randwertprobleme (Massenbilanz, Impulsbilanz und Energiebilanz) wird in diesem Kapitel die theoretischen Grundlagen der Finite Elemente Methode beschrieben. Für jedes der genannten Probleme ist der Ausgangspunkte die <strong>starke</strong> Form der beschreibenden partiellen Differentialgleichung. Am Beispiel der Impulsbilanz soll exemplarisch die zugehörige <strong>schwache</strong> Form hergeleitet werden. Die Begrifflichkeit stark und schwach bezieht sich hierbei auf die Stetigkeits- und Differenzierbarkeitsanforderungen der gesuchten Lösung <span class="math notranslate nohighlight">\(\bm{u}\)</span>. Die starke Form hat somit <strong>immer</strong> höhere Anforderungen an die Lösung.</p>
-<figure class="align-default" id="impulsbilanz">
-<a class="reference internal image-reference" href="../../_images/Impulsbilanz.jpg"><img alt="../../_images/Impulsbilanz.jpg" src="../../_images/Impulsbilanz.jpg" style="height: 400px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Körper <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> unter Einwirkung der externen Oberflächenkraft <span class="math notranslate nohighlight">\(\tilde{\bm{t}}\)</span> und der Volumenlast <span class="math notranslate nohighlight">\(\bm{b}\)</span></span><a class="headerlink" href="#impulsbilanz" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Ausgangspunkt für die exemplarische Herleitung ist die Impulsbilanz in der quasistatischen Form (ohne Trägheitsterme):</p>
-<div class="math notranslate nohighlight" id="equation-weakform-01">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-weakform-01" title="Link to this equation">#</a></span>\[0 = \div{\bm{\sigma}} + \rho \bm{b} \]</div>
-<p>Diese starke form wird jetzt mit einer beliebigen vektorwertigen Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}\)</span> multipliziert und über das betrachtete Gebiet <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> (den betrachteten Körper) integriert.</p>
-<div class="math notranslate nohighlight" id="equation-weakform-02">
-<span class="eqno">(2.2)<a class="headerlink" href="#equation-weakform-02" title="Link to this equation">#</a></span>\[0 = \int_{\mathcal{B}} \delta  \bm{u}\T \left(\div{\bm{\sigma}} + \rho \bm{b} \right) \dV\]</div>
-<p>Dieser Schritt bedeutet, dass wir im Weiteren versuchen werden, die gekoppelten partiellen Differentialgleichungen nicht punktuell exakt, sondern im gewichteten integralen Mittel zu erfüllen. Für elastomechanische Problemstellungen kann die Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}\)</span> als virtuelle Verrückung aufgefasst werden und die Gleichung <a class="reference internal" href="#equation-weakform-02">(2.2)</a> als das bekannte Prinzip der virtuellen Verrückung aufgefasst werden. Das hier gezeigte Vorgehen ist aber unabhängig von der Elastostatik allgemeingültig.</p>
-<p>Als nächstes integrieren wir die Gleichung <a class="reference internal" href="#equation-weakform-02">(2.2)</a> partiell. Dafür wenden wir zunächst die Produktregel auf den Divergenzterm an:</p>
-<div class="math notranslate nohighlight" id="equation-divergenzsatz">
-<span class="eqno">(2.3)<a class="headerlink" href="#equation-divergenzsatz" title="Link to this equation">#</a></span>\[\int_{\mathcal{B}} \delta \bm{u}\T \div{\bm{\sigma}} \dV = \int_{\mathcal{B}} \div{\delta \bm{u}\T \bm{\sigma}} \dV -\int_{\mathcal{B}} \underbrace{\grad{\delta\bm{u}\T}}_{\delta \bm{\eb}}\bm{\sigma} \dV \; . \]</div>
-<p>Der Wechsel vom Divergenz-Operator zum Gradienten-Operator im zweiten Term auf der rechten Seite lässt sich schlüssig damit erklären, dass das Resultat ein Skalar sein soll. Während die Divergenz eines Vektors einen Skalar liefert, ergibt der Gradient eines Vektors einen Tensor zweiter Ordnung. Dieser Tensor wird dann in einer doppelten skalaren Multiplikation mit einem weiteren Tensor zweiter Ordnung verknüpft, was letztlich zu einem skalaren Ergebnis führt.</p>
-<p>Nun lässt sich mit dem Gauß’schen Ingegralsatz der erste Term auf der rechten Seite von Gleichung <a class="reference internal" href="#equation-divergenzsatz">(2.3)</a> als Integral über den Rand formulieren:</p>
-<div class="math notranslate nohighlight" id="equation-gaussintegraltheorem">
-<span class="eqno">(2.4)<a class="headerlink" href="#equation-gaussintegraltheorem" title="Link to this equation">#</a></span>\[\int_{\mathcal{B}} \div{\delta \bm{u}\T  \bm{\sigma}} \dV = \int_{\partial\mathcal{B}} \delta \bm{u}\T \bm{\sigma}  \bm{n} \dA = \int_{\partial\mathcal{B}} \delta \bm{u}\T \bm{t} \dA \; . \]</div>
-<p>Dieses Resultat wird jetzt wieder in Gleichung <a class="reference internal" href="#equation-weakform-02">(2.2)</a> eingesetzt und wir erhalten:</p>
-<div class="math notranslate nohighlight" id="equation-weakform-03">
-<span class="eqno">(2.5)<a class="headerlink" href="#equation-weakform-03" title="Link to this equation">#</a></span>\[\int_{\mathcal{B}} \delta\eb\T  \bm{\sigma} \dV = \int_{\mathcal{B}} \delta \bm{u}\T \rho \bm{b} \dV + \int_{\partial\mathcal{B}} \delta \bm{u}\T  \bm{t} \dA \; .\]</div>
-<div class="tip admonition">
-<p class="admonition-title">Was haben wir damit erreicht?</p>
-<ul class="simple">
-<li><p>der Oberflächenterm in <a class="reference internal" href="#equation-weakform-03">(2.5)</a> entspricht den Kraftrandbedingungen</p></li>
-<li><p>der Term auf der linken Seite in <a class="reference internal" href="#equation-weakform-03">(2.5)</a> enthält nur noch Ableitungen 1. Ordnung von <span class="math notranslate nohighlight">\(\bm{u}\)</span>, während in <a class="reference internal" href="#equation-weakform-01">(2.1)</a> Ableitungen 2. Ordnung gefordert wurden <span class="math notranslate nohighlight">\(\rightarrow\)</span> schwächere Anforderungen an \bm{u}!</p></li>
-<li><p>Gleichung <a class="reference internal" href="#equation-weakform-03">(2.5)</a> ist exakt das Prinzip der virtuellen Verrückungen</p>
-<ul>
-<li><p>virtuelle Arbeit der Spannungen an den Verzerrungen ist gleich der virtuelle Arbeit der eingeprägten Volumenkräfte plus die virtuelle Arbeit der Oberflächenkräfte</p></li>
-</ul>
-</li>
-</ul>
-</div>
-<p>Setzen wir jetzt noch als Materialmodell die Beschreibung der linearen Elastizität ein, so erhalten wir final:</p>
-<div class="math notranslate nohighlight" id="equation-weakform-04">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-weakform-04" title="Link to this equation">#</a></span>\[\int_{\mathcal{B}} \delta\eb\T \bm{C} \eb \dV = \int_{\mathcal{B}} \delta \bm{u}\T \rho \bm{b} \dV + \int_{\partial\mathcal{B}} \delta \bm{u}\T \cdot \bm{t} \dA \; .\]</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="die-schwache-form-am-beispiel-des-stabes">
+$ --><section class="tex2jax_ignore mathjax_ignore" id="die-schwache-form-am-beispiel-des-stabes">
 <h1><span class="section-number">2.2. </span>Die Schwache Form am Beispiel des Stabes<a class="headerlink" href="#die-schwache-form-am-beispiel-des-stabes" title="Link to this heading">#</a></h1>
 <figure class="align-default" id="stab">
 <a class="reference internal image-reference" href="../../_images/Stab.png"><img alt="../../_images/Stab.png" src="../../_images/Stab.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Stab unter Eigengewicht und externer Kraft.</span><a class="headerlink" href="#stab" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.2 </span><span class="caption-text">Stab unter Eigengewicht und externer Kraft.</span><a class="headerlink" href="#stab" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Auch hier beginnen wir mit der starken Form der Differentialgleichung:</p>
@@ -493,13 +446,13 @@
 <div class="tip admonition">
 <p class="admonition-title">Analytische Lösung</p>
 <p>Die analytische Lösung erhalten wir durch zweifache Integration und einsetzen der Randbedingungen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73d04052-759c-49b2-8c9a-80d9248685ea">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-73d04052-759c-49b2-8c9a-80d9248685ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bb4f671f-b2e0-44ae-bf91-23ed90fab254">
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-bb4f671f-b2e0-44ae-bf91-23ed90fab254" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u(x) = \left( \frac{F}{EA} + \frac{n \ell}{E}\right)\cdot x - \frac{1}{2} \frac{n}{E} x^2 \; . 
 \end{equation}\]</div>
 <p>Die Schnittkraft <span class="math notranslate nohighlight">\(N\)</span> berechnet sich wie folgt:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-25bdf6ff-64e7-44d1-a656-3d793f0b4d20">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-25bdf6ff-64e7-44d1-a656-3d793f0b4d20" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c3b21e30-1ba5-4a0a-9e6b-0499edfca88b">
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-c3b21e30-1ba5-4a0a-9e6b-0499edfca88b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 N(x) = F + n A (\ell-x). 
 \end{equation}\]</div>
 </div>
@@ -532,7 +485,7 @@ N(x) = F + n A (\ell-x).
 \[\delta \e= \delta a_1 + 2 \delta a_2 x.\]</div>
 <p>Eingesetzt in das Prinzip der virtuellen Arbeit führt es zu:</p>
 <div class="math notranslate nohighlight">
-\[EA \int_0^{\ell} (\delta a_1 + 2 \delta a_2 x) (a_1 +2 a_2 x) \dx = F (a_1 \ell +a_2 \ell^2) + \int_0^{\ell} (a_1 x + a_2 x^2) n A \dx \; .\]</div>
+\[EA \int_0^{\ell} (\delta a_1 + 2 \delta a_2 x) (a_1 +2 a_2 x) \dx = F (a_1 \ell +a_2 \ell^2) + \int_0^{\ell} (\delta a_1 x + \delta a_2 x^2) n A \dx \; .\]</div>
 <p>Nach Integration und Herausziehen der Variationen resultiert daraus:</p>
 <div class="math notranslate nohighlight">
 \[\delta a_1\left[EA \ell (a_1 + a_2 \ell) - \frac{1}{2} n A \ell^2 - F \ell\right] + \delta a_2 \left[EA\ell^2(a_1 + \frac{4}{3}a_2\ell) - \frac{1}{3}nA\ell^3 - F\ell^2\right] = 0.\]</div>
@@ -556,14 +509,14 @@ N(x) = F + n A (\ell-x).
 <a class="reference internal image-reference" href="../../_images/Stab_element.png"><img alt="../../_images/Stab_element.png" src="../../_images/Stab_element.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Stab unter Eigengewicht und externer Kraft mit Stabelementen diskretisiert.</span><a class="headerlink" href="#stabelement" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.3 </span><span class="caption-text">Stab unter Eigengewicht und externer Kraft mit Stabelementen diskretisiert.</span><a class="headerlink" href="#stabelement" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Im vorangegangenen Abschnitt haben wir uns von der Effektivität des Prinzips der virtuellen Arbeit in Kombination mit dem Ritz’schen Verfahren überzeugt. Es erweist sich jedoch oft als schwierig, bei komplex geformten Strukturen, die einer vielschichtigen Belastung ausgesetzt sind, einen adäquaten Näherungsansatz zu finden. Die Finite-Elemente-Methode (FEM) löst dieses Problem, indem sie simple Ansatzfunktionen auf überschaubar gestalteten Teilbereichen – den sogenannten finiten Elementen – anwendet und diese dann systematisch für das gesamte Gebiet integriert.</p>
-<p>Als Beispiel hierfür dient die im Bild <a class="reference internal" href="#stabelement"><span class="std std-numref">Fig. 2.3</span></a> dargestellte Diskretisierung eines Stabes mit der Gesamtlänge <span class="math notranslate nohighlight">\(\ell\)</span>, der in zwei finite Elemente mit jeweils der Länge <span class="math notranslate nohighlight">\(l_i = \frac{\ell}{2}\)</span> unterteilt wird.</p>
+<p>Als Beispiel hierfür dient die im Bild <a class="reference internal" href="#stabelement"><span class="std std-numref">Abb. 2.3</span></a> dargestellte Diskretisierung eines Stabes mit der Gesamtlänge <span class="math notranslate nohighlight">\(\ell\)</span>, der in zwei finite Elemente mit jeweils der Länge <span class="math notranslate nohighlight">\(l_i = \frac{\ell}{2}\)</span> unterteilt wird.</p>
 <div class="tip admonition">
 <p class="admonition-title">Allgemeines zu Finiten Elementen</p>
-<p>Ein Finites Element besteht in dem vorliegenden Beispiel aus 2 Knoten. Sowohl die Knoten, als auch die Elemente werden im Allgemeinen nummeriert, damit man sie eindeutig ansprechen kann. Im Bild sind die Elementnummern in den rechteckigen Kästen neben dem Element eingetragen. Die Knotennummer sind in den Kreisen neben den Knoten dargestellt. Die Knoten sind die Träger der primären Feldvariablen (hier: Verschiebung <span class="math notranslate nohighlight">\(u\)</span>) und Ziel der Finiten Elemente Berechnung ist die Bestimmung der primären Variablen, auch Freiheitsgrade (English: Degree of freedom <strong>Dof</strong>) an den Knoten. Im Bild <a class="reference internal" href="#stabelement"><span class="std std-numref">Fig. 2.3</span></a> auf der rechten Seite ist ein einzelnes Stabelement dargestellt. Das Stabelemet hat 2 lokale Knoten und um die Verschiebung an diesen Knoten eindeutig zuzuordnen verwenden wir die Notation:</p>
+<p>Ein Finites Element besteht in dem vorliegenden Beispiel aus 2 Knoten. Sowohl die Knoten, als auch die Elemente werden im Allgemeinen nummeriert, damit man sie eindeutig ansprechen kann. Im Bild sind die Elementnummern in den rechteckigen Kästen neben dem Element eingetragen. Die Knotennummer sind in den Kreisen neben den Knoten dargestellt. Die Knoten sind die Träger der primären Feldvariablen (hier: Verschiebung <span class="math notranslate nohighlight">\(u\)</span>) und Ziel der Finiten Elemente Berechnung ist die Bestimmung der primären Variablen, auch Freiheitsgrade (English: Degree of freedom <strong>Dof</strong>) an den Knoten. Im Bild <a class="reference internal" href="#stabelement"><span class="std std-numref">Abb. 2.3</span></a> auf der rechten Seite ist ein einzelnes Stabelement dargestellt. Das Stabelement hat 2 lokale Knoten und um die Verschiebung an diesen Knoten eindeutig zuzuordnen verwenden wir die Notation:</p>
 <p><span class="math notranslate nohighlight">\(
 u_1^{e} \text{ Verschiebung u am lokalen Knoten 1 von Element e}
 \)</span></p>
@@ -697,11 +650,11 @@ u_2^{e} \text{ Verschiebung u am lokalen Knoten 2 von Element e}
 <section id="assemblierung-der-finiten-elemente">
 <h3><span class="section-number">2.2.2.2. </span>Assemblierung der Finiten Elemente<a class="headerlink" href="#assemblierung-der-finiten-elemente" title="Link to this heading">#</a></h3>
 <p>Das Ziel dieses Abschnitts ist es, die Entwicklung der Gleichungen für das Gesamtsystem aus den Elementsteifigkeitsmatrizen zu beschreiben. Wir werden die Assemblierungoperationen vorstellen, die hierfür verwendet werden. Diese Operationen sind ein fester Bestandteil der Finite-Elemente-Methode (FEM) und kommen selbst bei den komplexesten Problemen zum Einsatz. Daher ist es wesentlich, diese Verfahren zu beherrschen, um die FEM zu erlernen.</p>
-<p>Die Elemente im unserem dargestellten Beispiel (<a class="reference internal" href="#stabelement"><span class="std std-numref">Fig. 2.3</span></a>) werden mit den Nummern 1 und 2 bezeichnet, während die Knoten von 1 bis 3 nummeriert sind; weder die Knoten noch die Elemente müssen in einem FEM-Netz in einer bestimmten Reihenfolge nummeriert sein. Wir kommen hierzu nochmal später in der Vorlesung.</p>
+<p>Die Elemente im unserem dargestellten Beispiel (<a class="reference internal" href="#stabelement"><span class="std std-numref">Abb. 2.3</span></a>) werden mit den Nummern 1 und 2 bezeichnet, während die Knoten von 1 bis 3 nummeriert sind; weder die Knoten noch die Elemente müssen in einem FEM-Netz in einer bestimmten Reihenfolge nummeriert sein. Wir kommen hierzu nochmal später in der Vorlesung.</p>
 <p>Beachten Sie, dass die Kraftgrößen der Elemente <span class="math notranslate nohighlight">\(S_i^{(e)}\)</span> mit den Indizes 1 und 2 versehen sind. Dies sind die lokalen Knotennummern. Die Knoten des Netzes sind die globalen Knotennummern. Die lokalen Knotennummern eines Stabelements sind immer in der positiven <span class="math notranslate nohighlight">\(\xi\)</span>-Richtung mit 1, 2 nummeriert. Die globalen Knotennummern hingegen sind willkürlich.</p>
 <p>Wir versuchen nun, die lokalen Kräfte <span class="math notranslate nohighlight">\(S_i^{(e)}\)</span> für das Element 1 mit den globalen Verschiebungen in Verbindung zu bringen. Betrachten wir zunächst den Knoten 2, welchen sich Element 1 und 2 teilen. Hier gilt für die Verschiebung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-07c163d2-c9be-4689-9c1f-1ffede242ab7">
-<span class="eqno">(2.19)<a class="headerlink" href="#equation-07c163d2-c9be-4689-9c1f-1ffede242ab7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-76d9d584-ac9e-4901-a449-493183f81916">
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-76d9d584-ac9e-4901-a449-493183f81916" title="Permalink to this equation">#</a></span>\[\begin{align}
   u_2^{(1)} = u_1^{(2)} = u_2 \; .
 \end{align}\]</div>
 <div class="math notranslate nohighlight" id="equation-stabfem5">
@@ -808,7 +761,7 @@ u_3
 \end{align} \; .\end{split}\]</div>
 <div class="tip admonition">
 <p class="admonition-title">Direkte Assemblierung</p>
-<p>Innerhalb einer FE-Software werden die entsprechenden Matrizen natürlich nicht explizit zunächst auf die Größe der globalen Matrix “aufgeblasen” um sie später zu addieren. Über die Zuordnung von lokaler zur globalen Knotennummer kann dies effizient direkt erfolgen.</p>
+<p>Innerhalb einer FE-Software werden die entsprechenden Matrizen natürlich nicht explizit zunächst auf die Größe der globalen Matrix „aufgeblasen“ um sie später zu addieren. Über die Zuordnung von lokaler zur globalen Knotennummer kann dies effizient direkt erfolgen.</p>
 </div>
 </section>
 <section id="losung-des-gleichungssystems">
@@ -849,8 +802,8 @@ u_3
 \bar{\bm{u}}
 \end{bmatrix}- \bm{F}_v\]</div>
 <p>Im vorliegenden Beispiel erhalten wir für das Gleichungssystem <a class="reference internal" href="#equation-lgssolve2">(2.26)</a>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9cfbf57-bf4f-463e-b5d9-9e4af4b5af1e">
-<span class="eqno">(2.28)<a class="headerlink" href="#equation-d9cfbf57-bf4f-463e-b5d9-9e4af4b5af1e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0c7a037a-ea77-4712-8be1-08dc9f0993a1">
+<span class="eqno">(2.28)<a class="headerlink" href="#equation-0c7a037a-ea77-4712-8be1-08dc9f0993a1" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 F \\
 0 \\
@@ -882,8 +835,8 @@ u_2\\
 \end{bmatrix} 
 \end{align}\]</div>
 <p>mit der Lösung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aadd00a6-6982-43dc-a255-6aa5fb0e09db">
-<span class="eqno">(2.29)<a class="headerlink" href="#equation-aadd00a6-6982-43dc-a255-6aa5fb0e09db" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-05c35e50-22d9-4306-8a2e-07c770e351c6">
+<span class="eqno">(2.29)<a class="headerlink" href="#equation-05c35e50-22d9-4306-8a2e-07c770e351c6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 u_1 \\
 u_2\\
@@ -893,8 +846,8 @@ u_2\\
 \end{bmatrix} 
 \end{align}\]</div>
 <p>Die unbekannte Reaktionskraft am Knoten 3 berechnet sich dann zu:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-411a8cf8-68ee-4cb2-a97a-5b1346c7c1b5">
-<span class="eqno">(2.30)<a class="headerlink" href="#equation-411a8cf8-68ee-4cb2-a97a-5b1346c7c1b5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5e92824d-d386-4e29-a48b-008e2c528fcb">
+<span class="eqno">(2.30)<a class="headerlink" href="#equation-5e92824d-d386-4e29-a48b-008e2c528fcb" title="Permalink to this equation">#</a></span>\[\begin{align}
 R + F_v &amp; = \frac{2EA}{\ell} \begin{bmatrix}
 0 &amp; -1 
 \end{bmatrix} \begin{bmatrix}
@@ -923,13 +876,13 @@ N^{(2)} &amp; = 2\frac{EA}{\ell} \begin{bmatrix} -1 &amp; 1 \end{bmatrix} \begin
 <figure class="align-default" id="fe-compare">
 <img alt="../../_images/c132fbcde5a0a9cd010188f575e66ae1f2b7a6eb1dbd7b12723ec7d3079eaa54.png" src="../../_images/c132fbcde5a0a9cd010188f575e66ae1f2b7a6eb1dbd7b12723ec7d3079eaa54.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Vergleich der analytischen Lösung mit der FE-Lösung.</span><a class="headerlink" href="#fe-compare" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.4 </span><span class="caption-text">Vergleich der analytischen Lösung mit der FE-Lösung.</span><a class="headerlink" href="#fe-compare" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
 </div>
-<p>Abbildung <a class="reference internal" href="#fe-compare"><span class="std std-numref">Fig. 2.4</span></a> links zeigt einen Vergleich zwischen dem mit der Finite-Elemente-Methode (FEM) ermittelten Verschiebungsfeld und der analytischen Lösung. Letztere zeigt aufgrund der Eigengewichtsbelastung einen quadratischen Verlauf, während die FEM diesen in Abschnitten durch lineare Näherungen darstellt. In diesem speziellen Fall ist erkennbar, dass die FEM die analytische Lösung an den Knotenpunkten exakt wiedergibt.</p>
-<p>Im rechten Teil von Abbildung <a class="reference internal" href="#fe-compare"><span class="std std-numref">Fig. 2.4</span></a> wird die FE-Approximation für den Verlauf der Schnittkräfte mit der analytischen Lösung kontrastiert. Die analytische Lösung zeigt ein lineares Wachstum der Normalkraft auf, das jedoch durch die hier verwendeten linearen Ansatzfunktionen lediglich stückweise durch eine konstante Annäherung wiedergegeben wird. Dabei treten an den Grenzen der Elemente Diskontinuitäten in den von der FEM berechneten Schnittkraftverläufen auf. Auffällig ist auch in diesem Beispiel, dass die analytische Lösung im Zentrum jedes Elements exakt erreicht wird.</p>
+<p>Abbildung <a class="reference internal" href="#fe-compare"><span class="std std-numref">Abb. 2.4</span></a> links zeigt einen Vergleich zwischen dem mit der Finite-Elemente-Methode (FEM) ermittelten Verschiebungsfeld und der analytischen Lösung. Letztere zeigt aufgrund der Eigengewichtsbelastung einen quadratischen Verlauf, während die FEM diesen in Abschnitten durch lineare Näherungen darstellt. In diesem speziellen Fall ist erkennbar, dass die FEM die analytische Lösung an den Knotenpunkten exakt wiedergibt.</p>
+<p>Im rechten Teil von Abbildung <a class="reference internal" href="#fe-compare"><span class="std std-numref">Abb. 2.4</span></a> wird die FE-Approximation für den Verlauf der Schnittkräfte mit der analytischen Lösung kontrastiert. Die analytische Lösung zeigt ein lineares Wachstum der Normalkraft auf, das jedoch durch die hier verwendeten linearen Ansatzfunktionen lediglich stückweise durch eine konstante Annäherung wiedergegeben wird. Dabei treten an den Grenzen der Elemente Diskontinuitäten in den von der FEM berechneten Schnittkraftverläufen auf. Auffällig ist auch in diesem Beispiel, dass die analytische Lösung im Zentrum jedes Elements exakt erreicht wird.</p>
 <p>Die Genauigkeit dieser Näherungslösung kann augenscheinlich gesteigert werden, indem man die Anzahl der Elemente erhöht. Dies führt dazu, dass die Sprünge im Verlauf der Schnittkräfte bestehen bleiben, aber kleiner ausfallen. Um eine qualitativ signifikante Verbesserung zu erzielen, empfiehlt es sich, Elemente mit quadratischen Ansatzfunktionen für das Verschiebungsfeld zu nutzen. In diesem Fall wird bereits mit einem einzigen Element, das über drei Knotenpunkte verfügt, die exakte Lösung erlangt. In dieser Situation wäre dann die FEM äquivalent dem Ritz’schen Verfahren.</p>
 </section>
 </section>
@@ -966,20 +919,20 @@ N^{(2)} &amp; = 2\frac{EA}{\ell} \begin{bmatrix} -1 &amp; 1 \end{bmatrix} \begin
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="overview.html"
+       href="FEM.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Die Finite Elemente Methode</p>
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Von der starken zur schwachen Form</p>
       </div>
     </a>
     <a class="right-next"
-       href="../../quellen.html"
+       href="BalkenFEM.html"
        title="next page">
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Quellenverzeichnis</p>
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Die Balken-FEM</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -996,12 +949,10 @@ N^{(2)} &amp; = 2\frac{EA}{\ell} \begin{bmatrix} -1 &amp; 1 \end{bmatrix} \begin
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
+    <i class="fa-solid fa-list"></i> Inhalt
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2.1. Von der starken zur schwachen Form</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#die-schwache-form-am-beispiel-des-stabes">2.2. Die Schwache Form am Beispiel des Stabes</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-verfahren-von-ritz">2.2.1. Das Verfahren von Ritz</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-elemente-formulierung-fur-den-stab">2.2.2. Finite Elemente Formulierung für den Stab</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diskretisierung-der-schwachen-form">2.2.2.1. Diskretisierung der schwachen Form</a></li>
@@ -1012,9 +963,6 @@ N^{(2)} &amp; = 2\frac{EA}{\ell} \begin{bmatrix} -1 &amp; 1 \end{bmatrix} \begin
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
@@ -1028,7 +976,7 @@ N^{(2)} &amp; = 2\frac{EA}{\ell} \begin{bmatrix} -1 &amp; 1 \end{bmatrix} \begin
   <div class="footer-item">
     
 <p class="component-author">
-By Prof. Dr.-Ing. Steffen Beese
+Durch Prof. Dr.-Ing. Steffen Beese
 </p>
 
   </div>

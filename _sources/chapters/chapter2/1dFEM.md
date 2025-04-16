@@ -7,10 +7,9 @@ jupytext:
     jupytext_version: 1.16.7
 ---
 
-+++ {"editable": true, "slideshow": {"slide_type": "skip"}}
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-
-$
+<!-- $
 \newcommand{\MtdFull}[1]{\frac{D \, #1}{D \, t}}
 \newcommand{\Pd}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\d}{\text{d} }
@@ -36,90 +35,7 @@ $
 \newcommand{\eb}{\bm{\e}}
 \newcommand{\s}{\sigma}
 \newcommand{\sb}{\bm{\sigma}}
-$
-
-+++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
-
-# Von der starken zur schwachen Form
-
-Für die in Kapitel 1 eingeführten Randwertprobleme (Massenbilanz, Impulsbilanz und Energiebilanz) wird in diesem Kapitel die theoretischen Grundlagen der Finite Elemente Methode beschrieben. Für jedes der genannten Probleme ist der Ausgangspunkte die **starke** Form der beschreibenden partiellen Differentialgleichung. Am Beispiel der Impulsbilanz soll exemplarisch die zugehörige **schwache** Form hergeleitet werden. Die Begrifflichkeit stark und schwach bezieht sich hierbei auf die Stetigkeits- und Differenzierbarkeitsanforderungen der gesuchten Lösung $\bm{u}$. Die starke Form hat somit **immer** höhere Anforderungen an die Lösung.
-
-```{figure} ../chapter1/images/Impulsbilanz.jpg
----
-height: 400px
-name: impulsbilanz
----
-Körper $\mathcal{B}$ unter Einwirkung der externen Oberflächenkraft $\tilde{\bm{t}}$ und der Volumenlast $\bm{b}$
-```
-
-+++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
-
-Ausgangspunkt für die exemplarische Herleitung ist die Impulsbilanz in der quasistatischen Form (ohne Trägheitsterme):
-
-```{math}
-:label: weakform_01
-0 = \div{\bm{\sigma}} + \rho \bm{b} 
-```
-Diese starke form wird jetzt mit einer beliebigen vektorwertigen Testfunktion $\delta \bm{u}$ multipliziert und über das betrachtete Gebiet $\mathcal{B}$ (den betrachteten Körper) integriert.
-
-```{math}
-:label: weakform_02
-0 = \int_{\mathcal{B}} \delta  \bm{u}\T \left(\div{\bm{\sigma}} + \rho \bm{b} \right) \dV
-```
-
-Dieser Schritt bedeutet, dass wir im Weiteren versuchen werden, die gekoppelten partiellen Differentialgleichungen nicht punktuell exakt, sondern im gewichteten integralen Mittel zu erfüllen. Für elastomechanische Problemstellungen kann die Testfunktion $\delta \bm{u}$ als virtuelle Verrückung aufgefasst werden und die Gleichung {eq}`weakform_02` als das bekannte Prinzip der virtuellen Verrückung aufgefasst werden. Das hier gezeigte Vorgehen ist aber unabhängig von der Elastostatik allgemeingültig.
-
-+++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
-
-Als nächstes integrieren wir die Gleichung {eq}`weakform_02` partiell. Dafür wenden wir zunächst die Produktregel auf den Divergenzterm an: 
-
-```{math}
-:label: divergenzsatz
-\int_{\mathcal{B}} \delta \bm{u}\T \div{\bm{\sigma}} \dV = \int_{\mathcal{B}} \div{\delta \bm{u}\T \bm{\sigma}} \dV -\int_{\mathcal{B}} \underbrace{\grad{\delta\bm{u}\T}}_{\delta \bm{\eb}}\bm{\sigma} \dV \; . 
-```
-
-Der Wechsel vom Divergenz-Operator zum Gradienten-Operator im zweiten Term auf der rechten Seite lässt sich schlüssig damit erklären, dass das Resultat ein Skalar sein soll. Während die Divergenz eines Vektors einen Skalar liefert, ergibt der Gradient eines Vektors einen Tensor zweiter Ordnung. Dieser Tensor wird dann in einer doppelten skalaren Multiplikation mit einem weiteren Tensor zweiter Ordnung verknüpft, was letztlich zu einem skalaren Ergebnis führt.
-
-+++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
-
-Nun lässt sich mit dem Gauß'schen Ingegralsatz der erste Term auf der rechten Seite von Gleichung {eq}`divergenzsatz` als Integral über den Rand formulieren:
-
-```{math}
-:label: gaussIntegralTheorem
-\int_{\mathcal{B}} \div{\delta \bm{u}\T  \bm{\sigma}} \dV = \int_{\partial\mathcal{B}} \delta \bm{u}\T \bm{\sigma}  \bm{n} \dA = \int_{\partial\mathcal{B}} \delta \bm{u}\T \bm{t} \dA \; . 
-```
-
-Dieses Resultat wird jetzt wieder in Gleichung {eq}`weakform_02` eingesetzt und wir erhalten:
-
-```{math}
-:label: weakform_03
-\int_{\mathcal{B}} \delta\eb\T  \bm{\sigma} \dV = \int_{\mathcal{B}} \delta \bm{u}\T \rho \bm{b} \dV + \int_{\partial\mathcal{B}} \delta \bm{u}\T  \bm{t} \dA \; .
-```
-+++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
-```{admonition} Was haben wir damit erreicht?
-:class: tip
-
-- der Oberflächenterm in {eq}`weakform_03` entspricht den Kraftrandbedingungen 
-- der Term auf der linken Seite in {eq}`weakform_03` enthält nur noch Ableitungen 1. Ordnung von $\bm{u}$, während in {eq}`weakform_01` Ableitungen 2. Ordnung gefordert wurden $\rightarrow$ schwächere Anforderungen an \bm{u}!
-- Gleichung {eq}`weakform_03` ist exakt das Prinzip der virtuellen Verrückungen
-  -  virtuelle Arbeit der Spannungen an den Verzerrungen ist gleich der virtuelle Arbeit der eingeprägten Volumenkräfte plus die virtuelle Arbeit der Oberflächenkräfte
-```
-
-+++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
-
-Setzen wir jetzt noch als Materialmodell die Beschreibung der linearen Elastizität ein, so erhalten wir final:
-
-```{math}
-:label: weakform_04
-\int_{\mathcal{B}} \delta\eb\T \bm{C} \eb \dV = \int_{\mathcal{B}} \delta \bm{u}\T \rho \bm{b} \dV + \int_{\partial\mathcal{B}} \delta \bm{u}\T \cdot \bm{t} \dA \; .
-```
-
+$ -->
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 # Die Schwache Form am Beispiel des Stabes
@@ -214,7 +130,7 @@ und
 Eingesetzt in das Prinzip der virtuellen Arbeit führt es zu:
 
 ```{math}
-EA \int_0^{\ell} (\delta a_1 + 2 \delta a_2 x) (a_1 +2 a_2 x) \dx = F (a_1 \ell +a_2 \ell^2) + \int_0^{\ell} (a_1 x + a_2 x^2) n A \dx \; .
+EA \int_0^{\ell} (\delta a_1 + 2 \delta a_2 x) (a_1 +2 a_2 x) \dx = F (a_1 \ell +a_2 \ell^2) + \int_0^{\ell} (\delta a_1 x + \delta a_2 x^2) n A \dx \; .
 ```
 
 Nach Integration und Herausziehen der Variationen resultiert daraus:
@@ -269,7 +185,7 @@ Als Beispiel hierfür dient die im Bild {numref}`stabelement` dargestellte Diskr
 ```{admonition} Allgemeines zu Finiten Elementen
 :class: tip
 
-Ein Finites Element besteht in dem vorliegenden Beispiel aus 2 Knoten. Sowohl die Knoten, als auch die Elemente werden im Allgemeinen nummeriert, damit man sie eindeutig ansprechen kann. Im Bild sind die Elementnummern in den rechteckigen Kästen neben dem Element eingetragen. Die Knotennummer sind in den Kreisen neben den Knoten dargestellt. Die Knoten sind die Träger der primären Feldvariablen (hier: Verschiebung $u$) und Ziel der Finiten Elemente Berechnung ist die Bestimmung der primären Variablen, auch Freiheitsgrade (English: Degree of freedom **Dof**) an den Knoten. Im Bild {numref}`stabelement` auf der rechten Seite ist ein einzelnes Stabelement dargestellt. Das Stabelemet hat 2 lokale Knoten und um die Verschiebung an diesen Knoten eindeutig zuzuordnen verwenden wir die Notation:
+Ein Finites Element besteht in dem vorliegenden Beispiel aus 2 Knoten. Sowohl die Knoten, als auch die Elemente werden im Allgemeinen nummeriert, damit man sie eindeutig ansprechen kann. Im Bild sind die Elementnummern in den rechteckigen Kästen neben dem Element eingetragen. Die Knotennummer sind in den Kreisen neben den Knoten dargestellt. Die Knoten sind die Träger der primären Feldvariablen (hier: Verschiebung $u$) und Ziel der Finiten Elemente Berechnung ist die Bestimmung der primären Variablen, auch Freiheitsgrade (English: Degree of freedom **Dof**) an den Knoten. Im Bild {numref}`stabelement` auf der rechten Seite ist ein einzelnes Stabelement dargestellt. Das Stabelement hat 2 lokale Knoten und um die Verschiebung an diesen Knoten eindeutig zuzuordnen verwenden wir die Notation:
 
 $
 u_1^{e} \text{ Verschiebung u am lokalen Knoten 1 von Element e}

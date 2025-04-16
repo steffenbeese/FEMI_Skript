@@ -13,7 +13,7 @@ kernelspec:
 
 +++ {"editable": true, "slideshow": {"slide_type": "skip"}}
 
-$
+<!-- $
 \newcommand{\MtdFull}[1]{\frac{D \, #1}{D \, t}}
 \newcommand{\Pd}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\dt}[1]{#1 ^{\bullet}}
@@ -37,7 +37,7 @@ $
 \newcommand{\eb}{\bm{\e}}
 \newcommand{\s}{\sigma}
 \newcommand{\sb}{\bm{\sigma}}
-$
+$ -->
 
 
 <!-- ```{admonition} Todo
@@ -77,7 +77,7 @@ $
 
 # Mathematische Modellbildung in der Kontinuumstheorie
 
-In diesem Kapitel werden die grundlegenden Gleichungen der Kontinuumsmechanik vorgestellt. Dies dient als Ausgangspunkt für die numerische Lösung mechanischer Problemstellungen. Während der Vorstellung der Ausgangsgleichungen wird zudem die verwendete Notation eigeführt.
+In diesem Kapitel werden die grundlegenden Gleichungen der Kontinuumsmechanik vorgestellt. Dies dient als Ausgangspunkt für die numerische Lösung mechanischer Problemstellungen. Während der Vorstellung der Ausgangsgleichungen wird zudem die verwendete Notation eingeführt.
 
 
 ## Notation
@@ -161,7 +161,7 @@ Diese Art der mathematischen Problemstellung nennt man Anfangsrandwertproblem (I
 
 ```{admonition} IVBP1 - Massenerhaltung
 :class: tip
-Bestimme das Druckfeld $p(\bm{x},t): \mathcal{B} \times [t_0,t] \rightarrow \mathcal{R}^1$, sodass für alle materiellen Punkte $\bm{x} \, \in \, \mathcal{B}$ zu jedem Zeitpunt $t \, \in \, [t_0,t]$ die Bilanzgleichung:
+Bestimme das Druckfeld $p(\bm{x},t): \mathcal{B} \times [t_0,t] \rightarrow \mathcal{R}^1$, sodass für alle materiellen Punkte $\bm{x} \, \in \, \mathcal{B}$ zu jedem Zeitpunkt $t \, \in \, [t_0,t]$ die Bilanzgleichung:
 
 $$
 \frac{\varrho}{\kappa} \td{p} + \div{\varrho {\bm{v}}} = 0 
@@ -207,7 +207,7 @@ Die primäre Feldgröße dieser Anfangsrandwertproblems ist die Verschiebung $\b
 
 ```{admonition} IVBP2 - Impulsbilanz
 :class: tip
-Bestimme das Verschiebungsfeld $\bm{u}(\bm{x},t): \mathcal{B} \times [t_0,t] \rightarrow \mathcal{R}^3$, sodass für alle materiellen Punkte $\bm{x} \, \in \, \mathcal{B}$ zu jedem Zeitpunt $t \, \in \, [t_0,t]$ die Bilanzgleichung:
+Bestimme das Verschiebungsfeld $\bm{u}(\bm{x},t): \mathcal{B} \times [t_0,t] \rightarrow \mathcal{R}^3$, sodass für alle materiellen Punkte $\bm{x} \, \in \, \mathcal{B}$ zu jedem Zeitpunkt $t \, \in \, [t_0,t]$ die Bilanzgleichung:
 
 $$
 \varrho \td{\bm{v}} =\div{\bm{\sigma}} + \rho \bm{b} 
@@ -253,7 +253,7 @@ Hier ist die primäre Variable die Temperatur $\theta(\bm{x},t)$ und die sekund�
 
 ```{admonition} IVBP3 - Energiebilanz
 :class: tip
-Bestimme das Temperaturfeld $\theta(\bm{x},t): \mathcal{B} \times [t_0,t] \rightarrow \mathcal{R}^1$, sodass für alle materiellen Punkte $\bm{x} \, \in \, \mathcal{B}$ zu jedem Zeitpunt $t \, \in \, [t_0,t]$ die Bilanzgleichung:
+Bestimme das Temperaturfeld $\theta(\bm{x},t): \mathcal{B} \times [t_0,t] \rightarrow \mathcal{R}^1$, sodass für alle materiellen Punkte $\bm{x} \, \in \, \mathcal{B}$ zu jedem Zeitpunkt $t \, \in \, [t_0,t]$ die Bilanzgleichung:
 
 $$
 \varrho c_e \Pd{\theta}{t} + \div{\bm{q}} - \varrho r = 0

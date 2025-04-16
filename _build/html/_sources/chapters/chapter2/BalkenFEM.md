@@ -356,3 +356,10 @@ Flächenträgheitsmomente für I-Profile nach DIN 1025-1:2009-04. [ezzart.org](h
 
 
 ## Konvergenz 
+
+
+## Interactives Notebook
+
+Basierend auf der präsentierten Theorie wurde ein Jupyter Notebook erstellt. Dieses kann man ohne Systemvorraussetzungen im Browser ausführen:
+
+Balken FEM for Binder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/steffenbeese/FEM_I_Notebooks/main?urlpath=%2Fdoc%2Ftree%2FNotebook_BalkenFEM.ipynb)

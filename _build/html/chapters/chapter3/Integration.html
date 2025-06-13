@@ -1,0 +1,638 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.5. Integration &#8212; Finite Elemente Methode 1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1], "tbf": ["\\textbf{#1}", 1], "tit": ["\\textit{#1}", 1], "tsl": ["\\textsl{#1}", 1], "tsc": ["\\textsc{#1}", 1], "ttt": ["\\texttt{#1}", 1], "trm": ["\\textrm{#1}", 1], "tsf": ["\\textsf{#1}", 1], "tup": ["\\textup{#1}", 1], "mbf": ["\\mathbf{#1}", 1], "mit": ["\\mathit{#1}", 1], "msf": ["\\mathsf{#1}", 1], "mrm": ["\\mathrm{#1}", 1], "mtt": ["\\mathtt{#1}", 1], "dcdot": "\\mathbf{:}", "pha": ["#1^{\\alpha}", 1], "Pha": ["#1_{\\alpha}", 1], "phb": ["#1^{\\beta}", 1], "Phb": ["#1_{\\beta}", 1], "phu": ["#1^{\\textrm{#2}}", 2], "Phu": ["#1_{\\textrm{#2}}", 2], "phuR": ["#1^{\\textrm{#2R}}", 2], "phaR": ["#1^{\\alpha R}", 1], "phbR": ["#1^{\\beta R}", 1], "setC": "\\left\\{S,G,L,l\\right\\}", "tot": "^{ \\textrm{tot} }", "Grad": ["\\textrm{Grad}\\left(#1\\right)", 1], "grad": ["\\textrm{grad}\\left(#1\\right)", 1], "Div": ["\\textrm{Div} \\left(#1\\right)", 1], "div": ["\\textrm{div} \\left(#1\\right)", 1], "Lin": "\\textrm{Lin}", "intd": "\\ \\textrm{d}", "la": "\\, \\leftarrow \\,", "dV": "\\; \\textrm{d}V", "dViso": "\\; \\textrm{d}V_{\\square}", "dA": "\\; \\textrm{d}A", "da": "\\; \\textrm{d}a", "dx": "\\; \\textrm{ d}x", "dxi": "\\; \\textrm{ d}\\xi", "d": "\\; \\textrm{ d}", "dy": "\\; \\textrm{ d}y", "dz": "\\; \\textrm{ d}z", "dX": "\\; \\textrm{ d}X", "dY": "\\; \\textrm{ d}Y", "dZ": "\\; \\textrm{ d}Z", "deta": "\\; \\textrm{ d}\\eta", "dzeta": "\\; \\textrm{ d}\\zeta", "Ibt": "\\int_{\\mathcal{B}_t}", "Ist": "\\int_{\\Gamma_t}", "Ibref": "\\int_{\\mathcal{B}\\rs{0}}", "Isref": "\\int_{\\Gamma\\rs{0}}", "sref": "{\\Gamma\\rs{0}}", "Bref": "{\\mathcal{B}\\rs{0}}", "Ibiso": "\\int_{\\mathcal{B}_{\\square}}", "siso": "{\\Gamma_{\\square}}", "Mtd": ["\\left(#1\\right)^{,}", 1], "Mtda": ["\\left(#1\\right)^{,}_{\\alpha}", 1], "Mtdu": ["\\left(#1\\right)^{,}_{\\textrm{#2}}", 2], "td": ["\\dot{#1}", 1], "tdd": ["\\ddot{#1}", 1], "Pd": ["\\frac{\\partial #1}{\\partial #2}", 2], "Dd": ["\\frac{\\text{d }  #1}{\\text{d } #2}", 2], "dt": ["#1 ^{\\bullet}", 1], "hist": "\\mid_{\\tau=0}^t", "rom": ["\\textrm{#1}", 1], "rp": ["^{ \\textrm{#1} }", 1], "rs": ["_{ \\textrm{#1} }", 1], "T": "^{ \\textrm{T} }", "mT": "^{ -\\textrm{T} }", "dev": "_{ \\textrm{dev} }", "sph": "_{ \\textrm{sph} }", "hyd": "_{ \\textrm{hyd} }", "iso": "_{ \\textrm{iso} }", "vol": "_{ \\textrm{vol} }", "vM": "_{ \\textrm{vM} }", "sym": "_{ \\textrm{sym} }", "dil": "_{ \\textrm{dil} }", "ln": ["\\textrm{ln}\\left(#1\\right)", 1], "uft": "\\mathfrak{\\boldsymbol{u}}", "Pext": "\\mathcal{P}\\rp{ext}", "Pint": "\\mathcal{P}\\rp{int}", "Cg": "\\boldsymbol{C}", "detC": "\\det \\Cg", "F": "\\bm{F}", "s": "\\bm{\\sigma}", "ie": "\\rp{e}", "ipl": "\\rp{p}", "e": "\\varepsilon", "eb": "\\bm{\\varepsilon}", "ee": ["\\e\\ie", 0], "ep": ["\\e\\ipl", 0], "E": "\\bm{E}", "Ee": ["\\E\\ie", 0], "Ep": ["\\E\\ipl", 0], "Fe": ["\\bm{\\F}\\ie", 0], "Fp": ["\\bm{\\F}\\ipl", 0], "Cge": "\\tilde{\\Cg}\\ie", "Cgp": ["\\Cg\\ipl", 0], "Se": "\\tilde{\\bm{S}}\\ie", "Me": "\\tilde{\\bm{M}}\\ie", "Lp": "\\tilde{\\bm{L}}\\ipl", "Dp": "\\tilde{\\bm{D}}\\ipl", "sw": "\\rs{sw}", "IV": "\\bm{Y}", "iv": "Y", "psiCap": "\\psi\\rs{cap}", "psiCapcv": "\\psi\\rs{cap-cv}", "psiAd": "\\psi\\rs{ad}", "pCap": "p\\rs{cap}", "pCapcv": "p\\rs{cap-cv}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter3/Integration';</script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="3.6. Postprocessing" href="Postprocessing.html" />
+    <link rel="prev" title="3.4. Ansatzfunktionen" href="Ansatzfunktionen.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.jpeg" class="logo__image only-light" alt="Finite Elemente Methode 1 - Home"/>
+    <img src="../../_static/logo.jpeg" class="logo__image only-dark pst-js-only" alt="Finite Elemente Methode 1 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Vorlesungsskript zur Finiten Elemente Methode I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/elasticity.html">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/strukturgleichungen.html">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.1. Von der starken zur schwachen Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die Schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/BalkenFEM.html">2.3. Die Balken-FEM</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="isoparametrischeFEM.html">3. Isoparametrische FEM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Ansatzfunktionen.html">3.4. Ansatzfunktionen</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.5. Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Postprocessing.html">3.6. Postprocessing</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter3/Integration.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/chapter3/Integration.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Integration</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-1d-integration">3.5.1. Beispiel: 1D-Integration</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="integration">
+<h1><span class="section-number">3.5. </span>Integration<a class="headerlink" href="#integration" title="Link to this heading">#</a></h1>
+<p>Betrachten wir die schwache Form der Impulsbilanz:</p>
+<div class="math notranslate nohighlight">
+\[\int_{\mathcal{B}} \delta\eb\T  \bm{\sigma} \dV = \int_{\mathcal{B}} \delta \bm{u}\T \rho \bm{b} \dV + \int_{\partial\mathcal{B}} \delta \bm{u}\T  \bm{t} \dA \; .\]</div>
+<p>Das die Ableitung der Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}\)</span> und der Verschiebung <span class="math notranslate nohighlight">\(\bm{u}\)</span> berechnet werden muss, wurde bereits im vergangenen Abschnitt erläutert. Zusätzlich muss der Term <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> über das gesamte Volumen des Körpers <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> integriert werden. Dabei wird in der Finite-Elemente-Methode die Integration über das Volumen des Körpers <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> in eine Summe über die Volumen der Elemente <span class="math notranslate nohighlight">\(\mathcal{B}^e\)</span> zerlegt:</p>
+<div class="math notranslate nohighlight">
+\[\int_{\mathcal{B}} \delta\eb\T  \bm{\sigma} \dV = \bigcup_{e=1}^{n_{\text{el}}} \int_{\mathcal{B}^e} \delta\eb\T  \bm{\sigma} \dV_e \; .\]</div>
+<p>Nun kann die Integration auf Elementebene durchgeführt werden. Diese sind aber in der Regel krummlinig berandet und die Integration über das Volumen eines Elements <span class="math notranslate nohighlight">\(\mathcal{B}^e\)</span> ist nicht trivial. Daher wird die Integration über das Volumen des Elements <span class="math notranslate nohighlight">\(\mathcal{B}^e\)</span> in eine Integration über das Volumen des Referenzelements <span class="math notranslate nohighlight">\(\mathcal{B}_{\square}\)</span> umgewandelt:</p>
+<div class="math notranslate nohighlight">
+\[\int_{\mathcal{B}^e} \delta\eb\T  \bm{\sigma} \dV_e = \int_{\mathcal{B}_{\square}} \delta\eb\T  \bm{\sigma} \left| \bm{J} \right| \dV_{\square} \; .\]</div>
+<p>Dabei ist <span class="math notranslate nohighlight">\(\left| \bm{J} \right|\)</span> der Determinante der Jacobi-Matrix <span class="math notranslate nohighlight">\(\bm{J}\)</span>, die die Transformation von <span class="math notranslate nohighlight">\(\mathcal{B}_{\square}\)</span> nach <span class="math notranslate nohighlight">\(\mathcal{B}^e\)</span> beschreibt. Damit können wir die Funktion <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> jetzt über eine sehr einfache Geometrie integrieren. Sowohl der Integrand <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> als auch die Determinante der Jacobi-Matrix <span class="math notranslate nohighlight">\(\left| \bm{J} \right|\)</span> sind in der Regel nicht konstant, ja sogar gebrochen rationale Funktionen. Die Integrale können daher nicht analytisch gelöst werden. Die bisherige exakte Transformation des Intergrals muss nun durch eine numerische Integration ersetzt approximiert werden. Die numerischen Integrationsformeln werden im Folgenden auch als <em>Quadraturformeln</em> bezeichnet. Allgemein gilt für eine Quadraturformel:</p>
+<div class="math notranslate nohighlight">
+\[\int_{\mathcal{B}_{\square}} f(\bm{\xi}) \dV_{\square} \approx \sum_{i=1}^{n_{\text{qp}}} w_i f(\bm{\xi}_i) \; .\]</div>
+<p>Die Integration der Funktion <span class="math notranslate nohighlight">\(f(\bm{\xi})\)</span> über das Gebiet <span class="math notranslate nohighlight">\(\mathcal{B}_{\square}\)</span> wird also ersetzt durch eine Summe über die Funktionswerte <span class="math notranslate nohighlight">\(f(\bm{\xi}_i)\)</span> an den Integrationspunkten <span class="math notranslate nohighlight">\(\bm{\xi}_i\)</span> multipliziert mit den Gewichten <span class="math notranslate nohighlight">\(w_i\)</span>. Die Anzahl der Integrationspunkte <span class="math notranslate nohighlight">\(n_{\text{qp}}\)</span> hängt von der gewünschten Genauigkeit der Integration ab. Die Integrationspunkte und Gewichte sind für die im vorangegangenen Abschnitt beschriebenen Elemente in Tabellen zusammengestellt. Die Genauigkeit der Integration hängt maßgeblich von der Form der Funktion <span class="math notranslate nohighlight">\(f(\bm{\xi})\)</span> ab. Allgemein gilt, dass die Genauigkeit der Integration mit der Anzahl der Integrationspunkte steigt. Die in den FE-Programmen meißt verwendeten Integrationspunkte und Gewichte entsprechen den Gauß-Quadraturregeln oder sind zumindest an diese angelehnt. Bei der Gauß-Quadraturregel werden die Integrationspunkte so gewählt, dass die Integration einer Polynomfunktion <span class="math notranslate nohighlight">\(f(\bm{\xi})\)</span> bis zu einem bestimmten Grad genau ist. Die Gewichte <span class="math notranslate nohighlight">\(w_i\)</span> sind so gewählt, dass die Summe der Gewichte gleich der Fläche des Integrationsgebiets ist. Mit einer Integrationsordnung <span class="math notranslate nohighlight">\(m\)</span> kann mit der Gauss-Quadratur ein Polynom <span class="math notranslate nohighlight">\((2m − 1)\)</span>-ten Grades exakt integriert werden.
+Betrachten wir erneut die schwache Form und schreiben den Integranden <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> als <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma} = \delta\eb\T  \mathbb{C} \eb\)</span>, dann sehen wir, dass rechts und links der Materialtangente <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> die die räumliche Ableitung von <span class="math notranslate nohighlight">\(\bm{u}_h\)</span> und <span class="math notranslate nohighlight">\(\delta\bm{u}_h\)</span> steht. Wenn wir nun quadratische Formfunktionen verwenden, dann ist die Ableitung der Formfunktionen zumindest in einer Koordinatenrichtung weiterhin quadratisch. Durch die Multiplikation im Integranden müssen wir also ein Polynom 4. Grades integrieren. Nach der obigen Definition ist hierfür eine Quadraturfomel 3. Grades erforderlich.</p>
+<div class="tip admonition">
+<p class="admonition-title">Notwendige Ordnung der Integration</p>
+<p>Für die Integration der Steifigkeitsmatrix der FEM mit Elementen mit Formfunktionen der Ordnung <span class="math notranslate nohighlight">\(n\)</span> ist eine Quadraturformel der Ordnung:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+ m = \frac{n+1}{2} 
+ \end{equation*}\]</div>
+<p>erforderlich.</p>
+</div>
+<p>Nachfolgende Tabellen zeigen die 1D- und 2D-Quadraturformeln.</p>
+<figure class="align-default" id="linequadrature">
+<a class="reference internal image-reference" href="../../_images/Wriggers_GQ_01.png"><img alt="lineQuadrature" src="../../_images/Wriggers_GQ_01.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.22 </span><span class="caption-text">1D-Gauß-Quadraturformeln für verschiedene Ordnungen <span class="math notranslate nohighlight">\(m\)</span> nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id9" title="Peter Wriggers. Nonlinear finite element methods. Springer Science &amp; Business Media, 2008.">Wriggers, 2008</a>]</span>.</span><a class="headerlink" href="#linequadrature" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="squarequadrature">
+<a class="reference internal image-reference" href="../../_images/Wriggers_GQ_02.png"><img alt="squareQuadrature" src="../../_images/Wriggers_GQ_02.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.23 </span><span class="caption-text">2D-Gauß-Quadraturformeln für Rechteckelemente verschiedener Ordnung <span class="math notranslate nohighlight">\(m\)</span> nach <span id="id2">[<a class="reference internal" href="../../quellen.html#id9" title="Peter Wriggers. Nonlinear finite element methods. Springer Science &amp; Business Media, 2008.">Wriggers, 2008</a>]</span>.</span><a class="headerlink" href="#squarequadrature" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="triquadrature">
+<a class="reference internal image-reference" href="../../_images/Wriggers_GQ_03.png"><img alt="triQuadrature" src="../../_images/Wriggers_GQ_03.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.24 </span><span class="caption-text">2D-Gauß-Quadraturformeln für Dreickselementen verschiedener Ordnung <span class="math notranslate nohighlight">\(m\)</span> nach <span id="id3">[<a class="reference internal" href="../../quellen.html#id9" title="Peter Wriggers. Nonlinear finite element methods. Springer Science &amp; Business Media, 2008.">Wriggers, 2008</a>]</span>.</span><a class="headerlink" href="#triquadrature" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="beispiel-1d-integration">
+<h2><span class="section-number">3.5.1. </span>Beispiel: 1D-Integration<a class="headerlink" href="#beispiel-1d-integration" title="Link to this heading">#</a></h2>
+<p>Wir möchte das Polynom <span class="math notranslate nohighlight">\(f(x) = \frac{1}{2} x^4 + 6x + 4\)</span> über das Intervall <span class="math notranslate nohighlight">\([-1,1]\)</span> integrieren. Die exakte Lösung ist:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\int_{-1}^{1} (\frac{1}{2} x^4 + 6x + 4) \, \mathrm{d}x = \left[\frac{1}{10} x^5+2x^3+4x \right]_{-1}^{1} = 12.2
+\end{equation*}\]</div>
+<p>Da wir im Interval <span class="math notranslate nohighlight">\([-1,1]\)</span> integrieren, können wir direkt die Gauß-Quadraturformeln verwenden. Wir müssen nicht die Jacobideterminante berechnen.
+Verwenden wir jetzt eine Integrationsordnung mit einem Integrationspunkt, so ergibt sich:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\xi_p &amp;= 0  &amp; w_p &amp;= 2 \\
+\int_{-1}^{1} f(x) \, \mathrm{d}x &amp;= \sum_{p=1}^{1} w_p f(\xi_p) \\
+\int_{-1}^{1} f(x) \, \mathrm{d}x &amp;= 2 \cdot 4  = 8
+\end{align*}\]</div>
+<p>Mit dieser Integrationsordnung ergibt sich also ein Fehler von 34 %.</p>
+<p>Als nächstes nehmen wir eine Integrationsordnung mit zwei Integrationspunkten:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\xi_p &amp;= \pm \frac{1}{\sqrt{3}} &amp; w_p &amp;= 1 \\
+\int_{-1}^{1} f(x) \, \mathrm{d}x &amp;= \sum_{p=1}^{2} w_p f(\xi_p)  \\
+\int_{-1}^{1} f(x) \, \mathrm{d}x &amp;= 1 \cdot 6.06  + 1 \cdot 6.06 = 12.111
+\end{align*}\]</div>
+<p>Hier ergibt sich nur noch ein Fehler von 1 %.</p>
+<p>Erst eine Integrationsordnung mit drei Integrationspunkten liefert das exakte Ergebnis:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\xi_p &amp;= 0, \pm \sqrt{\frac{3}{5}} &amp; w_p &amp;= \frac{8}{9}, \frac{5}{9} \\
+\int_{-1}^{1} f(x) \, \mathrm{d}x &amp;= \sum_{p=1}^{3} w_p f(\xi_p) \\
+\int_{-1}^{1} f(x) \, \mathrm{d}x &amp;= \frac{5}{9} \cdot 7.78  + \frac{8}{9} \cdot 4 + \frac{5}{9} \cdot 7.78  = 12.2
+\end{align*}\]</div>
+<div class="warning admonition">
+<p class="admonition-title">Fragen zum Kapitel</p>
+<p><strong>Integration</strong></p>
+<ul class="simple">
+<li><p>Warum müssen wir die schwache Form der Impulsbilanz numerisch integrieren?</p></li>
+<li><p>Wie lautet die allgemeine Formel für die Quadratur einer Funktion <span class="math notranslate nohighlight">\(f(x)\)</span> über ein Referenzgebiet?</p></li>
+<li><p>Wie lässt sich die Genauigkeit der numerischen Integration erhöhen?</p></li>
+<li><p>Welche Aussage ist richtig?</p>
+<ul>
+<li><p>[ ] Eine Erhöhung der Integrationsordnung führt zu einer höheren Genauigkeit.</p></li>
+<li><p>[ ] Eine Erhöhung der Integrationsordnung führt zu einer höheren Anzahl an Integrationspunkten.</p></li>
+<li><p>[ ] Bei zu wenigen Integrationspunkten verhält sich das Element zu „weich“</p></li>
+<li><p>[ ] Unzulässige Null-Energiemodi sind ein Indikator für zu wenige Integrationspunkte.</p></li>
+<li><p>[ ] Ist die notwendige Anzahl an Integrationspunkten erreicht führt auch eine Erhöhung der Integrationsordnung nicht zu einer besseren Konvergenz.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/chapter3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Ansatzfunktionen.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Ansatzfunktionen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Postprocessing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">3.6. </span>Postprocessing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-1d-integration">3.5.1. Beispiel: 1D-Integration</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Prof. Dr.-Ing. Steffen Beese
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

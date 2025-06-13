@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.4. Ansatzfunktionen &#8212; Finite Elemente Methode 1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1], "tbf": ["\\textbf{#1}", 1], "tit": ["\\textit{#1}", 1], "tsl": ["\\textsl{#1}", 1], "tsc": ["\\textsc{#1}", 1], "ttt": ["\\texttt{#1}", 1], "trm": ["\\textrm{#1}", 1], "tsf": ["\\textsf{#1}", 1], "tup": ["\\textup{#1}", 1], "mbf": ["\\mathbf{#1}", 1], "mit": ["\\mathit{#1}", 1], "msf": ["\\mathsf{#1}", 1], "mrm": ["\\mathrm{#1}", 1], "mtt": ["\\mathtt{#1}", 1], "dcdot": "\\mathbf{:}", "pha": ["#1^{\\alpha}", 1], "Pha": ["#1_{\\alpha}", 1], "phb": ["#1^{\\beta}", 1], "Phb": ["#1_{\\beta}", 1], "phu": ["#1^{\\textrm{#2}}", 2], "Phu": ["#1_{\\textrm{#2}}", 2], "phuR": ["#1^{\\textrm{#2R}}", 2], "phaR": ["#1^{\\alpha R}", 1], "phbR": ["#1^{\\beta R}", 1], "setC": "\\left\\{S,G,L,l\\right\\}", "tot": "^{ \\textrm{tot} }", "Grad": ["\\textrm{Grad}\\left(#1\\right)", 1], "grad": ["\\textrm{grad}\\left(#1\\right)", 1], "Div": ["\\textrm{Div} \\left(#1\\right)", 1], "div": ["\\textrm{div} \\left(#1\\right)", 1], "Lin": "\\textrm{Lin}", "intd": "\\ \\textrm{d}", "la": "\\, \\leftarrow \\,", "dV": "\\; \\textrm{d}V", "dViso": "\\; \\textrm{d}V_{\\square}", "dA": "\\; \\textrm{d}A", "da": "\\; \\textrm{d}a", "dx": "\\; \\textrm{ d}x", "dxi": "\\; \\textrm{ d}\\xi", "d": "\\; \\textrm{ d}", "dy": "\\; \\textrm{ d}y", "dz": "\\; \\textrm{ d}z", "dX": "\\; \\textrm{ d}X", "dY": "\\; \\textrm{ d}Y", "dZ": "\\; \\textrm{ d}Z", "deta": "\\; \\textrm{ d}\\eta", "dzeta": "\\; \\textrm{ d}\\zeta", "Ibt": "\\int_{\\mathcal{B}_t}", "Ist": "\\int_{\\Gamma_t}", "Ibref": "\\int_{\\mathcal{B}\\rs{0}}", "Isref": "\\int_{\\Gamma\\rs{0}}", "sref": "{\\Gamma\\rs{0}}", "Bref": "{\\mathcal{B}\\rs{0}}", "Ibiso": "\\int_{\\mathcal{B}_{\\square}}", "siso": "{\\Gamma_{\\square}}", "Mtd": ["\\left(#1\\right)^{,}", 1], "Mtda": ["\\left(#1\\right)^{,}_{\\alpha}", 1], "Mtdu": ["\\left(#1\\right)^{,}_{\\textrm{#2}}", 2], "td": ["\\dot{#1}", 1], "tdd": ["\\ddot{#1}", 1], "Pd": ["\\frac{\\partial #1}{\\partial #2}", 2], "Dd": ["\\frac{\\text{d }  #1}{\\text{d } #2}", 2], "dt": ["#1 ^{\\bullet}", 1], "hist": "\\mid_{\\tau=0}^t", "rom": ["\\textrm{#1}", 1], "rp": ["^{ \\textrm{#1} }", 1], "rs": ["_{ \\textrm{#1} }", 1], "T": "^{ \\textrm{T} }", "mT": "^{ -\\textrm{T} }", "dev": "_{ \\textrm{dev} }", "sph": "_{ \\textrm{sph} }", "hyd": "_{ \\textrm{hyd} }", "iso": "_{ \\textrm{iso} }", "vol": "_{ \\textrm{vol} }", "vM": "_{ \\textrm{vM} }", "sym": "_{ \\textrm{sym} }", "dil": "_{ \\textrm{dil} }", "ln": ["\\textrm{ln}\\left(#1\\right)", 1], "uft": "\\mathfrak{\\boldsymbol{u}}", "Pext": "\\mathcal{P}\\rp{ext}", "Pint": "\\mathcal{P}\\rp{int}", "Cg": "\\boldsymbol{C}", "detC": "\\det \\Cg", "F": "\\bm{F}", "s": "\\bm{\\sigma}", "ie": "\\rp{e}", "ipl": "\\rp{p}", "e": "\\varepsilon", "eb": "\\bm{\\varepsilon}", "ee": ["\\e\\ie", 0], "ep": ["\\e\\ipl", 0], "E": "\\bm{E}", "Ee": ["\\E\\ie", 0], "Ep": ["\\E\\ipl", 0], "Fe": ["\\bm{\\F}\\ie", 0], "Fp": ["\\bm{\\F}\\ipl", 0], "Cge": "\\tilde{\\Cg}\\ie", "Cgp": ["\\Cg\\ipl", 0], "Se": "\\tilde{\\bm{S}}\\ie", "Me": "\\tilde{\\bm{M}}\\ie", "Lp": "\\tilde{\\bm{L}}\\ipl", "Dp": "\\tilde{\\bm{D}}\\ipl", "sw": "\\rs{sw}", "IV": "\\bm{Y}", "iv": "Y", "psiCap": "\\psi\\rs{cap}", "psiCapcv": "\\psi\\rs{cap-cv}", "psiAd": "\\psi\\rs{ad}", "pCap": "p\\rs{cap}", "pCapcv": "p\\rs{cap-cv}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter3/Ansatzfunktionen';</script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="3.5. Integration" href="Integration.html" />
+    <link rel="prev" title="3. Isoparametrische FEM" href="isoparametrischeFEM.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.jpeg" class="logo__image only-light" alt="Finite Elemente Methode 1 - Home"/>
+    <img src="../../_static/logo.jpeg" class="logo__image only-dark pst-js-only" alt="Finite Elemente Methode 1 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Vorlesungsskript zur Finiten Elemente Methode I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/elasticity.html">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/strukturgleichungen.html">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.1. Von der starken zur schwachen Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die Schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/BalkenFEM.html">2.3. Die Balken-FEM</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="isoparametrischeFEM.html">3. Isoparametrische FEM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.4. Ansatzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html">3.5. Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Postprocessing.html">3.6. Postprocessing</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter3/Ansatzfunktionen.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/chapter3/Ansatzfunktionen.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ansatzfunktionen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formfunktionen-fur-c-0-elemente">3.4.1. Formfunktionen für <span class="math notranslate nohighlight">\(C^0\)</span>-Elemente</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-formfunktionen">3.4.1.1. 1D Formfunktionen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.4.1.2. 2D Formfunktionen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.4.1.3. 3D Formfunktionen</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ansatzfunktionen">
+<h1><span class="section-number">3.4. </span>Ansatzfunktionen<a class="headerlink" href="#ansatzfunktionen" title="Link to this heading">#</a></h1>
+<p>Um verzerrungsfreie Starrkörperbewegungen sowie konstante Verzerrungszustände beschreiben zu können, und dabei ein räumlich isotropes Verformungsverhalten zu approximieren, müssen die Ansatzfunktionen vollständig sein.
+Für ein ebenes Dreieckselement bedeutet dies z.B.</p>
+<div class="math notranslate nohighlight" id="equation-ansatzfunktionencompletetriangle">
+<span class="eqno">(3.7)<a class="headerlink" href="#equation-ansatzfunktionencompletetriangle" title="Link to this equation">#</a></span>\[\begin{align}
+u(\xi,\eta) &amp;= \underbrace{\underbrace{ a_1 + a_2 \xi + a_3 \eta}_{\text{3 Knoten Dreieck}} + a_4 \xi^2 + a_5 \eta^2 + a_6 \xi \eta}_{\text{6 Knoten Dreieck}} \; .
+\end{align}\]</div>
+<p>Hier sind für ein 3-Knoten-Dreieck Element alle linearen Terme enthalten, für ein 6-Knoten-Dreieck Element sind auch die quadratischen Terme und bilinearen Terme enthalten.
+Illustriert kann man sich am besten ein pascalsches Dreieck wie in Abbildung <a class="reference internal" href="#pascaltriangle"><span class="std std-numref">Abb. 3.10</span></a> vorstellen.</p>
+<figure class="align-default" id="pascaltriangle">
+<a class="reference internal image-reference" href="../../_images/Taylor_PascalTriangle.png"><img alt="Pascalsches Dreieck für Dreieckselemente" src="../../_images/Taylor_PascalTriangle.png" style="width: 45%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.10 </span><span class="caption-text">Pascal’sches Dreieck für Dreieckselemte (<span id="id1">[<a class="reference internal" href="../../quellen.html#id3" title="Olgierd Cecil Zienkiewicz, Robert Leroy Taylor, and Jian Z Zhu. The finite element method: its basis and fundamentals. Elsevier, 2005.">Zienkiewicz <em>et al.</em>, 2005</a>]</span>)</span><a class="headerlink" href="#pascaltriangle" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Analog kann dazu man ein vollständiges Viereckselement definieren:</p>
+<div class="math notranslate nohighlight" id="equation-ansatzfunktionencompletequad">
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-ansatzfunktionencompletequad" title="Link to this equation">#</a></span>\[\begin{align}
+u(\xi,\eta) &amp;= \underbrace{\underbrace{ a_1 + a_2 \xi + a_3 \eta + a_4 \xi \eta}_{\text{4 Knoten Viereck}} + a_5 \xi^2 + a_6 \eta^2 + a_7 \xi^2 \eta + a_8 \xi \eta^2}_{\text{8 Knoten Viereck}} \; .
+\end{align}\]</div>
+<p>Auch hier liefert das Pascalsche Dreieck eine anschauliche Interpretation:</p>
+<figure class="align-default" id="pascalquad">
+<a class="reference internal image-reference" href="../../_images/Taylor_PascalQuad.png"><img alt="Pascalsches Dreieck für Rechteckelemente" src="../../_images/Taylor_PascalQuad.png" style="width: 45%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.11 </span><span class="caption-text">Pascalsches Dreieck für Rechteckelemente (<span id="id2">[<a class="reference internal" href="../../quellen.html#id3" title="Olgierd Cecil Zienkiewicz, Robert Leroy Taylor, and Jian Z Zhu. The finite element method: its basis and fundamentals. Elsevier, 2005.">Zienkiewicz <em>et al.</em>, 2005</a>]</span>). Grau unterlegt ist ein kubisches Rechteckelement.</span><a class="headerlink" href="#pascalquad" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="formfunktionen-fur-c-0-elemente">
+<h2><span class="section-number">3.4.1. </span>Formfunktionen für <span class="math notranslate nohighlight">\(C^0\)</span>-Elemente<a class="headerlink" href="#formfunktionen-fur-c-0-elemente" title="Link to this heading">#</a></h2>
+<p>Nachfolgend werden kurz die Ansatzfunktionen für 1D, 2D und 3D Elemente mit Lagrange-Polynomen vorgestellt:</p>
+<section id="d-formfunktionen">
+<h3><span class="section-number">3.4.1.1. </span>1D Formfunktionen<a class="headerlink" href="#d-formfunktionen" title="Link to this heading">#</a></h3>
+<figure class="align-default" id="linearelements">
+<a class="reference internal image-reference" href="../../_images/Line-Elements.png"><img alt="LineElements" src="../../_images/Line-Elements.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.12 </span><span class="caption-text">1D-Elemente mit linearer und quadratischer Ansatzfunktion</span><a class="headerlink" href="#linearelements" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Für den linearen Fall haben 1D-Elemente 2 Knoten und damit 2 Formfunktionen:</p>
+<div class="math notranslate nohighlight" id="equation-1d-formfunktionen">
+<span class="eqno">(3.9)<a class="headerlink" href="#equation-1d-formfunktionen" title="Link to this equation">#</a></span>\[\begin{align}
+N_1 &amp;= \frac{1}{2} (1 - \xi) &amp; N_2 &amp;= \frac{1}{2} (1 + \xi)
+\end{align}\]</div>
+<p>Für den quadratischen Fall haben 1D-Elemente 3 Knoten und damit 3 Formfunktionen:</p>
+<div class="math notranslate nohighlight" id="equation-1d-formfunktionen-quad">
+<span class="eqno">(3.10)<a class="headerlink" href="#equation-1d-formfunktionen-quad" title="Link to this equation">#</a></span>\[\begin{align}
+N_1 &amp;= \frac{1}{2} \xi (\xi - 1) &amp; N_2 &amp;= 1 - \xi^2 &amp; N_3 &amp;= \frac{1}{2} \xi (\xi + 1)
+\end{align}\]</div>
+<!-- ```{figure} images/Shapefunctions_1d.png
+---
+name: Shapefunctions_1dd
+alt: Formfunktionen für 1D-Elemente
+width: 500px
+---
+Formfunktionen für 1D-Elemente
+``` --><div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Circle</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scienceplots</span>
+
+<span class="c1"># Set up the plot configurations.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;legend.frameon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.spines.right&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.spines.top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.spines.left&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.spines.bottom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.axisbelow&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;grid.color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;grid.alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.6</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;grid.linestyle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span>
+
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Create a figure and axis.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plotting the functions.</span>
+<span class="n">N11</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xi</span><span class="p">)</span>
+<span class="n">N12</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">xi</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">N11</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">N12</span><span class="p">)</span>
+
+<span class="n">N21</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">xi</span><span class="o">*</span><span class="p">(</span><span class="n">xi</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">N22</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">xi</span><span class="o">*</span><span class="p">(</span><span class="n">xi</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">N23</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">xi</span><span class="o">**</span><span class="mi">2</span> 
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">N21</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">N22</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">N23</span><span class="p">)</span>
+
+
+<span class="c1"># Draw black line from (0,0) to (1,0)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+
+
+<span class="c1"># Draw red dots at (0,0) and (1,0)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+
+<span class="c1"># Annotate the red dots.</span>
+<span class="c1"># Draw a circle and add text at the specified location</span>
+<span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">((</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">circle2</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">((</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">circle21</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">((</span><span class="o">-</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">circle22</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">((</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">circle23</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">circle2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.15</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">circle21</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">circle22</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">circle23</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">1.15</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.04</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.24</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Set labels for the axis</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\xi$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$N(\xi)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\xi$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$N(\xi)$&quot;</span><span class="p">)</span>
+
+<span class="c1"># Draw background grid</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Add legend.</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">r</span><span class="s2">&quot;$N_1(\xi)$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$N_2(\xi)$&quot;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="sa">r</span><span class="s2">&quot;$N_1(\xi)$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$N_2(\xi)$&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;$N_3(\xi)$&quot;</span><span class="p">],</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<figure class="align-default" id="shapefunctions-1dd">
+<img alt="../../_images/addf2972060c3f0b184f047bafaae2ad2817d51480b703f58df7efe416ad9e3b.png" src="../../_images/addf2972060c3f0b184f047bafaae2ad2817d51480b703f58df7efe416ad9e3b.png" />
+<figcaption>
+<p><span class="caption-number">Abb. 3.13 </span><span class="caption-text">Formfunktionen für 1D-Elemente</span><a class="headerlink" href="#shapefunctions-1dd" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.4.1.2. </span>2D Formfunktionen<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<figure class="align-default" id="quadelements">
+<a class="reference internal image-reference" href="../../_images/QuadElements.png"><img alt="QuadElements" src="../../_images/QuadElements.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.14 </span><span class="caption-text">2D-Rechteck-Elemente mit linearer und quadratischer Ansatzfunktion</span><a class="headerlink" href="#quadelements" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Im 2D-Fall werden die Formfunktionen für Rechteck-Elemente als Tensorprodukt der 1D-Formfunktionen definiert. Für ein 2D-Rechteck-Element mit 4 Knoten (lineares Element) sind die Formfunktionen:</p>
+<div class="math notranslate nohighlight" id="equation-2d-formfunktionen-q4">
+<span class="eqno">(3.11)<a class="headerlink" href="#equation-2d-formfunktionen-q4" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+N_1 &amp;= \frac{1}{4} (1 - \xi)(1 - \eta) &amp; N_2 &amp;= \frac{1}{4} (1 + \xi)(1 - \eta) \\
+N_3 &amp;= \frac{1}{4} (1 + \xi)(1 + \eta) &amp; N_4 &amp;= \frac{1}{4} (1 - \xi)(1 + \eta)
+\end{align}\end{split}\]</div>
+<figure class="align-default" id="quadelementsq4n">
+<a class="reference internal image-reference" href="../../_images/shape_functions_Q4.png"><img alt="QuadElements" src="../../_images/shape_functions_Q4.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.15 </span><span class="caption-text">Bilineare Formfunktionen für 2D-Rechteck-Elemente.</span><a class="headerlink" href="#quadelementsq4n" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Um ein vollständiges Element der Ordnung 2 zu erhalten benötigt man 9 Knoten beim Rechteck-Element. Die entsprechenden Formfunktionen lauten:</p>
+<div class="math notranslate nohighlight" id="equation-2d-formfunktionen-q9">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-2d-formfunktionen-q9" title="Link to this equation">#</a></span>\[\begin{split}\begin{align*}
+N_1 &amp;= \frac{1}{4} \xi \eta (\xi - 1)(\eta - 1) &amp; N_2 &amp;= \frac{1}{2} (1 - \xi^2) (1 - \eta) \\
+N_3 &amp;= \frac{1}{4} \xi \eta (\xi + 1)(\eta - 1) &amp; N_4 &amp;= \frac{1}{2} (1 + \xi) (1 - \eta^2) \\
+N_5 &amp;= \frac{1}{4} \xi \eta (\xi + 1)(\eta + 1) &amp; N_6 &amp;= \frac{1}{2} (1 - \xi^2) (1 + \eta) \\
+N_7 &amp;= \frac{1}{4} \xi \eta (\xi - 1)(\eta + 1) &amp; N_8 &amp;= \frac{1}{2} (1 - \xi) (1 - \eta^2) \\
+N_9 &amp;= (1 - \xi^2)(1 - \eta^2)
+\end{align*}\end{split}\]</div>
+<figure class="align-default" id="quadelementsq9n">
+<a class="reference internal image-reference" href="../../_images/shape_functions_Q9.png"><img alt="QuadElements" src="../../_images/shape_functions_Q9.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.16 </span><span class="caption-text">Biquadratische Formfunktionen für 2D-Rechteck-Elemente (Q2).</span><a class="headerlink" href="#quadelementsq9n" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In der Praxis der Finite-Elemente-Methode beschränkt man sich jedoch nicht ausschließlich auf Q9-Elemente, die die vollständige Polynomordnung 2 aufweisen, wie in Abbildung <a class="reference internal" href="#pascalquad"><span class="std std-numref">Abb. 3.11</span></a> dargestellt. Serendipity-Elemente sind im oben beschriebenen Sinne nicht vollständig, erfüllen jedoch die Anforderungen an die räumliche Isotropie, die Verzerrungsfreiheit bei Starrkörperbewegungen und die Abbildung konstanter Verzerrungszustände. Der Begriff „Serendipity“ geht vermutlich auf ein Märchen von H. Walpole, „Die drei Prinzen von Serendip“, zurück, in dem die Prinzen die Fähigkeit besitzen, durch Zufall unverhoffte und glückliche Entdeckungen zu machen. Das zugehörige Element ist in Abbildung <a class="reference internal" href="#quadelements"><span class="std std-numref">Abb. 3.14</span></a> als <strong>Q2S</strong> dargestellt. Die Ansatzfunktionen lauten:</p>
+<div class="math notranslate nohighlight" id="equation-2d-formfunktionen-q8">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-2d-formfunktionen-q8" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+N_1(\xi ,\eta ) &amp; =\frac{1}{4} (1-\eta ) (1-\xi ) (-\eta -\xi -1) &amp; N_2(\xi ,\eta ) &amp; =\frac{1}{4} (1-\eta ) (\xi +1) (-\eta +\xi -1) \\
+N_3(\xi ,\eta ) &amp; =\frac{1}{4} (\eta +1) (\xi +1) (\eta +\xi -1) &amp; N_4(\xi ,\eta ) &amp; =\frac{1}{4} (\eta +1) (1-\xi ) (\eta -\xi -1) \\
+N_5(\xi ,\eta ) &amp; =\frac{1}{2} (1-\eta ) \left(1-\xi ^2\right) &amp; N_6(\xi ,\eta ) &amp; =\frac{1}{2} \left(1-\eta ^2\right) (\xi +1)\\
+N_7(\xi ,\eta ) &amp; =\frac{1}{2} (\eta +1) \left(1-\xi ^2\right) &amp;
+N_8(\xi ,\eta ) &amp; =\frac{1}{2} \left(1-\eta ^2\right) (1-\xi )
+\end{align}\end{split}\]</div>
+<figure class="align-default" id="quadelementsq8n">
+<a class="reference internal image-reference" href="../../_images/shape_functions_Q8.png"><img alt="QuadElements" src="../../_images/shape_functions_Q8.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.17 </span><span class="caption-text">Biquadratische Serendipity-Formfunktionen für 2D-Rechteck-Elemente (Q2S).</span><a class="headerlink" href="#quadelementsq8n" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Eine weiter Möglichkeit der zweidimensionalen Vernetzung ist die Verwendung von Dreiecken. In den gebräulichen FEM-Programmen werden dabei Dreiecke mit 3 oder 6 Knoten implementiert. Diese sind in <a class="reference internal" href="#triangleelements"><span class="std std-numref">Abb. 3.18</span></a> dargestellt.</p>
+<figure class="align-default" id="triangleelements">
+<a class="reference internal image-reference" href="../../_images/TriangleElements.png"><img alt="triangleElements" src="../../_images/TriangleElements.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.18 </span><span class="caption-text">Dreieck-Elemente mit linearen (T1) und quadratischen (T2) Formfunktionen.</span><a class="headerlink" href="#triangleelements" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die linearen Dreieck-Elemente (T1) sind die einfachsten Elemente und werden in der Literatur häufig als „konstant“ bezeichnet. Dies bezieht sich auf die abgeleiteten Größen (z.B. Spannungen, Dehnungen, etc.). Diese werden als konstant dargestellt. Die Formfunktionen lauten:</p>
+<div class="math notranslate nohighlight" id="equation-2d-formfunktionen-t1">
+<span class="eqno">(3.14)<a class="headerlink" href="#equation-2d-formfunktionen-t1" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+\lambda &amp; = 1 - \xi - \eta &amp; N_1(\xi ,\eta ) &amp; = \lambda \\
+N_2(\xi ,\eta ) &amp; = \xi &amp; N_3(\xi ,\eta ) &amp; = \eta
+\end{align}\end{split}\]</div>
+<figure class="align-default" id="shapefuntria">
+<a class="reference internal image-reference" href="../../_images/shape_T1.png"><img alt="ShapeFunTria" src="../../_images/shape_T1.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.19 </span><span class="caption-text">Formfunktionen für das Dreieck-Element T1.</span><a class="headerlink" href="#shapefuntria" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die Formfunktionen für Dreieck-Elemente mit 6 Knoten (T2) sind vollständig quadratisch. Insgesamt hat das T2-Element bessere Approximationseigenschaften als das T1-Element. Die Formfunktionen lauten:</p>
+<div class="math notranslate nohighlight" id="equation-2d-formfunktionen-t2">
+<span class="eqno">(3.15)<a class="headerlink" href="#equation-2d-formfunktionen-t2" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+\lambda &amp; = 1 - \xi - \eta &amp; N_1(\xi ,\eta ) &amp; = \lambda (2\lambda - 1) \\
+N_2(\xi ,\eta ) &amp; = \xi (2\xi - 1) &amp; N_3(\xi ,\eta ) &amp; = \eta (2\eta - 1) \\
+N_4(\xi ,\eta ) &amp; = 4\lambda \xi &amp; N_5(\xi ,\eta ) &amp; = 4\xi \eta \\
+N_6(\xi ,\eta ) &amp; = 4\lambda \eta
+\end{align}\end{split}\]</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">3.4.1.3. </span>3D Formfunktionen<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<figure class="align-default" id="hexelements">
+<a class="reference internal image-reference" href="../../_images/HexElements.png"><img alt="HexElements" src="../../_images/HexElements.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.20 </span><span class="caption-text">3D Hexaeder Elemente mit linearer (8 Knoten) und quadratischer (27 Knoten) Approximation. Zusätzlich ist das 20-Knoten Hexaeder Serendipity-Element gezeigt.</span><a class="headerlink" href="#hexelements" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Im 3D-Fall werden die Formfunktionen für Hexaeder-Elemente als Tensorprodukt der 1D-Formfunktionen definiert. Für ein 3D-Hexaeder-Element mit 8 Knoten (lineares Element) sind die Formfunktionen:</p>
+<div class="math notranslate nohighlight" id="equation-3d-shapefunctions-h8">
+<span class="eqno">(3.16)<a class="headerlink" href="#equation-3d-shapefunctions-h8" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+N_1 &amp;= \frac{1}{8} (1 - \xi)(1 - \eta)(1 - \zeta) &amp; N_2 &amp;= \frac{1}{8} (1 + \xi)(1 - \eta)(1 - \zeta) \\
+N_3 &amp;= \frac{1}{8} (1 + \xi)(1 + \eta)(1 - \zeta) &amp; N_4 &amp;= \frac{1}{8} (1 - \xi)(1 + \eta)(1 - \zeta) \\
+N_5 &amp;= \frac{1}{8} (1 - \xi)(1 - \eta)(1 + \zeta) &amp; N_6 &amp;= \frac{1}{8} (1 + \xi)(1 - \eta)(1 + \zeta) \\
+N_7 &amp;= \frac{1}{8} (1 + \xi)(1 + \eta)(1 + \zeta) &amp; N_8 &amp;= \frac{1}{8} (1 - \xi)(1 + \eta)(1 + \zeta)
+\end{align}\end{split}\]</div>
+<p>Um ein vollständiges Element der Ordnung 2 zu erhalten, benötigt man 27 Knoten beim Hexaeder-Element. Die Formfunktionen kann man zum Beispiel <span id="id5">[<a class="reference internal" href="../../quellen.html#id9" title="Peter Wriggers. Nonlinear finite element methods. Springer Science &amp; Business Media, 2008.">Wriggers, 2008</a>]</span> entnehmen. Mehr Verwendung findet das 20-Knoten-Element. Hierbei handelt es sich um ein Serendipity-Element, das nicht vollständig von der Ordnung 2 ist, aber die Bedingungen der Raumisotropie, keine Verformung bei starren Körperbewegungen und die Möglichkeit, konstante Spannungszustände zu modellieren, erfüllt.</p>
+<p>Für tetraedrische Elemente implementieren gängige FEM-Programme Tetraeder mit entweder 4 oder 10 Knoten. Diese sind in Abbildung <a class="reference internal" href="#tetraelements"><span class="std std-numref">Abb. 3.21</span></a> dargestellt.</p>
+<figure class="align-default" id="tetraelements">
+<a class="reference internal image-reference" href="../../_images/TetElements.png"><img alt="TetraElements" src="../../_images/TetElements.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.21 </span><span class="caption-text">Tetraedrische Elemente mit linearen (Tet1) und quadratischen (Tet2) Formfunktionen.</span><a class="headerlink" href="#tetraelements" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die linearen Tetraederelemente (T4) sind die einfachsten und werden häufig als „konstante“ Elemente in der Literatur bezeichnet, wobei sich auf die abgeleiteten Größen (z.B. Spannungen, Dehnungen, etc.) bezieht. Die Formfunktionen lauten:</p>
+<div class="math notranslate nohighlight" id="equation-3d-shapefunctions-t4">
+<span class="eqno">(3.17)<a class="headerlink" href="#equation-3d-shapefunctions-t4" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+\lambda &amp;= 1 - \xi - \eta - \zeta &amp; N_1(\xi ,\eta ,\zeta ) &amp;= \lambda \\
+N_2(\xi ,\eta ,\zeta ) &amp;= \xi &amp; N_3(\xi ,\eta ,\zeta ) &amp;= \eta &amp; N_4(\xi ,\eta ,\zeta ) &amp;= \zeta
+\end{align}\end{split}\]</div>
+<p>Die Formfunktionen für tetraedrische Elemente mit 10 Knoten (T10) sind vollständig quadratisch und bieten bessere Approximationseigenschaften als das T4-Element. Die Formfunktionen lauten:</p>
+<div class="math notranslate nohighlight" id="equation-3d-shapefunctions-t10">
+<span class="eqno">(3.18)<a class="headerlink" href="#equation-3d-shapefunctions-t10" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+\lambda &amp;= 1 - \xi - \eta - \zeta &amp; N_1(\xi ,\eta ,\zeta ) &amp;= \lambda (2\lambda - 1) \\
+N_2(\xi ,\eta ,\zeta ) &amp;= \xi (2\xi - 1) &amp; N_3(\xi ,\eta ,\zeta ) &amp;= \eta (2\eta - 1) \\
+N_4(\xi ,\eta ,\zeta ) &amp;= \zeta (2\zeta - 1) &amp; N_5(\xi ,\eta ,\zeta ) &amp;= 4\lambda \xi \\
+N_6(\xi ,\eta ,\zeta ) &amp;= 4\xi \eta &amp; N_7(\xi ,\eta ,\zeta ) &amp;= 4\lambda \eta \\
+N_8(\xi ,\eta ,\zeta ) &amp;= 4\lambda \zeta &amp; N_9(\xi ,\eta ,\zeta ) &amp;= 4\xi \zeta \\
+N_{10}(\xi ,\eta ,\zeta ) &amp;= 4\eta \zeta
+\end{align}\end{split}\]</div>
+<div class="warning admonition">
+<p class="admonition-title">Fragen zum Kapitel</p>
+<p><strong>Ansatzfunktionen</strong></p>
+<ul class="simple">
+<li><p>Wieviele Knoten hat ein Tetraeder-Element mit linearen Ansatzfunktionen?</p></li>
+<li><p>Wieviele Knoten hat ein Viereck-Element mit quadratischen Ansatzfunktionen?</p></li>
+<li><p>Eine wichtige Eigenschaft der gezeigten Formfunktionen ist, dass sie nur am zugehörigen Knoten den Wert 1 annehmen. An allen anderen Knoten ist der Wert 0. Was bedeuted dies für den Knotenfreiheitsgrad bzgl. seiner physikalischen Deutbarkeit?</p></li>
+<li><p>Welche Aussage ist richtig?</p>
+<ul>
+<li><p>[ ] Bei Formfunktionen mit quadratischen Polynomgrad ist der Verlauf der Dehnungen im Element quadratisch.</p></li>
+<li><p>[ ] Bei Formfunktionen mit linearen Verlauf sind die Verschiebungen im Element linear.</p></li>
+<li><p>[ ] Die Dehnungen sind über die Elementränder hinweg stetig für Formfunktionen mit quadratischen Polynomgrad.</p></li>
+<li><p>[ ] Die Summe der Ansatzfunktionen im Element ist stets 1.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/chapter3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="isoparametrischeFEM.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Isoparametrische FEM</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Integration.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">3.5. </span>Integration</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formfunktionen-fur-c-0-elemente">3.4.1. Formfunktionen für <span class="math notranslate nohighlight">\(C^0\)</span>-Elemente</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-formfunktionen">3.4.1.1. 1D Formfunktionen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.4.1.2. 2D Formfunktionen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.4.1.3. 3D Formfunktionen</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Prof. Dr.-Ing. Steffen Beese
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

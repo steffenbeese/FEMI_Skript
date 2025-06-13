@@ -69,7 +69,7 @@ Hierbei stellen $F_I$ und $M_I$ die an den Knoten angreifenden Einzellasten und 
 ```{figure} images/Balkenelement.png
 ---
 height: 300px
-name: balken03
+name: balken03_1
 ---
 Balkenelement mit lokalen Freiheitsgraden
 ```
@@ -84,7 +84,7 @@ Analog zum Stabelement führen wir die normierte Koordinate $\xi=\frac{x}{\ell_e
 \end{align}
 ```
 
-Der Vektor der Freiheitsgrade $\bm{w}=w_I$ enthält die Durchbiegung $w$ und die N $\psi$ an den beiden Knoten des Balkenelements. Wie bei den Formfunktionen des Stabelementes, ist die Formfunktion $N_I$ nur für den Freiheitsgrad $w_I$ identisch mit 1 und für alle anderen Freiheitsgrade gleich 0. Formfunktionen die diese Eigenschaft haben, sind zum Beispiel die Hermite-Polynome:
+Der Vektor der Freiheitsgrade $\bm{w}=w_I$ enthält die Durchbiegung $w$ und die Neigung $\psi$ an den beiden Knoten des Balkenelements. Wie bei den Formfunktionen des Stabelementes, ist die Formfunktion $N_I$ nur für den Freiheitsgrad $w_I$ identisch mit 1 und für alle anderen Freiheitsgrade gleich 0. Formfunktionen die diese Eigenschaft haben, sind zum Beispiel die Hermite-Polynome:
 ```{math}
 :label: Formfunktion_Balken
 \begin{align}
@@ -353,13 +353,83 @@ name: FT
 Flächenträgheitsmomente für I-Profile nach DIN 1025-1:2009-04. [ezzart.org](https://www.ezzat.org/de/Querschnittswerte/gewalzt/I/i.php)
 
 ```
+## Ergebnisse der FEM Berechnung
+
+```{figure} images/Balken_FEM_01.png
+---
+width: 500px
+name: BalkenFEM01
+---
+Gegenüberstellung der analytischen Verschiebungslösung mit der FEM Lösung.
+```
+
+In Abbildung {numref}`BalkenFEM01` ist die Verschiebungslösung der FEM mit der analytischen Lösung gegenüber gestellt. Wir sehen, dass die FEM bereits mit nur 2 Elementen die analytische Lösung exakt trifft. Dies ist kein Zufall, sondern ein Ergebnis der Wahl der Formfunktionen und der Form der Randbedingungen. 
+
+Dies sollte jedoch nicht darüber hinwegtäuschen, dass die FEM-Lösung für das Schnittmoment und die Querkraft im Vergleich zur analytischen Lösung nicht so gut ist.
+
+
+```{figure} images/Balken_FEM_02.png
+---
+width: 500px
+name: BalkenFEM02
+---
+Gegenüberstellung der analytischen Lösung des Momentenverlaufs mit der FEM Lösung.
+```
+
+Das analytische Schnittmoment hat einen quadratischen Verlauf, während die FEM Lösung linear ist. Dies führt zu einer Abweichung der FEM Lösung von der analytischen Lösung.
+
+```{figure} images/Balken_FEM_03.png
+---
+width: 500px
+name: BalkenFEM03
+---
+Gegenüberstellung der analytischen Lösung für den Querkraftverlauf mit der FEM Lösung.
+```
+
+Die Schnittkraft in der analytischen Lösung zeigt einen stückweise linearen Verlauf, während die FEM Lösung konstant ist. Dies führt zu einer Abweichung der FEM Lösung von der analytischen Lösung.
 
 
 ## Konvergenz 
 
+```{figure} images/Balken_FEM_04.png
+---
+width: 600px
+name: BalkenFEM04
+---
+Konvergenzverhalten der FEM Lösung für die das Schnittmoment und die Querkraft.
+```
 
-## Interactives Notebook
+Allgemein zeigt sich, dass die FEM Lösung mit zunehmender Anzahl an Elementen gegen die analytische Lösung konvergiert. Dabei ist festzuhalten, dass die Konvergenz des Schnittmomentes schneller ist als die Konvergenz der Querkraft. Dies zeigt sich auch im doppelt logarithmischen Diagramm {numref}`BalkenFEM05`. Beide Kurven zeigen eine lineare Abhängigkeit, jedoch ist die Steigung der Konvergenzkurve für das Schnittmoment größer als die Steigung der Konvergenzkurve für die Querkraft.
+
+```{figure} images/Balken_FEM_05.png
+---
+width: 600px
+name: BalkenFEM05
+---
+Konvergenzverhalten der FEM Lösung für die das Schnittmoment und die Querkraft im doppelt logarithmischen Diagramm.
+```
+
+
+## Interaktives Notebook
 
 Basierend auf der präsentierten Theorie wurde ein Jupyter Notebook erstellt. Dieses kann man ohne Systemvorraussetzungen im Browser ausführen:
 
 Balken FEM for Binder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/steffenbeese/FEM_I_Notebooks/main?urlpath=%2Fdoc%2Ftree%2FNotebook_BalkenFEM.ipynb)
+
+
+```{admonition} Fragen zum Kapitel
+:class: warning
+
+**Balken FEM**
+
+- Welche physikalische Interpretation haben die Knotenfreiheitsgrade beim Balkenelement?
+
+- Wie gut ist die Lösung der Balken-FEM bzgl. der Verschiebungen im Vergleich zur analytischen Lösung?
+
+- Welche Aussage ist richtig:
+  - [ ] Das Schnittmoment ist linear im Element.
+  - [ ] Die Schnittkraft ist linear im Element.
+  - [ ] Die Verschiebung ist über die Elementgrenzen stetig
+  - [ ] Die Ableitung der Verschiebung ist über die Elementgrenzen stetig
+
+```

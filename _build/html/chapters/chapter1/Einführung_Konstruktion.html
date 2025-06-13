@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -190,9 +190,28 @@
 </ul>
 </details></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter3/isoparametrischeFEM.html">3. Isoparametrische FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Ansatzfunktionen.html">3.4. Ansatzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Integration.html">3.5. Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Postprocessing.html">3.6. Postprocessing</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">3. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -410,12 +429,65 @@
 <p><span class="caption-number">Abb. 1.1 </span><span class="caption-text">Einordnung numerischer Simulation in den Konstruktionsprozess nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span></span><a class="headerlink" href="#konstruktionsprozess" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Finite-Elemente-Programme spielen eine wichtige Rolle bei der Untersuchung realer Tragwerke, die bestimmten technischen Aufgabenstellungen unterliegen. Dieses leistungsfähige Tool ermöglicht es beispielsweise, die Integrität einer Pkw-Karosserie oder eines Rahmentragwerks zu analysieren, indem sie die Simulation eines Crash-Vorgangs durchführen oder die Traglast eines Bauteils ermitteln. Für die virtuelle Produktentwicklung und eine prototypenfreie (oder prototypenarme) Entwicklung ist die Finite Elemente Methode aus den Entwicklungsabteilungen nicht mehr wegzudenken.</p>
-<p>Der Weg zu einer validen FE-Simulation ist mehrstufig und interdisziplinar. In der Abbildung <a class="reference internal" href="#konstruktionsprozess"><span class="std std-numref">Abb. 1.1</span></a> sind die eigentlichen Schritte, welche die Finite Elemente Methode betrifft durch einen dicken Rahmen gekennzeichnet. Die vorgelagerte Prozesskette sollte von dem/der berechnenden Ingenieur/in eng begleitet werden, denn die Ergebnisse eine Simulation können nur so gut sein wie die Eingangsdaten: <strong>Garbage in, garbage out</strong>.</p>
+<p>Finite-Elemente-Programme spielen eine wichtige Rolle bei der Untersuchung realer Tragwerke und technischer Aufgabenstellungen. Dieses leistungsfähige Tool ermöglicht es beispielsweise, die Integrität einer Pkw-Karosserie oder eines Rahmentragwerks zu analysieren, indem die Simulation eines Crash-Vorgangs durchgeführt wird oder die Traglast eines Bauteils berechnet wird. Für die virtuelle Produktentwicklung und eine prototypenfreie (oder prototypenarme) Entwicklung ist die Finite Elemente Methode aus den Entwicklungsabteilungen nicht mehr wegzudenken.</p>
+<p>Der Weg zu einer validen FE-Simulation ist mehrstufig und interdisziplinär. In Abbildung <a class="reference internal" href="#konstruktionsprozess"><span class="std std-numref">Abb. 1.1</span></a> sind die eigentlichen Schritte, die die Finite-Elemente-Methode betreffen, durch einen dicken Rahmen gekennzeichnet. Die vor- und nachgelagerte Prozesskette sollte von dem/der berechnenden Ingenieur/in eng begleitet werden, denn die Ergebnisse einer Simulation können nur so gut sein wie die Eingangsdaten: <strong>Garbage in, garbage out</strong>.</p>
 <p>Zu erst wird die reale Struktur und ihre Belastung definiert und anschließend in geeigneter Weise abstrahiert:</p>
 <ul class="simple">
 <li><p>genügt eine 2D Berechnung oder gar eine 1D Berechnung</p></li>
+<li><p>Welche geometrischen Details fließen in die Simulation ein</p></li>
+<li><p>Kann ich die tatsächliche Last abstrahieren?</p></li>
+<li><p>etc.</p></li>
 </ul>
+<p>Das resultierende mechanische Modell ist somit eine idealisierte Darstellung der realen Problemstellung. Es geht darum, unwichtige Details wegzulassen, um die Berechnungen effizient und fokussiert zu halten, während gleichzeitig alle relevanten Belastungen präzise definiert werden müssen.</p>
+<p>Auf die Modellierung folgt die Diskretisierung in finite Elemente. Dies sind kleine standardisierte geometrische Objekte, auf denen die physikalischen Modellgleichungen gelöst werden. Mehr hierzu in späteren Kapiteln.
+Die Diskretisierung wird über sogenannte <em>Preprozessoren</em> generiert. In modernen FE Softwarepaketen sind diese Programmeinheiten integriert. Für gesonderte Diskretisierungsanforderungen gibt es jedoch auch Spezialsofware wie:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://altair.com/hypermesh/">Hypermesh</a></p></li>
+<li><p><a class="reference external" href="https://www.beta-cae.com/">Ansa</a></p></li>
+<li><p><a class="reference external" href="https://gmsh.info/">Gmsh</a></p></li>
+</ul>
+<p>um nur einige zu nennen.
+Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite Elemente. Auch die Belastungen müssen aus dem mechanischen Modell diskretisiert werden.</p>
+<p>Das erstellte Finite-Elemente-Modell dient als Grundlage für die weiterführenden Berechnungen mit der gewählten FEM-Software - dem <em>Prozessor</em>. Innerhalb des Programms wird aus den Eingabedaten ein, in der Regel nichlineares, Gleichungssystem generiert und gelöst, das schließlich Aufschluss über relevante Größen wie Verschiebungen, Dehnungen, Spannungen, Wärmefluss, Temperaturverteilung gibt. Da die Menge an Ergebnisdaten bei großen Problemen erheblich sein kann, sind <em>Postprozessoren</em> unverzichtbar, um eine übersichtliche und grafische Auswertung zu gewährleisten. Auch diese sind in kommerziellen FE-Systemen integriert und auch hier haben sich für bestimmte Anwendungsfälle spezialisierte Softwarelösungen etabliert:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.paraview.org/">Paraview</a></p></li>
+<li><p><a class="reference external" href="https://tecplot.com/">Tecplot</a></p></li>
+<li><p><a class="reference external" href="https://www.beta-cae.com/">Ansa</a></p></li>
+<li><p><a class="reference external" href="https://www.gns-mbh.com/products/animator4/">Animator4</a></p></li>
+</ul>
+<p>um auch hier nur einige zu nennen.</p>
+<p>Der wichtigste Schritt für den/die Entwicklungsingenieur/in bei der FE-Simulation ist die anschließende Auswertung und Bewertung der Ergebnisse. Man sollte den Resultaten stets mit einem gewissen Maß an Skepsis begegnen und entsprechende Kontrollen hinsichtlich Plausibilität und Größenordnung durchführen. Dies kann durch Vergleiche mit Einfachmodellen und experimentellen Untersuchungen unterstützt werden.</p>
+<p>Letztlich muss der/die Anwender/in die Resultate im Kontext der technischen Aufgabe interpretieren. Sollten die Ergebnisse nicht zufriedenstellend sein, kann es notwendig sein, die Rechnung zu wiederholen. Dies kann Änderungen im Finite-Elemente-Modell, der Idealisierung der Struktur oder der Festlegung der Belastungen nach sich ziehen. Nur durch diese iterative Vorgehensweise lässt sich ein genaues und verlässliches Bild des untersuchten technischen Systems gewinnen.</p>
+<!-- - **Nutzung von Finite-Elemente-Programmen**
+  - Anwendung zur Untersuchung realer Tragwerke unter technischen Aufgabenstellungen
+  - Beispiele für reale Strukturen: Pkw-Karosserie, Stockwerkrahmen
+  - Beispiele für technische Aufgaben: Simulation eines Crash-Vorgangs, Ermittlung der Traglast
+
+- **Erstellung des mechanischen Modells**
+  - Idealisierte Darstellung der Struktur entscheidend
+  - Weglassen von unwichtigen Strukturdetails
+  - Festlegung der relevanten Belastungen
+
+- **Diskretisierung in finite Elemente**
+  - Manuelle Diskretisierung möglich bei kleinen Strukturen
+  - Rechnerunterstützung erforderlich bei komplexen Strukturen wie Fahrzeugkarosserien oder Flugzeugen
+  - Nutzung von Preprozessoren zur Modellerzeugung und grafischen Kontrolle
+
+- **Finite-Elemente-Modell als Basis für Berechnungen**
+  - Bereitstellung von Eingabedaten für FEM-Programme
+  - Internes Generieren und Lösen von Gleichungssystemen
+  - Bestimmung relevanter Größen wie Verschiebungen und Schnittkräfte
+  - Verwendung von Postprozessoren zur übersichtlichen Darstellung der Ergebnisse
+
+- **Kritische Bewertung der FEM-Ergebnisse**
+  - Notwendigkeit des Misstrauens gegenüber FEM-Ergebnissen
+  - Durchführung von Kontrollen für Plausibilität und Größenordnung der Ergebnisse
+  - Vergleich mit Einfachmodellen und experimentellen Untersuchungen
+
+- **Interpretation und Anpassung**
+  - Interpretation der Ergebnisse im Kontext der technischen Aufgabe
+  - Mögliche Wiederholung der Rechnung bei nicht zufriedenstellenden Ergebnissen
+  - Anpassung des Finite-Elemente-Modells, Idealisierung der Struktur oder Belastungsfestlegung ggf. notwendig -->
 <section id="der-systembegriff">
 <h2><span class="section-number">1.1. </span>Der Systembegriff<a class="headerlink" href="#der-systembegriff" title="Link to this heading">#</a></h2>
 <blockquote>
@@ -567,6 +639,50 @@
 </li>
 <li><p>Vereinfachte physikalische Bilanzgleichung</p></li>
 </ol>
+<div class="warning admonition">
+<p class="admonition-title">Fragen zum Kapitel</p>
+<p><strong>Allgemeine Verständnisfragen zur numerischen Simulation</strong></p>
+<ul class="simple">
+<li><p>Was sind mögliche Zielstellungen der numerischen Simulation im Konstruktionsprozess?</p></li>
+<li><p>Erläutern Sie den Begriff „Garbage in, garbage out“ im Kontext von Finite-Elemente-Simulationen.</p></li>
+<li><p>Beschreiben Sie die Schritte, die vor einer FE-Simulation durchgeführt werden müssen.</p></li>
+<li><p>Nennen Sie zwei Kriterien für die Wahl zwischen einer 1D-, 2D- oder 3D-Finite-Elemente-Berechnung?</p></li>
+</ul>
+<p><strong>Zum Thema Systembegriff</strong></p>
+<ul class="simple">
+<li><p>Wie wird ein System definiert und welche Elemente umfasst es?</p></li>
+<li><p>Was sind die wesentlichen Schritte bei der Definition eines Systems?</p></li>
+<li><p>Was versteht man unter Zustand, Zustandsgröße in der numerischen Simulation?</p></li>
+</ul>
+<p><strong>Zur Klassifikation von Systemen</strong></p>
+<ul class="simple">
+<li><p>Nennen Sie 3 Kriterien zur Klassifikation von Systemenverhalten und beschreiben Sie diese.</p></li>
+<li><p>Warum ist die Kenntnis über das Systemverhalten wichtig für die Simulation?</p></li>
+</ul>
+<p><strong>Über den Modellbegriff</strong></p>
+<ul class="simple">
+<li><p>Welche Anforderungen sollten Modelle erfüllen?</p></li>
+<li><p>Erklären Sie den Begriff „Modellabstraktion“ und dessen Bedeutung im Ingenieurwesen.</p></li>
+<li><p>Welche Vorteile bieten einfachere Modelle gegenüber komplexeren Modellen während des Design- und Analyseprozesses?</p></li>
+</ul>
+<p><strong>Zum Modellbildungsprozess</strong></p>
+<ul class="simple">
+<li><p>Nennen Sie die wesentlichen Schritte im Modellbildungsprozess</p></li>
+<li><p>Welche Bedeutung haben Verifikation und Validierung in der Modellbildung?</p></li>
+</ul>
+<p><strong>Ansätze zur Abstraktion mechanischer Modelle</strong></p>
+<ul class="simple">
+<li><p>Nennen Sie drei Ansätze zur Abstraktion mechanischer Modelle und erklären Sie diese kurz.</p></li>
+<li><p>Was versteht man unter Dimensionsreduktion und wann wird sie angewendet?</p></li>
+<li><p>In welchen Situationen ist eine Vereinfachung der Materialeigenschaften angebracht?</p></li>
+</ul>
+<p><strong>Vertiefende Fragen zur Reflexion</strong></p>
+<ul class="simple">
+<li><p>Was ist der Unterschied zwischen der Verifikation und der Validierung eines Modells?</p></li>
+<li><p>Was sind die Konsequenzen einer unzureichenden Modellvalidierung?</p></li>
+<li><p>Wie kann eine kritische Bewertung der Ergebnisse einer FE-Simulation erfolgen?</p></li>
+</ul>
+</div>
 </section>
 <div class="toctree-wrapper compound">
 </div>

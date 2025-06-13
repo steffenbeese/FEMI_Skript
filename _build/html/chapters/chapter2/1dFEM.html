@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -190,9 +190,28 @@
 </ul>
 </details></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter3/isoparametrischeFEM.html">3. Isoparametrische FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Ansatzfunktionen.html">3.4. Ansatzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Integration.html">3.5. Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Postprocessing.html">3.6. Postprocessing</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">3. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -392,8 +411,10 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#losung-des-gleichungssystems">2.2.2.3. Lösung des Gleichungssystems</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-schnittgroszen">2.2.2.4. Berechnung der Schnittgrößen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion-der-ergebnisse">2.2.2.5. Diskussion der Ergebnisse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konvergenz-der-ergebnisse">2.2.2.6. Konvergenz der Ergebnisse</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactives-notebook">2.2.3. Interactives Notebook</a></li>
 </ul>
             </nav>
         </div>
@@ -433,11 +454,11 @@
 \newcommand{\sb}{\bm{\sigma}}
 $ --><section class="tex2jax_ignore mathjax_ignore" id="die-schwache-form-am-beispiel-des-stabes">
 <h1><span class="section-number">2.2. </span>Die Schwache Form am Beispiel des Stabes<a class="headerlink" href="#die-schwache-form-am-beispiel-des-stabes" title="Link to this heading">#</a></h1>
-<figure class="align-default" id="stab">
+<figure class="align-default" id="stab-fig">
 <a class="reference internal image-reference" href="../../_images/Stab.png"><img alt="../../_images/Stab.png" src="../../_images/Stab.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 2.2 </span><span class="caption-text">Stab unter Eigengewicht und externer Kraft.</span><a class="headerlink" href="#stab" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.2 </span><span class="caption-text">Stab unter Eigengewicht und externer Kraft.</span><a class="headerlink" href="#stab-fig" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Auch hier beginnen wir mit der starken Form der Differentialgleichung:</p>
@@ -445,18 +466,18 @@ $ --><section class="tex2jax_ignore mathjax_ignore" id="die-schwache-form-am-bei
 <span class="eqno">(2.7)<a class="headerlink" href="#equation-stabdglsimple-2" title="Link to this equation">#</a></span>\[ {EA} u^{\prime \prime} =  - {n(x)} A \; ,\]</div>
 <div class="tip admonition">
 <p class="admonition-title">Analytische Lösung</p>
-<p>Die analytische Lösung erhalten wir durch zweifache Integration und einsetzen der Randbedingungen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5a8815ce-bc65-472b-bc55-2e0f963ea544">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-5a8815ce-bc65-472b-bc55-2e0f963ea544" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<p>Die analytische Lösung erhalten wir durch zweifache Integration und Einsetzen der Randbedingungen:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-025d3fa8-e3e4-4736-ae39-6549e18303d6">
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-025d3fa8-e3e4-4736-ae39-6549e18303d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u(x) = \left( \frac{F}{EA} + \frac{n \ell}{E}\right)\cdot x - \frac{1}{2} \frac{n}{E} x^2 \; . 
 \end{equation}\]</div>
 <p>Die Schnittkraft <span class="math notranslate nohighlight">\(N\)</span> berechnet sich wie folgt:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3549e22b-f092-4190-b0e3-a197b67a38ec">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-3549e22b-f092-4190-b0e3-a197b67a38ec" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0b243e5f-feec-4ffe-8d4f-23274fef0356">
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-0b243e5f-feec-4ffe-8d4f-23274fef0356" title="Permalink to this equation">#</a></span>\[\begin{equation}
 N(x) = F + n A (\ell-x). 
 \end{equation}\]</div>
 </div>
-<p>Zur Herleitung der Finiten Elemente Form multiplizieren  wir die starke Form mit der Testfunktion <span class="math notranslate nohighlight">\(\delta u\)</span> und integrieren die Gleichung über das Gebiet:</p>
+<p>Zur Herleitung der Finite-Elemente-Form multiplizieren wir die starke Form mit der Testfunktion <span class="math notranslate nohighlight">\(\delta u\)</span> und integrieren die Gleichung über das Gebiet:</p>
 <div class="math notranslate nohighlight" id="equation-stabdglsimple-weak">
 <span class="eqno">(2.10)<a class="headerlink" href="#equation-stabdglsimple-weak" title="Link to this equation">#</a></span>\[ \int_{0}^{\ell} \delta u u^{\prime \prime} \dx = \int_{0}^{\ell} - \delta u \frac{n(x)}{EA} \dx\; .\]</div>
 <p>Der Ausdruck auf der linken Seite wird umgeformt zu:</p>
@@ -498,7 +519,7 @@ N(x) = F + n A (\ell-x).
 <p>Man kann leicht erkennen, dass mit diesem quadratischen Ansatz die analytische Lösung der Differentialgleichung rekonstruiert werden konnte.</p>
 <div class="warning admonition">
 <p class="admonition-title">Problem</p>
-<p>Ein Problem bei dem Ritz’schen Verfahren ist die Wahl der Ansatzfunktion. Diese muss die Randbedingungen erfüllen und die Stetigkeitsanforderungen der schwachen Form. Für komplexere Probleme ist die Wahl der Ansatzfunktion nicht trivial - und oft auch nicht möglich.</p>
+<p>Ein Problem beim Ritz’schen Verfahren ist die Wahl der Ansatzfunktion. Diese muss die Randbedingungen erfüllen und die Stetigkeitsanforderungen der schwachen Form. Für komplexere Probleme ist die Wahl der Ansatzfunktion nicht trivial und oft auch nicht möglich.</p>
 </div>
 </section>
 <section id="finite-elemente-formulierung-fur-den-stab">
@@ -512,7 +533,7 @@ N(x) = F + n A (\ell-x).
 <p><span class="caption-number">Abb. 2.3 </span><span class="caption-text">Stab unter Eigengewicht und externer Kraft mit Stabelementen diskretisiert.</span><a class="headerlink" href="#stabelement" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Im vorangegangenen Abschnitt haben wir uns von der Effektivität des Prinzips der virtuellen Arbeit in Kombination mit dem Ritz’schen Verfahren überzeugt. Es erweist sich jedoch oft als schwierig, bei komplex geformten Strukturen, die einer vielschichtigen Belastung ausgesetzt sind, einen adäquaten Näherungsansatz zu finden. Die Finite-Elemente-Methode (FEM) löst dieses Problem, indem sie simple Ansatzfunktionen auf überschaubar gestalteten Teilbereichen – den sogenannten finiten Elementen – anwendet und diese dann systematisch für das gesamte Gebiet integriert.</p>
+<p>Im vorangegangenen Abschnitt haben wir die Effektivität des Prinzips der virtuellen Arbeit in Kombination mit dem Ritz’schen Verfahren untersucht. Es erweist sich jedoch oft als schwierig, einen angemessenen Näherungsansatz für komplexe Strukturen zu finden, die einer vielschichtigen Belastung ausgesetzt sind. Die Finite-Elemente-Methode (FEM) löst dieses Problem, indem sie einfache Ansatzfunktionen auf überschaubaren Teilbereichen – den sogenannten finiten Elementen – anwendet und diese dann systematisch für das gesamte Gebiet integriert.</p>
 <p>Als Beispiel hierfür dient die im Bild <a class="reference internal" href="#stabelement"><span class="std std-numref">Abb. 2.3</span></a> dargestellte Diskretisierung eines Stabes mit der Gesamtlänge <span class="math notranslate nohighlight">\(\ell\)</span>, der in zwei finite Elemente mit jeweils der Länge <span class="math notranslate nohighlight">\(l_i = \frac{\ell}{2}\)</span> unterteilt wird.</p>
 <div class="tip admonition">
 <p class="admonition-title">Allgemeines zu Finiten Elementen</p>
@@ -603,7 +624,7 @@ u_2^{e} \text{ Verschiebung u am lokalen Knoten 2 von Element e}
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd3b621dc30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f259c515b70&gt;
 </pre></div>
 </div>
 <img alt="../../_images/c7ce0870469968c74561338cf1ac8522e40620c8f17b286370fc0a18b34d24e7.png" src="../../_images/c7ce0870469968c74561338cf1ac8522e40620c8f17b286370fc0a18b34d24e7.png" />
@@ -653,8 +674,8 @@ u_2^{e} \text{ Verschiebung u am lokalen Knoten 2 von Element e}
 <p>Die Elemente im unserem dargestellten Beispiel (<a class="reference internal" href="#stabelement"><span class="std std-numref">Abb. 2.3</span></a>) werden mit den Nummern 1 und 2 bezeichnet, während die Knoten von 1 bis 3 nummeriert sind; weder die Knoten noch die Elemente müssen in einem FEM-Netz in einer bestimmten Reihenfolge nummeriert sein. Wir kommen hierzu nochmal später in der Vorlesung.</p>
 <p>Beachten Sie, dass die Kraftgrößen der Elemente <span class="math notranslate nohighlight">\(S_i^{(e)}\)</span> mit den Indizes 1 und 2 versehen sind. Dies sind die lokalen Knotennummern. Die Knoten des Netzes sind die globalen Knotennummern. Die lokalen Knotennummern eines Stabelements sind immer in der positiven <span class="math notranslate nohighlight">\(\xi\)</span>-Richtung mit 1, 2 nummeriert. Die globalen Knotennummern hingegen sind willkürlich.</p>
 <p>Wir versuchen nun, die lokalen Kräfte <span class="math notranslate nohighlight">\(S_i^{(e)}\)</span> für das Element 1 mit den globalen Verschiebungen in Verbindung zu bringen. Betrachten wir zunächst den Knoten 2, welchen sich Element 1 und 2 teilen. Hier gilt für die Verschiebung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff89b89c-0cea-4ad0-ab87-543df173ac75">
-<span class="eqno">(2.19)<a class="headerlink" href="#equation-ff89b89c-0cea-4ad0-ab87-543df173ac75" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b9f913f4-6636-4752-afe0-9d8a9158d0d6">
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-b9f913f4-6636-4752-afe0-9d8a9158d0d6" title="Permalink to this equation">#</a></span>\[\begin{align}
   u_2^{(1)} = u_1^{(2)} = u_2 \; .
 \end{align}\]</div>
 <div class="math notranslate nohighlight" id="equation-stabfem5">
@@ -802,8 +823,8 @@ u_3
 \bar{\bm{u}}
 \end{bmatrix}- \bm{F}_v\]</div>
 <p>Im vorliegenden Beispiel erhalten wir für das Gleichungssystem <a class="reference internal" href="#equation-lgssolve2">(2.26)</a>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d0ef3e2b-7572-45d6-bb48-8ff0ee4ea97a">
-<span class="eqno">(2.28)<a class="headerlink" href="#equation-d0ef3e2b-7572-45d6-bb48-8ff0ee4ea97a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5c9381d9-4370-46b2-a0a5-2c2b2f996790">
+<span class="eqno">(2.28)<a class="headerlink" href="#equation-5c9381d9-4370-46b2-a0a5-2c2b2f996790" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 F \\
 0 \\
@@ -835,8 +856,8 @@ u_2\\
 \end{bmatrix} 
 \end{align}\]</div>
 <p>mit der Lösung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-804915ae-3693-4f64-93cb-2f265ef2a746">
-<span class="eqno">(2.29)<a class="headerlink" href="#equation-804915ae-3693-4f64-93cb-2f265ef2a746" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-71245de8-773c-481e-8684-660bd301459a">
+<span class="eqno">(2.29)<a class="headerlink" href="#equation-71245de8-773c-481e-8684-660bd301459a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 u_1 \\
 u_2\\
@@ -846,8 +867,8 @@ u_2\\
 \end{bmatrix} 
 \end{align}\]</div>
 <p>Die unbekannte Reaktionskraft am Knoten 3 berechnet sich dann zu:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f42da507-1742-491d-83cb-7d200d3436db">
-<span class="eqno">(2.30)<a class="headerlink" href="#equation-f42da507-1742-491d-83cb-7d200d3436db" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-894fee8d-fcf0-4877-82ad-e20d972f19e0">
+<span class="eqno">(2.30)<a class="headerlink" href="#equation-894fee8d-fcf0-4877-82ad-e20d972f19e0" title="Permalink to this equation">#</a></span>\[\begin{align}
 R + F_v &amp; = \frac{2EA}{\ell} \begin{bmatrix}
 0 &amp; -1 
 \end{bmatrix} \begin{bmatrix}
@@ -885,6 +906,40 @@ N^{(2)} &amp; = 2\frac{EA}{\ell} \begin{bmatrix} -1 &amp; 1 \end{bmatrix} \begin
 <p>Im rechten Teil von Abbildung <a class="reference internal" href="#fe-compare"><span class="std std-numref">Abb. 2.4</span></a> wird die FE-Approximation für den Verlauf der Schnittkräfte mit der analytischen Lösung kontrastiert. Die analytische Lösung zeigt ein lineares Wachstum der Normalkraft auf, das jedoch durch die hier verwendeten linearen Ansatzfunktionen lediglich stückweise durch eine konstante Annäherung wiedergegeben wird. Dabei treten an den Grenzen der Elemente Diskontinuitäten in den von der FEM berechneten Schnittkraftverläufen auf. Auffällig ist auch in diesem Beispiel, dass die analytische Lösung im Zentrum jedes Elements exakt erreicht wird.</p>
 <p>Die Genauigkeit dieser Näherungslösung kann augenscheinlich gesteigert werden, indem man die Anzahl der Elemente erhöht. Dies führt dazu, dass die Sprünge im Verlauf der Schnittkräfte bestehen bleiben, aber kleiner ausfallen. Um eine qualitativ signifikante Verbesserung zu erzielen, empfiehlt es sich, Elemente mit quadratischen Ansatzfunktionen für das Verschiebungsfeld zu nutzen. In diesem Fall wird bereits mit einem einzigen Element, das über drei Knotenpunkte verfügt, die exakte Lösung erlangt. In dieser Situation wäre dann die FEM äquivalent dem Ritz’schen Verfahren.</p>
 </section>
+<section id="konvergenz-der-ergebnisse">
+<h3><span class="section-number">2.2.2.6. </span>Konvergenz der Ergebnisse<a class="headerlink" href="#konvergenz-der-ergebnisse" title="Link to this heading">#</a></h3>
+<figure class="align-default" id="stabelement-refined">
+<a class="reference internal image-reference" href="../../_images/Stab_Normalkraft_refined.png"><img alt="../../_images/Stab_Normalkraft_refined.png" src="../../_images/Stab_Normalkraft_refined.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 2.5 </span><span class="caption-text">Ergebnisse für die Normalspannung in einem Stab unter Eigengewicht mit einer erhöhten Netzfeinheit.</span><a class="headerlink" href="#stabelement-refined" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Bei einer immer feiner werdenen Diskretisierung des Stabes, konvergiert die Lösung gegen die analytische Lösung. Dennoch liegen wie in Abbildung <a class="reference internal" href="#stabelement-refined"><span class="std std-numref">Abb. 2.5</span></a> zu sehen, immernoch Spannungssprünge an den Elementgrenzen vor. Betrachtet man die Fehler der Spannungsergebnisse, so zeigt sich, dass dieser Fehler mit steigender Anzahl an Freihheitsgraden abnimmt. Dies ist in Abbildung <a class="reference internal" href="#stabelement-error"><span class="std std-numref">Abb. 2.6</span></a> zu sehen. Im doppelt logaritmischen Maßstab erhält man eine Gerade für die Abnahme des Fehlers. Auch bei der verwendung von Ansatzfunktionen höherer Ordnung reduziert sich der Fehler nur linear im doppeltlogarithmischen Maßstab. Die Steigung ist jedoch höher, sodass im Allgemeinen mit einer verbesserten Konvergenz zu rechnen ist.</p>
+<figure class="align-default" id="stabelement-error">
+<a class="reference internal image-reference" href="../../_images/Stab_error_convergence.png"><img alt="../../_images/Stab_error_convergence.png" src="../../_images/Stab_error_convergence.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 2.6 </span><span class="caption-text">Konvergenz der Spannungsergebniss in einem Stab unter Eigengewicht mit steigender Anzahl an Freihheitsgraden.</span><a class="headerlink" href="#stabelement-error" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="interactives-notebook">
+<h2><span class="section-number">2.2.3. </span>Interactives Notebook<a class="headerlink" href="#interactives-notebook" title="Link to this heading">#</a></h2>
+<p>asierend auf der präsentierten Theorie wurde ein Jupyter Notebook erstellt. Dieses kann man ohne Systemvorraussetzungen im Browser ausführen:</p>
+<p>StabFEM for Binder: <a class="reference external" href="https://mybinder.org/v2/gh/steffenbeese/FEM_I_Notebooks/main?urlpath=%2Fdoc%2Ftree%2FNotebook_StabFEM.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<div class="warning admonition">
+<p class="admonition-title">Fragen zum Kapitel</p>
+<p><strong>StabFEM</strong></p>
+<ul class="simple">
+<li><p>Was unterscheidet das Verfahren von Ritz von der FEM?</p></li>
+<li><p>Welches Problem hat man beim Verfahren von Ritz bezüglich der Anssatzfunktion?</p></li>
+<li><p>Skizzieren Sie die Formfunktionen für ein lineares Stabelement mit 2 Knoten.</p></li>
+<li><p>Auf Elementebene werden die Steifigkeitsmatrizen und die Lastvektoren berechnet. Was passiert danach mit diesen Größen?</p></li>
+<li><p>Das globale Gleichungssystem kann nicht gelöst werden. Die Steifigkeitsmatrix ist singulär. Was könnte der Grund dafür sein?</p></li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -960,8 +1015,10 @@ N^{(2)} &amp; = 2\frac{EA}{\ell} \begin{bmatrix} -1 &amp; 1 \end{bmatrix} \begin
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#losung-des-gleichungssystems">2.2.2.3. Lösung des Gleichungssystems</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-schnittgroszen">2.2.2.4. Berechnung der Schnittgrößen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion-der-ergebnisse">2.2.2.5. Diskussion der Ergebnisse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#konvergenz-der-ergebnisse">2.2.2.6. Konvergenz der Ergebnisse</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactives-notebook">2.2.3. Interactives Notebook</a></li>
 </ul>
   </nav></div>
 

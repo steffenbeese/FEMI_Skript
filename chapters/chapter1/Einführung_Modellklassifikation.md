@@ -25,7 +25,7 @@ Die numerische Mechanik bedient sich computergestützter Techniken zur Ermittlun
 
 Diskrete Modelle der Mechanik basieren auf massebehafteten, starren Massepunkten oder Körpern, die durch Kraftpotentiale oder Federverbindungen miteinander in Wechselwirkung stehen. Solche Potentiale werden verwendet, um Interaktionen zwischen atomaren Partikeln (Molekulardynamik) oder Planeten (Gravitationsgesetze) zu modellieren. 
 
-Ein weiteres Anwendungsgebiet in der diskreten Modellierung der Mechanik sind Mechanismen: Systeme aus kinematisch verbundenen, starren oder verformbaren Körpern, verbunden durch Kontakte und diskret modellierte elastische Feder- und Dämpferelementen. Beispiele hierfür sind industrielle Fertigungsmaschinen oder der Mechanismus eines Kugelschreibers, von Spannelementen oder Fahrwerken.
+Ein weiteres Anwendungsgebiet in der diskreten Modellierung der Mechanik sind Mechanismen: Systeme aus kinematisch verbundenen, starren Körpern, verbunden durch Kontakte und diskret modellierte elastische Feder- und Dämpferelementen. Beispiele hierfür sind industrielle Fertigungsmaschinen oder der Mechanismus eines Kugelschreibers, von Spannelementen oder Fahrwerken.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -90,3 +90,24 @@ Unser Fokus liegt auf der Finite-Elemente-Methode (FEM), wobei auch die Finite-D
 
 In der Fluidmechanik hat sich die FEM aufgrund der besonderen Beschaffenheit der Differentialgleichungen nicht durchgesetzt, was ebenfalls thematisiert wird. In diesem Gebiet sind traditionell die Finite-Differenzen-Methode und heute vermehrt die Finite-Volumen-Methode gebräuchlich.
 
+
+```{admonition} Fragen zum Kapitel
+:class: warning
+
+**Diskrete Modell**
+
+- Wie treten Körper innerhalb der diskreten Mechanik in Interaktion?
+- Welche Gleichung ist die Grundlage der Simulation von  Mehrkörpersystemen?
+- Welche zwei Methoden sind in der diskreten Mechanik etabliert?
+- Was ist die numerische Herausforderung in der diskreten Mechanik?
+- Welche ingeneur-technische Herausforderung gilt es in der diskreten Mechanik zu bewältigen?
+
+**Kontinuierliche Modelle**
+- Welcher Gleichungstyp liegen den kontinuierlichen Modellen der Mechanik zugrunde?  
+- Was ist korrekt?
+  - [ ] Die kontinuierlichen Modelle sind die Grundlage der FEM.
+  - [ ] In den kontinuierlichen Modellen werden komplexe zwischen-atomare Interaktionen berücksichtigt.
+  - [ ] Das Material wird als homogen angesehen.
+  - [ ] Die FEM ist besonders für die Fluidmechanik geeignet. 
+
+```

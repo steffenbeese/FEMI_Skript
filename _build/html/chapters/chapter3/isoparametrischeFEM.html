@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Isoparametrische FEM &#8212; Finite Elemente Methode 1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1], "tbf": ["\\textbf{#1}", 1], "tit": ["\\textit{#1}", 1], "tsl": ["\\textsl{#1}", 1], "tsc": ["\\textsc{#1}", 1], "ttt": ["\\texttt{#1}", 1], "trm": ["\\textrm{#1}", 1], "tsf": ["\\textsf{#1}", 1], "tup": ["\\textup{#1}", 1], "mbf": ["\\mathbf{#1}", 1], "mit": ["\\mathit{#1}", 1], "msf": ["\\mathsf{#1}", 1], "mrm": ["\\mathrm{#1}", 1], "mtt": ["\\mathtt{#1}", 1], "dcdot": "\\mathbf{:}", "pha": ["#1^{\\alpha}", 1], "Pha": ["#1_{\\alpha}", 1], "phb": ["#1^{\\beta}", 1], "Phb": ["#1_{\\beta}", 1], "phu": ["#1^{\\textrm{#2}}", 2], "Phu": ["#1_{\\textrm{#2}}", 2], "phuR": ["#1^{\\textrm{#2R}}", 2], "phaR": ["#1^{\\alpha R}", 1], "phbR": ["#1^{\\beta R}", 1], "setC": "\\left\\{S,G,L,l\\right\\}", "tot": "^{ \\textrm{tot} }", "Grad": ["\\textrm{Grad}\\left(#1\\right)", 1], "grad": ["\\textrm{grad}\\left(#1\\right)", 1], "Div": ["\\textrm{Div} \\left(#1\\right)", 1], "div": ["\\textrm{div} \\left(#1\\right)", 1], "Lin": "\\textrm{Lin}", "intd": "\\ \\textrm{d}", "la": "\\, \\leftarrow \\,", "dV": "\\; \\textrm{d}V", "dViso": "\\; \\textrm{d}V_{\\square}", "dA": "\\; \\textrm{d}A", "da": "\\; \\textrm{d}a", "dx": "\\; \\textrm{ d}x", "dxi": "\\; \\textrm{ d}\\xi", "d": "\\; \\textrm{ d}", "dy": "\\; \\textrm{ d}y", "dz": "\\; \\textrm{ d}z", "dX": "\\; \\textrm{ d}X", "dY": "\\; \\textrm{ d}Y", "dZ": "\\; \\textrm{ d}Z", "deta": "\\; \\textrm{ d}\\eta", "dzeta": "\\; \\textrm{ d}\\zeta", "Ibt": "\\int_{\\mathcal{B}_t}", "Ist": "\\int_{\\Gamma_t}", "Ibref": "\\int_{\\mathcal{B}\\rs{0}}", "Isref": "\\int_{\\Gamma\\rs{0}}", "sref": "{\\Gamma\\rs{0}}", "Bref": "{\\mathcal{B}\\rs{0}}", "Ibiso": "\\int_{\\mathcal{B}_{\\square}}", "siso": "{\\Gamma_{\\square}}", "Mtd": ["\\left(#1\\right)^{,}", 1], "Mtda": ["\\left(#1\\right)^{,}_{\\alpha}", 1], "Mtdu": ["\\left(#1\\right)^{,}_{\\textrm{#2}}", 2], "td": ["\\dot{#1}", 1], "tdd": ["\\ddot{#1}", 1], "Pd": ["\\frac{\\partial #1}{\\partial #2}", 2], "Dd": ["\\frac{\\text{d }  #1}{\\text{d } #2}", 2], "dt": ["#1 ^{\\bullet}", 1], "hist": "\\mid_{\\tau=0}^t", "rom": ["\\textrm{#1}", 1], "rp": ["^{ \\textrm{#1} }", 1], "rs": ["_{ \\textrm{#1} }", 1], "T": "^{ \\textrm{T} }", "mT": "^{ -\\textrm{T} }", "dev": "_{ \\textrm{dev} }", "sph": "_{ \\textrm{sph} }", "hyd": "_{ \\textrm{hyd} }", "iso": "_{ \\textrm{iso} }", "vol": "_{ \\textrm{vol} }", "vM": "_{ \\textrm{vM} }", "sym": "_{ \\textrm{sym} }", "dil": "_{ \\textrm{dil} }", "ln": ["\\textrm{ln}\\left(#1\\right)", 1], "uft": "\\mathfrak{\\boldsymbol{u}}", "Pext": "\\mathcal{P}\\rp{ext}", "Pint": "\\mathcal{P}\\rp{int}", "Cg": "\\boldsymbol{C}", "detC": "\\det \\Cg", "F": "\\bm{F}", "s": "\\bm{\\sigma}", "ie": "\\rp{e}", "ipl": "\\rp{p}", "e": "\\varepsilon", "eb": "\\bm{\\varepsilon}", "ee": ["\\e\\ie", 0], "ep": ["\\e\\ipl", 0], "E": "\\bm{E}", "Ee": ["\\E\\ie", 0], "Ep": ["\\E\\ipl", 0], "Fe": ["\\bm{\\F}\\ie", 0], "Fp": ["\\bm{\\F}\\ipl", 0], "Cge": "\\tilde{\\Cg}\\ie", "Cgp": ["\\Cg\\ipl", 0], "Se": "\\tilde{\\bm{S}}\\ie", "Me": "\\tilde{\\bm{M}}\\ie", "Lp": "\\tilde{\\bm{L}}\\ipl", "Dp": "\\tilde{\\bm{D}}\\ipl", "sw": "\\rs{sw}", "IV": "\\bm{Y}", "iv": "Y", "psiCap": "\\psi\\rs{cap}", "psiCapcv": "\\psi\\rs{cap-cv}", "psiAd": "\\psi\\rs{ad}", "pCap": "p\\rs{cap}", "pCapcv": "p\\rs{cap-cv}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter3/isoparametrischeFEM';</script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+    <link rel="next" title="3.4. Ansatzfunktionen" href="Ansatzfunktionen.html" />
+    <link rel="prev" title="2.3. Die Balken-FEM" href="../chapter2/BalkenFEM.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.jpeg" class="logo__image only-light" alt="Finite Elemente Methode 1 - Home"/>
+    <img src="../../_static/logo.jpeg" class="logo__image only-dark pst-js-only" alt="Finite Elemente Methode 1 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Vorlesungsskript zur Finiten Elemente Methode I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/elasticity.html">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/strukturgleichungen.html">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.1. Von der starken zur schwachen Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die Schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/BalkenFEM.html">2.3. Die Balken-FEM</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. Isoparametrische FEM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Ansatzfunktionen.html">3.4. Ansatzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html">3.5. Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Postprocessing.html">3.6. Postprocessing</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter3/isoparametrischeFEM.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/chapter3/isoparametrischeFEM.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Isoparametrische FEM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begriffsklarung">3.1. Begriffsklärung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-raumlichen-ableitungen">3.2. Berechnung der räumlichen Ableitungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anforderungen-an-den-finite-elemente-ansatz">3.3. Anforderungen an den Finite Elemente Ansatz</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="isoparametrische-fem">
+<h1><span class="section-number">3. </span>Isoparametrische FEM<a class="headerlink" href="#isoparametrische-fem" title="Link to this heading">#</a></h1>
+<figure class="align-default" id="isogeom">
+<a class="reference internal image-reference" href="../../_images/Nackenhorst_01.png"><img alt="../../_images/Nackenhorst_01.png" src="../../_images/Nackenhorst_01.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.1 </span><span class="caption-text">Geometrieapproximation am Beispiel der Diskretisierung eines Eisenbahnrades <span id="id1">[<a class="reference internal" href="../../quellen.html#id17" title="Prof. Dr.-Ing. Udo Nackenhorst. Numerische mechanik. 2022. Vorlesungsskript, Sommersemester.">Nackenhorst, 2022</a>]</span>.</span><a class="headerlink" href="#isogeom" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die isoparametrische Finite Elemente Methode ist heute der geläufige Standard in FEA Software. Erstmals erwähnt wurde die isoparameterische Finite Elemente Methode von I.C. Taig (britischer Luftfahrtingenieur) im Jahre 1958. Die Methode bildet die Grundlage um komplizierte Geometrien mit gekrümmten Rändern zu modellieren. Als Beispiel sei hier die Diskretisierung in Abbildung <a class="reference internal" href="#isogeom"><span class="std std-numref">Abb. 3.1</span></a> eines Eisenbahnrades gezeigt. In den nächsten Abschnitten werden einige Aspekte der isoparametrischen Finite Elemente Methode erläutert. Für einen umfassender Einblick sei auf die Standardwerke von <span id="id2">[<a class="reference internal" href="../../quellen.html#id3" title="Olgierd Cecil Zienkiewicz, Robert Leroy Taylor, and Jian Z Zhu. The finite element method: its basis and fundamentals. Elsevier, 2005.">Zienkiewicz <em>et al.</em>, 2005</a>]</span>, <span id="id3">[<a class="reference internal" href="../../quellen.html#id18" title="Thomas JR Hughes. The finite element method: linear static and dynamic finite element analysis. Courier Corporation, 2003.">Hughes, 2003</a>]</span> oder  <span id="id4">[<a class="reference internal" href="../../quellen.html#id19" title="Klaus-Jürgen Bathe. Finite element procedures. Klaus-Jurgen Bathe, 2006.">Bathe, 2006</a>]</span> verwiesen.</p>
+<section id="begriffsklarung">
+<h2><span class="section-number">3.1. </span>Begriffsklärung<a class="headerlink" href="#begriffsklarung" title="Link to this heading">#</a></h2>
+<p>In der schwachen Form <a class="reference internal" href="../chapter2/FEM.html#equation-weakform-03">(2.5)</a> werden die Felder <span class="math notranslate nohighlight">\(\bm{u}_h\)</span>, <span class="math notranslate nohighlight">\(\delta\bm{u}_h\)</span> und die Koordinaten <span class="math notranslate nohighlight">\(\bm{x}\)</span>, sowie deren räumliche Ableitungen berechnet. Das Aufstellen der Ansatzfunktionen für diese Felder ist für komplexe Geometrien nicht trivial. Daher werden die Ansatzfunktionen in einem sog. Elternelement definiert. Dieses wird dann auf die reale Geometrie abgebildet. Diese Abbildung wird als isoparametrische Abbildung bezeichnet. Die Abbildung wird durch die sog. Formfunktionen <span class="math notranslate nohighlight">\(\bm{N}\)</span> beschrieben. Diese Formfunktionen sind in der Regel Polynome und werden in der Regel in einem sog. Elternelement definiert. Dieses Elternelement ist ein einfaches geometrisches Objekt, wie z.B. ein Einheitsquadrat oder ein Einheitsdreieck. Die Formfunktionen sind in diesem Elternelement definiert und werden dann auf die reale Geometrie abgebildet. Dies ist in Abbildung <a class="reference internal" href="#isoparamtericmapping"><span class="std std-numref">Abb. 3.2</span></a> für den zweidimensionalen Fall eines Rechteckelementes dargestellt.</p>
+<figure class="align-default" id="isoparamtericmapping">
+<a class="reference internal image-reference" href="../../_images/Taylor_isoQuad.png"><img alt="../../_images/Taylor_isoQuad.png" src="../../_images/Taylor_isoQuad.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.2 </span><span class="caption-text">Abbildung des Elternelementes auf die reale Geometrie (<span id="id5">[<a class="reference internal" href="../../quellen.html#id3" title="Olgierd Cecil Zienkiewicz, Robert Leroy Taylor, and Jian Z Zhu. The finite element method: its basis and fundamentals. Elsevier, 2005.">Zienkiewicz <em>et al.</em>, 2005</a>]</span>).</span><a class="headerlink" href="#isoparamtericmapping" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die Abbildung des Elternelementes auf die reale Geometrie entspricht einer Koordinaten-Transformation. Das Elternelement wird mit den Koordinaten <span class="math notranslate nohighlight">\(\xi\)</span>, <span class="math notranslate nohighlight">\(\eta\)</span> und <span class="math notranslate nohighlight">\(\zeta\)</span> beschrieben, während die reale Geometrie mit den Koordinaten <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> und <span class="math notranslate nohighlight">\(z\)</span> beschrieben wird. Die Transformation wird durch die Abbildung <span class="math notranslate nohighlight">\(\bm{x}_h = \bm{x}_h(\xi, \eta, \zeta)\)</span> beschrieben:</p>
+<div class="math notranslate nohighlight" id="equation-geometric-mapping">
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-geometric-mapping" title="Link to this equation">#</a></span>\[\begin{equation}
+\bm{x}_h = \sum_{i=1}^{n} N_I(\bm{\xi}) \hat{\bm{x}}_I
+\end{equation}\]</div>
+<p>hierbei ist <span class="math notranslate nohighlight">\(\hat{\bm{x}}_I\)</span> der Vektor der Knotenkoordinaten und <span class="math notranslate nohighlight">\(N_I(\bm{\xi})\)</span> die Formfunktionen des Elternelementes. Die Formfunktionen sind in der Regel Lagrange-Polynome, die die Knoten des Elternelementes interpolieren. Die Formfunktionen sind somit stückweise linear, quadratisch oder kubisch, je nach Art des Elternelementes.</p>
+<p>Wird für die Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}_h\)</span> und die Verschiebung <span class="math notranslate nohighlight">\(\delta\bm{u}_h\)</span>, sowie die diskrete Darstellung der Geometrie <span class="math notranslate nohighlight">\(\bm{x}_h\)</span> der gleiche Ansatz verwendet, so spricht man von einem isoparametrischen Element:</p>
+<div class="math notranslate nohighlight" id="equation-isoparametric">
+<span class="eqno">(3.2)<a class="headerlink" href="#equation-isoparametric" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+  \delta \bm{u}_h &amp;= \sum_{I=1}^{n} N_I(\bm{\xi}) \delta \hat{\bm{u}}_I \\
+  \bm{u}_h &amp;= \sum_{i=1}^{n} N_I(\bm{\xi}) \hat{\bm{u}}_I \\
+  \bm{x}_h &amp;= \sum_{i=1}^{n} N_I(\bm{\xi}) \hat{\bm{x}}_I
+\end{align}\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Abgrenzung: weitere Parameterformulierungen</p>
+<p>Neben der isoparametrischen Formulierung gibt es auch andere Parameterformulierungen:</p>
+<ul class="simple">
+<li><p>subparametrische Formulierung: Geometrie wird mit niedrigerem Polynomgrad als die Verschiebung interpoliert</p></li>
+<li><p>superparametrische Formulierung: Geometrie wird mit höherem Polynomgrad als die Verschiebung interpoliert
+Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparametrische generell vermieden werden sollte (Keine Konvergenz sichergestellt)</p></li>
+</ul>
+</div>
+</section>
+<section id="berechnung-der-raumlichen-ableitungen">
+<h2><span class="section-number">3.2. </span>Berechnung der räumlichen Ableitungen<a class="headerlink" href="#berechnung-der-raumlichen-ableitungen" title="Link to this heading">#</a></h2>
+<p>Möchte man ein diskretisiertes Feld z.B. <span class="math notranslate nohighlight">\(\bm{u}_h\)</span> ableiten, so muss man die über die Kettenregel die Formfunktionen ableiten:</p>
+<div class="math notranslate nohighlight" id="equation-ableitungformfunktion">
+<span class="eqno">(3.3)<a class="headerlink" href="#equation-ableitungformfunktion" title="Link to this equation">#</a></span>\[\begin{align}
+\Pd{\bm{u}_h}{\bm{x}} = \sum_{I=1}^{n} \Pd{N_I}{\bm{\xi}} \Pd{\bm{\xi}}{\bm{x}}  \hat{\bm{u}}_I \;.
+\end{align}\]</div>
+<p>In dieser Gleichung ist <span class="math notranslate nohighlight">\(\Pd{\bm{\xi}}{\bm{x}}\)</span> jedoch unbekannt. Über die parametrische Darstellung der Geometrie <a class="reference internal" href="#equation-geometric-mapping">(3.1)</a> kann man jedoch die Ableitung <span class="math notranslate nohighlight">\(\Pd{\bm{\xi}}{\bm{x}}\)</span> berechnen:</p>
+<div class="math notranslate nohighlight" id="equation-ableitungformfunktion-02">
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-ableitungformfunktion-02" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+\bm{J} := \Pd{\bm{x}}{\bm{\xi}} &amp; = \begin{pmatrix}
+\Pd{x}{\xi} &amp; \Pd{x}{\eta} &amp; \Pd{x}{\zeta} \\
+\Pd{y}{\xi} &amp; \Pd{y}{\eta} &amp; \Pd{y}{\zeta} \\
+\Pd{z}{\xi} &amp; \Pd{z}{\eta} &amp; \Pd{z}{\zeta} 
+\end{pmatrix}
+=  \sum_{I=1}^{n} \Pd{N_I}{\bm{\xi}} \hat{\bm{x}}_I \\
+\Rightarrow \Pd{\bm{\xi}}{\bm{x}} &amp; = \bm{J}^{-1} \; .
+\end{align}\end{split}\]</div>
+<p>Hier wurde die <strong>Jacobi-Matrix</strong> <span class="math notranslate nohighlight">\(\bm{J}\)</span> eingeführt. Zur Berechnung der räumlichen Ableitungen der Formfunktionen werden diese einfach mit der inversen Jacobi-Matrix multipliziert:</p>
+<div class="math notranslate nohighlight" id="equation-ableitungformfunktion-03">
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-ableitungformfunktion-03" title="Link to this equation">#</a></span>\[\Pd{N_I}{\bm{x}} = \Pd{N_I}{\bm{\xi}} \Pd{\bm{\xi}}{\bm{x}} = \Pd{N_I}{\bm{\xi}} \bm{J}^{-1} \; .\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Bedeutung der Jacobi Matrix</p>
+<p>Die Determinante der Jacobi-Matrix <span class="math notranslate nohighlight">\(\det(\bm{J})\)</span> wird als <strong>Jacobian</strong> bezeichnet und stellt ein wichtiges Maß für die Qualität der Elementform dar. Eine Jacobi-Determinante von Null bedeutet, dass die Elementform singulär ist und die Ableitung der Formfunktionen nicht mehr eindeutig definiert ist. Es ist daher wichtig, dass die Jacobi-Determinante in der gesamten Element positiv ist. Eine Jacobi-Determinante in der Nähe von 1 ist ideal, während Werte weit von 1 entfernt auf verzerrte Elemente hinweisen. Negative Werte der Jacobi-Determinante sind ebenfalls problematisch und sollten vermieden werden. Hier hat sich das Element selbst durchdrungen. Solche Elemente fügen dem System Energie hinzu und verfälschen die Lösung maßgeblich.</p>
+</div>
+</section>
+<section id="anforderungen-an-den-finite-elemente-ansatz">
+<h2><span class="section-number">3.3. </span>Anforderungen an den Finite Elemente Ansatz<a class="headerlink" href="#anforderungen-an-den-finite-elemente-ansatz" title="Link to this heading">#</a></h2>
+<p>Um die Finite-Elemente-Methode (FEM) effektiv anzuwenden, müssen die Formfunktionen bestimmte Anforderungen erfüllen:</p>
+<p><strong>Kontinuität</strong>:</p>
+<p>Die Formfunktionen müssen im gesamten Bereich stetig vom Grad <span class="math notranslate nohighlight">\(C^{n-1}\)</span> sein, wobei <span class="math notranslate nohighlight">\(n\)</span> die höchste Ableitung ist, die in der schwachen Formulierung <a class="reference internal" href="../chapter2/FEM.html#equation-weakform-03">(2.5)</a> vorkommt. Beispielsweise erfordert die Elastizitätstheorie <span class="math notranslate nohighlight">\(n=1\)</span>, was bedeutet, dass der Ansatz <span class="math notranslate nohighlight">\(C^0\)</span>-stetig sein muss. Insbesondere muss diese Stetigkeit über die Elementgrenzen hinweg gewährleistet sein.
+Beim Balkenelement trat die Krümmung (2. Ableitung der Durchbiegung) in der schwachen Form auf. Deshalb muss der Ansatz für das Balkenelement <span class="math notranslate nohighlight">\(C^1\)</span>-stetig sein.</p>
+<p><strong>Vollständigkeit</strong>:</p>
+<p>Die Formfunktionen müssen die exakte Lösung approximieren können, wenn die Anzahl der Elemente gegen unendlich geht. Dies stellt sicher, dass die numerische Lösung mit zunehmender Verfeinerung des Netzes immer genauer wird.</p>
+<p><strong>Eindeutigkeit</strong>:</p>
+<p>Die Formfunktionen müssen eindeutig sein, d.h., es darf keine lineare Abhängigkeit zwischen den Formfunktionen geben. Diese Eigenschaft ist entscheidend, um sicherzustellen, dass die Lösung der Gleichungen eindeutig bestimmt ist.</p>
+<p>Diese Anforderungen sind essenziell, um die Genauigkeit und Zuverlässigkeit der FEM-Lösungen zu gewährleisten. Sie stellen sicher, dass die numerischen Ergebnisse physikalisch sinnvoll und mathematisch korrekt sind und dass die Methode gegen die analytische Lösung konvergiert.</p>
+<p>Für diese drei Anforderungen existiert auch eine Ingenieurmäßige Deutung, welche im Folgenden beschrieben wird.</p>
+<figure class="align-default" id="stetigkeit-01">
+<a class="reference internal image-reference" href="../../_images/NonConforming_Mesh_01.png"><img alt="../../_images/NonConforming_Mesh_01.png" src="../../_images/NonConforming_Mesh_01.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.3 </span><span class="caption-text">Verletzung der Stetigkeitsanforderung in der Finiten Elemente Methode.</span><a class="headerlink" href="#stetigkeit-01" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die Forderung der Stetigkeit über die Elementgrenzen hinweg ist wird über eine konforme Vernetzung sichergestellt. Ein typisches Beispiel zur Veranschaulichung dieser Anforderung ist die Elementierung mit 4-Knoten-Rechteckelementen.
+Betrachten wir eine eingespannte Scheibe, die einer Zugbelastung ausgesetzt ist. Um die Schnittkräfte genauer zu erfassen, wird das Netz in Richtung der Einspannung verfeinert. Dies soll die Behinderung der Querkontraktion besser erfassen. Allerdings führt diese Netzverfeinerung in einigen Fällen zu unzulässigen Klaffungen im deformierten Netz.</p>
+<p>Die Ursache für diese unzulässigen Klaffungen liegt in der Zuordnung der Knoten zu den Elementen. In diesem Beispiel werden die Knoten 7,9 und 12 nur zu zwei Elementen zugeordnet. Die Elementkante von Element 5, 6 und 7 wird nicht an die Deformation der genannten Knoten gekoppelt. Diese fehlerhafte Zuordnung führt dazu, dass die Schnittkräfte in der Nähe von Inkompatibilitäten nicht korrekt berechnet werden.</p>
+<figure class="align-default" id="stetigkeit-02">
+<a class="reference internal image-reference" href="../../_images/NonConforming_Mesh_02.png"><img alt="../../_images/NonConforming_Mesh_02.png" src="../../_images/NonConforming_Mesh_02.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.4 </span><span class="caption-text">Verschiebungsfeld bei einer nicht-konformen Netzstruktur.</span><a class="headerlink" href="#stetigkeit-02" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Diese lokalen Störungen klingen jedoch mit ausreichend großem Abstand ab, wie es das Prinzip von St. Venant beschreibt. Dieses Prinzip besagt, dass die Auswirkungen von lokalen Unregelmäßigkeiten in der Belastung oder Geometrie mit zunehmendem Abstand von der Störungsquelle abnehmen. Daher sind die Auswirkungen der Inkompatibilitäten auf die Gesamtlösung begrenzt.</p>
+<p>Ein weiterer Fehler, der bei der Vernetzung entstehen kann, ist die Verwendung von Elementen mit unterschiedlicher Elementordnung.</p>
+<figure class="align-default" id="stetigkeit-03">
+<a class="reference internal image-reference" href="../../_images/NonConforming_Mesh_03.png"><img alt="../../_images/NonConforming_Mesh_03.png" src="../../_images/NonConforming_Mesh_03.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.5 </span><span class="caption-text">Verletzung der Stetigkeitsanforderung in der Finiten Elemente Methode durch Verwendung von Elementen mit unterschiedlicher Ordnung.</span><a class="headerlink" href="#stetigkeit-03" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Auch hier ist die resultierende Verschiebung nicht korrekt. Eigentlich sollte die Verschiebung linear sein, was jedoch nicht der Fall ist.</p>
+<figure class="align-default" id="stetigkeit-04">
+<a class="reference internal image-reference" href="../../_images/NonConforming_Mesh_04.png"><img alt="../../_images/NonConforming_Mesh_04.png" src="../../_images/NonConforming_Mesh_04.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.6 </span><span class="caption-text">Verletzung der Stetigkeitsanforderung in der Finiten Elemente Methode durch Verwendung von Elementen mit unterschiedlicher Ordnung - Resultierendes Verschiebungsfeld.</span><a class="headerlink" href="#stetigkeit-04" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die Stetigkeitsanforderung ist von großer praktischer Bedeutung, da sie sicherstellt, dass die numerische Lösung physikalisch sinnvoll und mathematisch korrekt ist. Eine konforme Vernetzung, bei der die Knoten korrekt zugeordnet sind, ist entscheidend, um die Genauigkeit der FEM-Lösungen zu gewährleisten.</p>
+<p>Um eine lokale Verfeinerung zu erzielen kann man entweder spezielle Elemente verwenden (bei denen die entsprechenden Knoten angelegt wurden) oder man fügt eine entsprechende Zwischenschicht wie in Abbildung <a class="reference internal" href="#stetigkeit-05"><span class="std std-numref">Abb. 3.7</span></a> ein.</p>
+<figure class="align-default" id="stetigkeit-05">
+<a class="reference internal image-reference" href="../../_images/Conforming_Mesh_01.png"><img alt="../../_images/Conforming_Mesh_01.png" src="../../_images/Conforming_Mesh_01.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.7 </span><span class="caption-text">Übergangselementschicht zur lokalen Verfeinerung.</span><a class="headerlink" href="#stetigkeit-05" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Hierbei wird das Verschiebungsfeld durch die Zwischenschicht korrekt wiedergegeben.</p>
+<figure class="align-default" id="stetigkeit-06">
+<a class="reference internal image-reference" href="../../_images/Conforming_Mesh_02.png"><img alt="../../_images/Conforming_Mesh_02.png" src="../../_images/Conforming_Mesh_02.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.8 </span><span class="caption-text">Übergangselementschicht zur lokalen Verfeinerung - Verschiebungsfeld.</span><a class="headerlink" href="#stetigkeit-06" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Ein zentraler Aspekt der Vollständigkeit in der Finite-Elemente-Methode ist die Fähigkeit, Starrkörperverschiebungen darzustellen. Die Starrkörperverschiebung <span class="math notranslate nohighlight">\(\bm{u}_c = \bm{c}\)</span> muss durch die Ansatzfunktionen <span class="math notranslate nohighlight">\(\bm{N}_I(\bm{\xi})\)</span> exakt wiedergegeben werden können. Der mathematische Ausdruck dafür ist:</p>
+<div class="math notranslate nohighlight" id="equation-completeness">
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-completeness" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+\bm{u}_c &amp; = \sum_{I=1}^{n} N_I(\bm{\xi}) \hat{\bm{u}}_I  = \sum_{I=1}^{n} N_I(\bm{\xi}) {\bm{c}} = \bm{c} \sum_{I=1}^{n} N_I(\bm{\xi}) \\
+\Rightarrow \qquad 1 &amp;= \sum_{I=1}^{n} N_I(\bm{\xi}) 
+\end{align}\end{split}\]</div>
+<p>Diese Eigenschaft wird in der Literatur als <strong>Partitions of Unity</strong> bezeichnet. Die praktische Relevanz dieser Eigenschaft liegt darin, dass in Tragstrukturen die Lösung in einen Anteil der Starrkörperverschiebung und einen Anteil, der Dehnungen hervorruft, aufgeteilt werden kann. Ein Beispiel hierfür ist ein Balken: Am freien Ende ist die Verschiebung am größten, der Balken jedoch erfährt hier am wenigsten Dehnung. Eine praktische Überprüfung besteht darin, dass Starrkörperverschiebungen keine Dehnungen/Spannungen hervorrufen dürfen.</p>
+<p>Ein weiteres Beispiel zur Überprüfung der Vollständigkeit ist die Darstellbarkeit konstanter Dehnungszustände (Patch-Test). Ist ein Element in der Lage, einen konstanten Dehnungszustand darzustellen, so ist auch ein praktischer Nachweis der Konvergenz der Elementformulierung bei Verfeinerung der Vernetzung gegeben. Dies kann man sich einfach am Beispiel in Abbildung <a class="reference internal" href="#konvergenzpatchtest"><span class="std std-numref">Abb. 3.9</span></a> verdeutlichen. Hier werden die Schnittkräfte in einen konstanten Anteil und einen linear veränderlichen unterteilt. Mit steigender Elementanzahl wird der konstante Term der Schnittkraft dominant und ist somit der maßgebliche Anteil für die Konvergenz.</p>
+<figure class="align-default" id="konvergenzpatchtest">
+<a class="reference internal image-reference" href="../../_images/Knothe_02.png"><img alt="../../_images/Knothe_02.png" src="../../_images/Knothe_02.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 3.9 </span><span class="caption-text">Mit steigender Elementanzahl wird der konstante Term der Schnittkraft dominant (<span id="id6">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span>).
+``</span><a class="headerlink" href="#konvergenzpatchtest" title="Link to this image">#</a></p>
+<div class="legend">
+<div class="warning admonition">
+<p class="admonition-title">Fragen zum Kapitel</p>
+<p><strong>Isoparametriche FEM</strong></p>
+<ul class="simple">
+<li><p>Welche Aussagen sind zutreffend:</p>
+<ul>
+<li><p>[ ] Bei der isoparametrschen FEM wird die schwache Form auf einem uniformen Elternelement gebildet und danach auf die reale Geometrie transformiert.</p></li>
+<li><p>[ ] Bei der isoparametrischen FEM werden die gleichen Ansätze bzgl. Geometrie und Verschiebung gewählt.</p></li>
+<li><p>[ ] Bei der subparamterischen FEM wird die Geometrie mit einem niedrigeren Polynomgrad als die Verschiebung approximiert.</p></li>
+<li><p>[ ] Nur die isoparametrische FEM ist gesichert konvergent.</p></li>
+</ul>
+</li>
+<li><p>Über welches Maß kann man die Qualität eines FE-Netzes quantifizieren?</p></li>
+<li><p>Ist ein Element mit einer Jacobi-Determinante <span class="math notranslate nohighlight">\(\det \boldsymbol{J} &lt; 0 \)</span> für die Berechnung zulässig?</p></li>
+<li><p>Welche Anforderungen muss ein Finite-Element-Ansatz erfüllen, dammit die Lösung gegen die analytische Lösung konvergiert?</p></li>
+<li><p>Wie kann man die Forderung der Kontinuität des Ansatzes bei der Vernetzung Verletzen?</p></li>
+<li><p>Warum ist es wichtig, dass ein Finites Element Starrköperverschiebungen korrekt darstellt?</p></li>
+<li><p>Was ist ein ein Patch-Test? Was wird damit untersucht?</p></li>
+<li><p>Was bedeutet der Begriff <em>Partition of Unity</em>?</p></li>
+</ul>
+</div>
+</div>
+</figcaption>
+</figure>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/chapter3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../chapter2/BalkenFEM.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">2.3. </span>Die Balken-FEM</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Ansatzfunktionen.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">3.4. </span>Ansatzfunktionen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begriffsklarung">3.1. Begriffsklärung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-raumlichen-ableitungen">3.2. Berechnung der räumlichen Ableitungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anforderungen-an-den-finite-elemente-ansatz">3.3. Anforderungen an den Finite Elemente Ansatz</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Prof. Dr.-Ing. Steffen Beese
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

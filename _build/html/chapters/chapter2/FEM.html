@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -190,9 +190,28 @@
 </ul>
 </details></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter3/isoparametrischeFEM.html">3. Isoparametrische FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Ansatzfunktionen.html">3.4. Ansatzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Integration.html">3.5. Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Postprocessing.html">3.6. Postprocessing</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">3. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -416,20 +435,20 @@
 $ --><section class="tex2jax_ignore mathjax_ignore" id="von-der-starken-zur-schwachen-form">
 <h1><span class="section-number">2.1. </span>Von der starken zur schwachen Form<a class="headerlink" href="#von-der-starken-zur-schwachen-form" title="Link to this heading">#</a></h1>
 <p>Für die in Kapitel 1 eingeführten Randwertprobleme (Massenbilanz, Impulsbilanz und Energiebilanz) wird in diesem Kapitel die theoretischen Grundlagen der Finite Elemente Methode beschrieben. Für jedes der genannten Probleme ist der Ausgangspunkte die <strong>starke</strong> Form der beschreibenden partiellen Differentialgleichung. Am Beispiel der Impulsbilanz soll exemplarisch die zugehörige <strong>schwache</strong> Form hergeleitet werden. Die Begrifflichkeit stark und schwach bezieht sich hierbei auf die Stetigkeits- und Differenzierbarkeitsanforderungen der gesuchten Lösung <span class="math notranslate nohighlight">\(\bm{u}\)</span>. Die starke Form hat somit <strong>immer</strong> höhere Anforderungen an die Lösung.</p>
-<figure class="align-default" id="impulsbilanz">
+<figure class="align-default" id="impulsbilanz-fig">
 <a class="reference internal image-reference" href="../../_images/Impulsbilanz.jpg"><img alt="../../_images/Impulsbilanz.jpg" src="../../_images/Impulsbilanz.jpg" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 2.1 </span><span class="caption-text">Körper <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> unter Einwirkung der externen Oberflächenkraft <span class="math notranslate nohighlight">\(\tilde{\bm{t}}\)</span> und der Volumenlast <span class="math notranslate nohighlight">\(\bm{b}\)</span></span><a class="headerlink" href="#impulsbilanz" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.1 </span><span class="caption-text">Körper <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> unter Einwirkung der externen Oberflächenkraft <span class="math notranslate nohighlight">\(\tilde{\bm{t}}\)</span> und der Volumenlast <span class="math notranslate nohighlight">\(\bm{b}\)</span></span><a class="headerlink" href="#impulsbilanz-fig" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Ausgangspunkt für die exemplarische Herleitung ist die Impulsbilanz in der quasistatischen Form (ohne Trägheitsterme):</p>
 <div class="math notranslate nohighlight" id="equation-weakform-01">
 <span class="eqno">(2.1)<a class="headerlink" href="#equation-weakform-01" title="Link to this equation">#</a></span>\[0 = \div{\bm{\sigma}} + \rho \bm{b} \]</div>
-<p>Diese starke form wird jetzt mit einer beliebigen vektorwertigen Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}\)</span> multipliziert und über das betrachtete Gebiet <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> (den betrachteten Körper) integriert.</p>
+<p>Diese starke Form wird jetzt mit einer beliebigen vektorwertigen Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}\)</span> multipliziert und über das betrachtete Gebiet <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> (den betrachteten Körper) integriert.</p>
 <div class="math notranslate nohighlight" id="equation-weakform-02">
 <span class="eqno">(2.2)<a class="headerlink" href="#equation-weakform-02" title="Link to this equation">#</a></span>\[0 = \int_{\mathcal{B}} \delta  \bm{u}\T \left(\div{\bm{\sigma}} + \rho \bm{b} \right) \dV\]</div>
-<p>Dieser Schritt bedeutet, dass wir im Weiteren versuchen werden, die gekoppelten partiellen Differentialgleichungen nicht punktuell exakt, sondern im gewichteten integralen Mittel zu erfüllen. Für elastomechanische Problemstellungen kann die Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}\)</span> als virtuelle Verrückung aufgefasst werden und die Gleichung <a class="reference internal" href="#equation-weakform-02">(2.2)</a> als das bekannte Prinzip der virtuellen Verrückung aufgefasst werden. Das hier gezeigte Vorgehen ist aber unabhängig von der Elastostatik allgemeingültig.</p>
+<p>Dieser Schritt bedeutet, dass wir im Weiteren versuchen werden, die gekoppelten partiellen Differentialgleichungen nicht punktuell exakt zu erfüllen, sondern im gewichteten integralen Mittel. Für elastomechanische Problemstellungen kann die Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}\)</span> als virtuelle Verrückung aufgefasst werden, und die Gleichung <a class="reference internal" href="#equation-weakform-02">(2.2)</a> als das bekannte Prinzip der virtuellen Verrückung angesehen werden. Das hier gezeigte Vorgehen ist jedoch unabhängig von der Elastostatik allgemeingültig.</p>
 <p>Als nächstes integrieren wir die Gleichung <a class="reference internal" href="#equation-weakform-02">(2.2)</a> partiell. Dafür wenden wir zunächst die Produktregel auf den Divergenzterm an:</p>
 <div class="math notranslate nohighlight" id="equation-divergenzsatz">
 <span class="eqno">(2.3)<a class="headerlink" href="#equation-divergenzsatz" title="Link to this equation">#</a></span>\[\int_{\mathcal{B}} \delta \bm{u}\T \div{\bm{\sigma}} \dV = \int_{\mathcal{B}} \div{\delta \bm{u}\T \bm{\sigma}} \dV -\int_{\mathcal{B}} \underbrace{\grad{\delta\bm{u}\T}}_{\delta \bm{\eb}}\bm{\sigma} \dV \; . \]</div>
@@ -455,6 +474,20 @@ $ --><section class="tex2jax_ignore mathjax_ignore" id="von-der-starken-zur-schw
 <p>Setzen wir jetzt noch als Materialmodell die Beschreibung der linearen Elastizität ein, so erhalten wir final:</p>
 <div class="math notranslate nohighlight" id="equation-weakform-04">
 <span class="eqno">(2.6)<a class="headerlink" href="#equation-weakform-04" title="Link to this equation">#</a></span>\[\int_{\mathcal{B}} \delta\eb\T \bm{C} \eb \dV = \int_{\mathcal{B}} \delta \bm{u}\T \rho \bm{b} \dV + \int_{\partial\mathcal{B}} \delta \bm{u}\T \cdot \bm{t} \dA \; .\]</div>
+<div class="warning admonition">
+<p class="admonition-title">Fragen zum Kapitel</p>
+<p><strong>Finite Elemente Methode</strong></p>
+<ul class="simple">
+<li><p>Worauf beziehen sich die Begriffe <em>starke</em> und <em>schwache</em> Formulierung?</p></li>
+<li><p>Was ist korrekt:</p>
+<ul>
+<li><p>[ ] Bei der schwachen Formulierung wird die Bilanzgleichung nur noch im integralen Mittel gelöst.</p></li>
+<li><p>[ ] Das Prinzip der virtuellen Verrückung und die schwache Formulierung der Impulsbilanz sind äquivalent.</p></li>
+<li><p>[ ] Die starke Formulierung der Bilanzgleichung enthält Ableitungen höherer Ordnung im Vergleich zur schwachen Formluierung.</p></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

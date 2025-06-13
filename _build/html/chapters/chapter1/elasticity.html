@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -190,9 +190,28 @@
 </ul>
 </details></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter3/isoparametrischeFEM.html">3. Isoparametrische FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Ansatzfunktionen.html">3.4. Ansatzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Integration.html">3.5. Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Postprocessing.html">3.6. Postprocessing</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">3. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -547,8 +566,8 @@ $ -->
 <div class="math notranslate nohighlight" id="equation-massenbilanz2">
 <span class="eqno">(1.4)<a class="headerlink" href="#equation-massenbilanz2" title="Link to this equation">#</a></span>\[ \underbrace{\Pd{\varrho}{p}}_{=:\frac{\varrho}{\kappa}} \td{p} + \div{\varrho {\bm{v}}} = 0 \; .\]</div>
 <p>Die primäre Größe nach der die partielle Differentialgleichung gelöst wird ist damit der Druck <span class="math notranslate nohighlight">\(p\)</span>. Als sekundäre Größe bezeichnet man Feldgrößen, welche von den primären Größen abgeleitet wurden. Im Fall der Massenbilanz des Fluides ist dies die Geschwindigkeit der Materialpartikel <span class="math notranslate nohighlight">\(\bm{v}\)</span>. Die Gleichungen <a class="reference internal" href="#equation-massenbilanz">(1.3)</a> und <a class="reference internal" href="#equation-massenbilanz2">(1.4)</a> beschreiben wie sich die bilanzierte Größe (<span class="math notranslate nohighlight">\(p\)</span>) in der Zeit verändert, eine Information über den absoluten Wert der Größe erhält man erst mit der Einführung von Anfangs- und Randwerten:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9b98f82-f4fb-4261-879e-1993ac5831a6">
-<span class="eqno">(1.5)<a class="headerlink" href="#equation-c9b98f82-f4fb-4261-879e-1993ac5831a6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-eb877499-ac2d-4c01-90b5-912370a52ada">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-eb877499-ac2d-4c01-90b5-912370a52ada" title="Permalink to this equation">#</a></span>\[\begin{align}
 p(\bm{x},t=t_0) &amp; = \tilde{p}_0 \qquad &amp;\forall \bm{x} \in \mathcal{B}&amp; \\
 p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B}_p&amp; \\
 \varrho \bm{v}\T \bm{n} &amp; = \tilde{q}_m \qquad &amp;\forall \bm{x} \in \partial\mathcal{B}_m&amp;
@@ -574,16 +593,16 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 </section>
 <section id="impulserhaltung">
 <h3><span class="section-number">1.8.2.2. </span>Impulserhaltung<a class="headerlink" href="#impulserhaltung" title="Link to this heading">#</a></h3>
-<figure class="align-default" id="impulsbilanz">
+<figure class="align-default" id="impulsbilanz-fig-1">
 <a class="reference internal image-reference" href="../../_images/Impulsbilanz.jpg"><img alt="../../_images/Impulsbilanz.jpg" src="../../_images/Impulsbilanz.jpg" style="height: 200px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 1.8 </span><span class="caption-text">Körper <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> unter Einwirkung der externen Oberflächenkraft <span class="math notranslate nohighlight">\(\tilde{\bm{t}}\)</span> und der Volumenlast <span class="math notranslate nohighlight">\(\bm{b}\)</span></span><a class="headerlink" href="#impulsbilanz" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 1.8 </span><span class="caption-text">Körper <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> unter Einwirkung der externen Oberflächenkraft <span class="math notranslate nohighlight">\(\tilde{\bm{t}}\)</span> und der Volumenlast <span class="math notranslate nohighlight">\(\bm{b}\)</span></span><a class="headerlink" href="#impulsbilanz-fig-1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Die Impulserhaltung, oft formuliert als Newtons zweites Gesetz, besagt, dass die Änderung des Impulses <span class="math notranslate nohighlight">\(\rho \bm{v}\)</span> eines Körpers gleich der Summe der auf ihn wirkenden Kräfte ist. Für ein Kontinuum wird dies durch die Cauchy-Bewegungsgleichungen ausgedrückt:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dbc67e2b-1deb-4f7c-aefb-91c026f6d11d">
-<span class="eqno">(1.6)<a class="headerlink" href="#equation-dbc67e2b-1deb-4f7c-aefb-91c026f6d11d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a321543d-f07b-4bd1-89f1-9c8318b48699">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-a321543d-f07b-4bd1-89f1-9c8318b48699" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \varrho \td{\bm{v}} =\div{\bm{\sigma}} + \rho \bm{b}
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(\boldsymbol{\sigma}\)</span> steht hierbei für den Spannungstensor und <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> für die Volumenkraft pro Masseneinheit.</p>
@@ -591,7 +610,7 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 <p class="admonition-title">Bemerkung</p>
 <p>Die Impulsbilanz ist eine vektorielle partielle Differentialgleichung. Mit ihrer Hilfe kann man das Verschiebungsfeld <span class="math notranslate nohighlight">\(\bm{u}(\bm{x},t)\)</span> und das Spannungsfeld <span class="math notranslate nohighlight">\(\bm{\sigma}(\bm{x},t)\)</span> eines Festkörpers bestimmen.</p>
 </div>
-<p>Die primäre Feldgröße dieser Anfangsrandwertproblems ist die Verschiebung <span class="math notranslate nohighlight">\(\bm{u}(\bm{x},t)\)</span> der Materialpartikel. Die Sekundäre Größe ist die Spannung <span class="math notranslate nohighlight">\(\bm{\sigma}(\bm{x},t)\)</span>, welche wiederum von den Dehnungen <span class="math notranslate nohighlight">\(\bm{\epsilon}\)</span> abhängig ist. Als Randwerte können entweder Verschiebungen (wesentliche Randbedingung) vorgegeben werden oder Oberflächenspannungen (natürliche Randbedingungen).</p>
+<p>Die primäre Feldgröße dieses Anfangsrandwertproblems ist die Verschiebung <span class="math notranslate nohighlight">\(\bm{u}(\bm{x},t)\)</span> der Materialpartikel. Die Sekundäre Größe ist die Spannung <span class="math notranslate nohighlight">\(\bm{\sigma}(\bm{x},t)\)</span>, welche wiederum von den Dehnungen <span class="math notranslate nohighlight">\(\bm{\epsilon}\)</span> abhängig ist. Als Randwerte können entweder Verschiebungen (wesentliche Randbedingung) vorgegeben werden oder Oberflächenspannungen (natürliche Randbedingungen).</p>
 <div class="tip admonition">
 <p class="admonition-title">IVBP2 - Impulsbilanz</p>
 <p>Bestimme das Verschiebungsfeld <span class="math notranslate nohighlight">\(\bm{u}(\bm{x},t): \mathcal{B} \times [t_0,t] \rightarrow \mathcal{R}^3\)</span>, sodass für alle materiellen Punkte <span class="math notranslate nohighlight">\(\bm{x} \, \in \, \mathcal{B}\)</span> zu jedem Zeitpunkt <span class="math notranslate nohighlight">\(t \, \in \, [t_0,t]\)</span> die Bilanzgleichung:</p>
@@ -620,8 +639,8 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 <p>Die skalare Energiebilanzgleichung dient zur Berechnung des Temperaturfeldes <span class="math notranslate nohighlight">\(\theta(\bm{x},t)\)</span>.</p>
 </div>
 <p>Vernachlässigt man die Kopplung zwischen Verschiebung und Temperatur erhält man aus Gleichung <a class="reference internal" href="#equation-1hs-01">(1.7)</a> die bekannte instationäre Wärmeleitungsgleichung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dfcd72ef-11f1-4f0b-8b9f-c186b04e4cf1">
-<span class="eqno">(1.8)<a class="headerlink" href="#equation-dfcd72ef-11f1-4f0b-8b9f-c186b04e4cf1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-31e67b5b-3737-4e0e-879d-4b7615ab16c3">
+<span class="eqno">(1.8)<a class="headerlink" href="#equation-31e67b5b-3737-4e0e-879d-4b7615ab16c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \varrho c_e \Pd{\theta}{t} + \div{\bm{q}} - \varrho r = 0
 \end{equation}\]</div>
 <p>Hier ist die primäre Variable die Temperatur <span class="math notranslate nohighlight">\(\theta(\bm{x},t)\)</span> und die sekundäre Variable der Wärmeflussvektor <span class="math notranslate nohighlight">\(\bm{q}(\bm{x},t)\)</span>. Gemeinsam mit den Rand- und Anfangsbedingungen erhält man das Anfangsrandwertproblem:</p>
@@ -644,7 +663,7 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 </section>
 <section id="zusammenfassung">
 <h3><span class="section-number">1.8.2.4. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Link to this heading">#</a></h3>
-<p>In den vorangestellten Abschnitten wurde die Bilanzgleichungen der Kontinuumsmechanik verwendet um die für die Ingenieurpraxis wichtigen Anfangsrandwertprobleme der Fluid-, Struktur- und Thermomechanik aufzustellen. Für diese Systeme von gekoppelten partiellen Differentialgleichungen gibt es nur in wenigen Sonderfällen analytische Lösungen. Einige Davon sind uns aus den Vorlesungen zur Elastostatik und Stömungslehr bekannt. Aus diesem Grund haben sich numerische Berechnungsverfahren durchgesetzt. Um zu überprüfen ob die Anfangsrandwertprobleme in der obigen Form lösbar sind werden in der nachfolgenden Tabelle die Bestimmungsgleichungen und die Unbekannten gegenübergestellt.</p>
+<p>In den vorangegangenen Abschnitten wurden die Bilanzgleichungen der Kontinuumsmechanik verwendet, um die für die Ingenieurpraxis wichtigen Anfangsrandwertprobleme der Fluid-, Struktur- und Thermomechanik aufzustellen. Für diese Systeme von gekoppelten partiellen Differentialgleichungen gibt es nur in wenigen Sonderfällen analytische Lösungen. Einige davon sind uns aus den Vorlesungen zur Elastostatik und Strömungslehre bekannt. Aus diesem Grund haben sich numerische Berechnungsverfahren durchgesetzt. Um zu überprüfen, ob die Anfangsrandwertprobleme in der obigen Form lösbar sind, werden in der nachfolgenden Tabelle die Bestimmungsgleichungen und die Unbekannten gegenübergestellt.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Bestimmungsgleichung</p></th>
@@ -685,11 +704,11 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 </section>
 <section id="kinematik">
 <h2><span class="section-number">1.8.3. </span>Kinematik<a class="headerlink" href="#kinematik" title="Link to this heading">#</a></h2>
-<p>Der Kinemtischen Bedingungen haben besonders im Bereich der Strukturmechanik und der Lösung der Impulsbilanz eine hervorgehobene Bedeutung. So ist zum Beispiel die Forderung vom ebenbleiben des Querschnitts in der Bernoulli Balkentheorie eine starke kinematische Restriktion, welche auf die bekannte Differentialgleichung der Durchbiegung <span class="math notranslate nohighlight">\(w(x)\)</span> führt.
-Im Rahmen der linearen Kontinuumsmechanik wird die Dehnung <span class="math notranslate nohighlight">\(\bm{\epsilon}\)</span> als symmetrischer Anteil des Verschiebungsgradienten <span class="math notranslate nohighlight">\(\grad{\bm{u}}\)</span> verstanden:</p>
+<p>Kinematische Bedingungen spielen besonders im Bereich der Strukturmechanik und der Lösung der Impulsbilanz eine herausragende Rolle. Ein Beispiel hierfür ist die Forderung nach dem Ebenbleiben des Querschnitts in der Bernoulli-Balkentheorie, die zu der bekannten Differentialgleichung der Durchbiegung <span class="math notranslate nohighlight">\(w(x)\)</span> führt.
+In der linearen Kontinuumsmechanik wird die Dehnung <span class="math notranslate nohighlight">\(\bm{\epsilon}\)</span> als der symmetrische Anteil des Verschiebungsgradienten <span class="math notranslate nohighlight">\(\grad{\bm{u}}\)</span> betrachtet:</p>
 <div class="math notranslate nohighlight" id="equation-linearstrain">
 <span class="eqno">(1.9)<a class="headerlink" href="#equation-linearstrain" title="Link to this equation">#</a></span>\[\bm{\epsilon} = \frac{1}{2} \left(\grad{\bm{u}}\T + \grad{\bm{u}} \right) \; .\]</div>
-<p>Dieses Dehnungsmaß wird oft auch als Ingenieurdehnung bezeichnet und sollte nur in einem Dehnungsbereich &lt; 10% angewendet werden. Zudem ist hervorzuheben, dass Starrkörpertranslationen keine Ingenieurdehnung hervorrufen, Starrkörperrotationen hingegen sehrwohl. Aus diesem Grunde ist darauf zu achten, dass beim Auftreten größerer Rotationen stehts eine nichtlineare Theorie (2.Ordnung oder allgemein nichtlinear) verwendet wird.</p>
+<p>Dieses Dehnungsmaß wird oft auch als Ingenieurdehnung bezeichnet und sollte nur in einem Dehnungsbereich von weniger als 10% angewendet werden. Zudem ist hervorzuheben, dass Starrkörpertranslationen keine Ingenieurdehnung verursachen, Starrkörperrotationen hingegen sehr wohl. Aus diesem Grund ist darauf zu achten, dass beim Auftreten größerer Rotationen stets eine nichtlineare Theorie (2. Ordnung oder allgemein nichtlinear) verwendet wird.</p>
 <p>Aufgrund der Symmetrie des Dehnungstensors erhalten wir <strong>6</strong> zusätzliche Bedingungen zur Lösung der Anfangsrandwertproblems der Impulsbilanz.</p>
 </section>
 <section id="materialmodell">
@@ -1068,6 +1087,56 @@ C_{3311} &amp; C_{3322} &amp; C_{3333} &amp; \sqrt{2}C_{3312} &amp; \sqrt{2}C_{3
 <li><p>Materialmodell (Verbindung von sekundärer Größe zur kinematischen Größe)</p></li>
 </ol>
 <p>Eindeutig lösbar wird das Modell zudem erst, wenn die Randbedingungen entsprechend vorgegeben wurden.</p>
+<div class="warning admonition">
+<p class="admonition-title">Fragen zum Kapitel</p>
+<p><strong>Feldgleichungen der Kontinuumsmechanik</strong></p>
+<ul class="simple">
+<li><p>Nennen Sie die für die Strukturmechanik wesentliche Feldgleichung.</p></li>
+<li><p>Nennen Sie drei verschiedene Feldgleichungen.</p></li>
+<li><p>Welche Feldgröße wird mit der Impulsbilanz berechnet?</p></li>
+<li><p>Welche Feldgröße wird mit der Energiebilanz berechnet?</p></li>
+<li><p>Welche Feldgröße wird mit der Massenbilanz berechnet?</p></li>
+<li><p>Was ist der unterschied zwischen primären und sekundären Feldgrößen?</p></li>
+<li><p>Welche Aussage ist richtig:</p>
+<ul>
+<li><p>[ ] Die Impulsbilanz ist eine vektorielle partielle Differenzialgleichung.</p></li>
+<li><p>[ ] Die Energiebilanz ist eine vektorielle partielle Differenzialgleichung.</p></li>
+<li><p>[ ] Die sekundäre Feldgröße der Energiebilanz ist der Wärmefluss.</p></li>
+<li><p>[ ] Die Massenbilanz ist für gewöhnliche Festkörper stets erfüllt und muss nicht separat gelöst werden.</p></li>
+<li><p>[ ] Die Bilanzgleichungen sind materialunabhängige physikalische Prinzipien.</p></li>
+<li><p>[ ] Zur Lösung der Bilanzgleichungen benötigt man noch weitere Restriktionen.</p></li>
+</ul>
+</li>
+<li><p>Welche Arten von Randbedingungen werden in der Mechanik von Festkörpern unterschieden?</p></li>
+<li><p>Ist eine Kraftrandbedingung eine <em>Neumann</em>-Randbedingung oder eine <em>Dirichlet</em>-Randbedingung?</p></li>
+<li><p>Ist eine Verschiebungsrandbedingung eine <em>Neumann</em>-Randbedingung oder eine <em>Dirichlet</em>-Randbedingung?</p></li>
+</ul>
+<p><strong>Kinematik</strong></p>
+<ul class="simple">
+<li><p>Welche Aussage ist richtig:</p>
+<ul>
+<li><p>[ ] Die Dehnung ist der symmetrische Anteil des Verschiebungsgradienten.</p></li>
+<li><p>[ ] Die Spannung ist der symmetrische Anteil des Verschiebungsgradienten.</p></li>
+<li><p>[ ] Die Ingenieursdehnungen sollten nur in einem Dehnungsbereich &lt; 10 % eingesetz werden</p></li>
+<li><p>[ ] Starrkörperrotationen rufen keine Ingenieurdehnungen (und auch Spannungen) hervor.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Materialgleichung</strong></p>
+<ul class="simple">
+<li><p>Warum brauchen wir Materialgleichungen? (2 Gründe nennen)</p></li>
+<li><p>Nennen Sie eine Klasse von Materialien entsprechend ihres Materialverhaltens für strukturmechanische Problemstellungen.</p></li>
+<li><p>In welche Richtung fließt die Temperatur bei der Fourierschen Wärmeleitung?</p></li>
+<li><p>Was heißt isotropes Materialverhalten?</p></li>
+<li><p>Wieviele Materialparameter sind nötig für die Beschreibung von linearen, isotropen und elastischen Material?</p></li>
+<li><p>Liegt bei Karosserieteilen eher ein ebener Spannungs- oder ein ebener Verzerrungszustand vor?</p></li>
+</ul>
+<p><strong>Zusammenfassung</strong></p>
+<ul class="simple">
+<li><p>Welche 3 Dinge sind erforderlich um lösbares mechanisches Modell zu erhalten?</p></li>
+<li><p>Was ist zusätzlich notwendig um eine eindeutige Lösung zu erhalten?</p></li>
+</ul>
+</div>
 </section>
 </section>
 

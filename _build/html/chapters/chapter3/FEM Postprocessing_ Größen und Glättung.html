@@ -1,0 +1,729 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Postprocessing in der Finite-Elemente-Methode: Von Rohdaten zu technischen Erkenntnissen &#8212; Finite Elemente Methode 1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter3/FEM Postprocessing_ Größen und Glättung';</script>
+    <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
+    <link rel="search" title="Suche" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.jpeg" class="logo__image only-light" alt="Finite Elemente Methode 1 - Home"/>
+    <img src="../../_static/logo.jpeg" class="logo__image only-dark pst-js-only" alt="Finite Elemente Methode 1 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Vorlesungsskript zur Finiten Elemente Methode I
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/elasticity.html">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/strukturgleichungen.html">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.1. Von der starken zur schwachen Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die Schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/BalkenFEM.html">2.3. Die Balken-FEM</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="isoparametrischeFEM.html">3. Isoparametrische FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Ansatzfunktionen.html">3.4. Ansatzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Integration.html">3.5. Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Postprocessing.html">3.6. Postprocessing</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskretisierung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Diskretisierung.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.1. Fehlerquellen</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter3/FEM Postprocessing_ Größen und Glättung.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/chapters/chapter3/FEM Postprocessing_ Größen und Glättung.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Postprocessing in der Finite-Elemente-Methode: Von Rohdaten zu technischen Erkenntnissen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung-in-das-postprocessing"><strong>1. Einführung in das Postprocessing</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primare-groszen-knotenwerte-und-elementinterpolation"><strong>2. Primäre Größen: Knotenwerte und Elementinterpolation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sekundare-groszen-gauszpunkte-und-extrapolation-zu-den-knoten"><strong>3. Sekundäre Größen: Gaußpunkte und Extrapolation zu den Knoten</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herausforderungen-und-uberlegungen-bei-der-extrapolation"><strong>4. Herausforderungen und Überlegungen bei der Extrapolation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glattung-von-postprocessing-feldern"><strong>5. Glättung von Postprocessing-Feldern</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weitere-wichtige-aspekte-des-postprocessings"><strong>6. Weitere wichtige Aspekte des Postprocessings</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datenvisualisierung-und-interpretation"><strong>Datenvisualisierung und -interpretation</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlerabschatzung-und-adaptive-vernetzung"><strong>Fehlerabschätzung und adaptive Vernetzung</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validierung-und-verifikation-von-fem-ergebnissen"><strong>Validierung und Verifikation von FEM-Ergebnissen</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fazit"><strong>Fazit</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quellenangaben"><strong>Quellenangaben</strong></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="postprocessing-in-der-finite-elemente-methode-von-rohdaten-zu-technischen-erkenntnissen">
+<h1><strong>Postprocessing in der Finite-Elemente-Methode: Von Rohdaten zu technischen Erkenntnissen</strong><a class="headerlink" href="#postprocessing-in-der-finite-elemente-methode-von-rohdaten-zu-technischen-erkenntnissen" title="Link to this heading">#</a></h1>
+<section id="einfuhrung-in-das-postprocessing">
+<h2><strong>1. Einführung in das Postprocessing</strong><a class="headerlink" href="#einfuhrung-in-das-postprocessing" title="Link to this heading">#</a></h2>
+<p>Das Postprocessing stellt einen unverzichtbaren Schritt in der Finite-Elemente-Analyse (FEA) dar, der die Brücke zwischen komplexen numerischen Ergebnissen und deren praktischer Anwendung in der Ingenieurpraxis schlägt. Es ist definiert als der Prozess der Transformation und Aufbereitung der oft hochdetaillierten und komplexen Rohausgaben von FEM-Berechnungen in ein für den Anwender leicht verständliches Format. Im Wesentlichen handelt es sich um die Modifikation oder Verbesserung von Ergebnisdaten, nachdem eine Lösung aus einem Rechenmodell erhalten wurde, mit dem Ziel, aussagekräftige Visualisierungen, Diagramme und andere Ausgaben zu erstellen.<br />
+Die Bedeutung des Postprocessings für technische Entscheidungen kann kaum überschätzt werden. Die aus diesem Prozess gewonnenen Ergebnisse bilden die Grundlage für fundierte technische Beurteilungen, dienen der Validierung und Funktionsprüfung des FEM-Modells und sind essenziell für die Berichterstattung von Resultaten. Es spielt eine zentrale Rolle bei der Analyse von Daten und der Entscheidungsfindung in jeder Phase eines Projekts, vom initialen Entwurf bis zur finalen Sicherheitsvalidierung. Dies führt letztlich zu sichereren und effizienteren Konstruktionen. Durch die gezielte Aufbereitung der Simulationsergebnisse können Ingenieure Designprobleme frühzeitig identifizieren, Entwürfe optimieren und potenzielle Ausfälle verhindern. Dies findet Anwendung in vielfältigen Bereichen wie dem Bauwesen, der Luft- und Raumfahrttechnik, der Fertigungsindustrie und dem Automobildesign. Die Fähigkeit, die komplexen Rohdaten der FEM-Berechnungen in eine verständliche Form zu bringen, ist entscheidend, da die reine numerische Ausgabe für die menschliche Entscheidungsfindung oft unzugänglich wäre. Ohne effektives Postprocessing würde das immense Rechenpotenzial der FEM nur unzureichend genutzt werden.<br />
+Um diese Transformation und Darstellung der Daten zu ermöglichen, ist in der Regel der Einsatz zusätzlicher Software oder spezifischer Programmierung erforderlich. Dies unterstreicht, dass Postprocessing über eine reine Ergebnisdarstellung hinausgeht; es ist eine kritische analytische Phase, die den iterativen Charakter von Design und Analyse maßgeblich prägt. Die durch das Postprocessing bereitgestellten Rückmeldungen sind notwendig, um Entwürfe zu verfeinern und nachfolgende Simulationen zu steuern. Dieser kontinuierliche Zyklus aus Entwurf, Analyse und Verfeinerung ist ein Kennzeichen moderner Ingenieurmethoden, in denen die FEM – durch Postprocessing unterstützt – ein unverzichtbares Werkzeug für kontinuierliche Verbesserung und Risikominderung darstellt.</p>
+</section>
+<section id="primare-groszen-knotenwerte-und-elementinterpolation">
+<h2><strong>2. Primäre Größen: Knotenwerte und Elementinterpolation</strong><a class="headerlink" href="#primare-groszen-knotenwerte-und-elementinterpolation" title="Link to this heading">#</a></h2>
+<p>In der Finite-Elemente-Analyse werden die sogenannten primären Größen direkt als Ergebnis der Lösung des globalen Gleichungssystems berechnet. Typische Beispiele hierfür sind Verschiebungen in der Strukturmechanik oder Temperaturen in der Wärmeübertragung. Diese Größen werden explizit an den Knoten des Finite-Elemente-Netzes ermittelt. Die resultierenden Knotenverschiebungen gelten als präzise, da jedem Knoten innerhalb des Netzes ein einziger, eindeutiger Verschiebungswert zugewiesen wird. Dies unterscheidet sich grundlegend von den sekundären Größen, die später erläutert werden.<br />
+Die Werte der primären Feldvariablen, die an den diskreten Knoten berechnet werden, dienen dazu, die Werte an allen anderen Punkten innerhalb eines Elements (den sogenannten nicht-nodalen Punkten) zu approximieren. Dies geschieht durch Interpolation der Knotenwerte mittels spezifischer Interpolationsfunktionen, die auch als Formfunktionen (Shape Functions) oder Blending Functions bezeichnet werden. Diese Formfunktionen sind vorbestimmte, bekannte Funktionen der unabhängigen Variablen, die die Variation der Feldvariablen innerhalb eines Finite-Elements mathematisch beschreiben. Sie sind meist polynomialer Form und so konzipiert, dass sie bestimmte erforderliche Bedingungen an den Knoten erfüllen.<br />
+Jedes Finite-Element besitzt seine eigenen Formfunktionen, die alle Knoten dieses Elements miteinander verbinden. Ein entscheidendes Merkmal des FEM ist, dass benachbarte Elemente gemeinsame Knoten teilen. Diese gemeinsamen Knoten „verbinden“ die Formfunktionen aller Elemente im Modell miteinander. Der Solver geht dabei davon aus, dass die Verformungen an jedem gegebenen Knoten konsistent sein müssen, unabhängig davon, welche Element-Formfunktionen zur Beschreibung dieses Knotens verwendet werden. Dies gewährleistet die Inter-Element-Kontinuität der primären Feldvariablen (z.B. Verschiebung oder Temperatur) an den Knotenpunkten. Die Formfunktionen stellen somit die mathematische Brücke dar, die es ermöglicht, die diskrete Lösung an den Knoten in ein kontinuierliches Feld innerhalb jedes Elements zu überführen. Diese Interpolationsfähigkeit ist von grundlegender Bedeutung für die FEM, da sie es erlaubt, mit einer endlichen Anzahl von Freiheitsgraden ein kontinuierliches physikalisches Phänomen anzunähern.<br />
+Die Unterscheidung zwischen der „Präzision“ der primären Größen und der „Genauigkeit“ der abgeleiteten Größen ist hierbei von großer Bedeutung. Während primäre Größen die direkten, eindeutigen Ergebnisse des algebraischen Gleichungssystems des Solvers sind, sind sekundäre Größen abgeleitet und unterliegen weiteren Approximationen und potenziellen Mehrdeutigkeiten an gemeinsamen Knoten. Diese grundlegende Differenz erklärt, warum das Postprocessing sekundärer Größen komplexer ist und häufig zu Diskontinuitäten führt.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Kriterium</p></th>
+<th class="head text-left"><p>Primäre Größen (z.B. Verschiebung, Temperatur)</p></th>
+<th class="head text-left"><p>Sekundäre Größen (z.B. Spannung, Dehnung, Moment)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Typ</strong></p></td>
+<td class="text-left"><p>Feldvariablen, direkte Lösung</p></td>
+<td class="text-left"><p>Abgeleitete Größen</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Berechnungspunkt</strong></p></td>
+<td class="text-left"><p>Knoten</p></td>
+<td class="text-left"><p>Gaußpunkte (dann zu Knoten extrapoliert)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Kontinuität</strong></p></td>
+<td class="text-left"><p>C0-kontinuierlich (an Knoten)</p></td>
+<td class="text-left"><p>Diskontinuierlich an Elementgrenzen</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Genauigkeit (relativ)</strong></p></td>
+<td class="text-left"><p>Präzise (eindeutiger Wert pro Knoten)</p></td>
+<td class="text-left"><p>Weniger präzise (aber genauer an Gaußpunkten)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Rolle im Postprocessing</strong></p></td>
+<td class="text-left"><p>Direkte Ausgabe, Visualisierung</p></td>
+<td class="text-left"><p>Erfordert Glättung für physikalische Interpretation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Tabelle 1: Vergleich primärer und sekundärer Größen in der FEM</strong></p>
+</section>
+<section id="sekundare-groszen-gauszpunkte-und-extrapolation-zu-den-knoten">
+<h2><strong>3. Sekundäre Größen: Gaußpunkte und Extrapolation zu den Knoten</strong><a class="headerlink" href="#sekundare-groszen-gauszpunkte-und-extrapolation-zu-den-knoten" title="Link to this heading">#</a></h2>
+<p>Im Gegensatz zu primären Größen werden sekundäre Größen, wie Spannungen, Dehnungen und Momente, nicht direkt an den Knoten berechnet. Stattdessen werden diese abgeleiteten Größen an den sogenannten Gauß-Integrationspunkten innerhalb jedes Finite-Elements ermittelt.<br />
+Der Grund für die Berechnung an Gaußpunkten liegt in der mathematischen Formulierung der FEM, insbesondere im Rahmen der Galerkin-Methode. Die Berechnung von Spannungen und Dehnungen erfolgt aus den Ableitungen der Verschiebungsfelder. Die Gaußpunkte sind die optimalen Punkte für die numerische Integration der Steifigkeitsmatrizen und Lastvektoren und bieten die genauesten Stellen zur Bestimmung dieser abgeleiteten Größen. Der Element-Solver „kennt“ die Dehnung innerhalb des Elements basierend auf den Knotenverschiebungen und kann daraus die Spannung berechnen. Es ist jedoch wichtig zu verstehen, dass das Element kein „vollständiges Wissen“ über das Geschehen in seinem Inneren besitzt; es prognostiziert lediglich einige korrekte Antworten an den Gaußpunkten und schätzt bzw. extrapoliert diese wenigen genauen Antworten auf den Rest seiner Fläche.<br />
+Um die an den Gaußpunkten berechneten Werte der sekundären Größen an den Knotenpositionen zu erhalten, ist eine Extrapolation dieser Werte von den Gaußpunkten zu den Knoten erforderlich. Diese Extrapolation ist notwendig, da die Knoten oft die primären Punkte für die Ergebnisdarstellung und -interpretation sind.<br />
+Es existieren verschiedene Methoden zur Extrapolation von Gaußpunktwerten zu den Knoten, die jeweils unterschiedliche Implikationen für die Ergebnisdarstellung und -genauigkeit haben:</p>
+<ul class="simple">
+<li><p><strong>Zentroidaler Wert (Centroidal Value):</strong> Bei dieser einfachen Methode wird der Durchschnitt der Gaußpunkt-Ergebnisse über alle Gaußpunkte eines Elements berechnet und dieser gemittelte Wert allen Knoten des jeweiligen Elements zugewiesen. Dies führt zu einer sehr starken Glättung der Ergebnisse innerhalb eines Elements.</p></li>
+<li><p><strong>Nodalwerte, extrapoliert von Gaußpunkten (Nodal Values Extrapolated from Gauss Points):</strong> Diese Methode verwendet lineare Formfunktionen, um die Gaußpunktwerte zu den Knoten zu extrapolieren. Sie wird im Allgemeinen für die Mehrheit der linearen Materialmodelle bevorzugt. Eine wichtige Einschränkung ist jedoch, dass diese Option für nichtlineare Materialien unter Umständen nicht gültig ist, da die Extrapolation von Gaußpunktspannungen zu den Knoten zu nodal Spannungen führen könnte, die die Materialgrenzen überschreiten, was physikalisch inkorrekt wäre.</p></li>
+<li><p><strong>Gaußpunktwerte direkt an Knoten platziert (Gauss Point Values Placed at Nodes):</strong> Hierbei wird jedes Gaußpunkt-Ergebnis direkt seinem nächstgelegenen Knoten zugewiesen, ohne weitere Extrapolation. Diese Option ist in der Regel am zuverlässigsten für nichtlineare Materialien, da die direkt zugewiesenen Knotenwerte niemals die Materialgrenzen überschreiten werden.</p></li>
+</ul>
+<p>Die grundlegende Natur sekundärer Größen als „abgeleitete“ Größen hat weitreichende Auswirkungen auf ihre Genauigkeit. Während primäre Größen direkt aus der Lösung der Gleichgewichtsgleichungen resultieren , werden sekundäre Größen durch Rücksubstitution aus den primären Größen berechnet. Da die FEM eine Näherungstechnik ist, propagieren Fehler in den primären Größen und können sich in den abgeleiteten sekundären Größen sogar verstärken, was zu einer höheren Fehleranfälligkeit führt. Die Wahl der Extrapolationsmethode ist somit nicht willkürlich, sondern hängt maßgeblich vom Materialmodell ab. Eine lineare Extrapolation kann für nichtlineare Materialien physikalisch unmögliche Ergebnisse liefern, was eine konservativere, direkte Zuweisung erforderlich macht. Dies verdeutlicht die Notwendigkeit, das zugrunde liegende Materialverhalten und dessen Wechselwirkung mit den numerischen Methoden genau zu verstehen, da dies die Gültigkeit und den physikalischen Realismus der postprozessierten Ergebnisse direkt beeinflusst.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Methode</p></th>
+<th class="head text-left"><p>Prinzip</p></th>
+<th class="head text-left"><p>Anwendungsbereich / Vorteile</p></th>
+<th class="head text-left"><p>Nachteile / Überlegungen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Zentroidaler Wert</strong></p></td>
+<td class="text-left"><p>Durchschnitt aller Gaußpunktwerte eines Elements wird allen Knoten zugewiesen.</p></td>
+<td class="text-left"><p>Einfache, schnelle Glättung.</p></td>
+<td class="text-left"><p>Stark geglättet, verliert lokale Details.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Nodalwerte, extrapoliert von Gaußpunkten</strong></p></td>
+<td class="text-left"><p>Lineare Formfunktionen extrapolieren Gaußpunktwerte zu Knoten.</p></td>
+<td class="text-left"><p>Bevorzugt für lineare Materialmodelle.</p></td>
+<td class="text-left"><p>Kann bei nichtlinearen Materialien Materialgrenzen überschreiten.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Gaußpunktwerte direkt an Knoten platziert</strong></p></td>
+<td class="text-left"><p>Jedes Gaußpunkt-Ergebnis wird direkt dem nächstgelegenen Knoten zugewiesen.</p></td>
+<td class="text-left"><p>Am zuverlässigsten für nichtlineare Materialien, da Materialgrenzen nicht überschritten werden.</p></td>
+<td class="text-left"><p>Führt zu Diskontinuitäten an Elementgrenzen, da keine Glättung erfolgt.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Tabelle 2: Methoden zur Extrapolation von Gaußpunktwerten zu Knoten</strong></p>
+</section>
+<section id="herausforderungen-und-uberlegungen-bei-der-extrapolation">
+<h2><strong>4. Herausforderungen und Überlegungen bei der Extrapolation</strong><a class="headerlink" href="#herausforderungen-und-uberlegungen-bei-der-extrapolation" title="Link to this heading">#</a></h2>
+<p>Die Extrapolation sekundärer Größen von den Gaußpunkten zu den Knoten ist mit spezifischen Herausforderungen verbunden, die ein tiefes Verständnis der FEM-Grundlagen erfordern. Eine der prominentesten Schwierigkeiten ist das Auftreten von Diskontinuitäten an Elementgrenzen.<br />
+Diese Diskontinuitäten sind eine direkte Folge der numerischen Formulierung der FEM. Insbesondere in verschiebungsbasierten FEM-Formulierungen wird die Kontinuität der primären Variablen (Verschiebungen) an den Knoten (C0-Kontinuität) priorisiert. Diese Wahl des Approximationsraums führt jedoch zwangsläufig zu einer Diskontinuität ihrer Ableitungen – also der Dehnungen und damit der Spannungen – über die Elementgrenzen hinweg. Die Finite-Elemente-Lösung approximiert die Lösung in jedem Element separat, und die diskrete Lösung kann an den Inter-Element-Grenzen diskontinuierlich sein. Dies ist kein Fehler der Methode, sondern eine inhärente Konsequenz der Variationsformulierung und der gewählten Basisfunktionen. Wenn die Dehnung nicht C1-kontinuierlich ist, kann die Kontinuität der Spannung nicht garantiert werden.<br />
+Nach der Extrapolation kann jedes Element, das an einem gemeinsamen Knoten anliegt, einen unterschiedlichen Ergebniswert für diesen Knoten melden. Wenn beispielsweise ein Knoten von mehreren Elementen gemeinsam genutzt wird, versucht jedes dieser Elemente, einen Spannungswert an diesem Knoten zu berechnen, was zu variierenden Werten führen kann. Diese numerisch bedingten Diskontinuitäten können sich als „unphysikalische, diskontinuierliche Feldkomponenten“ manifestieren. Sie erschweren die Interpretation der Ergebnisse erheblich, da ein einzelner physikalischer Punkt im Modell mehrere unterschiedliche Spannungswerte aufweisen würde, was der physikalischen Realität widerspricht. Eine direkte Darstellung der extrapolierten, nicht geglätteten Ergebnisse würde zu sichtbaren „Sprüngen“ an den Elementgrenzen führen. Dies macht es schwierig, kritische Bereiche mit hohen Spannungen oder Gradienten zuverlässig zu identifizieren und zu beurteilen.<br />
+Neben den Diskontinuitäten gibt es Genauigkeitsprobleme und die Notwendigkeit, Materialgrenzen zu beachten. Die Genauigkeit der sekundären Größen an den Knoten ist im Allgemeinen geringer als die an den Gaußpunkten, da die Werte durch Extrapolation gewonnen werden. Besonders kritisch wird dies bei nichtlinearen Materialien: Die Extrapolation von Gaußpunktspannungen zu den Knoten kann nodal Spannungen erzeugen, die die tatsächlichen Materialgrenzen überschreiten, was physikalisch inkorrekt ist. Dies erfordert eine sorgfältige Auswahl der Extrapolationsmethode, wie in Abschnitt 3 beschrieben, um physikalisch plausible Ergebnisse zu gewährleisten.<br />
+Es ist wichtig zu erkennen, dass die Diskontinuitäten nicht nur eine Herausforderung für das Postprocessing darstellen, sondern auch als diagnostisches Werkzeug dienen können. Während ein gewisses Maß an Diskontinuität aufgrund der FEM-Formulierung erwartet wird, können übermäßige oder unregelmäßige Diskontinuitäten auf Probleme hinweisen. Die Größe der Sprünge kann ein Indikator für eine unzureichende Netzverfeinerung in Bereichen mit hohen Spannungsgradienten oder sogar für das Vorhandensein tatsächlicher physikalischer Singularitäten sein. Dies verbindet die Herausforderung der Diskontinuität direkt mit der Notwendigkeit der Fehlerabschätzung und adaptiver Netzverfeinerungsstrategien (h-Adaptivität).</p>
+</section>
+<section id="glattung-von-postprocessing-feldern">
+<h2><strong>5. Glättung von Postprocessing-Feldern</strong><a class="headerlink" href="#glattung-von-postprocessing-feldern" title="Link to this heading">#</a></h2>
+<p>Da sekundäre Größen an Elementgrenzen diskontinuierlich sein können, sind geglättete Felder in der Regel das Ergebnis des Postprocessings. Eine Glättung ist unerlässlich, um numerisch bedingte Diskontinuitäten zu vermeiden und physikalisch sinnvolle, kontinuierliche Felder zu erhalten. Dies verbessert die Interpretierbarkeit und die visuelle Darstellung der Ergebnisse erheblich. Die Glättung hilft, die „Verrauschtheit“ der Rohspannungsplots zu beseitigen und ein kohärentes Bild der Spannungsverteilung zu liefern.<br />
+Es gibt verschiedene gängige Glättungstechniken, die in der FEM-Postprocessing-Praxis angewendet werden:</p>
+<ul class="simple">
+<li><p><strong>Knotenmittelung (Nodal Averaging):</strong> Dies ist die am häufigsten verwendete und einfachste Glättungstechnik.</p>
+<ul>
+<li><p><strong>Prinzip:</strong> Bei der Knotenmittelung werden die extrapolierten Knotenwerte von allen Elementen, die an einem gemeinsamen Knoten anliegen, gemittelt, um einen einzigen, repräsentativen Knotenwert zu erhalten. Wenn beispielsweise zwei Elemente unterschiedliche Spannungswerte zu einem gemeinsamen Knoten extrapolieren (z.B. 23.1 und 21.5), wird der gemittelte Wert (23.1 + 21.5)/2.0 = 22.3 als der Knotenwert berichtet.</p></li>
+<li><p><strong>Optionen:</strong> Kommerzielle Software bietet oft verschiedene Mittelungsoptionen an, wie „Always Average“ (immer mitteln), „Never Average“ (niemals mitteln), „Average Same Property“ (nur bei gleicher Materialeigenschaft mitteln) oder „Average Same Property and Birth Stage“ (nur bei gleicher Eigenschaft und Entstehungsphase mitteln).</p></li>
+<li><p><strong>Einschränkungen:</strong> Die Mittelung wird in der Regel nicht über Materialgrenzen oder andere Diskontinuitäten (z.B. Schweißnähte, Kontaktflächen) hinweg durchgeführt, um physikalische Sprünge in den Eigenschaften zu erhalten. Wenn die lokalen Koordinatensysteme der Elemente in einem Modell nicht konsistent ausgerichtet sind, kann die Mittelung zu unsinnigen Ergebnissen führen. Obwohl die Knotenmittelung die Diskontinuitäten reduziert und ein optisch ansprechendes, kontinuierliches Feld liefert, kann sie in Bereichen mit hohen Spannungsgradienten oder Singularitäten zu einer „Verwischung“ der tatsächlichen Spannungsspitzen führen. Dies liegt daran, dass sie lokale Spitzenwerte glättet, was die wahrgenommenen Maximalspannungen beeinflussen kann, insbesondere in Spannungskonzentrationsbereichen. Dies stellt ein wichtiges Dilemma im Postprocessing dar: der Wunsch nach einem glatten, interpretierbaren Feld versus die Notwendigkeit, die Genauigkeit der zugrunde liegenden, potenziell diskontinuierlichen numerischen Lösung zu bewahren. Ingenieure müssen sich bewusst sein, dass die Knotenmittelung ein Postprocessing-Artefakt ist.</p></li>
+</ul>
+</li>
+<li><p><strong>Superkonvergente Patch-Recovery (SPR) / Zienkiewicz-Zhu (ZZ) Fehlerabschätzung:</strong> Dies ist eine fortgeschrittenere und genauere Methode zur Verbesserung der Genauigkeit von abgeleiteten Größen.</p>
+<ul>
+<li><p><strong>Prinzip:</strong> Es ist eine bemerkenswerte Eigenschaft der FEM, dass die Ableitungen der Lösung (z.B. Spannungen, Flüsse) an bestimmten Punkten innerhalb der Elemente, den sogenannten „superkonvergenten Punkten“ (oft Gaußpunkte), genauer sind als an anderen Stellen im Element. Die SPR-Technik nutzt dieses Phänomen. Sie geht davon aus, dass der Spannungswert an einem Knoten aus einer polynomialen Expansion gleicher Ordnung wie die Basisfunktion stammt, die über einen „Patch“ von Elementen um den betreffenden Knoten gültig ist. Ein genaueres Ergebnis wird erzielt, indem eine glatte, höherwertige Polynomfunktion an die superkonvergenten Spannungswerte in einem umgebenden „Patch“ von Elementen angepasst wird. Dies geschieht oft über eine Kleinste-Quadrate-Anpassung.</p></li>
+<li><p><strong>Vorteile:</strong> SPR kann eine höhere Konvergenzrate für die wiederhergestellten Werte erzielen, oft eine Ordnung höher als die direkte FEM-Lösung. Dies bedeutet, dass die Genauigkeit der abgeleiteten Größen über das hinausgeht, was die direkte FEM-Lösung an den Knoten liefert. Es liefert genauere Schätzungen des Fehlers und ist effektiv und wirtschaftlich sowohl bei der Fehlerbewertung als auch beim Treiben adaptiver Netzverfeinerung. Superkonvergenz zeigt, dass die FEM, trotz ihrer Approximationen, „versteckte“ Informationen höherer Genauigkeit enthält. Techniken wie SPR sind ausgeklügelte Wege, diese Informationen zu extrahieren, was sie für die Fehlerabschätzung und adaptive Vernetzung, wo präzise Fehlerindikatoren entscheidend sind, von unschätzbarem Wert macht. Dies erhöht die SPR über eine einfache Glättung hinaus zu einem Werkzeug zur Lösungsverbesserung und -validierung.</p></li>
+</ul>
+</li>
+<li><p><strong>Weitere fortgeschrittene Glättungsmethoden:</strong></p>
+<ul>
+<li><p><strong>L2-Projektion:</strong> Eine frühere Methode, bei der eine glatte Funktion an die diskontinuierlichen FEM-Ergebnisse angepasst wird, oft durch Minimierung des L2-Fehlers.</p></li>
+<li><p><strong>Smoothed Finite Element Methods (S-FEM):</strong> Eine spezielle Klasse von numerischen Simulationsalgorithmen, die gitterfreie Methoden mit der FEM kombinieren. Sie modifizieren das kompatible Dehnungsfeld, um Modelle mit guter Leistung zu konstruieren, insbesondere mit Dreiecksnetzen. S-FEM kann Lösungen von beiden Seiten begrenzen (obere und untere Schranke), was für die Fehleranalyse nützlich ist.</p></li>
+</ul>
+</li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Technik</p></th>
+<th class="head text-left"><p>Prinzip</p></th>
+<th class="head text-left"><p>Zweck / Vorteile</p></th>
+<th class="head text-left"><p>Einschränkungen / Überlegungen</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Knotenmittelung</strong></p></td>
+<td class="text-left"><p>Mittelung der extrapolierten Knotenwerte von allen anliegenden Elementen.</p></td>
+<td class="text-left"><p>Einfach, erzeugt kontinuierliche Felder, verbessert Visualisierung.</p></td>
+<td class="text-left"><p>Kann Spannungsspitzen verwischen, nicht über Materialgrenzen hinweg anwendbar.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Superkonvergente Patch-Recovery (SPR) / Zienkiewicz-Zhu (ZZ)</strong></p></td>
+<td class="text-left"><p>Anpassung einer glatten Polynomfunktion an superkonvergente Gaußpunktwerte in einem „Patch“ von Elementen.</p></td>
+<td class="text-left"><p>Erhöht die Genauigkeit der abgeleiteten Größen (oft eine Ordnung höher), Basis für Fehlerabschätzung und adaptive Netzverfeinerung.</p></td>
+<td class="text-left"><p>Komplexer in der Implementierung.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Smoothed FEM (S-FEM)</strong></p></td>
+<td class="text-left"><p>Modifikation des Dehnungsfeldes oder Konstruktion eines Dehnungsfeldes nur aus Verschiebungen.</p></td>
+<td class="text-left"><p>Gute Leistung mit Dreiecksnetzen, kann Lösungen von beiden Seiten begrenzen (obere/untere Schranke).</p></td>
+<td class="text-left"><p>Schwierigkeiten bei exakter Integration, mögliche Matrixsingularitäten.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Tabelle 3: Überblick über Glättungstechniken im Postprocessing</strong></p>
+</section>
+<section id="weitere-wichtige-aspekte-des-postprocessings">
+<h2><strong>6. Weitere wichtige Aspekte des Postprocessings</strong><a class="headerlink" href="#weitere-wichtige-aspekte-des-postprocessings" title="Link to this heading">#</a></h2>
+<p>Über die bloße Transformation und Glättung von Daten hinaus umfasst das Postprocessing eine Reihe weiterer entscheidender Aspekte, die für die umfassende Nutzung und Interpretation von FEM-Ergebnissen unerlässlich sind.</p>
+<section id="datenvisualisierung-und-interpretation">
+<h3><strong>Datenvisualisierung und -interpretation</strong><a class="headerlink" href="#datenvisualisierung-und-interpretation" title="Link to this heading">#</a></h3>
+<p>Die Rohdaten aus FEM-Simulationen sind oft „geclustert und komplex“. Eine Hauptaufgabe des Postprocessings ist es, diese Daten in aussagekräftige Visualisierungen, Diagramme und andere verständliche Ausgaben umzuwandeln. Dies beinhaltet die Darstellung von Verformungen, Spannungs- und Dehnungsfeldern, Temperaturverteilungen und anderen relevanten Größen in einer intuitiven grafischen Form. Die Visualisierung ist entscheidend, um die Plausibilität der berechneten Lösung zu prüfen und kritische Punkte in der Struktur zu identifizieren, an denen beispielsweise hohe Spannungen auftreten. Es ist jedoch von größter Bedeutung zu beachten, dass „beeindruckende, farbenfrohe Ergebnisse“ irreführend sein können, wenn sie nicht kritisch hinterfragt und validiert werden. Die visuelle Attraktivität von Postprocessing-Ergebnissen kann täuschen; ohne eine sorgfältige Validierung (Vergleich mit analytischen Lösungen oder experimentellen Daten) und Verifikation (Konvergenzstudien) können selbst glatte, farbenfrohe Darstellungen zu falschen Schlussfolgerungen führen. Dies vermittelt eine entscheidende Ingenieurmentalität: Ergebnisse aus komplexen numerischen Simulationen sind stets kritisch zu prüfen.</p>
+</section>
+<section id="fehlerabschatzung-und-adaptive-vernetzung">
+<h3><strong>Fehlerabschätzung und adaptive Vernetzung</strong><a class="headerlink" href="#fehlerabschatzung-und-adaptive-vernetzung" title="Link to this heading">#</a></h3>
+<p>Postprocessing ist eng mit der Fehlerabschätzung verknüpft, insbesondere mit <em>a posteriori</em> Fehlerabschätzern. Diese Schätzer basieren oft auf der Lösung lokaler Neumann-Probleme oder der Differenz zwischen einer diskontinuierlichen FEM-Lösung und einer geglätteten Lösung. Die Zienkiewicz-Zhu (ZZ) Fehlerabschätzung, die auf der Superkonvergenten Patch-Recovery basiert, ist ein effektives und wirtschaftliches Verfahren zur Bewertung von Fehlern in einzelnen Finite-Elementen. Die Möglichkeit, Fehler elementweise zu schätzen, ist von großer praktischer Bedeutung.<br />
+Die aus dem Postprocessing gewonnenen Fehlerindikatoren können zur Steuerung adaptiver Netzverfeinerungsverfahren (z.B. h-Adaptivität) verwendet werden. Dies ermöglicht die automatische Verfeinerung des Netzes in Bereichen mit hohen Fehlern, um die Genauigkeit zu verbessern und gleichzeitig die Rechenkosten zu minimieren, indem das Netz nur dort verdichtet wird, wo es wirklich notwendig ist. Die Zuverlässigkeit der Fehlerabschätzung hängt davon ab, dass die Lösungen im asymptotischen Bereich liegen (d.h. auf ausreichend feinen Netzen), was in der Praxis oft schwierig zu erreichen ist. Das Vorhandensein von Diskontinuitäten kann zudem die formale Genauigkeitsordnung des Verfahrens reduzieren. Postprocessing dient hier als diagnostisches Werkzeug für die Modellqualität. Es liefert entscheidende Rückmeldungen für das FEM-Modell selbst, indem es die „Validität/Funktionalität des FEM-Modells“ überprüft und „kritische Punkte identifiziert“, um „die Plausibilität der Lösung zu untersuchen“. Dies ist nicht nur das Ende der Simulation, sondern eine entscheidende Rückkopplungsschleife zur Verbesserung des Simulationsaufbaus. Die enge Verbindung zwischen Postprocessing, Fehlerabschätzung und adaptiver Vernetzung – wie sie beispielsweise durch den Zienkiewicz-Zhu-Schätzer demonstriert wird, der Fehler bewertet und adaptive Netzverfeinerung steuert – zeigt die hochentwickelten Möglichkeiten, die durch robustes Postprocessing erschlossen werden. Dies geht über die einfache Visualisierung hinaus und ermöglicht eine intelligente, automatisierte Modellverbesserung, ein Kennzeichen moderner FEA.</p>
+</section>
+<section id="validierung-und-verifikation-von-fem-ergebnissen">
+<h3><strong>Validierung und Verifikation von FEM-Ergebnissen</strong><a class="headerlink" href="#validierung-und-verifikation-von-fem-ergebnissen" title="Link to this heading">#</a></h3>
+<p>Postprocessing ist ein integraler Bestandteil der Validierung und Verifikation (V&amp;V) von FEM-Modellen.</p>
+<ul class="simple">
+<li><p><strong>Validierung:</strong> Hierbei werden die Simulationsergebnisse mit analytischen Lösungen, experimentellen Daten oder Referenzliteratur verglichen, um sicherzustellen, dass das Modell die physikalische Realität korrekt abbildet.</p></li>
+<li><p><strong>Verifikation:</strong> Dies beinhaltet die Überprüfung der numerischen Konsistenz und Genauigkeit der Lösung, beispielsweise durch Konvergenzstudien. Eine Konvergenzstudie untersucht, wie sich die Lösung bei sukzessiver Verfeinerung des Netzes verhält, um die numerische Stabilität und Genauigkeit zu beurteilen.</p></li>
+</ul>
+<p>Das Postprocessing ermöglicht es, die „Qualität eines Netzes relativ zum Endziel der Finite-Elemente-Berechnung“ zu beurteilen. Dies ist ein entscheidender Punkt, da die „beste“ Netzqualität immer vom spezifischen Ziel der Analyse abhängt.</p>
+</section>
+</section>
+<section id="fazit">
+<h2><strong>Fazit</strong><a class="headerlink" href="#fazit" title="Link to this heading">#</a></h2>
+<p>Das Postprocessing ist weit mehr als nur die grafische Darstellung von Simulationsergebnissen; es ist ein fundamentaler und kritischer Schritt in der Finite-Elemente-Analyse, der die Transformation komplexer numerischer Ausgaben in aussagekräftige und interpretierbare Informationen für Ingenieure ermöglicht. Es schlägt die Brücke zwischen der abstrakten Welt der Gleichungssysteme und der konkreten Anwendung in der technischen Entscheidungsfindung.<br />
+Die Unterscheidung zwischen primären und sekundären Größen ist hierbei von zentraler Bedeutung. Primäre Größen, wie Verschiebungen, werden direkt und präzise an den Knoten berechnet und sind innerhalb der Elemente durch Formfunktionen kontinuierlich interpolierbar. Sekundäre Größen, wie Spannungen, sind hingegen abgeleitete Größen, die initial an den Gaußpunkten ermittelt und anschließend zu den Knoten extrapoliert werden müssen. Diese Extrapolation führt naturgemäß zu Diskontinuitäten an Elementgrenzen, da die zugrunde liegende FEM-Formulierung die Kontinuität der Ableitungen nicht garantiert.<br />
+Um diese numerisch bedingten Diskontinuitäten zu überwinden und physikalisch plausible, kontinuierliche Felder zu erhalten, sind Glättungstechniken unerlässlich. Während die einfache Knotenmittelung eine schnelle Lösung bietet, die visuelle Kontinuität schafft, kann sie in Bereichen hoher Gradienten zu einer Verwischung von Spannungsspitzen führen. Fortgeschrittenere Methoden wie die Superkonvergente Patch-Recovery nutzen die inhärente höhere Genauigkeit an superkonvergenten Punkten, um präzisere Ergebnisse zu erzielen und gleichzeitig als leistungsfähige Werkzeuge für die Fehlerabschätzung und die Steuerung adaptiver Netzverfeinerungen zu dienen.<br />
+Letztlich ist das Postprocessing ein entscheidendes diagnostisches Werkzeug, das Ingenieuren hilft, die Qualität ihrer FEM-Modelle zu beurteilen, Fehler zu identifizieren und die Modelle iterativ zu verbessern. Es erfordert jedoch auch eine kritische Haltung gegenüber den visuellen Ergebnissen, da selbst „beeindruckende“ Darstellungen irreführend sein können, wenn sie nicht durch Validierung und Verifikation untermauert sind. Ein tiefes Verständnis der zugrunde liegenden numerischen Prinzipien und der Implikationen verschiedener Postprocessing-Methoden ist daher unerlässlich, um die Zuverlässigkeit und Aussagekraft von FEM-Analysen in der Ingenieurpraxis zu gewährleisten.</p>
+<section id="quellenangaben">
+<h3><strong>Quellenangaben</strong><a class="headerlink" href="#quellenangaben" title="Link to this heading">#</a></h3>
+<p>1. Finite element model data post-processing - Wikipedia, https://en.wikipedia.org/wiki/Finite_element_model_data_post-processing 2. Post Processing: Meaning, Applications, Technique, Fem - Vaia, https://www.vaia.com/en-us/explanations/engineering/solid-mechanics/post-processing/ 3. Introduction to Finite Element Analysis (FEA) or Finite Element Method (FEM) - Engineering and Computer Science, https://www.engr.uvic.ca/~mech410/lectures/FEA_Theory.pdf 4. sivasrinivaskolukula - Stress Recovery - Google Sites, https://sites.google.com/site/kolukulasivasrinivas/matlab-fea/plate/stress-recovery 5. Nodal Stress Calculation - FEA-Solutions (UK) Ltd - Finite Element Analysis For Your Product Design, https://fea-solutions.co.uk/nodal-stress-calculation/ 6. Finite Element Method - Wolfram Language Documentation, https://reference.wolfram.com/applications/structural/FiniteElementMethod.html 7. What are Nodes and Elements in Finite Element Analysis? - Enterfea, https://enterfea.com/what-are-nodes-and-elements-in-finite-element-analysis/ 8. Results Interpretation: Gauss Point Extrapolation and Averaging, https://www.strand7.com/strand7r3help/Content/Topics/ResultsInterpretation/ResultsInterpretationGaussPointExtrapolation.htm 9. 019002Superconvergence and the Superconvergent Patch Recovery | PDF | Finite Element Method | Matrix (Mathematics) - Scribd, https://www.scribd.com/document/847831692/019002Superconvergence-and-the-Superconvergent-Patch-Recovery 10. eigenvalue calculations based on the finite element method with physically motivated field smoothing using the kirchhoff integral - JACoW, https://www.jacow.org/ipac2017/papers/WEPIK064.pdf 11. Z-Z Estimator (ZZ_Estimator) - NIST/MML Center for Theoretical and Computational Materials Science, https://www.ctcms.nist.gov/~langer/oof2man/RegisteredClass-ZZ_Estimator.html 12. Does the order of shape functions affect the continuity of stress field in linear fem?, https://www.researchgate.net/post/Does_the_order_of_shape_functions_affect_the_continuity_of_stress_field_in_linear_fem 13. Efficient Visualization of High Order Finite Elements - Gmsh, https://gmsh.info/doc/preprints/gmsh_visu_preprint.pdf 14. Finite Element Study of Structural Discontinuities | PDF | Stress (Mechanics) - Scribd, https://www.scribd.com/presentation/341338233/Finite-Element-Study-of-Structural-Discontinuities 15. The Post-Processing Approach in the Finite Element Method. Part 1. Calculation of Displacements, Stresses, and other Higher Deri - DTIC, https://apps.dtic.mil/sti/tr/pdf/ADA125039.pdf 16. Calculation of Average Nodal Stresses and Strains, https://www.princeton.edu/~dynaflow/femgv/manuals/postber/node9.htm 17. (PDF) A postprocessed error estimation in the finite element analysis - ResearchGate, https://www.researchgate.net/publication/241683539_A_postprocessed_error_estimation_in_the_finite_element_analysis 18. Lesson 16: The Zienkiewicz/Zhu Error Estimation Procedure - O’Reilly Media, https://www.oreilly.com/library/view/a-unified-approach/9780122214400/xhtml/B9780122214400500492.htm 19. Smoothed finite element method - Wikipedia, https://en.wikipedia.org/wiki/Smoothed_finite_element_method 20. The Finite Element Method (FEM) – A Beginner’s Guide - Jousef Murad, https://www.engineered-mind.com/fem/the-finite-element-method-beginners-guide/ 21. The Post-Processing Approach in the Finite Element Method. Part 3. A Posteriori Error Estimates and Adaptive Mesh Selection. - DTIC, https://apps.dtic.mil/sti/tr/pdf/ADA129784.pdf 22. Finite element method - Wikipedia, https://en.wikipedia.org/wiki/Finite_element_method 23. Richardson Extrapolation-based Discretization Uncertainty Estimation for Computational Fluid Dynamics - Kevin T. Crofton Department of Aerospace and Ocean Engineering, https://www.aoe.vt.edu/content/dam/aoe_vt_edu/people/faculty/cjroy/Publications-Articles/re_jfe-phillips-2014.pdf</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapters/chapter3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung-in-das-postprocessing"><strong>1. Einführung in das Postprocessing</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primare-groszen-knotenwerte-und-elementinterpolation"><strong>2. Primäre Größen: Knotenwerte und Elementinterpolation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sekundare-groszen-gauszpunkte-und-extrapolation-zu-den-knoten"><strong>3. Sekundäre Größen: Gaußpunkte und Extrapolation zu den Knoten</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herausforderungen-und-uberlegungen-bei-der-extrapolation"><strong>4. Herausforderungen und Überlegungen bei der Extrapolation</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#glattung-von-postprocessing-feldern"><strong>5. Glättung von Postprocessing-Feldern</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weitere-wichtige-aspekte-des-postprocessings"><strong>6. Weitere wichtige Aspekte des Postprocessings</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datenvisualisierung-und-interpretation"><strong>Datenvisualisierung und -interpretation</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlerabschatzung-und-adaptive-vernetzung"><strong>Fehlerabschätzung und adaptive Vernetzung</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validierung-und-verifikation-von-fem-ergebnissen"><strong>Validierung und Verifikation von FEM-Ergebnissen</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fazit"><strong>Fazit</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quellenangaben"><strong>Quellenangaben</strong></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Prof. Dr.-Ing. Steffen Beese
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

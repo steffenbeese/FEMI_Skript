@@ -21,14 +21,33 @@ parts:
     - file: chapters/chapter2/FEM
     - file: chapters/chapter2/1dFEM
     - file: chapters/chapter2/BalkenFEM
+- caption: Isoparametrische FEM
+  numbered: true
+  chapters:
+  - file : chapters/chapter3/isoparametrischeFEM
+    sections: 
+    - file: chapters/chapter3/Ansatzfunktionen
+    - file: chapters/chapter3/Integration
+    - file: chapters/chapter3/Postprocessing
 
-    # - file: chapters/chapter2/isoparametrischeFEM
+- caption: Praktisches zur Anwendung der FEM
+  numbered: true
+  chapters:
+    - file : chapters/chapter4/Overview
+      sections: 
+      - file: chapters/chapter4/Symmetrie
+      - file: chapters/chapter4/Fehlerquellen
+      - file: chapters/chapter4/Modalanalyse
+      - file: chapters/chapter4/Vernetzung
+
+# - file: chapters/chapter2/isoparametrischeFEM
 # - caption: Diskretisierung
 #   numbered: true
 #   chapters:
 #   - file: chapters/chapter3/Discretization
 #     sections:
 #     - file: chapters/chapter3/Elementtopologie
+
 - caption: Quellenverzeichnis
   numbered: true
   chapters:

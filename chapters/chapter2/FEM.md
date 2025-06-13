@@ -48,7 +48,7 @@ Für die in Kapitel 1 eingeführten Randwertprobleme (Massenbilanz, Impulsbilanz
 ```{figure} ../chapter1/images/Impulsbilanz.jpg
 ---
 height: 400px
-name: impulsbilanz
+name: impulsbilanz_fig
 ---
 Körper $\mathcal{B}$ unter Einwirkung der externen Oberflächenkraft $\tilde{\bm{t}}$ und der Volumenlast $\bm{b}$
 ```
@@ -62,14 +62,14 @@ Ausgangspunkt für die exemplarische Herleitung ist die Impulsbilanz in der quas
 :label: weakform_01
 0 = \div{\bm{\sigma}} + \rho \bm{b} 
 ```
-Diese starke form wird jetzt mit einer beliebigen vektorwertigen Testfunktion $\delta \bm{u}$ multipliziert und über das betrachtete Gebiet $\mathcal{B}$ (den betrachteten Körper) integriert.
+Diese starke Form wird jetzt mit einer beliebigen vektorwertigen Testfunktion $\delta \bm{u}$ multipliziert und über das betrachtete Gebiet $\mathcal{B}$ (den betrachteten Körper) integriert.
 
 ```{math}
 :label: weakform_02
 0 = \int_{\mathcal{B}} \delta  \bm{u}\T \left(\div{\bm{\sigma}} + \rho \bm{b} \right) \dV
 ```
 
-Dieser Schritt bedeutet, dass wir im Weiteren versuchen werden, die gekoppelten partiellen Differentialgleichungen nicht punktuell exakt, sondern im gewichteten integralen Mittel zu erfüllen. Für elastomechanische Problemstellungen kann die Testfunktion $\delta \bm{u}$ als virtuelle Verrückung aufgefasst werden und die Gleichung {eq}`weakform_02` als das bekannte Prinzip der virtuellen Verrückung aufgefasst werden. Das hier gezeigte Vorgehen ist aber unabhängig von der Elastostatik allgemeingültig.
+Dieser Schritt bedeutet, dass wir im Weiteren versuchen werden, die gekoppelten partiellen Differentialgleichungen nicht punktuell exakt zu erfüllen, sondern im gewichteten integralen Mittel. Für elastomechanische Problemstellungen kann die Testfunktion $\delta \bm{u}$ als virtuelle Verrückung aufgefasst werden, und die Gleichung {eq}`weakform_02` als das bekannte Prinzip der virtuellen Verrückung angesehen werden. Das hier gezeigte Vorgehen ist jedoch unabhängig von der Elastostatik allgemeingültig.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -118,4 +118,17 @@ Setzen wir jetzt noch als Materialmodell die Beschreibung der linearen Elastizit
 ```{math}
 :label: weakform_04
 \int_{\mathcal{B}} \delta\eb\T \bm{C} \eb \dV = \int_{\mathcal{B}} \delta \bm{u}\T \rho \bm{b} \dV + \int_{\partial\mathcal{B}} \delta \bm{u}\T \cdot \bm{t} \dA \; .
+```
+
+
+```{admonition} Fragen zum Kapitel
+:class: warning
+
+**Finite Elemente Methode**
+- Worauf beziehen sich die Begriffe *starke* und *schwache* Formulierung?
+- Was ist korrekt:
+  - [ ] Bei der schwachen Formulierung wird die Bilanzgleichung nur noch im integralen Mittel gelöst.
+  - [ ] Das Prinzip der virtuellen Verrückung und die schwache Formulierung der Impulsbilanz sind äquivalent.
+  - [ ] Die starke Formulierung der Bilanzgleichung enthält Ableitungen höherer Ordnung im Vergleich zur schwachen Formluierung. 
+
 ```

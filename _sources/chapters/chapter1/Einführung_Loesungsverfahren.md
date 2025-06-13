@@ -93,7 +93,7 @@ Die Randelemente Methode ist besonders vorteilhaft, da sie die Dimension des Pro
 
 Die Finite Elemente Methode (FEM) ist ein weit verbreitetes numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das insbesondere in der Ingenieurwissenschaft und der Physik Anwendung findet. Hier sind die grundlegenden Schritte und Konzepte der FEM:
 
-  1. **Diskretisierung des Gebiets**: Der kontinuierliche Raum wird in eine endliche Anzahl von kleinen, nicht überlappenden Elementen unterteilt, die zusammen ein Netz (Mesh) bilden. Diese Elemente können verschiedene Formen haben, wie Dreiecke, Vierecke (in 2D) oder Tetraeder, Würfel (in 3D).
+  1. **Diskretisierung des Gebiets**: Der kontinuierliche Raum wird in eine endliche Anzahl von kleinen, nicht überlappenden Elementen unterteilt, die zusammen ein Netz (Mesh) bilden. Diese Elemente können verschiedene Formen haben, wie Dreiecke, Vierecke (in 2D) oder Tetraeder, Hexaeder (in 3D).
   2. **Aufstellen der Elementgleichungen**: Für jedes Element wird eine lokale Formulierung der PDE aufgestellt, die die physikalischen Gesetze und Randbedingungen berücksichtigt. Dies geschieht häufig durch die Anwendung des Prinzips der virtuellen Verrückungen oder der Galerkin-Methode, um die Differentialgleichung in eine schwache Form zu überführen.
   3. **Zusammenfügen der Elementgleichungen**: Die lokalen Gleichungen der einzelnen Elemente werden zu einem globalen Gleichungssystem zusammengefügt. Dies geschieht unter Berücksichtigung der Koppelung zwischen benachbarten Elementen und der gemeinsamen Knotenpunkte.
   4. **Lösen des Gleichungssystems**: Das resultierende globale Gleichungssystem wird mit numerischen Verfahren gelöst.
@@ -125,3 +125,16 @@ Jede der oben genannten Methoden hat ihre Daseinsberechtigung für gewählte Pro
 | **FVM** | Volumen | Diskretisierung des Gebiets in Kontrollvolumen | Berücksichtigt Erhaltungsgesetze direkt; robust bei nichtlinearen Effekten | Kann komplexer in der Implementierung sein; erfordert sorgfältige Flussapproximation |
 
 Jede Methode hat ihre eigenen Stärken und Schwächen, und die Wahl der Methode hängt oft von der spezifischen Anwendung ab.
+
+```{admonition} Fragen zum Kapitel
+:class: warning
+
+**Numerische Lösungsverfahren**
+
+- Nennen Sie drei Verfahren zur Lösung von partiellen Differentialgleichungen (Feldgleichungen).
+- Warum brauchen wir numerische Verfahren zur Lösung der Feldgleichungen?
+- In allen numerischen Verfahren werden die Feldgleichungen umgeformt. Was muss letztendlich bei allen Verfahren gelöst werden?
+- Welches numerische Verfahren ist besonders gut für Strömungsprobleme geeignet?
+- Nennen Sie drei Gründe warum sich die FEM in der Struktmechanik durchgesetzt hat?
+
+```

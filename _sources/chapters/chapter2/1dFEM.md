@@ -43,7 +43,7 @@ $ -->
 ```{figure} images/Stab.png
 ---
 height: 400px
-name: stab
+name: stab_fig
 ---
 Stab unter Eigengewicht und externer Kraft.
 ```
@@ -55,7 +55,7 @@ Auch hier beginnen wir mit der starken Form der Differentialgleichung:
 
 ```{admonition} Analytische Lösung
 :class: tip
-Die analytische Lösung erhalten wir durch zweifache Integration und einsetzen der Randbedingungen:
+Die analytische Lösung erhalten wir durch zweifache Integration und Einsetzen der Randbedingungen:
   \begin{equation}
   u(x) = \left( \frac{F}{EA} + \frac{n \ell}{E}\right)\cdot x - \frac{1}{2} \frac{n}{E} x^2 \; . 
   \end{equation}
@@ -68,7 +68,7 @@ Die Schnittkraft $N$ berechnet sich wie folgt:
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 
-Zur Herleitung der Finiten Elemente Form multiplizieren  wir die starke Form mit der Testfunktion $\delta u$ und integrieren die Gleichung über das Gebiet:
+Zur Herleitung der Finite-Elemente-Form multiplizieren wir die starke Form mit der Testfunktion $\delta u$ und integrieren die Gleichung über das Gebiet:
 ```{math}
 :label: stabdglsimple_weak
  \int_{0}^{\ell} \delta u u^{\prime \prime} \dx = \int_{0}^{\ell} - \delta u \frac{n(x)}{EA} \dx\; .
@@ -162,7 +162,7 @@ Man kann leicht erkennen, dass mit diesem quadratischen Ansatz die analytische L
 
 ```{admonition} Problem
 :class: warning
-Ein Problem bei dem Ritz'schen Verfahren ist die Wahl der Ansatzfunktion. Diese muss die Randbedingungen erfüllen und die Stetigkeitsanforderungen der schwachen Form. Für komplexere Probleme ist die Wahl der Ansatzfunktion nicht trivial - und oft auch nicht möglich.
+Ein Problem beim Ritz'schen Verfahren ist die Wahl der Ansatzfunktion. Diese muss die Randbedingungen erfüllen und die Stetigkeitsanforderungen der schwachen Form. Für komplexere Probleme ist die Wahl der Ansatzfunktion nicht trivial und oft auch nicht möglich.
 ```
 
 ## Finite Elemente Formulierung für den Stab
@@ -176,7 +176,7 @@ name: stabelement
 ---
 Stab unter Eigengewicht und externer Kraft mit Stabelementen diskretisiert.
 ```
-Im vorangegangenen Abschnitt haben wir uns von der Effektivität des Prinzips der virtuellen Arbeit in Kombination mit dem Ritz'schen Verfahren überzeugt. Es erweist sich jedoch oft als schwierig, bei komplex geformten Strukturen, die einer vielschichtigen Belastung ausgesetzt sind, einen adäquaten Näherungsansatz zu finden. Die Finite-Elemente-Methode (FEM) löst dieses Problem, indem sie simple Ansatzfunktionen auf überschaubar gestalteten Teilbereichen – den sogenannten finiten Elementen – anwendet und diese dann systematisch für das gesamte Gebiet integriert.
+Im vorangegangenen Abschnitt haben wir die Effektivität des Prinzips der virtuellen Arbeit in Kombination mit dem Ritz'schen Verfahren untersucht. Es erweist sich jedoch oft als schwierig, einen angemessenen Näherungsansatz für komplexe Strukturen zu finden, die einer vielschichtigen Belastung ausgesetzt sind. Die Finite-Elemente-Methode (FEM) löst dieses Problem, indem sie einfache Ansatzfunktionen auf überschaubaren Teilbereichen – den sogenannten finiten Elementen – anwendet und diese dann systematisch für das gesamte Gebiet integriert.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -194,7 +194,6 @@ $
 $
 u_2^{e} \text{ Verschiebung u am lokalen Knoten 2 von Element e}
 $
-
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
@@ -746,3 +745,45 @@ Abbildung {numref}`FE-compare` links zeigt einen Vergleich zwischen dem mit der 
 Im rechten Teil von Abbildung {numref}`FE-compare` wird die FE-Approximation für den Verlauf der Schnittkräfte mit der analytischen Lösung kontrastiert. Die analytische Lösung zeigt ein lineares Wachstum der Normalkraft auf, das jedoch durch die hier verwendeten linearen Ansatzfunktionen lediglich stückweise durch eine konstante Annäherung wiedergegeben wird. Dabei treten an den Grenzen der Elemente Diskontinuitäten in den von der FEM berechneten Schnittkraftverläufen auf. Auffällig ist auch in diesem Beispiel, dass die analytische Lösung im Zentrum jedes Elements exakt erreicht wird.
 
 Die Genauigkeit dieser Näherungslösung kann augenscheinlich gesteigert werden, indem man die Anzahl der Elemente erhöht. Dies führt dazu, dass die Sprünge im Verlauf der Schnittkräfte bestehen bleiben, aber kleiner ausfallen. Um eine qualitativ signifikante Verbesserung zu erzielen, empfiehlt es sich, Elemente mit quadratischen Ansatzfunktionen für das Verschiebungsfeld zu nutzen. In diesem Fall wird bereits mit einem einzigen Element, das über drei Knotenpunkte verfügt, die exakte Lösung erlangt. In dieser Situation wäre dann die FEM äquivalent dem Ritz'schen Verfahren.
+
+### Konvergenz der Ergebnisse
+
+```{figure} images/Stab_Normalkraft_refined.png
+---
+width: 600px
+name: stabelement_refined
+---
+Ergebnisse für die Normalspannung in einem Stab unter Eigengewicht mit einer erhöhten Netzfeinheit.
+```
+
+Bei einer immer feiner werdenen Diskretisierung des Stabes, konvergiert die Lösung gegen die analytische Lösung. Dennoch liegen wie in Abbildung {numref}`stabelement_refined` zu sehen, immernoch Spannungssprünge an den Elementgrenzen vor. Betrachtet man die Fehler der Spannungsergebnisse, so zeigt sich, dass dieser Fehler mit steigender Anzahl an Freihheitsgraden abnimmt. Dies ist in Abbildung {numref}`stabelement_error` zu sehen. Im doppelt logaritmischen Maßstab erhält man eine Gerade für die Abnahme des Fehlers. Auch bei der verwendung von Ansatzfunktionen höherer Ordnung reduziert sich der Fehler nur linear im doppeltlogarithmischen Maßstab. Die Steigung ist jedoch höher, sodass im Allgemeinen mit einer verbesserten Konvergenz zu rechnen ist.
+
+
+```{figure} images/Stab_error_convergence.png
+---
+width: 600px
+name: stabelement_error
+---
+Konvergenz der Spannungsergebniss in einem Stab unter Eigengewicht mit steigender Anzahl an Freihheitsgraden.
+```
+
+## Interactives Notebook
+
+asierend auf der präsentierten Theorie wurde ein Jupyter Notebook erstellt. Dieses kann man ohne Systemvorraussetzungen im Browser ausführen:
+
+StabFEM for Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/steffenbeese/FEM_I_Notebooks/main?urlpath=%2Fdoc%2Ftree%2FNotebook_StabFEM.ipynb)
+
+
+
+```{admonition} Fragen zum Kapitel
+:class: warning
+
+**StabFEM**
+
+- Was unterscheidet das Verfahren von Ritz von der FEM?
+- Welches Problem hat man beim Verfahren von Ritz bezüglich der Anssatzfunktion?
+- Skizzieren Sie die Formfunktionen für ein lineares Stabelement mit 2 Knoten.
+- Auf Elementebene werden die Steifigkeitsmatrizen und die Lastvektoren berechnet. Was passiert danach mit diesen Größen?
+- Das globale Gleichungssystem kann nicht gelöst werden. Die Steifigkeitsmatrix ist singulär. Was könnte der Grund dafür sein?
+
+```

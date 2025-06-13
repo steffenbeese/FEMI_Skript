@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -66,7 +66,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter2/BalkenFEM';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="3. Quellenverzeichnis" href="../../quellen.html" />
+    <link rel="next" title="3. Isoparametrische FEM" href="../chapter3/isoparametrischeFEM.html" />
     <link rel="prev" title="2.2. Die Schwache Form am Beispiel des Stabes" href="1dFEM.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
@@ -190,9 +190,28 @@
 </ul>
 </details></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter3/isoparametrischeFEM.html">3. Isoparametrische FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Ansatzfunktionen.html">3.4. Ansatzfunktionen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Integration.html">3.5. Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter3/Postprocessing.html">3.6. Postprocessing</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">3. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -389,8 +408,9 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elementsteifigkeitsmatrix-diskretisierung-term-1-in-gleichung-weakbalken-01">2.3.2. Elementsteifigkeitsmatrix (Diskretisierung Term 1 in Gleichung <code class="xref eq docutils literal notranslate"><span class="pre">weakBalken_01</span></code> )</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskretisierung-der-streckenlast">2.3.3. Diskretisierung der Streckenlast</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-der-balken-fem">2.3.4. Beispiel der Balken FEM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konvergenz">2.3.5. Konvergenz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactives-notebook">2.3.6. Interactives Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ergebnisse-der-fem-berechnung">2.3.5. Ergebnisse der FEM Berechnung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konvergenz">2.3.6. Konvergenz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktives-notebook">2.3.7. Interaktives Notebook</a></li>
 </ul>
             </nav>
         </div>
@@ -434,7 +454,7 @@ $ --><section class="tex2jax_ignore mathjax_ignore" id="die-balken-fem">
 <a class="reference internal image-reference" href="../../_images/Balken_TM21.png"><img alt="../../_images/Balken_TM21.png" src="../../_images/Balken_TM21.png" style="height: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 2.5 </span><span class="caption-text">Schnittgrößen und Kinematik am Balkenelement nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id13" title="Dietmar Gross, Werner Hauger, Jörg Schröder, and Wolfgang A Wall. Technische Mechanik: Band 2: Elastostatik. Springer, 2007.">Gross <em>et al.</em>, 2007</a>]</span></span><a class="headerlink" href="#balken02" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.7 </span><span class="caption-text">Schnittgrößen und Kinematik am Balkenelement nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id13" title="Dietmar Gross, Werner Hauger, Jörg Schröder, and Wolfgang A Wall. Technische Mechanik: Band 2: Elastostatik. Springer, 2007.">Gross <em>et al.</em>, 2007</a>]</span></span><a class="headerlink" href="#balken02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Als weiteren Vertreter der Strukturelemente innerhalb der Finiten Elemente Methode (FEM) betrachten wir im Folgenden die Balken-FEM. Die Impulsbilanz des Euler-Bernoulli-Balkens ist eine Differentialgleichung 4. Ordnung. Bei Voraussetzung einer konstanten Biegesteifigkeit <span class="math notranslate nohighlight">\(EI_y\)</span> lautet diese:</p>
@@ -446,11 +466,11 @@ $ --><section class="tex2jax_ignore mathjax_ignore" id="die-balken-fem">
 <p>Hierbei stellen <span class="math notranslate nohighlight">\(F_I\)</span> und <span class="math notranslate nohighlight">\(M_I\)</span> die an den Knoten angreifenden Einzellasten und Momente dar. Es ist zu beachten, dass die zweite Ableitung der Durchbiegung die höchste Ableitungsordnung in dieser Variationsgleichung darstellt. Für die Finite-Elemente-Approximation müssen (<span class="math notranslate nohighlight">\(C^1\)</span>)-stetige Ansatzfunktionen formuliert werden. Dies impliziert, dass an den Knotenpunkten die Verschiebungsansätze sowohl in der Durchbiegung (<span class="math notranslate nohighlight">\(w\)</span>) als auch in der Neigung (<span class="math notranslate nohighlight">\(w'\)</span>) stetig sein müssen. Anders als beim Stabelement sind die Freiheitsgrade an den Knotenpunkten nicht nur die Verschiebungen, sondern auch die Neigungen. Dies ist charakteristisch für die Formulierung von Balkenelementen, aber auch für die Formulierung von Plattenelementen und Schalenelementen.</p>
 <section id="ansatzfunktionen">
 <h2><span class="section-number">2.3.1. </span>Ansatzfunktionen<a class="headerlink" href="#ansatzfunktionen" title="Link to this heading">#</a></h2>
-<figure class="align-default" id="balken03">
+<figure class="align-default" id="balken03-1">
 <a class="reference internal image-reference" href="../../_images/Balkenelement.png"><img alt="../../_images/Balkenelement.png" src="../../_images/Balkenelement.png" style="height: 300px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 2.6 </span><span class="caption-text">Balkenelement mit lokalen Freiheitsgraden</span><a class="headerlink" href="#balken03" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.8 </span><span class="caption-text">Balkenelement mit lokalen Freiheitsgraden</span><a class="headerlink" href="#balken03-1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Analog zum Stabelement führen wir die normierte Koordinate <span class="math notranslate nohighlight">\(\xi=\frac{x}{\ell_e}\)</span> ein. Die Ansatzfunktionen für die Durchbiegung <span class="math notranslate nohighlight">\(w_h\)</span> wird dann als Linearkombination der Formfunktionen <span class="math notranslate nohighlight">\(N_I\)</span> und der Freiheitsgrade <span class="math notranslate nohighlight">\(w_I\)</span> geschrieben:</p>
@@ -459,7 +479,7 @@ $ --><section class="tex2jax_ignore mathjax_ignore" id="die-balken-fem">
   w_h &amp; = N_1(\xi) w_1 + N_2(\xi) \psi_1 \ell_e +  N_3(\xi) w_2 + N_4(\xi) \psi_2 \ell_e = \sum_{I=1}^{4} N_I(\xi) w_I \\
   &amp; = \begin{pmatrix} N_1(\xi) &amp; N_2(\xi)\ell_e &amp; N_3(\xi) &amp; N_4(\xi)\ell_e \end{pmatrix} \begin{pmatrix} w_1 \\ \psi_1 \\ w_2 \\ \psi_2 \end{pmatrix}
 \end{align}\end{split}\]</div>
-<p>Der Vektor der Freiheitsgrade <span class="math notranslate nohighlight">\(\bm{w}=w_I\)</span> enthält die Durchbiegung <span class="math notranslate nohighlight">\(w\)</span> und die N <span class="math notranslate nohighlight">\(\psi\)</span> an den beiden Knoten des Balkenelements. Wie bei den Formfunktionen des Stabelementes, ist die Formfunktion <span class="math notranslate nohighlight">\(N_I\)</span> nur für den Freiheitsgrad <span class="math notranslate nohighlight">\(w_I\)</span> identisch mit 1 und für alle anderen Freiheitsgrade gleich 0. Formfunktionen die diese Eigenschaft haben, sind zum Beispiel die Hermite-Polynome:</p>
+<p>Der Vektor der Freiheitsgrade <span class="math notranslate nohighlight">\(\bm{w}=w_I\)</span> enthält die Durchbiegung <span class="math notranslate nohighlight">\(w\)</span> und die Neigung <span class="math notranslate nohighlight">\(\psi\)</span> an den beiden Knoten des Balkenelements. Wie bei den Formfunktionen des Stabelementes, ist die Formfunktion <span class="math notranslate nohighlight">\(N_I\)</span> nur für den Freiheitsgrad <span class="math notranslate nohighlight">\(w_I\)</span> identisch mit 1 und für alle anderen Freiheitsgrade gleich 0. Formfunktionen die diese Eigenschaft haben, sind zum Beispiel die Hermite-Polynome:</p>
 <div class="math notranslate nohighlight" id="equation-formfunktion-balken">
 <span class="eqno">(2.35)<a class="headerlink" href="#equation-formfunktion-balken" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
   \bm{N} = \begin{pmatrix} 
@@ -518,7 +538,7 @@ fig.update_layout(
 <figure class="align-default" id="shape-beam">
 <img alt="../../_images/701440f17342ebe2f3daa08e467b90d1d9404576f1b03a1dd899ecbb5af74619.png" src="../../_images/701440f17342ebe2f3daa08e467b90d1d9404576f1b03a1dd899ecbb5af74619.png" />
 <figcaption>
-<p><span class="caption-number">Abb. 2.7 </span><span class="caption-text">Formfunktionen für ein Balkenelelement mit Hermite-Interpolation.</span><a class="headerlink" href="#shape-beam" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.9 </span><span class="caption-text">Formfunktionen für ein Balkenelelement mit Hermite-Interpolation.</span><a class="headerlink" href="#shape-beam" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -582,11 +602,11 @@ fig.update_layout(
 </section>
 <section id="beispiel-der-balken-fem">
 <h2><span class="section-number">2.3.4. </span>Beispiel der Balken FEM<a class="headerlink" href="#beispiel-der-balken-fem" title="Link to this heading">#</a></h2>
-<figure class="align-default" id="id2">
+<figure class="align-default" id="balken03">
 <a class="reference internal image-reference" href="../../_images/Balken_Problem.png"><img alt="../../_images/Balken_Problem.png" src="../../_images/Balken_Problem.png" style="height: 81px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 2.8 </span><span class="caption-text">Statisch bestimmt gelagerter Balken mit konstanter Streckenlast</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.10 </span><span class="caption-text">Statisch bestimmt gelagerter Balken mit konstanter Streckenlast</span><a class="headerlink" href="#balken03" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Für das dargestellte Beispiel eines statisch bestimmten Balkens mit konstanter Streckenlast lässt sich die Lösung der Verschiebung durch vierfache Integration der Differentialgleichung <a class="reference internal" href="#equation-balkendglsimple-2">(2.32)</a> bestimmen. Die Lösung lautet:</p>
@@ -643,7 +663,7 @@ EI w'''' &amp;= -Q(x) = q_{0} \left(\frac{\ell}{2} - x\right)
 <figure class="align-default" id="schnittgroszen-balken">
 <img alt="../../_images/4305a0b746952cdedca7a8dacaa53d1c353ba141407a8f8f1da0b118142d8982.png" src="../../_images/4305a0b746952cdedca7a8dacaa53d1c353ba141407a8f8f1da0b118142d8982.png" />
 <figcaption>
-<p><span class="caption-number">Abb. 2.9 </span><span class="caption-text">Verlauf der Durchbiegung und des</span><a class="headerlink" href="#schnittgroszen-balken" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.11 </span><span class="caption-text">Verlauf der Durchbiegung und des</span><a class="headerlink" href="#schnittgroszen-balken" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </div>
@@ -653,17 +673,76 @@ EI w'''' &amp;= -Q(x) = q_{0} \left(\frac{\ell}{2} - x\right)
 <a class="reference internal image-reference" href="../../_images/Flächenträgheitsmomente.png"><img alt="../../_images/Fl%C3%A4chentr%C3%A4gheitsmomente.png" src="../../_images/Fl%C3%A4chentr%C3%A4gheitsmomente.png" style="height: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 2.10 </span><span class="caption-text">Flächenträgheitsmomente für I-Profile nach DIN 1025-1:2009-04. <a class="reference external" href="https://www.ezzat.org/de/Querschnittswerte/gewalzt/I/i.php">ezzart.org</a></span><a class="headerlink" href="#ft" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 2.12 </span><span class="caption-text">Flächenträgheitsmomente für I-Profile nach DIN 1025-1:2009-04. <a class="reference external" href="https://www.ezzat.org/de/Querschnittswerte/gewalzt/I/i.php">ezzart.org</a></span><a class="headerlink" href="#ft" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
-<section id="konvergenz">
-<h2><span class="section-number">2.3.5. </span>Konvergenz<a class="headerlink" href="#konvergenz" title="Link to this heading">#</a></h2>
+<section id="ergebnisse-der-fem-berechnung">
+<h2><span class="section-number">2.3.5. </span>Ergebnisse der FEM Berechnung<a class="headerlink" href="#ergebnisse-der-fem-berechnung" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="balkenfem01">
+<a class="reference internal image-reference" href="../../_images/Balken_FEM_01.png"><img alt="../../_images/Balken_FEM_01.png" src="../../_images/Balken_FEM_01.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 2.13 </span><span class="caption-text">Gegenüberstellung der analytischen Verschiebungslösung mit der FEM Lösung.</span><a class="headerlink" href="#balkenfem01" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In Abbildung <a class="reference internal" href="#balkenfem01"><span class="std std-numref">Abb. 2.13</span></a> ist die Verschiebungslösung der FEM mit der analytischen Lösung gegenüber gestellt. Wir sehen, dass die FEM bereits mit nur 2 Elementen die analytische Lösung exakt trifft. Dies ist kein Zufall, sondern ein Ergebnis der Wahl der Formfunktionen und der Form der Randbedingungen.</p>
+<p>Dies sollte jedoch nicht darüber hinwegtäuschen, dass die FEM-Lösung für das Schnittmoment und die Querkraft im Vergleich zur analytischen Lösung nicht so gut ist.</p>
+<figure class="align-default" id="balkenfem02">
+<a class="reference internal image-reference" href="../../_images/Balken_FEM_02.png"><img alt="../../_images/Balken_FEM_02.png" src="../../_images/Balken_FEM_02.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 2.14 </span><span class="caption-text">Gegenüberstellung der analytischen Lösung des Momentenverlaufs mit der FEM Lösung.</span><a class="headerlink" href="#balkenfem02" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Das analytische Schnittmoment hat einen quadratischen Verlauf, während die FEM Lösung linear ist. Dies führt zu einer Abweichung der FEM Lösung von der analytischen Lösung.</p>
+<figure class="align-default" id="balkenfem03">
+<a class="reference internal image-reference" href="../../_images/Balken_FEM_03.png"><img alt="../../_images/Balken_FEM_03.png" src="../../_images/Balken_FEM_03.png" style="width: 500px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 2.15 </span><span class="caption-text">Gegenüberstellung der analytischen Lösung für den Querkraftverlauf mit der FEM Lösung.</span><a class="headerlink" href="#balkenfem03" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Die Schnittkraft in der analytischen Lösung zeigt einen stückweise linearen Verlauf, während die FEM Lösung konstant ist. Dies führt zu einer Abweichung der FEM Lösung von der analytischen Lösung.</p>
 </section>
-<section id="interactives-notebook">
-<h2><span class="section-number">2.3.6. </span>Interactives Notebook<a class="headerlink" href="#interactives-notebook" title="Link to this heading">#</a></h2>
+<section id="konvergenz">
+<h2><span class="section-number">2.3.6. </span>Konvergenz<a class="headerlink" href="#konvergenz" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="balkenfem04">
+<a class="reference internal image-reference" href="../../_images/Balken_FEM_04.png"><img alt="../../_images/Balken_FEM_04.png" src="../../_images/Balken_FEM_04.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 2.16 </span><span class="caption-text">Konvergenzverhalten der FEM Lösung für die das Schnittmoment und die Querkraft.</span><a class="headerlink" href="#balkenfem04" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Allgemein zeigt sich, dass die FEM Lösung mit zunehmender Anzahl an Elementen gegen die analytische Lösung konvergiert. Dabei ist festzuhalten, dass die Konvergenz des Schnittmomentes schneller ist als die Konvergenz der Querkraft. Dies zeigt sich auch im doppelt logarithmischen Diagramm <a class="reference internal" href="#balkenfem05"><span class="std std-numref">Abb. 2.17</span></a>. Beide Kurven zeigen eine lineare Abhängigkeit, jedoch ist die Steigung der Konvergenzkurve für das Schnittmoment größer als die Steigung der Konvergenzkurve für die Querkraft.</p>
+<figure class="align-default" id="balkenfem05">
+<a class="reference internal image-reference" href="../../_images/Balken_FEM_05.png"><img alt="../../_images/Balken_FEM_05.png" src="../../_images/Balken_FEM_05.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Abb. 2.17 </span><span class="caption-text">Konvergenzverhalten der FEM Lösung für die das Schnittmoment und die Querkraft im doppelt logarithmischen Diagramm.</span><a class="headerlink" href="#balkenfem05" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="interaktives-notebook">
+<h2><span class="section-number">2.3.7. </span>Interaktives Notebook<a class="headerlink" href="#interaktives-notebook" title="Link to this heading">#</a></h2>
 <p>Basierend auf der präsentierten Theorie wurde ein Jupyter Notebook erstellt. Dieses kann man ohne Systemvorraussetzungen im Browser ausführen:</p>
 <p>Balken FEM for Binder <a class="reference external" href="https://mybinder.org/v2/gh/steffenbeese/FEM_I_Notebooks/main?urlpath=%2Fdoc%2Ftree%2FNotebook_BalkenFEM.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<div class="warning admonition">
+<p class="admonition-title">Fragen zum Kapitel</p>
+<p><strong>Balken FEM</strong></p>
+<ul class="simple">
+<li><p>Welche physikalische Interpretation haben die Knotenfreiheitsgrade beim Balkenelement?</p></li>
+<li><p>Wie gut ist die Lösung der Balken-FEM bzgl. der Verschiebungen im Vergleich zur analytischen Lösung?</p></li>
+<li><p>Welche Aussage ist richtig:</p>
+<ul>
+<li><p>[ ] Das Schnittmoment ist linear im Element.</p></li>
+<li><p>[ ] Die Schnittkraft ist linear im Element.</p></li>
+<li><p>[ ] Die Verschiebung ist über die Elementgrenzen stetig</p></li>
+<li><p>[ ] Die Ableitung der Verschiebung ist über die Elementgrenzen stetig</p></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -707,11 +786,11 @@ EI w'''' &amp;= -Q(x) = q_{0} \left(\frac{\ell}{2} - x\right)
       </div>
     </a>
     <a class="right-next"
-       href="../../quellen.html"
+       href="../chapter3/isoparametrischeFEM.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">3. </span>Quellenverzeichnis</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Isoparametrische FEM</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -736,8 +815,9 @@ EI w'''' &amp;= -Q(x) = q_{0} \left(\frac{\ell}{2} - x\right)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elementsteifigkeitsmatrix-diskretisierung-term-1-in-gleichung-weakbalken-01">2.3.2. Elementsteifigkeitsmatrix (Diskretisierung Term 1 in Gleichung <code class="xref eq docutils literal notranslate"><span class="pre">weakBalken_01</span></code> )</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskretisierung-der-streckenlast">2.3.3. Diskretisierung der Streckenlast</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-der-balken-fem">2.3.4. Beispiel der Balken FEM</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konvergenz">2.3.5. Konvergenz</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactives-notebook">2.3.6. Interactives Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ergebnisse-der-fem-berechnung">2.3.5. Ergebnisse der FEM Berechnung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konvergenz">2.3.6. Konvergenz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktives-notebook">2.3.7. Interaktives Notebook</a></li>
 </ul>
   </nav></div>
 

@@ -23,12 +23,69 @@ Einordnung numerischer Simulation in den Konstruktionsprozess nach {cite}`knothe
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-Finite-Elemente-Programme spielen eine wichtige Rolle bei der Untersuchung realer Tragwerke, die bestimmten technischen Aufgabenstellungen unterliegen. Dieses leistungsfähige Tool ermöglicht es beispielsweise, die Integrität einer Pkw-Karosserie oder eines Rahmentragwerks zu analysieren, indem sie die Simulation eines Crash-Vorgangs durchführen oder die Traglast eines Bauteils ermitteln. Für die virtuelle Produktentwicklung und eine prototypenfreie (oder prototypenarme) Entwicklung ist die Finite Elemente Methode aus den Entwicklungsabteilungen nicht mehr wegzudenken.
+Finite-Elemente-Programme spielen eine wichtige Rolle bei der Untersuchung realer Tragwerke und technischer Aufgabenstellungen. Dieses leistungsfähige Tool ermöglicht es beispielsweise, die Integrität einer Pkw-Karosserie oder eines Rahmentragwerks zu analysieren, indem die Simulation eines Crash-Vorgangs durchgeführt wird oder die Traglast eines Bauteils berechnet wird. Für die virtuelle Produktentwicklung und eine prototypenfreie (oder prototypenarme) Entwicklung ist die Finite Elemente Methode aus den Entwicklungsabteilungen nicht mehr wegzudenken.
 
-Der Weg zu einer validen FE-Simulation ist mehrstufig und interdisziplinar. In der Abbildung {numref}`konstruktionsprozess` sind die eigentlichen Schritte, welche die Finite Elemente Methode betrifft durch einen dicken Rahmen gekennzeichnet. Die vorgelagerte Prozesskette sollte von dem/der berechnenden Ingenieur/in eng begleitet werden, denn die Ergebnisse eine Simulation können nur so gut sein wie die Eingangsdaten: **Garbage in, garbage out**.
+Der Weg zu einer validen FE-Simulation ist mehrstufig und interdisziplinär. In Abbildung {numref}`konstruktionsprozess` sind die eigentlichen Schritte, die die Finite-Elemente-Methode betreffen, durch einen dicken Rahmen gekennzeichnet. Die vor- und nachgelagerte Prozesskette sollte von dem/der berechnenden Ingenieur/in eng begleitet werden, denn die Ergebnisse einer Simulation können nur so gut sein wie die Eingangsdaten: **Garbage in, garbage out**.
 
 Zu erst wird die reale Struktur und ihre Belastung definiert und anschließend in geeigneter Weise abstrahiert:
   - genügt eine 2D Berechnung oder gar eine 1D Berechnung
+  - Welche geometrischen Details fließen in die Simulation ein
+  - Kann ich die tatsächliche Last abstrahieren?
+  - etc.
+
+Das resultierende mechanische Modell ist somit eine idealisierte Darstellung der realen Problemstellung. Es geht darum, unwichtige Details wegzulassen, um die Berechnungen effizient und fokussiert zu halten, während gleichzeitig alle relevanten Belastungen präzise definiert werden müssen.
+
+Auf die Modellierung folgt die Diskretisierung in finite Elemente. Dies sind kleine standardisierte geometrische Objekte, auf denen die physikalischen Modellgleichungen gelöst werden. Mehr hierzu in späteren Kapiteln.
+Die Diskretisierung wird über sogenannte *Preprozessoren* generiert. In modernen FE Softwarepaketen sind diese Programmeinheiten integriert. Für gesonderte Diskretisierungsanforderungen gibt es jedoch auch Spezialsofware wie:
+ - [Hypermesh](https://altair.com/hypermesh/)
+ - [Ansa](https://www.beta-cae.com/)
+ - [Gmsh](https://gmsh.info/) 
+
+um nur einige zu nennen.
+Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite Elemente. Auch die Belastungen müssen aus dem mechanischen Modell diskretisiert werden.
+
+Das erstellte Finite-Elemente-Modell dient als Grundlage für die weiterführenden Berechnungen mit der gewählten FEM-Software - dem *Prozessor*. Innerhalb des Programms wird aus den Eingabedaten ein, in der Regel nichlineares, Gleichungssystem generiert und gelöst, das schließlich Aufschluss über relevante Größen wie Verschiebungen, Dehnungen, Spannungen, Wärmefluss, Temperaturverteilung gibt. Da die Menge an Ergebnisdaten bei großen Problemen erheblich sein kann, sind *Postprozessoren* unverzichtbar, um eine übersichtliche und grafische Auswertung zu gewährleisten. Auch diese sind in kommerziellen FE-Systemen integriert und auch hier haben sich für bestimmte Anwendungsfälle spezialisierte Softwarelösungen etabliert:
+  - [Paraview](https://www.paraview.org/)
+  - [Tecplot](https://tecplot.com/)
+  - [Ansa](https://www.beta-cae.com/)
+  - [Animator4](https://www.gns-mbh.com/products/animator4/) 
+
+um auch hier nur einige zu nennen.
+
+Der wichtigste Schritt für den/die Entwicklungsingenieur/in bei der FE-Simulation ist die anschließende Auswertung und Bewertung der Ergebnisse. Man sollte den Resultaten stets mit einem gewissen Maß an Skepsis begegnen und entsprechende Kontrollen hinsichtlich Plausibilität und Größenordnung durchführen. Dies kann durch Vergleiche mit Einfachmodellen und experimentellen Untersuchungen unterstützt werden.
+
+Letztlich muss der/die Anwender/in die Resultate im Kontext der technischen Aufgabe interpretieren. Sollten die Ergebnisse nicht zufriedenstellend sein, kann es notwendig sein, die Rechnung zu wiederholen. Dies kann Änderungen im Finite-Elemente-Modell, der Idealisierung der Struktur oder der Festlegung der Belastungen nach sich ziehen. Nur durch diese iterative Vorgehensweise lässt sich ein genaues und verlässliches Bild des untersuchten technischen Systems gewinnen.
+
+<!-- - **Nutzung von Finite-Elemente-Programmen**
+  - Anwendung zur Untersuchung realer Tragwerke unter technischen Aufgabenstellungen
+  - Beispiele für reale Strukturen: Pkw-Karosserie, Stockwerkrahmen
+  - Beispiele für technische Aufgaben: Simulation eines Crash-Vorgangs, Ermittlung der Traglast
+
+- **Erstellung des mechanischen Modells**
+  - Idealisierte Darstellung der Struktur entscheidend
+  - Weglassen von unwichtigen Strukturdetails
+  - Festlegung der relevanten Belastungen
+
+- **Diskretisierung in finite Elemente**
+  - Manuelle Diskretisierung möglich bei kleinen Strukturen
+  - Rechnerunterstützung erforderlich bei komplexen Strukturen wie Fahrzeugkarosserien oder Flugzeugen
+  - Nutzung von Preprozessoren zur Modellerzeugung und grafischen Kontrolle
+
+- **Finite-Elemente-Modell als Basis für Berechnungen**
+  - Bereitstellung von Eingabedaten für FEM-Programme
+  - Internes Generieren und Lösen von Gleichungssystemen
+  - Bestimmung relevanter Größen wie Verschiebungen und Schnittkräfte
+  - Verwendung von Postprozessoren zur übersichtlichen Darstellung der Ergebnisse
+
+- **Kritische Bewertung der FEM-Ergebnisse**
+  - Notwendigkeit des Misstrauens gegenüber FEM-Ergebnissen
+  - Durchführung von Kontrollen für Plausibilität und Größenordnung der Ergebnisse
+  - Vergleich mit Einfachmodellen und experimentellen Untersuchungen
+
+- **Interpretation und Anpassung**
+  - Interpretation der Ergebnisse im Kontext der technischen Aufgabe
+  - Mögliche Wiederholung der Rechnung bei nicht zufriedenstellenden Ergebnissen
+  - Anpassung des Finite-Elemente-Modells, Idealisierung der Struktur oder Belastungsfestlegung ggf. notwendig -->
 
 ## Der Systembegriff
 
@@ -169,3 +226,52 @@ Zur Abstraktion mechanischer Modelle können folgende Ansätze angewendet werden
    - Ansatz besonders nützlich für die Analyse großer, komplexer Systeme, indem diese in kleinere, besser handhabbare Teile zerlegt werden
 
 6. Vereinfachte physikalische Bilanzgleichung
+
+
+
+```{admonition} Fragen zum Kapitel
+:class: warning
+
+**Allgemeine Verständnisfragen zur numerischen Simulation**
+
+- Was sind mögliche Zielstellungen der numerischen Simulation im Konstruktionsprozess?
+- Erläutern Sie den Begriff "Garbage in, garbage out" im Kontext von Finite-Elemente-Simulationen.
+- Beschreiben Sie die Schritte, die vor einer FE-Simulation durchgeführt werden müssen.
+- Nennen Sie zwei Kriterien für die Wahl zwischen einer 1D-, 2D- oder 3D-Finite-Elemente-Berechnung?
+
+
+**Zum Thema Systembegriff**
+
+- Wie wird ein System definiert und welche Elemente umfasst es?
+- Was sind die wesentlichen Schritte bei der Definition eines Systems?
+- Was versteht man unter Zustand, Zustandsgröße in der numerischen Simulation?
+
+**Zur Klassifikation von Systemen**
+
+- Nennen Sie 3 Kriterien zur Klassifikation von Systemenverhalten und beschreiben Sie diese.
+- Warum ist die Kenntnis über das Systemverhalten wichtig für die Simulation? 
+
+**Über den Modellbegriff**
+
+- Welche Anforderungen sollten Modelle erfüllen?
+- Erklären Sie den Begriff "Modellabstraktion" und dessen Bedeutung im Ingenieurwesen.
+- Welche Vorteile bieten einfachere Modelle gegenüber komplexeren Modellen während des Design- und Analyseprozesses?
+
+**Zum Modellbildungsprozess**
+
+- Nennen Sie die wesentlichen Schritte im Modellbildungsprozess 
+- Welche Bedeutung haben Verifikation und Validierung in der Modellbildung?
+
+**Ansätze zur Abstraktion mechanischer Modelle**
+
+- Nennen Sie drei Ansätze zur Abstraktion mechanischer Modelle und erklären Sie diese kurz.
+- Was versteht man unter Dimensionsreduktion und wann wird sie angewendet?
+- In welchen Situationen ist eine Vereinfachung der Materialeigenschaften angebracht?
+
+**Vertiefende Fragen zur Reflexion**
+
+- Was ist der Unterschied zwischen der Verifikation und der Validierung eines Modells?
+- Was sind die Konsequenzen einer unzureichenden Modellvalidierung?
+- Wie kann eine kritische Bewertung der Ergebnisse einer FE-Simulation erfolgen?
+
+```

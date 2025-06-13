@@ -184,7 +184,7 @@ erfüllt ist.
 ```{figure} images/Impulsbilanz.jpg
 ---
 height: 200px
-name: impulsbilanz
+name: impulsbilanz_fig_1
 ---
 Körper $\mathcal{B}$ unter Einwirkung der externen Oberflächenkraft $\tilde{\bm{t}}$ und der Volumenlast $\bm{b}$
 ```
@@ -201,7 +201,7 @@ $\boldsymbol{\sigma}$ steht hierbei für den Spannungstensor und $\mathbf{b}$ f�
 Die Impulsbilanz ist eine vektorielle partielle Differentialgleichung. Mit ihrer Hilfe kann man das Verschiebungsfeld $\bm{u}(\bm{x},t)$ und das Spannungsfeld $\bm{\sigma}(\bm{x},t)$ eines Festkörpers bestimmen.
 ```
 
-Die primäre Feldgröße dieser Anfangsrandwertproblems ist die Verschiebung $\bm{u}(\bm{x},t)$ der Materialpartikel. Die Sekundäre Größe ist die Spannung $\bm{\sigma}(\bm{x},t)$, welche wiederum von den Dehnungen $\bm{\epsilon}$ abhängig ist. Als Randwerte können entweder Verschiebungen (wesentliche Randbedingung) vorgegeben werden oder Oberflächenspannungen (natürliche Randbedingungen). 
+Die primäre Feldgröße dieses Anfangsrandwertproblems ist die Verschiebung $\bm{u}(\bm{x},t)$ der Materialpartikel. Die Sekundäre Größe ist die Spannung $\bm{\sigma}(\bm{x},t)$, welche wiederum von den Dehnungen $\bm{\epsilon}$ abhängig ist. Als Randwerte können entweder Verschiebungen (wesentliche Randbedingung) vorgegeben werden oder Oberflächenspannungen (natürliche Randbedingungen). 
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -274,7 +274,7 @@ erfüllt ist.
 
 ### Zusammenfassung
 
-In den vorangestellten Abschnitten wurde die Bilanzgleichungen der Kontinuumsmechanik verwendet um die für die Ingenieurpraxis wichtigen Anfangsrandwertprobleme der Fluid-, Struktur- und Thermomechanik aufzustellen. Für diese Systeme von gekoppelten partiellen Differentialgleichungen gibt es nur in wenigen Sonderfällen analytische Lösungen. Einige Davon sind uns aus den Vorlesungen zur Elastostatik und Stömungslehr bekannt. Aus diesem Grund haben sich numerische Berechnungsverfahren durchgesetzt. Um zu überprüfen ob die Anfangsrandwertprobleme in der obigen Form lösbar sind werden in der nachfolgenden Tabelle die Bestimmungsgleichungen und die Unbekannten gegenübergestellt.
+In den vorangegangenen Abschnitten wurden die Bilanzgleichungen der Kontinuumsmechanik verwendet, um die für die Ingenieurpraxis wichtigen Anfangsrandwertprobleme der Fluid-, Struktur- und Thermomechanik aufzustellen. Für diese Systeme von gekoppelten partiellen Differentialgleichungen gibt es nur in wenigen Sonderfällen analytische Lösungen. Einige davon sind uns aus den Vorlesungen zur Elastostatik und Strömungslehre bekannt. Aus diesem Grund haben sich numerische Berechnungsverfahren durchgesetzt. Um zu überprüfen, ob die Anfangsrandwertprobleme in der obigen Form lösbar sind, werden in der nachfolgenden Tabelle die Bestimmungsgleichungen und die Unbekannten gegenübergestellt.
 
 | Bestimmungsgleichung | Anzahl an Gleichungen | Unbekannte   | Anzahl an Unbekannten | Anzahl an zusätzlichen Bedingungen |
 |----------------------|-----------------------|--------------|-----------------------|------------------------------------|
@@ -291,15 +291,16 @@ Wie leicht zu erkennen ist genügt die Anzahl an Gleichungen für keines der obi
 
 ## Kinematik
 
-Der Kinemtischen Bedingungen haben besonders im Bereich der Strukturmechanik und der Lösung der Impulsbilanz eine hervorgehobene Bedeutung. So ist zum Beispiel die Forderung vom ebenbleiben des Querschnitts in der Bernoulli Balkentheorie eine starke kinematische Restriktion, welche auf die bekannte Differentialgleichung der Durchbiegung $w(x)$ führt. 
-Im Rahmen der linearen Kontinuumsmechanik wird die Dehnung $\bm{\epsilon}$ als symmetrischer Anteil des Verschiebungsgradienten $\grad{\bm{u}}$ verstanden:
+
+Kinematische Bedingungen spielen besonders im Bereich der Strukturmechanik und der Lösung der Impulsbilanz eine herausragende Rolle. Ein Beispiel hierfür ist die Forderung nach dem Ebenbleiben des Querschnitts in der Bernoulli-Balkentheorie, die zu der bekannten Differentialgleichung der Durchbiegung $w(x)$ führt.
+In der linearen Kontinuumsmechanik wird die Dehnung $\bm{\epsilon}$ als der symmetrische Anteil des Verschiebungsgradienten $\grad{\bm{u}}$ betrachtet:
 
 ```{math}
 :label: linearStrain
 \bm{\epsilon} = \frac{1}{2} \left(\grad{\bm{u}}\T + \grad{\bm{u}} \right) \; .
 ```
 
-Dieses Dehnungsmaß wird oft auch als Ingenieurdehnung bezeichnet und sollte nur in einem Dehnungsbereich < 10% angewendet werden. Zudem ist hervorzuheben, dass Starrkörpertranslationen keine Ingenieurdehnung hervorrufen, Starrkörperrotationen hingegen sehrwohl. Aus diesem Grunde ist darauf zu achten, dass beim Auftreten größerer Rotationen stehts eine nichtlineare Theorie (2.Ordnung oder allgemein nichtlinear) verwendet wird.
+Dieses Dehnungsmaß wird oft auch als Ingenieurdehnung bezeichnet und sollte nur in einem Dehnungsbereich von weniger als 10% angewendet werden. Zudem ist hervorzuheben, dass Starrkörpertranslationen keine Ingenieurdehnung verursachen, Starrkörperrotationen hingegen sehr wohl. Aus diesem Grund ist darauf zu achten, dass beim Auftreten größerer Rotationen stets eine nichtlineare Theorie (2. Ordnung oder allgemein nichtlinear) verwendet wird.
 
 Aufgrund der Symmetrie des Dehnungstensors erhalten wir **6** zusätzliche Bedingungen zur Lösung der Anfangsrandwertproblems der Impulsbilanz.
 
@@ -761,6 +762,51 @@ Um ein valides mechanisches Modell zu erlangen benötigt man:
 
 Eindeutig lösbar wird das Modell zudem erst, wenn die Randbedingungen entsprechend vorgegeben wurden.
 
-```{code-cell} ipython3
+```{admonition} Fragen zum Kapitel
+:class: warning
+
+**Feldgleichungen der Kontinuumsmechanik**
+
+- Nennen Sie die für die Strukturmechanik wesentliche Feldgleichung.
+- Nennen Sie drei verschiedene Feldgleichungen.
+- Welche Feldgröße wird mit der Impulsbilanz berechnet?
+- Welche Feldgröße wird mit der Energiebilanz berechnet?
+- Welche Feldgröße wird mit der Massenbilanz berechnet?
+- Was ist der unterschied zwischen primären und sekundären Feldgrößen?
+- Welche Aussage ist richtig:
+   - [ ] Die Impulsbilanz ist eine vektorielle partielle Differenzialgleichung.
+   - [ ] Die Energiebilanz ist eine vektorielle partielle Differenzialgleichung.
+   - [ ] Die sekundäre Feldgröße der Energiebilanz ist der Wärmefluss.
+   - [ ] Die Massenbilanz ist für gewöhnliche Festkörper stets erfüllt und muss nicht separat gelöst werden.
+   - [ ] Die Bilanzgleichungen sind materialunabhängige physikalische Prinzipien.
+   - [ ] Zur Lösung der Bilanzgleichungen benötigt man noch weitere Restriktionen.
+
+- Welche Arten von Randbedingungen werden in der Mechanik von Festkörpern unterschieden?
+- Ist eine Kraftrandbedingung eine *Neumann*-Randbedingung oder eine *Dirichlet*-Randbedingung?
+- Ist eine Verschiebungsrandbedingung eine *Neumann*-Randbedingung oder eine *Dirichlet*-Randbedingung?
+
+**Kinematik**
+
+- Welche Aussage ist richtig:
+   - [ ] Die Dehnung ist der symmetrische Anteil des Verschiebungsgradienten.
+   - [ ] Die Spannung ist der symmetrische Anteil des Verschiebungsgradienten.
+   - [ ] Die Ingenieursdehnungen sollten nur in einem Dehnungsbereich < 10 % eingesetz werden
+   - [ ] Starrkörperrotationen rufen keine Ingenieurdehnungen (und auch Spannungen) hervor.
+
+**Materialgleichung**
+
+- Warum brauchen wir Materialgleichungen? (2 Gründe nennen)
+- Nennen Sie eine Klasse von Materialien entsprechend ihres Materialverhaltens für strukturmechanische Problemstellungen.
+- In welche Richtung fließt die Temperatur bei der Fourierschen Wärmeleitung?
+- Was heißt isotropes Materialverhalten?
+- Wieviele Materialparameter sind nötig für die Beschreibung von linearen, isotropen und elastischen Material?
+- Liegt bei Karosserieteilen eher ein ebener Spannungs- oder ein ebener Verzerrungszustand vor?
+
+
+**Zusammenfassung**
+
+- Welche 3 Dinge sind erforderlich um lösbares mechanisches Modell zu erhalten?
+- Was ist zusätzlich notwendig um eine eindeutige Lösung zu erhalten?
+
 
 ```

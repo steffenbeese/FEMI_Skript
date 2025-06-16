@@ -16,4 +16,4 @@ kernelspec:
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-# Praktisches zur Anwendung der FEM
+# Diskretisierung

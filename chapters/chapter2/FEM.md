@@ -129,6 +129,6 @@ Setzen wir jetzt noch als Materialmodell die Beschreibung der linearen Elastizit
 - Was ist korrekt:
   - [ ] Bei der schwachen Formulierung wird die Bilanzgleichung nur noch im integralen Mittel gelöst.
   - [ ] Das Prinzip der virtuellen Verrückung und die schwache Formulierung der Impulsbilanz sind äquivalent.
-  - [ ] Die starke Formulierung der Bilanzgleichung enthält Ableitungen höherer Ordnung im Vergleich zur schwachen Formluierung. 
+  - [ ] Die starke Formulierung der Bilanzgleichung enthält Ableitungen höherer Ordnung im Vergleich zur schwachen Formulierung. 
 
 ```

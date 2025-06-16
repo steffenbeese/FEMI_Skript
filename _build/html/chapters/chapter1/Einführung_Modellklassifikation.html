@@ -199,13 +199,10 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskretisierung</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Diskretisierung.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.1. Fehlerquellen</a></li>
 </ul>
 </details></li>
 </ul>
@@ -439,8 +436,8 @@
 </figcaption>
 </figure>
 <p>Die mathematische Beschreibung solcher Modelle resultiert typischerweise in einem System gekoppelter Bewegungsgleichungen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9c69893-7159-4a99-8eb7-d80abf39ecf2">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-a9c69893-7159-4a99-8eb7-d80abf39ecf2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-23667653-7e5d-40c4-8a0f-df7409d50043">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-23667653-7e5d-40c4-8a0f-df7409d50043" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boldsymbol{M} \ddot{\boldsymbol{x}} + \boldsymbol{D} \dot{\boldsymbol{x}} + \boldsymbol{K} \boldsymbol{x} = \boldsymbol{f}(t)
 \end{equation}\]</div>
 <p>Hierbei repräsentiert <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> die Position des Massepunktes im Raum und <span class="math notranslate nohighlight">\(\ddot{\boldsymbol{x}}\)</span> dessen Beschleunigung. Die Trägheitsmatrix <span class="math notranslate nohighlight">\(\boldsymbol{M}\)</span> approximiert die Massenträgheit der Körper, während die Steifigkeitsmatrix <span class="math notranslate nohighlight">\(\boldsymbol{K}\)</span> die elastischen Bindungen darstellt. Die Matrix <span class="math notranslate nohighlight">\(\boldsymbol{D}\)</span> führt Dämpfungsterme in das System ein und <span class="math notranslate nohighlight">\(\boldsymbol{f}(t)\)</span> sind äußere zeitabhängige Kräfte.</p>

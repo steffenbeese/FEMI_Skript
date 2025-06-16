@@ -16,4 +16,6 @@ kernelspec:
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-# Praktisches zur Anwendung der FEM
+# Praktische Hinweise zur Anwendung der FEM
+
+In den nachfolgenden Abschnitten sind Themen der Praktika zusammengefasst. Dieser Abschnitt ist noch im Aufbau und unvollständig.

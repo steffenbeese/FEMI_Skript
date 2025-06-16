@@ -314,7 +314,7 @@ und setzen hier unseren gewählten Ansatz für $u$, $\e$, $\delta u$ und $\delta
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-Die Variation der Knotenverschiebung $\delta u_I$ und die Knotenverschiebung $u_I$ sind nicht abhängig von $\xi$ und können somit aus dem Integranden herrausgezogen werden:
+Die Variation der Knotenverschiebung $\delta u_I$ und die Knotenverschiebung $u_I$ sind nicht abhängig von $\xi$ und können somit aus dem Integranden herausgezogen werden:
 
 ```{math}
 :label: stabFEM2

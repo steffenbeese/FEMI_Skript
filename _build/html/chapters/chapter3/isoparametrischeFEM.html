@@ -199,10 +199,13 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskretisierung</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Diskretisierung.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.1. Fehlerquellen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Praktische Hinweise zur Anwendung der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
 </ul>
 </details></li>
 </ul>
@@ -559,16 +562,16 @@ Betrachten wir eine eingespannte Scheibe, die einer Zugbelastung ausgesetzt ist.
 <a class="reference internal image-reference" href="../../_images/Knothe_02.png"><img alt="../../_images/Knothe_02.png" src="../../_images/Knothe_02.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.9 </span><span class="caption-text">Mit steigender Elementanzahl wird der konstante Term der Schnittkraft dominant (<span id="id6">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span>).
-``</span><a class="headerlink" href="#konvergenzpatchtest" title="Link to this image">#</a></p>
-<div class="legend">
+<p><span class="caption-number">Abb. 3.9 </span><span class="caption-text">Mit steigender Elementanzahl wird der konstante Term der Schnittkraft dominant (<span id="id6">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span>).</span><a class="headerlink" href="#konvergenzpatchtest" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="warning admonition">
 <p class="admonition-title">Fragen zum Kapitel</p>
-<p><strong>Isoparametriche FEM</strong></p>
+<p><strong>Isoparametrische FEM</strong></p>
 <ul class="simple">
-<li><p>Welche Aussagen sind zutreffend:</p>
+<li><p>Welche Aussagen sind zutreffend?</p>
 <ul>
-<li><p>[ ] Bei der isoparametrschen FEM wird die schwache Form auf einem uniformen Elternelement gebildet und danach auf die reale Geometrie transformiert.</p></li>
+<li><p>[ ] Bei der isoparametrischen FEM wird die schwache Form auf einem uniformen Elternelement gebildet und danach auf die reale Geometrie transformiert.</p></li>
 <li><p>[ ] Bei der isoparametrischen FEM werden die gleichen Ansätze bzgl. Geometrie und Verschiebung gewählt.</p></li>
 <li><p>[ ] Bei der subparamterischen FEM wird die Geometrie mit einem niedrigeren Polynomgrad als die Verschiebung approximiert.</p></li>
 <li><p>[ ] Nur die isoparametrische FEM ist gesichert konvergent.</p></li>
@@ -583,9 +586,6 @@ Betrachten wir eine eingespannte Scheibe, die einer Zugbelastung ausgesetzt ist.
 <li><p>Was bedeutet der Begriff <em>Partition of Unity</em>?</p></li>
 </ul>
 </div>
-</div>
-</figcaption>
-</figure>
 </section>
 <div class="toctree-wrapper compound">
 </div>

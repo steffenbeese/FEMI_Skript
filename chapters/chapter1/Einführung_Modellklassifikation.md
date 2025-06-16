@@ -76,7 +76,7 @@ Die hier gezeigten Beispiele stammen aus der freien MKS-Software der TU-München
 
 ## Kontinuierliche Modelle
 
-Die Modellbildung in diesem Bereich geht von einem gleichförmigen (homogenen) Materialverhalten aus. Feinheiten der komplexen atomaren Interaktionen, wie sie beispielsweise in Kristallstrukturen auftreten und auf sehr kleinen zeitlichen sowie räumlichen Skalen stattfinden, werden hierbei im Sinne einer statistischen Mittelung vereinfacht dargestellt. Die zugrundeliegende Vorstellung ist die eines Kontinuums, dessen Charakteristika mithilfe von partiellen Differentialgleichungen (Feldgleichungen) räumlich und zeitlich erfasst werden können. Dieses Feld gehört zur Disziplin der Kontinuumsmechanik.
+Die Modellbildung in diesem Bereich geht von einem gleichförmigen (homogenen) Materialverhalten aus. Feinheiten der komplexen atomaren Interaktionen, wie sie beispielsweise in Kristallstrukturen auftreten und auf sehr kleinen zeitlichen sowie räumlichen Skalen stattfinden, werden hierbei im Sinne einer statistischen Mittelwertbildung vereinfacht dargestellt. Die zugrundeliegende Vorstellung ist die eines Kontinuums, dessen Charakteristika mithilfe von partiellen Differentialgleichungen (Feldgleichungen) räumlich und zeitlich erfasst werden können. Dieses Feld gehört zur Disziplin der Kontinuumsmechanik.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -100,7 +100,7 @@ In der Fluidmechanik hat sich die FEM aufgrund der besonderen Beschaffenheit der
 - Welche Gleichung ist die Grundlage der Simulation von  Mehrkörpersystemen?
 - Welche zwei Methoden sind in der diskreten Mechanik etabliert?
 - Was ist die numerische Herausforderung in der diskreten Mechanik?
-- Welche ingeneur-technische Herausforderung gilt es in der diskreten Mechanik zu bewältigen?
+- Welche Ingenieur-technische Herausforderung gilt es in der diskreten Mechanik zu bewältigen?
 
 **Kontinuierliche Modelle**
 - Welcher Gleichungstyp liegen den kontinuierlichen Modellen der Mechanik zugrunde?  

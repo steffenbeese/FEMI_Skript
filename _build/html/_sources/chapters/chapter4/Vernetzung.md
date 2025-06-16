@@ -16,4 +16,6 @@ kernelspec:
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-# Diskretisierung
+
+# Vernetzung
+

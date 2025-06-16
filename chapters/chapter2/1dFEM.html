@@ -201,7 +201,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Praktische Hinweise zur Anwendung der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
@@ -467,13 +467,13 @@ $ --><section class="tex2jax_ignore mathjax_ignore" id="die-schwache-form-am-bei
 <div class="tip admonition">
 <p class="admonition-title">Analytische Lösung</p>
 <p>Die analytische Lösung erhalten wir durch zweifache Integration und Einsetzen der Randbedingungen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-025d3fa8-e3e4-4736-ae39-6549e18303d6">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-025d3fa8-e3e4-4736-ae39-6549e18303d6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ed505a13-5534-43b9-8fab-140fc7b95e4b">
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-ed505a13-5534-43b9-8fab-140fc7b95e4b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u(x) = \left( \frac{F}{EA} + \frac{n \ell}{E}\right)\cdot x - \frac{1}{2} \frac{n}{E} x^2 \; . 
 \end{equation}\]</div>
 <p>Die Schnittkraft <span class="math notranslate nohighlight">\(N\)</span> berechnet sich wie folgt:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b243e5f-feec-4ffe-8d4f-23274fef0356">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-0b243e5f-feec-4ffe-8d4f-23274fef0356" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2632f7b0-3362-4991-b483-09b900982759">
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-2632f7b0-3362-4991-b483-09b900982759" title="Permalink to this equation">#</a></span>\[\begin{equation}
 N(x) = F + n A (\ell-x). 
 \end{equation}\]</div>
 </div>
@@ -647,11 +647,11 @@ u_2^{e} \text{ Verschiebung u am lokalen Knoten 2 von Element e}
  \textcolor{green}{\int_{0}^{1} \frac{1}{\ell_e} \begin{bmatrix} -1 &amp; 1 \end{bmatrix} \begin{bmatrix} \delta u_1^{(e)} \\ \delta u_2^{(e)}\end{bmatrix}  EA \frac{1}{\ell_e} \begin{bmatrix} -1 &amp; 1 \end{bmatrix} \begin{bmatrix} u_1^{(e)} \\ u_2^{(e)}\end{bmatrix}   \underbrace{\ell_e \d \xi}_{\dx}} \\
  - \textcolor{red}{\int_0^{1} \begin{bmatrix} (1-\xi) &amp; \xi \end{bmatrix} \begin{bmatrix} \delta u_1^{(e)} \\ \delta u_2^{(e)}\end{bmatrix}  n A \ell_e \d \xi} - \textcolor{blue}{\begin{bmatrix} \delta u_1^{(e)} &amp; \delta u_2^{(e)}\end{bmatrix} \begin{bmatrix} S_1^{(e)} \\ S_2^{(e)} \end{bmatrix}}  = 0\; 
 \end{align}\end{split}\]</div>
-<p>Die Variation der Knotenverschiebung <span class="math notranslate nohighlight">\(\delta u_I\)</span> und die Knotenverschiebung <span class="math notranslate nohighlight">\(u_I\)</span> sind nicht abhängig von <span class="math notranslate nohighlight">\(\xi\)</span> und können somit aus dem Integranden herrausgezogen werden:</p>
+<p>Die Variation der Knotenverschiebung <span class="math notranslate nohighlight">\(\delta u_I\)</span> und die Knotenverschiebung <span class="math notranslate nohighlight">\(u_I\)</span> sind nicht abhängig von <span class="math notranslate nohighlight">\(\xi\)</span> und können somit aus dem Integranden herausgezogen werden:</p>
 <div class="math notranslate nohighlight" id="equation-stabfem2">
 <span class="eqno">(2.16)<a class="headerlink" href="#equation-stabfem2" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
- \begin{bmatrix} \delta u_1^{(e)} &amp; \delta u_2^{(e)}\end{bmatrix}\left\{ \textcolor{green}{   \int_{0}^{1} EA \frac{1}{\ell_e} \begin{bmatrix} 1 &amp; -1 \\ -1 &amp; 1\end{bmatrix}  \d \xi \begin{bmatrix} u_1^{(e)} \\ u_2^{(e)}\end{bmatrix}} \\
- - \textcolor{red}{n \ell_e A \int_0^{1} \begin{bmatrix} (1-\xi)  \\ \xi \end{bmatrix}   \d \xi} - \textcolor{blue}{ \begin{bmatrix} S_1^{(e)} \\ S_2^{(e)} \end{bmatrix}} \right\}  = 0\; 
+ \begin{bmatrix} \delta u_1^{(e)} &amp; \delta u_2^{(e)}\end{bmatrix}\left\{ \textcolor{green}{   \int_{0}^{1} EA \frac{1}{\ell_e} \begin{bmatrix} 1 &amp; -1 \\ -1 &amp; 1\end{bmatrix}  \d \xi \begin{bmatrix} u_1^{(e)} \\ u_2^{(e)}\end{bmatrix}} \right .\\
+ \left .- \textcolor{red}{n \ell_e A \int_0^{1} \begin{bmatrix} (1-\xi)  \\ \xi \end{bmatrix}   \d \xi} - \textcolor{blue}{ \begin{bmatrix} S_1^{(e)} \\ S_2^{(e)} \end{bmatrix}} \right\}  = 0\; 
 \end{align}\end{split}\]</div>
 <p>Da die Variation beliebig ist, muss die Gleichung für jeden Faktor separat erfüllt sein. Somit erhält man für jedes Element die Gleichung:</p>
 <div class="math notranslate nohighlight" id="equation-stabfem3">
@@ -674,8 +674,8 @@ u_2^{e} \text{ Verschiebung u am lokalen Knoten 2 von Element e}
 <p>Die Elemente im unserem dargestellten Beispiel (<a class="reference internal" href="#stabelement"><span class="std std-numref">Abb. 2.3</span></a>) werden mit den Nummern 1 und 2 bezeichnet, während die Knoten von 1 bis 3 nummeriert sind; weder die Knoten noch die Elemente müssen in einem FEM-Netz in einer bestimmten Reihenfolge nummeriert sein. Wir kommen hierzu nochmal später in der Vorlesung.</p>
 <p>Beachten Sie, dass die Kraftgrößen der Elemente <span class="math notranslate nohighlight">\(S_i^{(e)}\)</span> mit den Indizes 1 und 2 versehen sind. Dies sind die lokalen Knotennummern. Die Knoten des Netzes sind die globalen Knotennummern. Die lokalen Knotennummern eines Stabelements sind immer in der positiven <span class="math notranslate nohighlight">\(\xi\)</span>-Richtung mit 1, 2 nummeriert. Die globalen Knotennummern hingegen sind willkürlich.</p>
 <p>Wir versuchen nun, die lokalen Kräfte <span class="math notranslate nohighlight">\(S_i^{(e)}\)</span> für das Element 1 mit den globalen Verschiebungen in Verbindung zu bringen. Betrachten wir zunächst den Knoten 2, welchen sich Element 1 und 2 teilen. Hier gilt für die Verschiebung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b9f913f4-6636-4752-afe0-9d8a9158d0d6">
-<span class="eqno">(2.19)<a class="headerlink" href="#equation-b9f913f4-6636-4752-afe0-9d8a9158d0d6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8a3834da-ae14-4189-af78-4f93f3ac6452">
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-8a3834da-ae14-4189-af78-4f93f3ac6452" title="Permalink to this equation">#</a></span>\[\begin{align}
   u_2^{(1)} = u_1^{(2)} = u_2 \; .
 \end{align}\]</div>
 <div class="math notranslate nohighlight" id="equation-stabfem5">
@@ -823,8 +823,8 @@ u_3
 \bar{\bm{u}}
 \end{bmatrix}- \bm{F}_v\]</div>
 <p>Im vorliegenden Beispiel erhalten wir für das Gleichungssystem <a class="reference internal" href="#equation-lgssolve2">(2.26)</a>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5c9381d9-4370-46b2-a0a5-2c2b2f996790">
-<span class="eqno">(2.28)<a class="headerlink" href="#equation-5c9381d9-4370-46b2-a0a5-2c2b2f996790" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4357220c-0313-4741-bc3c-7f1f206ac0e3">
+<span class="eqno">(2.28)<a class="headerlink" href="#equation-4357220c-0313-4741-bc3c-7f1f206ac0e3" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 F \\
 0 \\
@@ -856,8 +856,8 @@ u_2\\
 \end{bmatrix} 
 \end{align}\]</div>
 <p>mit der Lösung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-71245de8-773c-481e-8684-660bd301459a">
-<span class="eqno">(2.29)<a class="headerlink" href="#equation-71245de8-773c-481e-8684-660bd301459a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fd7e6c74-cc25-4455-ad84-0fd8ffe4f0b3">
+<span class="eqno">(2.29)<a class="headerlink" href="#equation-fd7e6c74-cc25-4455-ad84-0fd8ffe4f0b3" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 u_1 \\
 u_2\\
@@ -867,8 +867,8 @@ u_2\\
 \end{bmatrix} 
 \end{align}\]</div>
 <p>Die unbekannte Reaktionskraft am Knoten 3 berechnet sich dann zu:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-894fee8d-fcf0-4877-82ad-e20d972f19e0">
-<span class="eqno">(2.30)<a class="headerlink" href="#equation-894fee8d-fcf0-4877-82ad-e20d972f19e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ecf90dd1-a4f6-42d5-acb7-6e1bcfe12de8">
+<span class="eqno">(2.30)<a class="headerlink" href="#equation-ecf90dd1-a4f6-42d5-acb7-6e1bcfe12de8" title="Permalink to this equation">#</a></span>\[\begin{align}
 R + F_v &amp; = \frac{2EA}{\ell} \begin{bmatrix}
 0 &amp; -1 
 \end{bmatrix} \begin{bmatrix}

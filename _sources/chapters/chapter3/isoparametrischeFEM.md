@@ -227,18 +227,19 @@ width: 600px
 name: KonvergenzPatchtest
 ---
 Mit steigender Elementanzahl wird der konstante Term der Schnittkraft dominant ({cite}`knothe1991finite`).
-``
+```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
+
 
 ```{admonition} Fragen zum Kapitel
 :class: warning
 
 
-**Isoparametriche FEM**
+**Isoparametrische FEM**
 
-- Welche Aussagen sind zutreffend:
-  - [ ] Bei der isoparametrschen FEM wird die schwache Form auf einem uniformen Elternelement gebildet und danach auf die reale Geometrie transformiert.
+- Welche Aussagen sind zutreffend?
+  - [ ] Bei der isoparametrischen FEM wird die schwache Form auf einem uniformen Elternelement gebildet und danach auf die reale Geometrie transformiert.
   - [ ] Bei der isoparametrischen FEM werden die gleichen Ansätze bzgl. Geometrie und Verschiebung gewählt.
   - [ ] Bei der subparamterischen FEM wird die Geometrie mit einem niedrigeren Polynomgrad als die Verschiebung approximiert.
   - [ ] Nur die isoparametrische FEM ist gesichert konvergent.

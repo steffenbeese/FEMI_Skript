@@ -201,7 +201,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Praktische Hinweise zur Anwendung der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
@@ -439,8 +439,8 @@
 </figcaption>
 </figure>
 <p>Die mathematische Beschreibung solcher Modelle resultiert typischerweise in einem System gekoppelter Bewegungsgleichungen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a9c69893-7159-4a99-8eb7-d80abf39ecf2">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-a9c69893-7159-4a99-8eb7-d80abf39ecf2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-99a5e54c-1dbb-4f8e-932f-88adf5444a0b">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-99a5e54c-1dbb-4f8e-932f-88adf5444a0b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \boldsymbol{M} \ddot{\boldsymbol{x}} + \boldsymbol{D} \dot{\boldsymbol{x}} + \boldsymbol{K} \boldsymbol{x} = \boldsymbol{f}(t)
 \end{equation}\]</div>
 <p>Hierbei repräsentiert <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> die Position des Massepunktes im Raum und <span class="math notranslate nohighlight">\(\ddot{\boldsymbol{x}}\)</span> dessen Beschleunigung. Die Trägheitsmatrix <span class="math notranslate nohighlight">\(\boldsymbol{M}\)</span> approximiert die Massenträgheit der Körper, während die Steifigkeitsmatrix <span class="math notranslate nohighlight">\(\boldsymbol{K}\)</span> die elastischen Bindungen darstellt. Die Matrix <span class="math notranslate nohighlight">\(\boldsymbol{D}\)</span> führt Dämpfungsterme in das System ein und <span class="math notranslate nohighlight">\(\boldsymbol{f}(t)\)</span> sind äußere zeitabhängige Kräfte.</p>
@@ -462,7 +462,7 @@
 </section>
 <section id="kontinuierliche-modelle">
 <h2><span class="section-number">1.6.2. </span>Kontinuierliche Modelle<a class="headerlink" href="#kontinuierliche-modelle" title="Link to this heading">#</a></h2>
-<p>Die Modellbildung in diesem Bereich geht von einem gleichförmigen (homogenen) Materialverhalten aus. Feinheiten der komplexen atomaren Interaktionen, wie sie beispielsweise in Kristallstrukturen auftreten und auf sehr kleinen zeitlichen sowie räumlichen Skalen stattfinden, werden hierbei im Sinne einer statistischen Mittelung vereinfacht dargestellt. Die zugrundeliegende Vorstellung ist die eines Kontinuums, dessen Charakteristika mithilfe von partiellen Differentialgleichungen (Feldgleichungen) räumlich und zeitlich erfasst werden können. Dieses Feld gehört zur Disziplin der Kontinuumsmechanik.</p>
+<p>Die Modellbildung in diesem Bereich geht von einem gleichförmigen (homogenen) Materialverhalten aus. Feinheiten der komplexen atomaren Interaktionen, wie sie beispielsweise in Kristallstrukturen auftreten und auf sehr kleinen zeitlichen sowie räumlichen Skalen stattfinden, werden hierbei im Sinne einer statistischen Mittelwertbildung vereinfacht dargestellt. Die zugrundeliegende Vorstellung ist die eines Kontinuums, dessen Charakteristika mithilfe von partiellen Differentialgleichungen (Feldgleichungen) räumlich und zeitlich erfasst werden können. Dieses Feld gehört zur Disziplin der Kontinuumsmechanik.</p>
 <p>In dieser Lehrveranstaltung konzentrieren wir uns auf die Behandlung dieser Feldgleichungen und ihre näherungsweise Lösung durch numerische Verfahren, insbesondere für Fragestellungen der linearen Elastizitätslehre. Es sollte jedoch erwähnt werden, dass vergleichbare Feldtheorien auch in anderen Bereichen, wie zum Beispiel bei elektromagnetischen Feldern, Anwendung finden und die Methoden entsprechend adaptiert werden können.</p>
 <p>Unser Fokus liegt auf der Finite-Elemente-Methode (FEM), wobei auch die Finite-Differenzen-Methode am Rande behandelt wird. Die Finite-Elemente-Methode gilt aktuell als das effektivste Verfahren zur näherungsweisen Lösung partieller Differentialgleichungen in der Festkörpermechanik. Kommerzielle Softwarelösungen sind weit verbreitet und werden industriell genutzt. Ein wesentliches Lernziel dieses Kurses ist es daher, ein fundiertes Verständnis für die Finite-Elemente-Methode zu entwickeln, um sie sachgemäß in der Praxis anwenden zu können.</p>
 <p>In der Fluidmechanik hat sich die FEM aufgrund der besonderen Beschaffenheit der Differentialgleichungen nicht durchgesetzt, was ebenfalls thematisiert wird. In diesem Gebiet sind traditionell die Finite-Differenzen-Methode und heute vermehrt die Finite-Volumen-Methode gebräuchlich.</p>
@@ -474,7 +474,7 @@
 <li><p>Welche Gleichung ist die Grundlage der Simulation von  Mehrkörpersystemen?</p></li>
 <li><p>Welche zwei Methoden sind in der diskreten Mechanik etabliert?</p></li>
 <li><p>Was ist die numerische Herausforderung in der diskreten Mechanik?</p></li>
-<li><p>Welche ingeneur-technische Herausforderung gilt es in der diskreten Mechanik zu bewältigen?</p></li>
+<li><p>Welche Ingenieur-technische Herausforderung gilt es in der diskreten Mechanik zu bewältigen?</p></li>
 </ul>
 <p><strong>Kontinuierliche Modelle</strong></p>
 <ul class="simple">

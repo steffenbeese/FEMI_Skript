@@ -199,13 +199,10 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskretisierung</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Diskretisierung.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.1. Fehlerquellen</a></li>
 </ul>
 </details></li>
 </ul>
@@ -566,8 +563,8 @@ $ -->
 <div class="math notranslate nohighlight" id="equation-massenbilanz2">
 <span class="eqno">(1.4)<a class="headerlink" href="#equation-massenbilanz2" title="Link to this equation">#</a></span>\[ \underbrace{\Pd{\varrho}{p}}_{=:\frac{\varrho}{\kappa}} \td{p} + \div{\varrho {\bm{v}}} = 0 \; .\]</div>
 <p>Die primäre Größe nach der die partielle Differentialgleichung gelöst wird ist damit der Druck <span class="math notranslate nohighlight">\(p\)</span>. Als sekundäre Größe bezeichnet man Feldgrößen, welche von den primären Größen abgeleitet wurden. Im Fall der Massenbilanz des Fluides ist dies die Geschwindigkeit der Materialpartikel <span class="math notranslate nohighlight">\(\bm{v}\)</span>. Die Gleichungen <a class="reference internal" href="#equation-massenbilanz">(1.3)</a> und <a class="reference internal" href="#equation-massenbilanz2">(1.4)</a> beschreiben wie sich die bilanzierte Größe (<span class="math notranslate nohighlight">\(p\)</span>) in der Zeit verändert, eine Information über den absoluten Wert der Größe erhält man erst mit der Einführung von Anfangs- und Randwerten:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb877499-ac2d-4c01-90b5-912370a52ada">
-<span class="eqno">(1.5)<a class="headerlink" href="#equation-eb877499-ac2d-4c01-90b5-912370a52ada" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-adb8d995-9af2-470d-9fd1-e4d0b17ebaed">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-adb8d995-9af2-470d-9fd1-e4d0b17ebaed" title="Permalink to this equation">#</a></span>\[\begin{align}
 p(\bm{x},t=t_0) &amp; = \tilde{p}_0 \qquad &amp;\forall \bm{x} \in \mathcal{B}&amp; \\
 p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B}_p&amp; \\
 \varrho \bm{v}\T \bm{n} &amp; = \tilde{q}_m \qquad &amp;\forall \bm{x} \in \partial\mathcal{B}_m&amp;
@@ -601,8 +598,8 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 </figcaption>
 </figure>
 <p>Die Impulserhaltung, oft formuliert als Newtons zweites Gesetz, besagt, dass die Änderung des Impulses <span class="math notranslate nohighlight">\(\rho \bm{v}\)</span> eines Körpers gleich der Summe der auf ihn wirkenden Kräfte ist. Für ein Kontinuum wird dies durch die Cauchy-Bewegungsgleichungen ausgedrückt:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a321543d-f07b-4bd1-89f1-9c8318b48699">
-<span class="eqno">(1.6)<a class="headerlink" href="#equation-a321543d-f07b-4bd1-89f1-9c8318b48699" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7fe60a9e-ecbb-41d3-b5b2-7af7538f0c76">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-7fe60a9e-ecbb-41d3-b5b2-7af7538f0c76" title="Permalink to this equation">#</a></span>\[\begin{equation}
  \varrho \td{\bm{v}} =\div{\bm{\sigma}} + \rho \bm{b}
 \end{equation}\]</div>
 <p><span class="math notranslate nohighlight">\(\boldsymbol{\sigma}\)</span> steht hierbei für den Spannungstensor und <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> für die Volumenkraft pro Masseneinheit.</p>
@@ -639,8 +636,8 @@ p(\bm{x},t) &amp; = \tilde{p} \qquad &amp;\forall \bm{x} \in \partial \mathcal{B
 <p>Die skalare Energiebilanzgleichung dient zur Berechnung des Temperaturfeldes <span class="math notranslate nohighlight">\(\theta(\bm{x},t)\)</span>.</p>
 </div>
 <p>Vernachlässigt man die Kopplung zwischen Verschiebung und Temperatur erhält man aus Gleichung <a class="reference internal" href="#equation-1hs-01">(1.7)</a> die bekannte instationäre Wärmeleitungsgleichung:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-31e67b5b-3737-4e0e-879d-4b7615ab16c3">
-<span class="eqno">(1.8)<a class="headerlink" href="#equation-31e67b5b-3737-4e0e-879d-4b7615ab16c3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3c724fb6-0da5-4fd3-98cb-023edeb59d2b">
+<span class="eqno">(1.8)<a class="headerlink" href="#equation-3c724fb6-0da5-4fd3-98cb-023edeb59d2b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \varrho c_e \Pd{\theta}{t} + \div{\bm{q}} - \varrho r = 0
 \end{equation}\]</div>
 <p>Hier ist die primäre Variable die Temperatur <span class="math notranslate nohighlight">\(\theta(\bm{x},t)\)</span> und die sekundäre Variable der Wärmeflussvektor <span class="math notranslate nohighlight">\(\bm{q}(\bm{x},t)\)</span>. Gemeinsam mit den Rand- und Anfangsbedingungen erhält man das Anfangsrandwertproblem:</p>

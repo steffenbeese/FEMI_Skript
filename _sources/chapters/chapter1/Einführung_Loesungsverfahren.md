@@ -14,13 +14,13 @@ kernelspec:
 
 # Numerische Lösungsverfahren
 
-Der kontinuierliche Modellansatz führt zu Feldgleichungen in Form von partielle Differentialgleichungen. Anwendungsgebiete sind hier die Strukturmechanik, der Stoff- und Wärmetransport oder auch die Elektrostatik  und vielen weitere. Diese partiellen Differentialgleichungen können in der Regel nicht geschlossen analytisch gelöst werden, weshalb sich numerische Berechnungsschemen hierfür etabliert haben. Die heute gebräuchlichsten werden in der Folge kurz beschrieben:
-  - Netzbasiertierte Methoden:
-    - Finite Elemente Methode **(FEM)**
-    - Finite Volumen Methode **(FVM)**
-    - Finite Differenzen Methode **(FDM)**
+Der kontinuierliche Modellansatz führt zu Feldgleichungen in Form von partiellen Differentialgleichungen. Anwendungsgebiete sind hier die Strukturmechanik, der Stoff- und Wärmetransport sowie die Elektrostatik und viele weitere Bereiche. Diese partiellen Differentialgleichungen können in der Regel nicht analytisch gelöst werden, weshalb sich numerische Berechnungsschemata hierfür etabliert haben. Die heute gebräuchlichsten werden im Folgenden kurz beschrieben:
+  - Netzbasierte Methoden:
+    - Finite-Elemente-Methode **(FEM)**
+    - Finite-Volumen-Methode **(FVM)**
+    - Finite-Differenzen-Methode **(FDM)**
     - Randelementmethode **(BEM)**
-    - Discontinous Galerkin Methods **(DG)**
+    - Discontinuous Galerkin Methods **(DG)**
   - Netzunabhängige Methoden:
     - Optimal Transport Method **(OTM)**
     - Element-Free Galerkin **(EFG)** 
@@ -36,10 +36,11 @@ Alle diese Methoden haben eine Gemeinsamkeit: Sie führen auf ein Gleichungssyst
 :label: LGS
 \boldsymbol{Ax}=\boldsymbol{b} 
 ```
-mit der Systemmatrix $\boldsymbol{A}$. Im folgenden soll nur kurz auf die 4 am weitest verbreitetsten Methoden eingehen.
+mit der Systemmatrix $\boldsymbol{A}$. Im Folgenden soll nur kurz auf die 4 am weitesten verbreiteten Methoden eingegangen werden.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Finite Differenzen Methode (FDM)
 
 Die Finite Differenzen Methode (FDM) ist ein numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das auf der Approximation der Ableitungen durch Differenzenquotienten basiert. Hier sind die grundlegenden Schritte und Konzepte der FDM:
@@ -60,6 +61,7 @@ Die Finite Differenzen Methode ist einfach zu implementieren und eignet sich gut
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Finite Volumen Methode (FVM)
 
 Die Finite Volumen Methode  ist ein numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das insbesondere in der Strömungsmechanik und bei der Simulation von Transportphänomenen weit verbreitet ist. Hier sind die grundlegenden Schritte und Konzepte der FVM:
@@ -74,7 +76,7 @@ Die Finite Volumen Methode ist besonders vorteilhaft, da sie die Erhaltungsgeset
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Randelemente Methode (BEM)
 
 Die Randelemente Methode (BEM) ist ein numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das sich auf die Randbedingungen des Problems konzentriert. Hier sind die grundlegenden Schritte und Konzepte der BEM:
@@ -84,25 +86,25 @@ Die Randelemente Methode (BEM) ist ein numerisches Verfahren zur Lösung partiel
   3. **Diskretisierung des Randes**: Der Rand wird in eine endliche Anzahl von Elementen unterteilt, und die gesuchte Funktion wird durch Basisfunktionen approximiert, die auf diesen Elementen definiert sind. Dies führt zu einem System von algebraischen Gleichungen, das die Werte der gesuchten Funktion an den Randpunkten beschreibt. 
   4. **Lösen des Gleichungssystems**: Das resultierende Gleichungssystem kann mit verschiedenen numerischen Verfahren gelöst werden.
 
-Die Randelemente Methode ist besonders vorteilhaft, da sie die Dimension des Problems reduziert und somit die Anzahl der benötigten Berechnungen verringert. Sie ist besonders effektiv für Probleme mit unendlichen oder halbunendlichen Domänen, wie z.B. in der Elastizitätstheorie oder der Akustik. BEM ist jedoch oft auf Probleme mit linearen PDEs und gut definierten Randbedingungen beschränkt. Das heißt, Materielle Nichtlinearitäten können nicht berücksichtigt werden (keine Plastizität!).
+Die Randelemente Methode ist besonders vorteilhaft, da sie die Dimension des Problems reduziert und somit die Anzahl der benötigten Berechnungen verringert. Sie ist besonders effektiv für Probleme mit unendlichen oder halbunendlichen Domänen, wie z.B. in der Elastizitätstheorie oder der Akustik. BEM ist jedoch oft auf Probleme mit linearen PDEs und gut definierten Randbedingungen beschränkt. Das heißt, materielle Nichtlinearitäten können nicht berücksichtigt werden (keine Plastizität!).
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Finite Elemente Methode (FEM)
 
-Die Finite Elemente Methode (FEM) ist ein weit verbreitetes numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das insbesondere in der Ingenieurwissenschaft und der Physik Anwendung findet. Hier sind die grundlegenden Schritte und Konzepte der FEM:
+Die Finite-Elemente-Methode (FEM) ist ein weit verbreitetes numerisches Verfahren zur Lösung partieller Differentialgleichungen (PDEs), das insbesondere in der Ingenieurwissenschaft und der Physik Anwendung findet. Hier sind die grundlegenden Schritte und Konzepte der FEM:
 
   1. **Diskretisierung des Gebiets**: Der kontinuierliche Raum wird in eine endliche Anzahl von kleinen, nicht überlappenden Elementen unterteilt, die zusammen ein Netz (Mesh) bilden. Diese Elemente können verschiedene Formen haben, wie Dreiecke, Vierecke (in 2D) oder Tetraeder, Hexaeder (in 3D).
   2. **Aufstellen der Elementgleichungen**: Für jedes Element wird eine lokale Formulierung der PDE aufgestellt, die die physikalischen Gesetze und Randbedingungen berücksichtigt. Dies geschieht häufig durch die Anwendung des Prinzips der virtuellen Verrückungen oder der Galerkin-Methode, um die Differentialgleichung in eine schwache Form zu überführen.
   3. **Zusammenfügen der Elementgleichungen**: Die lokalen Gleichungen der einzelnen Elemente werden zu einem globalen Gleichungssystem zusammengefügt. Dies geschieht unter Berücksichtigung der Koppelung zwischen benachbarten Elementen und der gemeinsamen Knotenpunkte.
   4. **Lösen des Gleichungssystems**: Das resultierende globale Gleichungssystem wird mit numerischen Verfahren gelöst.
 
-Die Finite Elemente Methode ist besonders vorteilhaft, da sie komplexe Geometrien und Materialverhalten effizient behandeln kann. Sie ermöglicht die Analyse von statischen und dynamischen Problemen in verschiedenen Bereichen, wie Strukturmechanik, Wärmeübertragung und Fluiddynamik. FEM ist flexibel und anpassungsfähig, erfordert jedoch eine sorgfältige Netzgenerierung und kann bei sehr feinen Netzen rechenintensiv sein.
+Die Finite-Elemente-Methode ist besonders vorteilhaft, da sie komplexe Geometrien und Materialverhalten effizient behandeln kann. Sie ermöglicht die Analyse von statischen und dynamischen Problemen in verschiedenen Bereichen, wie Strukturmechanik, Wärmeübertragung und Fluiddynamik. FEM ist flexibel und anpassungsfähig, erfordert jedoch eine sorgfältige Netzgenerierung und kann bei sehr feinen Netzen rechenintensiv sein.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Zusammenfassung
 
 ```{figure} images/Diskretisierungsverfahren_knothe.png
@@ -110,10 +112,10 @@ Die Finite Elemente Methode ist besonders vorteilhaft, da sie komplexe Geometrie
 height: 600px
 name: diskretisierungsvergleich
 ---
-Vergleich verschiedener Diskretisierungsverfahen nach {cite}`knothe1991finite`
+Vergleich verschiedener Diskretisierungsverfahren nach {cite}`knothe1991finite`
 ```
 
-Jede der oben genannten Methoden hat ihre Daseinsberechtigung für gewählte Problemstellungen. Für die Strukturmechanik hat sich die Finite Elemente Methode durchgesetzt, da sie am flexibelsten und effizientesten eingesetzt werden kann. Dies wird in Abbildung {numref}`diskretisierungsvergleich` deutlich. Die resultierende Systemmatrix $A$ ist für viele Problemstellungen symmetrische und weißt eine ausgesprochene Bandstruktur auf, was für die Lösung des Gleichungssystems erhebliche Vorteile bringt.
+Jede der oben genannten Methoden hat ihre Daseinsberechtigung für gewählte Problemstellungen. Für die Strukturmechanik hat sich die Finite-Elemente-Methode durchgesetzt, da sie am flexibelsten und effizientesten eingesetzt werden kann. Dies wird in Abbildung {numref}`diskretisierungsvergleich` deutlich. Die resultierende Systemmatrix $A$ ist für viele Problemstellungen symmetrisch und weist eine ausgesprochene Bandstruktur auf, was für die Lösung des Gleichungssystems erhebliche Vorteile bringt.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -126,15 +128,16 @@ Jede der oben genannten Methoden hat ihre Daseinsberechtigung für gewählte Pro
 
 Jede Methode hat ihre eigenen Stärken und Schwächen, und die Wahl der Methode hängt oft von der spezifischen Anwendung ab.
 
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ```{admonition} Fragen zum Kapitel
 :class: warning
 
 **Numerische Lösungsverfahren**
 
 - Nennen Sie drei Verfahren zur Lösung von partiellen Differentialgleichungen (Feldgleichungen).
-- Warum brauchen wir numerische Verfahren zur Lösung der Feldgleichungen?
+- Warum benötigen wir numerische Verfahren zur Lösung der Feldgleichungen?
 - In allen numerischen Verfahren werden die Feldgleichungen umgeformt. Was muss letztendlich bei allen Verfahren gelöst werden?
 - Welches numerische Verfahren ist besonders gut für Strömungsprobleme geeignet?
-- Nennen Sie drei Gründe warum sich die FEM in der Struktmechanik durchgesetzt hat?
+- Nennen Sie drei Gründe, warum sich die FEM in der Strukturmechanik durchgesetzt hat?
 
 ```

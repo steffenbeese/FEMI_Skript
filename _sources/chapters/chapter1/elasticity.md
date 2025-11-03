@@ -59,18 +59,18 @@ $ -->
    - [x] Ebener Verzerrungszustand
    - [x] Rotationssymmetrie
 ``` -->
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ```{admonition} Lernziele
 :class: important
 - Wie werden mechanische Problemstellungen formuliert?
 - Was sind die Unbekannten der Bilanzgleichungen?
-- Welche Zutaten braucht man um ein lösbares Problem zu erhalten?
+- Welche Zutaten braucht man, um ein lösbares Problem zu erhalten?
 - Wie lauten die wesentlichen Bilanzgleichungen der Kontinuumsmechanik?
 - In welche Kategorien werden Randbedingungen untergliedert?
 - Wozu brauchen wir Materialmodelle?
-- Welches sind die grundlegenden Materialmodelle der Wärmeleitung, Fluidtransport und der Strukturmechanik?
+- Welche sind die grundlegenden Materialmodelle der Wärmeleitung, des Fluidtransports und der Strukturmechanik?
 - Mit welchen Vereinfachungen kann die Dimensionalität der Problemstellung reduziert werden?
-- Was sind die Vorraussetzungen hierfür?
+- Was sind die Voraussetzungen hierfür?
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
@@ -89,13 +89,13 @@ Im Rahmen dieses Moduls wird die folgende symbolische Schreibweise verwendet:
 |-----------------------------|---------------------------|----------------------------|
 | Tensor der Stufe 0 (Skalar) | $a$, $b$, $\varphi$       | $a$, $b$, $\varphi$        |
 | Tensor der Stufe 1 (Vektor) | $\bm{a}$, $\bm{b}$        | $a_i\bm{e}_i$, $b_i\bm{e}_i$ |
-| Tensor der stufe 2 (Dyade)  | $\bm{A}$, $\bm{\sigma}$   | $A_{ij}\bm{e}_i\bm{e}_j$, $B_{ij}\bm{e}_i\bm{e}_j$ |    
-| Tensor der stufe 4          | $\mathbb{C}$, $\mathbb{A}$| $\mathbb{C}\bm{e}_i\bm{e}_j\bm{e}_k\bm{e}_l$, $\mathbb{A}\bm{e}_i\bm{e}_j\bm{e}_k\bm{e}_l$ |
+| Tensor der Stufe 2 (Dyade)  | $\bm{A}$, $\bm{\sigma}$   | $A_{ij}\bm{e}_i\bm{e}_j$, $B_{ij}\bm{e}_i\bm{e}_j$ |    
+| Tensor der Stufe 4          | $\mathbb{C}$, $\mathbb{A}$| $\mathbb{C}\bm{e}_i\bm{e}_j\bm{e}_k\bm{e}_l$, $\mathbb{A}\bm{e}_i\bm{e}_j\bm{e}_k\bm{e}_l$ |
 
 Soweit möglich erhalten Tensoren der Stufe 2 Großbuchstaben als Symbol, während Vektoren mit Kleinbuchstaben dargestellt werden. Handschriftlich wird ein Tensor durch einen Unterstrich repräsentiert $\underline{A}=\bm{A}$. Für Vektoren ist alternativ auch der Vektorpfeil gebräuchlich $\underline{a} = \vec{a} = \bm{a}$.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Bilanzgleichungen der Kontinuumsmechanik
 
 
@@ -122,30 +122,30 @@ Die vier wesentlichen Bilanzgleichungen sind:
 height: 200px
 name: massenbilanz
 ---
-Ein- und Ausfluss eines infinitesimalen Volumenelementes **Austauschen**
+Ein- und Ausfluss eines infinitesimalen Volumenelementes **Austausch**
 ```
 
-Die Massenerhaltung besagt, dass die Masse eines geschlossenen Systems konstant bleibt, oder wie in der Abbildung, dass die zeitliche Änderung der Masse eines Systems gleich der Differenz von Zustrom und Abfluss ist. In Abwesenheit von Massenquellen oder -senken kann dies mathematisch ausgedrückt werden als:
+Die Massenerhaltung besagt, dass die Masse eines geschlossenen Systems konstant bleibt, oder, wie in der Abbildung dargestellt, dass die zeitliche Änderung der Masse eines Systems gleich der Differenz von Zustrom und Abfluss ist. In Abwesenheit von Massenquellen oder -senken kann dies mathematisch ausgedrückt werden als:
 
 ```{math}
 :label: Massenbilanz
 \dot{\varrho} +  \div{\varrho {\bm{v}}} = 0
 ```
 
-Hier ist $\varrho$ die Dichte und $\bm{v}$ die Geschwindigkeit des Materials. Die zeitliche Ableitung einer Größe $\square$ wird durch einen Punkt über der Größe dargestellt $\td{\square}$.
+Hier ist $\varrho$ die Dichte und $\bm{v}$ die Geschwindigkeit des Materials. Die zeitliche Ableitung einer Größe $\square$ wird durch einen Punkt über der Größe dargestellt: $\td{\square}$.
 
 ```{note}
 Die Massenbilanz ist für gewöhnliche Festkörper stets erfüllt und muss nicht separat gelöst werden. Anders sieht dies im Bereich der Biomechanik oder Geomechanik aus. Hier gibt es z.B. Wachstumsprozesse (Knochen) oder Sickerströmungen. Mit der Massenbilanz kann man die Konzentration $c(\bm{x},t)$ eines Bestandteils oder den Druck $p(\bm{x},t)$ einer Phase bestimmen.
 ```
 
-Formuliert man die Massenbilanz für Fluide, dann ist die Massendichte eine Funktion des Druckes $p$ und man kann die Zeitableitung in {eq}`Massenbilanz` über die Kettenregel auswerten:
+Formuliert man die Massenbilanz für Fluide, dann ist die Massendichte eine Funktion des Drucks $p$, und man kann die Zeitableitung in {eq}`Massenbilanz` über die Kettenregel auswerten:
 
 ```{math}
 :label: Massenbilanz2
  \underbrace{\Pd{\varrho}{p}}_{=:\frac{\varrho}{\kappa}} \td{p} + \div{\varrho {\bm{v}}} = 0 \; .
 ```
 
-Die primäre Größe nach der die partielle Differentialgleichung gelöst wird ist damit der Druck $p$. Als sekundäre Größe bezeichnet man Feldgrößen, welche von den primären Größen abgeleitet wurden. Im Fall der Massenbilanz des Fluides ist dies die Geschwindigkeit der Materialpartikel $\bm{v}$. Die Gleichungen {eq}`Massenbilanz` und {eq}`Massenbilanz2` beschreiben wie sich die bilanzierte Größe ($p$) in der Zeit verändert, eine Information über den absoluten Wert der Größe erhält man erst mit der Einführung von Anfangs- und Randwerten:
+Die primäre Größe, nach der die partielle Differentialgleichung gelöst wird, ist damit der Druck $p$. Als sekundäre Größe bezeichnet man Feldgrößen, die von den primären Größen abgeleitet sind. Im Fall der Massenbilanz des Fluids ist dies die Geschwindigkeit der Materialpartikel $\bm{v}$. Die Gleichungen {eq}`Massenbilanz` und {eq}`Massenbilanz2` beschreiben, wie sich die bilanzierte Größe ($p$) in der Zeit verändert; eine Information über den absoluten Wert der Größe erhält man erst mit der Einführung von Anfangs- und Randwerten:
 
 \begin{align}
 p(\bm{x},t=t_0) & = \tilde{p}_0 \qquad &\forall \bm{x} \in \mathcal{B}& \\
@@ -179,7 +179,7 @@ erfüllt ist.
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ### Impulserhaltung
 ```{figure} images/Impulsbilanz.jpg
 ---
@@ -201,7 +201,7 @@ $\boldsymbol{\sigma}$ steht hierbei für den Spannungstensor und $\mathbf{b}$ f�
 Die Impulsbilanz ist eine vektorielle partielle Differentialgleichung. Mit ihrer Hilfe kann man das Verschiebungsfeld $\bm{u}(\bm{x},t)$ und das Spannungsfeld $\bm{\sigma}(\bm{x},t)$ eines Festkörpers bestimmen.
 ```
 
-Die primäre Feldgröße dieses Anfangsrandwertproblems ist die Verschiebung $\bm{u}(\bm{x},t)$ der Materialpartikel. Die Sekundäre Größe ist die Spannung $\bm{\sigma}(\bm{x},t)$, welche wiederum von den Dehnungen $\bm{\epsilon}$ abhängig ist. Als Randwerte können entweder Verschiebungen (wesentliche Randbedingung) vorgegeben werden oder Oberflächenspannungen (natürliche Randbedingungen). 
+Die primäre Feldgröße dieses Anfangsrandwertproblems ist die Verschiebung $\bm{u}(\bm{x},t)$ der Materialpartikel. Die sekundäre Größe ist die Spannung $\bm{\sigma}(\bm{x},t)$, welche wiederum von den Dehnungen $\bm{\epsilon}$ abhängig ist. Als Randwerte können entweder Verschiebungen (wesentliche Randbedingungen) vorgegeben werden oder Oberflächenspannungen (natürliche Randbedingungen). 
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -225,14 +225,14 @@ erfüllt ist.
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ### Energieerhaltung
 
 Die Energieerhaltung stellt sicher, dass die gesamte Energie in einem abgeschlossenen System erhalten bleibt. Für ein Kontinuum kann die Energiebilanz folgendermaßen ausgedrückt werden:
 
 ```{math}
 :label: 1HS_01
-\rho \MtdFull{e} = \bm{\sigma}\T \td{\bm{\epsilon}} - \div{\bm{q}} + \varrho r
+\rho \Mtd{e} = \bm{\sigma}\T \td{\bm{\epsilon}} - \div{\bm{q}} + \varrho r
 ```
 
 Hier ist $e$ die spezifische innere Energie, $\bm{q}$ der Wärmeflussvektor und $r$ die Wärmequelle pro Masseneinheit.
@@ -241,7 +241,7 @@ Hier ist $e$ die spezifische innere Energie, $\bm{q}$ der Wärmeflussvektor und 
 Die skalare Energiebilanzgleichung dient zur Berechnung des Temperaturfeldes $\theta(\bm{x},t)$.
 ```
 
-Vernachlässigt man die Kopplung zwischen Verschiebung und Temperatur erhält man aus Gleichung {eq}`1HS_01` die bekannte instationäre Wärmeleitungsgleichung:
+Vernachlässigt man die Kopplung zwischen Verschiebung und Temperatur, erhält man aus Gleichung {eq}`1HS_01` die bekannte instationäre Wärmeleitungsgleichung:
 
 \begin{equation}
 \varrho c_e \Pd{\theta}{t} + \div{\bm{q}} - \varrho r = 0
@@ -271,7 +271,7 @@ erfüllt ist.
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ### Zusammenfassung
 
 In den vorangegangenen Abschnitten wurden die Bilanzgleichungen der Kontinuumsmechanik verwendet, um die für die Ingenieurpraxis wichtigen Anfangsrandwertprobleme der Fluid-, Struktur- und Thermomechanik aufzustellen. Für diese Systeme von gekoppelten partiellen Differentialgleichungen gibt es nur in wenigen Sonderfällen analytische Lösungen. Einige davon sind uns aus den Vorlesungen zur Elastostatik und Strömungslehre bekannt. Aus diesem Grund haben sich numerische Berechnungsverfahren durchgesetzt. Um zu überprüfen, ob die Anfangsrandwertprobleme in der obigen Form lösbar sind, werden in der nachfolgenden Tabelle die Bestimmungsgleichungen und die Unbekannten gegenübergestellt.
@@ -282,15 +282,14 @@ In den vorangegangenen Abschnitten wurden die Bilanzgleichungen der Kontinuumsme
 | Impulsbilanz         | 3                     | $\bm{u}$, $\bm{\sigma}$, $\bm{\epsilon}$| 15 | 12                         |
 | Energiebilanz        | 1                     | $\theta$, $\bm{q}$| 4                | 3                                  |
 
-Wie leicht zu erkennen ist genügt die Anzahl an Gleichungen für keines der obigen Problemstellungen zur Lösung. Es werden darum zusätzliche Bedingungen formuliert um die Anfangsrandwertprobleme zu lösen:
+Wie leicht zu erkennen ist, genügt die Anzahl an Gleichungen für keines der obigen Probleme zur Lösung. Es werden darum zusätzliche Bedingungen formuliert, um die Anfangsrandwertprobleme zu lösen:
 
 - Kinematische Bedingungen
 - Materialmodelle
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Kinematik
-
 
 Kinematische Bedingungen spielen besonders im Bereich der Strukturmechanik und der Lösung der Impulsbilanz eine herausragende Rolle. Ein Beispiel hierfür ist die Forderung nach dem Ebenbleiben des Querschnitts in der Bernoulli-Balkentheorie, die zu der bekannten Differentialgleichung der Durchbiegung $w(x)$ führt.
 In der linearen Kontinuumsmechanik wird die Dehnung $\bm{\epsilon}$ als der symmetrische Anteil des Verschiebungsgradienten $\grad{\bm{u}}$ betrachtet:
@@ -302,13 +301,13 @@ In der linearen Kontinuumsmechanik wird die Dehnung $\bm{\epsilon}$ als der symm
 
 Dieses Dehnungsmaß wird oft auch als Ingenieurdehnung bezeichnet und sollte nur in einem Dehnungsbereich von weniger als 10% angewendet werden. Zudem ist hervorzuheben, dass Starrkörpertranslationen keine Ingenieurdehnung verursachen, Starrkörperrotationen hingegen sehr wohl. Aus diesem Grund ist darauf zu achten, dass beim Auftreten größerer Rotationen stets eine nichtlineare Theorie (2. Ordnung oder allgemein nichtlinear) verwendet wird.
 
-Aufgrund der Symmetrie des Dehnungstensors erhalten wir **6** zusätzliche Bedingungen zur Lösung der Anfangsrandwertproblems der Impulsbilanz.
+Aufgrund der Symmetrie des Dehnungstensors erhalten wir **6** zusätzliche Bedingungen zur Lösung des Anfangsrandwertproblems der Impulsbilanz.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 ## Materialmodell
 
-Was zur Schließung der mathematischen Problemstellung jetzt noch fehlt ist eine Relation zwischen der primären Feldgröße und ihrer zugeordneten Flussgröße (sekundäre Größe). Die oben beschriebenen Bilanzgleichungen sind physikalische Prinzipien die unabhängig vom Werkstoff Gültigkeit besitzen. Die spezifischen Werkstoffeigenschaften werden über Materialmodelle, sogenannte konstitutive Modelle, in das Anfangsrandwertproblem eingebracht. Die konstitutive Materialtheorie ist eine Wissenschaft für sich und soll in dieser Vorlesung nicht weiter behandelt werden. In der Strukturmechanik können Materialien entsprechend ihrer Eigenschaften eingeteilt werden in:
+Was zur Schließung der mathematischen Problemstellung jetzt noch fehlt, ist eine Relation zwischen der primären Feldgröße und ihrer zugeordneten Flussgröße (sekundäre Größe). Die oben beschriebenen Bilanzgleichungen sind physikalische Prinzipien, die unabhängig vom Werkstoff Gültigkeit besitzen. Die spezifischen Werkstoffeigenschaften werden über Materialmodelle, sogenannte konstitutive Modelle, in das Anfangsrandwertproblem eingebracht. Die konstitutive Materialtheorie ist eine Wissenschaft für sich und soll in dieser Vorlesung nicht weiter behandelt werden. In der Strukturmechanik können Materialien entsprechend ihrer Eigenschaften in folgende Klassen eingeteilt werden:
 
 ```{figure} ./images/Materialklassen.png
 ---
@@ -319,16 +318,16 @@ Klassifizierung von Materialmodellen anhand ihrer Systemantwort. Abbildung nach 
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ### Wärmeleitung
 
-Bei der Berechnung der Wärmeleitungsgleichung wird oftmals **Fourier**sche Wärmeleitung zugrunde gelegt. Diese basiert auf der Annahme, dass der Wärmestrom proportional zum negativen Temperaturgradienten ist:
+Bei der Berechnung der Wärmeleitungsgleichung wird oftmals die **Fourier**sche Wärmeleitung zugrunde gelegt. Diese basiert auf der Annahme, dass der Wärmestrom proportional zum negativen Temperaturgradienten ist:
 
 ```{math}
 :label: fourier
 \bm{q} = - \bm{k}\T  \grad{\theta} \, .
 ```
-Hierbei ist $\bm{k}$ die Konduktivitätstensor, welche für isotrope Materialien wie folgt aussieht:
+Hierbei ist $\bm{k}$ der Konduktivitätstensor, welcher für isotrope Materialien wie folgt aussieht:
 ```{math}
 :label: konduktivitaetsmatrixIsotrop
  \bm{k} = k \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix}  \, ,
@@ -338,23 +337,23 @@ mit der Wärmeleitfähigkeit $k$ in $\frac{\text{W}}{\text{m}\cdot\text{K}}$. De
 ```{admonition} Zusätzliche Gleichungen
 :class: warning
 
-Aus Gleichung {eq}`fourier` erhalten wir **3** zusätzliche Gleichungen. Wir haben jetzt genausoviele Gleichungen wie Unbekannte. 
+Aus Gleichung {eq}`fourier` erhalten wir **3** zusätzliche Gleichungen. Wir haben jetzt genauso viele Gleichungen wie Unbekannte. 
 
 ```
 
 ```{admonition} Materialsymmetrie (Auswahl)
 :class: note
 - isotrop - gleiche Eigenschaften in alle Raumrichtungen
-- transversal isotrop - Unterschiedliche Eigenschaften entlang einer Faser (Symmetrieachse) und der zu dieser Faser senkrecht stehenden Ebene
+- transversal isotrop - unterschiedliche Eigenschaften entlang einer Faser (Symmetrieachse) und der zu dieser Faser senkrecht stehenden Ebene
 - orthotrop - drei paarweise senkrecht zueinander stehende Symmetrieachsen
 ```
  
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ### Durchströmung
 
-Bei der Berechnung der Fluidgeschwindigkeit in Sickerströmungen wird oftmals das **Darcy**sche hydraulische Strömungsgesetz angewendet. Dies ist analog zur Wärmeleitung definiert als proportional zum negativer Druckgradienten:
+Bei der Berechnung der Fluidgeschwindigkeit in Sickerströmungen wird oftmals das **Darcy**sche hydraulische Strömungsgesetz angewendet. Dies ist analog zur Wärmeleitung definiert als proportional zum negativen Druckgradienten:
 
 ```{math}
 :label: darcy
@@ -370,22 +369,22 @@ mit der hydraulischen Permeabilität $k_{\varepsilon}$ in $\text{m}^2$ und der d
 ```{admonition} Zusätzliche Gleichungen
 :class: warning
 
-Aus Gleichung {eq}`darcy` erhalten wir **3** zusätzliche Gleichungen. Wir haben jetzt genausoviele Gleichungen wie Unbekannte. 
+Aus Gleichung {eq}`darcy` erhalten wir **3** zusätzliche Gleichungen. Wir haben jetzt genauso viele Gleichungen wie Unbekannte. 
 
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ### Lineare Elastizität
 
-In {numref}`materialklassen` sind verschiedene Klassen von Festkörpermaterialien dargestellt. In dieser Vorlesung behandeln wir lediglich eine Unterklasse der ratenunabhängigen Materialien ohne Hystere. Die Lineare Elastizität ist gekennzeichnet durch einen linearen Zusammenhang zwischen Spannung $\bm{\sigma}$ und Dehnungen $\bm{\epsilon}$. In tensorieller Notation stellt sich das verallgemeinerte Hook'sche Gesetz wie folgt dar:
+In {numref}`materialklassen` sind verschiedene Klassen von Festkörpermaterialien dargestellt. In dieser Vorlesung behandeln wir lediglich eine Unterklasse der ratenunabhängigen Materialien ohne Hysterese. Die lineare Elastizität ist gekennzeichnet durch einen linearen Zusammenhang zwischen Spannung $\bm{\sigma}$ und Dehnungen $\bm{\epsilon}$. In tensorieller Notation stellt sich das verallgemeinerte Hooke'sche Gesetz wie folgt dar:
 
 ```{math}
 :label: generalHook
 \sigma_{ij} = \mathbb{C}_{ijkl} \epsilon_{kl} \;
 ```
 
-wobei von der Einsteinschen Summenkonvention gebrauch gemacht wurde. In der Strukturmechanik ist es jedoch unüblich mit Tensoren 4. Stufe explizit zu rechnen. Es werden Symmetrieeigenschaften der Tensoren $\sigma_{ij}=\sigma_{ji}$, $\epsilon_{ij}=\epsilon_{ji}$ und $\mathbb{C}_{ijkl}=\mathbb{C}_{klij}$ ausgenutzt um Tensorprodukte wie z.B. in Gleichung {eq}`generalHook` in Matrix-Vektor-Operationen zu überführen. Dies ist vor allem für die numerische Implementierung von großem Vorteil.
+wobei von der Einsteinschen Summenkonvention Gebrauch gemacht wurde. In der Strukturmechanik ist es jedoch unüblich, mit Tensoren 4. Stufe explizit zu rechnen. Es werden Symmetrieeigenschaften der Tensoren $\sigma_{ij}=\sigma_{ji}$, $\epsilon_{ij}=\epsilon_{ji}$ und $\mathbb{C}_{ijkl}=\mathbb{C}_{klij}$ ausgenutzt, um Tensorprodukte wie z.B. in Gleichung {eq}`generalHook` in Matrix-Vektor-Operationen zu überführen. Dies ist vor allem für die numerische Implementierung von großem Vorteil.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -408,7 +407,7 @@ C_{1311} & C_{1322} & C_{1333} & C_{1312} & C_{1323} & C_{1313} \\
 \end{bmatrix} \begin{bmatrix} \epsilon_{11} \\ \epsilon_{22} \\ \epsilon_{33} \\ 2\epsilon_{12} \\ 2\epsilon_{23} \\ 2\epsilon_{13} \end{bmatrix}
 ```
 
-Für isotrope lineare Elastizität mit dem Materialkonstanten:
+Für isotrope lineare Elastizität mit den Materialkonstanten:
 - $E$ - Elastizitätsmodul in $\text{MPa}$
 - $\nu$ - Querkontraktionszahl in [-]
 
@@ -436,7 +435,7 @@ erhält man dann:
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-Für die inverse Beziehung $\bm{\epsilon} = \bm{C}^{-1} \bm{\sigma}$ mit der Nachgiebiegkeitsmatrix $\bm{C}^{-1}$ erhält man:
+Für die inverse Beziehung $\bm{\epsilon} = \bm{C}^{-1} \bm{\sigma}$ mit der Nachgiebigkeitsmatrix $\bm{C}^{-1}$ erhält man:
 ```{math}
 :label: generalHook4
 \begin{bmatrix} 
@@ -461,12 +460,12 @@ wobei $G=\frac{E}{2(1+\nu)}$ den Schubmodul in $\text{MPa}$ darstellt.
 ```{admonition} Zusätzliche Gleichungen
 :class: warning
 
-Aus Gleichung {eq}`generalHook3` und {eq}`generalHook4` erhalten wir **6** zusätzliche Gleichungen. Wir haben jetzt genausoviele Gleichungen wie Unbekannte. 
+Aus Gleichung {eq}`generalHook3` und {eq}`generalHook4` erhalten wir **6** zusätzliche Gleichungen. Wir haben jetzt genauso viele Gleichungen wie Unbekannte. 
 
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ```{admonition} Einsteinsche Summenkonvention
 :class: note
 Die Einsteinsche Summenkonvention ist eine Notationsvereinbarung, die in der Tensorrechnung verwendet wird, um Ausdrücke zu vereinfachen. Wenn ein Index in einem mathematischen Ausdruck zweimal vorkommt, wird implizit über diesen Index summiert:
@@ -479,13 +478,12 @@ $$
 
 +++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
 
-```{admonition} Kelvin Notation vs. Voigt Notation
+```{admonition} Kelvin-Notation vs. Voigt-Notation
 :class: note
 
-Die Kelvin Notation und die Voigt Notation sind zwei verschiedene Methoden um tensorielle Größen in Matrix- und Vektorschreibweise zu überführen. In den meisten kommerziellen FEM Programmen ist die Voigt Notation vorzufinden, wobei neuere FE-Codes durchaus die Vorteile der Kelvin Notation ausnutzen {cite}`nagel2016advantages`. Allgemein kann gesagt werden, dass die Voigt Notation näher an der Ingenieurmechanik ist, da die Scheranteile $\epsilon_{ij} \quad \forall i\neq j$ der Dehnung doppelt eingehen und wir somit die Gleitungen $\gamma_{ij}\quad \forall i\neq j$ erhalten. Die Kelvin Notation hat den Vorteil, dass mit ihr weiterhin alle Tensorprodukte einfach gebildet werden können ohne das über den Vorfaktor der Komponenten nachgedacht werden muss. Im aktuellen Kurs wird die **Voigt**-Notation zugrunde gelegt. 
+Die Kelvin-Notation und die Voigt-Notation sind zwei verschiedene Methoden, um tensorielle Größen in Matrix- und Vektorschreibweise zu überführen. In den meisten kommerziellen FEM-Programmen ist die Voigt-Notation vorzufinden, wobei neuere FE-Codes durchaus die Vorteile der Kelvin-Notation ausnutzen {cite}`nagel2016advantages`. Allgemein kann gesagt werden, dass die Voigt-Notation näher an der Ingenieurmechanik ist, da die Scheranteile $\epsilon_{ij} \quad \forall i\neq j$ der Dehnung doppelt eingehen und wir somit die Gleitungen $\gamma_{ij} \quad \forall i\neq j$ erhalten. Die Kelvin-Notation hat den Vorteil, dass mit ihr weiterhin alle Tensorprodukte einfach gebildet werden können, ohne dass über den Vorfaktor der Komponenten nachgedacht werden muss. Im aktuellen Kurs wird die **Voigt**-Notation zugrunde gelegt. 
 
-
-|                    |   Voigt Notation    |
+|                    |   Voigt-Notation    |
 |--------------------|---------------------|
 |$\sigma_{ij}$       | $\bm{\sigma}= \begin{bmatrix} \sigma_{11} & \sigma_{22} & \sigma_{33} & \sigma_{12} & \sigma_{23} & \sigma_{13} \end{bmatrix}\T $ |
 |$\epsilon_{ij}$       | $\bm{\epsilon}= \begin{bmatrix} \epsilon_{11} & \epsilon_{22} & \epsilon_{33} & 2\epsilon_{12} & 2\epsilon_{23} & 2\epsilon_{13} \end{bmatrix}\T $ |
@@ -503,7 +501,7 @@ C_{1311} & C_{1322} & C_{1333} & C_{1312} & C_{1323} & C_{1313} \\
 \end{bmatrix} 
 $$
 
-|                    |    Kelvin Notation  |
+|                    |    Kelvin-Notation  |
 |--------------------|---------------------|
 |$\sigma_{ij}$        | $\bm{\sigma}= \begin{bmatrix} \sigma_{11} & \sigma_{22} & \sigma_{33} & \sqrt{2}\sigma_{12} & \sqrt{2}\sigma_{23} & \sqrt{2}\sigma_{13} \end{bmatrix}\T $ |
 |$\epsilon_{ij}$        | $\bm{\epsilon}= \begin{bmatrix} \epsilon_{11} & \epsilon_{22} & \epsilon_{33} & \sqrt{2}\epsilon_{12} & \sqrt{2}\epsilon_{23} & \sqrt{2}\epsilon_{13} \end{bmatrix}\T $ |
@@ -524,7 +522,7 @@ $$
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 #### Ebener Verzerrungszustand
 
 ```{figure} ./images/EVZ.png
@@ -532,9 +530,9 @@ $$
 height: 300px
 name: evz
 ---
-Beispiel für das Auftreten eines ebenen Verzerrungszustandes {cite}`chaves2013notes`
+Beispiel für das Auftreten eines ebenen Verzerrungszustands {cite}`chaves2013notes`
 ```
-Betrachten wir ein Strukturelement mit prismatischen Merkmalen, bei dem die Dimension in Richtung der prismatischen Achse deutlich größer ist als die anderen Dimensionen. Die aufgebrachten Lasten wirken senkrecht zur prismatischen Achse ({numref}`evz`). Unter diesen Bedingungen sind die Dehnungskomponenten $\e_{13},\, \e_{23}, \, \e_{33}$ gleich null. Dieser Zustand wird als ebener Verzerrungszustand bezeichnet. Beispiele hierfür sind Stützmauern, unter Druck stehende Zylinder, Dämme , Tunnel und Flachgründungen.
+Betrachten wir ein Strukturelement mit prismatischen Merkmalen, bei dem die Dimension in Richtung der prismatischen Achse deutlich größer ist als die anderen Dimensionen. Die aufgebrachten Lasten wirken senkrecht zur prismatischen Achse ({numref}`evz`). Unter diesen Bedingungen sind die Dehnungskomponenten $\e_{13},\, \e_{23}, \, \e_{33}$ gleich null. Dieser Zustand wird als ebener Verzerrungszustand bezeichnet. Beispiele hierfür sind Stützmauern, unter Druck stehende Zylinder, Dämme, Tunnel und Flachgründungen.
 
 Es muss betont werden, dass die Variablen (Last, Querschnitt, Material) entlang der prismatischen Achse konstant sein müssen, um einen ebenen Verzerrungszustand zu betrachten. Andernfalls können erhebliche Fehler auftreten.
 
@@ -551,7 +549,7 @@ Es muss betont werden, dass die Variablen (Last, Querschnitt, Material) entlang 
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-Um die konstitutive Beziehung $\sb(\eb)$ zu erhalten starten wir vom generalisierten Hook'schen Gesetz {eq}`generalHook3` indem wir alle Spalten mit korrespondierenden 0-Dehnungen eliminieren:
+Um die konstitutive Beziehung $\sb(\eb)$ zu erhalten, starten wir vom generalisierten Hook'schen Gesetz {eq}`generalHook3`, indem wir alle Spalten mit korrespondierenden 0-Dehnungen eliminieren:
 
 ```{math}
 :label: evz1
@@ -579,7 +577,7 @@ Wir sehen sofort, dass die Komponenten $\s_{23},\, \s_{13}$ verschwinden. Die Sp
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 Arrangiert man die verbleibenden Einträge, so erhält man für $\bm{C}\rs{EVZ}$:
 ```{math}
 :label: evz2
@@ -598,7 +596,7 @@ Arrangiert man die verbleibenden Einträge, so erhält man für $\bm{C}\rs{EVZ}$
 \end{bmatrix}
 ```
 
-Für die Nachgiebiegkeit $\bm{C}\rs{EVZ}^{-1}$ erhält man die inverse Beziehung:
+Für die Nachgiebigkeit $\bm{C}\rs{EVZ}^{-1}$ erhält man die inverse Beziehung:
 ```{math}
 :label: evz3
  \begin{bmatrix} 
@@ -617,7 +615,7 @@ Für die Nachgiebiegkeit $\bm{C}\rs{EVZ}^{-1}$ erhält man die inverse Beziehung
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 #### Ebener Spannungszustand
 
 ```{figure} ./images/CarCrash.jpg
@@ -625,24 +623,24 @@ Für die Nachgiebiegkeit $\bm{C}\rs{EVZ}^{-1}$ erhält man die inverse Beziehung
 height: 500px
 name: carcrash
 ---
-FEM Crash Simulation eines Pickup-Trucks gegen eine starre Wand [Quelle](https://enteknograte.com/wp-content/uploads/2022/06/truck-crash-Car-vehicle-Finite-Element-Simulation-Crash-Test-MSC-dytran-Crashworthiness-Ls-Dyna-Abaqus-PAM-CRASH.jpg)
+FEM Crash-Simulation eines Pickup-Trucks gegen eine starre Wand [Quelle](https://enteknograte.com/wp-content/uploads/2022/06/truck-crash-Car-vehicle-Finite-Element-Simulation-Crash-Test-MSC-dytran-Crashworthiness-Ls-Dyna-Abaqus-PAM-CRASH.jpg)
 ```
 
-Der ebene Spannungszustand tritt überall dort auf wo Flächenelemente vor allem in ihrer Ebene belastet werden und die Flächenabmessungen deutlich größer sind als die dazugehörige Dicke. Dies ist zum Beispiel bei Karosserieblechen wie in {numref}`carcrash` der Fall. 
+Der ebene Spannungszustand tritt überall dort auf, wo Flächenelemente vor allem in ihrer Ebene belastet werden und die Flächenabmessungen deutlich größer sind als die dazugehörige Dicke. Dies ist zum Beispiel bei Karosserieblechen, wie in {numref}`carcrash`, der Fall. 
 
 ```{figure} ./images/Shellformulation.png
 ---
 height: 300px
 name: shellformulation
 ---
-FEM Diskretisierung von Schalenelementen als degenerierte Volumenelemente (links) oder über eine Mittelflächendarstellung (rechts). {cite}`wriggers2008nonlinear`
+FEM-Diskretisierung von Schalenelementen als degenerierte Volumenelemente (links) oder über eine Mittelflächendarstellung (rechts). {cite}`wriggers2008nonlinear`
 ```
 
-In Abbildung {numref}`shellformulation` auf der rechten Seite ist eine Disketisierung für den ebenen Spannungszustand mit Mittelflächenelementen zu sehen.
+In Abbildung {numref}`shellformulation` auf der rechten Seite ist eine Diskretisierung für den ebenen Spannungszustand mit Mittelflächenelementen zu sehen.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-Startpunkt für die konstitutive Beziehung ist die Gleichung {eq}`generalHook4`. Zunächst streichen wir alle Spalten welche den 0-Spannungen zugeordnet werden können:
+Startpunkt für die konstitutive Beziehung ist die Gleichung {eq}`generalHook4`. Zunächst streichen wir alle Spalten, die den 0-Spannungen zugeordnet werden können:
 ```{math}
 :label: generalHookESZ1
 \begin{bmatrix} 
@@ -679,7 +677,7 @@ Hier fällt auf, dass das resultierende System nicht mehr quadratisch ist, da di
 \end{bmatrix} \begin{bmatrix} \sigma_{11} \\ \sigma_{22} \\ \sigma_{12} \end{bmatrix} \; .
 ```
 
-Dieses System hat eine Gleichung zu viel. Zweckmäßig vernachlässigt man die Gleichung für die Dehnung in Dickenrichtung (diese Dehnung berechnet man in einer Nachlaufrechnung). Somit lautet die Nachgiebigkeitsmatrix $\bm{C}^{-1}\rs{ESZ}$ und die Materielle Steifigkeitsmatrix $\bm{C}\rs{ESZ}$ für den ebenen Spannungszustand:
+Dieses System hat eine Gleichung zu viel. Zweckmäßig vernachlässigt man die Gleichung für die Dehnung in Dickenrichtung (diese Dehnung berechnet man in einer Nachlaufrechnung). Somit lautet die Nachgiebigkeitsmatrix $\bm{C}^{-1}\rs{ESZ}$ und die materielle Steifigkeitsmatrix $\bm{C}\rs{ESZ}$ für den ebenen Spannungszustand:
 
 ```{math}
 :label: generalHookESZ3
@@ -696,7 +694,7 @@ Dieses System hat eine Gleichung zu viel. Zweckmäßig vernachlässigt man die G
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 #### Rotationssymmetrie
 
 ```{figure} ./images/Rotsym.png
@@ -704,7 +702,7 @@ Dieses System hat eine Gleichung zu viel. Zweckmäßig vernachlässigt man die G
 height: 300px
 name: rotsym
 ---
-Rotationssymmetrischer Körper im zylinderkoordinatensystem $\{r,z,\theta\}$. Nach {cite}`chaves2013notes`
+Rotationssymmetrischer Körper im Zylinderkoordinatensystem $\{r,z,\theta\}$. Nach {cite}`chaves2013notes`
 ```
 
 Die Dehnungen für rotationssymmetrische Problemstellungen werden berechnet zu:
@@ -724,7 +722,7 @@ Die Dehnungen für rotationssymmetrische Problemstellungen werden berechnet zu:
 \end{bmatrix} 
 ```
 
-Das generalisierte Hook'sche Gesetz lautet:
+Das generalisierte Hooke'sche Gesetz lautet:
 
 ```{math}
 :label: generalHookRotsym
@@ -741,7 +739,7 @@ Das generalisierte Hook'sche Gesetz lautet:
 \end{bmatrix} \begin{bmatrix} \epsilon_{r} \\ \epsilon_{\theta} \\ \epsilon_{z} \\ 2\epsilon_{rz}  \end{bmatrix}
 ```
 
-```{admonition} Berechnung Dehung $\e_{\theta}$
+```{admonition} Berechnung der Dehnung $\e_{\theta}$
 :class: note
 
 Die Dehnung in Umfangsrichtung kann bestimmt werden als Längenänderung des Umfangs infolge einer radialen Verschiebung $u$:
@@ -754,13 +752,13 @@ $
 
 ## Zusammenfassung
 
-Um ein valides mechanisches Modell zu erlangen benötigt man:
+Um ein valides mechanisches Modell zu erlangen, benötigt man:
 
   1. Die beschreibende partielle Differentialgleichung (physikalische Erhaltungssätze)
-  2. Die Kinematischen Beziehungen (Verbindung von primärer Größe zur abgeleiten Größe)
+  2. Die kinematischen Beziehungen (Verbindung von primärer Größe zur abgeleiteten Größe)
   3. Materialmodell (Verbindung von sekundärer Größe zur kinematischen Größe)
 
-Eindeutig lösbar wird das Modell zudem erst, wenn die Randbedingungen entsprechend vorgegeben wurden.
+Eindeutig lösbar wird das Modell zudem erst, wenn die Randbedingungen entsprechend vorgegeben sind.
 
 ```{admonition} Fragen zum Kapitel
 :class: warning
@@ -772,7 +770,7 @@ Eindeutig lösbar wird das Modell zudem erst, wenn die Randbedingungen entsprech
 - Welche Feldgröße wird mit der Impulsbilanz berechnet?
 - Welche Feldgröße wird mit der Energiebilanz berechnet?
 - Welche Feldgröße wird mit der Massenbilanz berechnet?
-- Was ist der unterschied zwischen primären und sekundären Feldgrößen?
+- Was ist der Unterschied zwischen primären und sekundären Feldgrößen?
 - Welche Aussage ist richtig:
    - [ ] Die Impulsbilanz ist eine vektorielle partielle Differenzialgleichung.
    - [ ] Die Energiebilanz ist eine vektorielle partielle Differenzialgleichung.
@@ -785,28 +783,27 @@ Eindeutig lösbar wird das Modell zudem erst, wenn die Randbedingungen entsprech
 - Ist eine Kraftrandbedingung eine *Neumann*-Randbedingung oder eine *Dirichlet*-Randbedingung?
 - Ist eine Verschiebungsrandbedingung eine *Neumann*-Randbedingung oder eine *Dirichlet*-Randbedingung?
 
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 **Kinematik**
 
 - Welche Aussage ist richtig:
    - [ ] Die Dehnung ist der symmetrische Anteil des Verschiebungsgradienten.
    - [ ] Die Spannung ist der symmetrische Anteil des Verschiebungsgradienten.
-   - [ ] Die Ingenieursdehnungen sollten nur in einem Dehnungsbereich < 10 % eingesetz werden
-   - [ ] Starrkörperrotationen rufen keine Ingenieurdehnungen (und auch Spannungen) hervor.
+   - [ ] Die Ingenieursdehnungen sollten nur in einem Dehnungsbereich von < 10 % eingesetzt werden.
+   - [ ] Starrkörperrotationen rufen keine Ingenieurdehnungen (und auch keine Spannungen) hervor.
 
 **Materialgleichung**
 
 - Warum brauchen wir Materialgleichungen? (2 Gründe nennen)
 - Nennen Sie eine Klasse von Materialien entsprechend ihres Materialverhaltens für strukturmechanische Problemstellungen.
 - In welche Richtung fließt die Temperatur bei der Fourierschen Wärmeleitung?
-- Was heißt isotropes Materialverhalten?
-- Wieviele Materialparameter sind nötig für die Beschreibung von linearen, isotropen und elastischen Material?
+- Was bedeutet isotropes Materialverhalten?
+- Wie viele Materialparameter sind nötig, um das Verhalten von linearen, isotropen und elastischen Materialien zu beschreiben?
 - Liegt bei Karosserieteilen eher ein ebener Spannungs- oder ein ebener Verzerrungszustand vor?
 
 
 **Zusammenfassung**
 
-- Welche 3 Dinge sind erforderlich um lösbares mechanisches Modell zu erhalten?
-- Was ist zusätzlich notwendig um eine eindeutige Lösung zu erhalten?
-
-
-```
+- Welche 3 Dinge sind erforderlich, um ein lösbares mechanisches Modell zu erhalten?
+- Was ist zusätzlich notwendig, um eine eindeutige Lösung zu erhalten?
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->

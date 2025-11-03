@@ -17,19 +17,18 @@ name: strukturkontinua
 Übersicht über die Klassifizierung von Strukturvereinfachungen nach {cite}`knothe1991finite`
 ```
 
-Die im vorherigen Abschnitt eingeführten Feldgleichungen lassen sich für viele Ingenieurwissenschaftlichen Problemstellungen deutlich vereinfachen. In {numref}`strukturkontinua` sind solche Vereinfachungen gezeigt.
+Die im vorherigen Abschnitt eingeführten Feldgleichungen lassen sich für viele ingenieurwissenschaftliche Problemstellungen deutlich vereinfachen. In {numref}`strukturkontinua` sind solche Vereinfachungen dargestellt.
 
 Für die Impulsbilanz haben wir bereits in der Vorlesung zur "Technischen Mechanik 2" zwei Vereinfachungen kennengelernt:
 
 - den Dehnstab
 - den Balken
 
-Nachfolgen werden lediglich die Differentialgleichungen dieser beiden Strukturelemente eingeführt. Für eine Herleitung der Gleichung sei auf die entsprechende Vorlesung verwiesen.
-
+Nachfolgend werden lediglich die Differentialgleichungen dieser beiden Strukturelemente eingeführt. Für eine Herleitung der Gleichungen sei auf die entsprechende Vorlesung verwiesen.
 
 ## Differentialgleichung des Stabes
 
-Wird ein prismatisches Bauteil nur entlang seiner Achse $x$ belastet, so resultieren hieraus nur Normalspannungen $\sigma_x$. Solche Belastungsszenarien können über die Differentialgleichung des **Stabes** in guter Näherung bestimmt werden.
+Wird ein prismatisches Bauteil nur entlang seiner Achse $x$ belastet, so resultieren hieraus nur Normalspannungen $\sigma_x$. Solche Belastungsszenarien können über die Differentialgleichung des **Stabes** in guter Näherung beschrieben werden.
 
 ```{figure} images/Stab_TMKompakt.png
 ---
@@ -48,19 +47,19 @@ Die Differentialgleichung des Stabes lautet:
 mit:
 - $E$ - Elastizitätsmodul in MPa
 - $A$ - Querschnittsfläche in mm$^2$
-- $u$ - Axiale Verschiebung in mm
+- $u$ - axiale Verschiebung in mm
 - $\alpha$ - Wärmeausdehnungskoeffizient in mm/K
 - $\Delta \theta$ - Temperaturänderung in K
 - $n$ - axiale Streckenlast in N/mm
 
-Für einen konstanten $E$-Modul und eine konstante Querschnittsfläche $A$, sowie eine konstante Temperaturdifferenz $\Delta \theta$ kann diese Differentialgleichung vereinfacht werden zu:
+Für einen konstanten $E$-Modul, eine konstante Querschnittsfläche $A$ sowie eine konstante Temperaturdifferenz $\Delta \theta$ kann diese Differentialgleichung vereinfacht werden zu:
 
 ```{math}
 :label: stabdglsimple
  u^{\prime \prime} = \frac{\text{d}^2\,  u  }{\text{d } x^2} =  - \frac{n(x)}{EA}
 ```
 
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Differentialgleichung des Balkens
 
 Balken sind Tragstrukturen, die eindimensional modelliert werden, da ihre Breite und Höhe im Verhältnis zu ihrer Länge sehr gering sind. Im Unterschied zu Stäben, bei denen die Belastung nur in Längsrichtung erfolgt, werden Balken zusätzlich senkrecht zur Längsachse belastet. Dies führt dazu, dass in Stäben ausschließlich Normalkräfte auftreten, während sich in Balken Momente und Querkräfte als Schnittgrößen ergeben.
@@ -73,7 +72,7 @@ name: balken
 Kräftegleichgewicht, Spannungen und Schnittgrößen am geraden Balken nach {cite}`gross2007technische`
 ```
 
-Die Differentialgleichung des Balken lautet:
+Die Differentialgleichung des Balkens lautet:
 
 ```{math}
 :label: balkendgl

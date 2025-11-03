@@ -48,7 +48,7 @@ name: balken02
 Schnittgrößen und Kinematik am Balkenelement nach {cite}`gross2007technische`
 ```
 
-Als weiteren Vertreter der Strukturelemente innerhalb der Finiten Elemente Methode (FEM) betrachten wir im Folgenden die Balken-FEM. Die Impulsbilanz des Euler-Bernoulli-Balkens ist eine Differentialgleichung 4. Ordnung. Bei Voraussetzung einer konstanten Biegesteifigkeit $EI_y$ lautet diese:
+Als weiteren Vertreter der Strukturelemente innerhalb der Finite-Elemente-Methode (FEM) betrachten wir im Folgenden die Balken-FEM. Die Impulsbilanz des Euler-Bernoulli-Balkens ist eine Differentialgleichung 4. Ordnung. Unter der Voraussetzung einer konstanten Biegesteifigkeit $EI_y$ lautet diese:
 
 ```{math}
 :label: balkendglsimple_2
@@ -63,7 +63,7 @@ Die obige **starke Form** der Balken-DGL wird im Folgenden in eine **schwache Fo
 
 Hierbei stellen $F_I$ und $M_I$ die an den Knoten angreifenden Einzellasten und Momente dar. Es ist zu beachten, dass die zweite Ableitung der Durchbiegung die höchste Ableitungsordnung in dieser Variationsgleichung darstellt. Für die Finite-Elemente-Approximation müssen ($C^1$)-stetige Ansatzfunktionen formuliert werden. Dies impliziert, dass an den Knotenpunkten die Verschiebungsansätze sowohl in der Durchbiegung ($w$) als auch in der Neigung ($w'$) stetig sein müssen. Anders als beim Stabelement sind die Freiheitsgrade an den Knotenpunkten nicht nur die Verschiebungen, sondern auch die Neigungen. Dies ist charakteristisch für die Formulierung von Balkenelementen, aber auch für die Formulierung von Plattenelementen und Schalenelementen.
 
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Ansatzfunktionen
 
 ```{figure} images/Balkenelement.png
@@ -74,7 +74,7 @@ name: balken03_1
 Balkenelement mit lokalen Freiheitsgraden
 ```
 
-Analog zum Stabelement führen wir die normierte Koordinate $\xi=\frac{x}{\ell_e}$ ein. Die Ansatzfunktionen für die Durchbiegung $w_h$ wird dann als Linearkombination der Formfunktionen $N_I$ und der Freiheitsgrade $w_I$ geschrieben: 
+Analog zum Stabelement führen wir die normierte Koordinate $\xi=\frac{x}{\ell_e}$ ein. Die Ansatzfunktionen für die Durchbiegung $w_h$ werden dann als Linearkombination der Formfunktionen $N_I$ und der Freiheitsgrade $w_I$ geschrieben: 
 
 ```{math}
 :label: Ansatz_Balken
@@ -84,7 +84,7 @@ Analog zum Stabelement führen wir die normierte Koordinate $\xi=\frac{x}{\ell_e
 \end{align}
 ```
 
-Der Vektor der Freiheitsgrade $\bm{w}=w_I$ enthält die Durchbiegung $w$ und die Neigung $\psi$ an den beiden Knoten des Balkenelements. Wie bei den Formfunktionen des Stabelementes, ist die Formfunktion $N_I$ nur für den Freiheitsgrad $w_I$ identisch mit 1 und für alle anderen Freiheitsgrade gleich 0. Formfunktionen die diese Eigenschaft haben, sind zum Beispiel die Hermite-Polynome:
+Der Vektor der Freiheitsgrade $\bm{w}=w_I$ enthält die Durchbiegung $w$ und die Neigung $\psi$ an den beiden Knoten des Balkenelements. Wie bei den Formfunktionen des Stabelements ist die Formfunktion $N_I$ nur für den Freiheitsgrad $w_I$ identisch mit 1 und für alle anderen Freiheitsgrade gleich 0. Formfunktionen, die diese Eigenschaft haben, sind zum Beispiel die Hermite-Polynome:
 ```{math}
 :label: Formfunktion_Balken
 \begin{align}
@@ -202,16 +202,17 @@ ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left');
 
 ```{admonition} Wichtige Eigenschaften des Ansatzes des Balkens
 :class: important
-- Die Durchbiegung $w$ ist $C^1$-stetig
-- Die Durchbiegung $w$ und die Neigung $\psi=w'$ sind über die Elementgrenzen hinweg stetig 
-- Durch die Wahl der Formfunktionen haben die Knotenfreiheitsgrade die Bedeutung von Durchbiegung und Neigung
+- Die Durchbiegung $w$ ist $C^1$-stetig.
+- Die Durchbiegung $w$ und die Neigung $\psi=w'$ sind über die Elementgrenzen hinweg stetig. 
+- Durch die Wahl der Formfunktionen haben die Knotenfreiheitsgrade die Bedeutung von Durchbiegung und Neigung.
 ```
 
 Auch für die Testfunktion $\delta w$ wird der Ansatz {eq}`Ansatz_Balken` verwendet. 
 
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Elementsteifigkeitsmatrix (Diskretisierung Term 1 in Gleichung {eq}`weakBalken_01` )
 
-Eingesetzt in die Schwache Form liefert der erste Term die Elementsteifigkeitsmatrix. Hierfür müssen zunächst die Ableitungen des Ansatzes bzgl. $x$ berechnet werden. Aus 
+Eingesetzt in die schwache Form liefert der erste Term die Elementsteifigkeitsmatrix. Hierfür müssen zunächst die Ableitungen des Ansatzes bzgl. $x$ berechnet werden. Aus 
  $\dx = \ell_e \dxi$ folgt:
 ```{math}
 :label: Differentialquotient
@@ -221,8 +222,7 @@ Eingesetzt in die Schwache Form liefert der erste Term die Elementsteifigkeitsma
 \end{align}
 ```
 
-Eingesetzt in die Schwache Form ergibt sich für die Elementsteifigkeit:
-
+Eingesetzt in die schwache Form ergibt sich für die Elementsteifigkeit:
 
 ```{math}
 :label: Elementsteifigkeit_Balken_01
@@ -243,7 +243,7 @@ Eingesetzt in die Schwache Form ergibt sich für die Elementsteifigkeit:
 
 ## Diskretisierung der Streckenlast 
 
-Die Streckenlast $q(x)$ hat im Element $e$ im Allgemeinen einen beliebigen Verlauf. Um die Streckenlast zu diskretisieren wird angenommen, dass die Streckenlast im Element linear veränderlich ist. Es wird also der folgende Ansatz gemacht:
+Die Streckenlast $q(x)$ hat im Element $e$ im Allgemeinen einen beliebigen Verlauf. Um die Streckenlast zu diskretisieren, wird angenommen, dass die Streckenlast im Element linear veränderlich ist. Es wird also der folgende Ansatz gemacht:
 
 ```{math}
 :label: AnsatzStreckenlast
@@ -272,6 +272,7 @@ Wird dieser Ansatz in die schwache Form eingesetzt, so ergibt sich:
 \end{align}
 ```
 
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Beispiel der Balken FEM
 
 ```{figure} images/Balken_Problem.png
@@ -353,17 +354,18 @@ name: FT
 Flächenträgheitsmomente für I-Profile nach DIN 1025-1:2009-04. [ezzart.org](https://www.ezzat.org/de/Querschnittswerte/gewalzt/I/i.php)
 
 ```
-## Ergebnisse der FEM Berechnung
+
+## Ergebnisse der FEM-Berechnung
 
 ```{figure} images/Balken_FEM_01.png
 ---
 width: 500px
 name: BalkenFEM01
 ---
-Gegenüberstellung der analytischen Verschiebungslösung mit der FEM Lösung.
+Gegenüberstellung der analytischen Verschiebungslösung mit der FEM-Lösung.
 ```
 
-In Abbildung {numref}`BalkenFEM01` ist die Verschiebungslösung der FEM mit der analytischen Lösung gegenüber gestellt. Wir sehen, dass die FEM bereits mit nur 2 Elementen die analytische Lösung exakt trifft. Dies ist kein Zufall, sondern ein Ergebnis der Wahl der Formfunktionen und der Form der Randbedingungen. 
+In Abbildung {numref}`BalkenFEM01` ist die Verschiebungslösung der FEM mit der analytischen Lösung gegenübergestellt. Wir sehen, dass die FEM bereits mit nur 2 Elementen die analytische Lösung exakt trifft. Dies ist kein Zufall, sondern ein Ergebnis der Wahl der Formfunktionen und der Form der Randbedingungen.
 
 Dies sollte jedoch nicht darüber hinwegtäuschen, dass die FEM-Lösung für das Schnittmoment und die Querkraft im Vergleich zur analytischen Lösung nicht so gut ist.
 
@@ -373,22 +375,21 @@ Dies sollte jedoch nicht darüber hinwegtäuschen, dass die FEM-Lösung für das
 width: 500px
 name: BalkenFEM02
 ---
-Gegenüberstellung der analytischen Lösung des Momentenverlaufs mit der FEM Lösung.
+Gegenüberstellung der analytischen Lösung des Momentenverlaufs mit der FEM-Lösung.
 ```
 
-Das analytische Schnittmoment hat einen quadratischen Verlauf, während die FEM Lösung linear ist. Dies führt zu einer Abweichung der FEM Lösung von der analytischen Lösung.
+Das analytische Schnittmoment hat einen quadratischen Verlauf, während die FEM-Lösung linear ist. Dies führt zu einer Abweichung der FEM-Lösung von der analytischen Lösung.
 
 ```{figure} images/Balken_FEM_03.png
 ---
 width: 500px
 name: BalkenFEM03
 ---
-Gegenüberstellung der analytischen Lösung für den Querkraftverlauf mit der FEM Lösung.
+Gegenüberstellung der analytischen Lösung für den Querkraftverlauf mit der FEM-Lösung.
 ```
 
-Die Schnittkraft in der analytischen Lösung zeigt einen stückweise linearen Verlauf, während die FEM Lösung konstant ist. Dies führt zu einer Abweichung der FEM Lösung von der analytischen Lösung.
-
-
+Die Schnittkraft in der analytischen Lösung zeigt einen stückweise linearen Verlauf, während die FEM-Lösung konstant ist. Dies führt zu einer Abweichung der FEM-Lösung von der analytischen Lösung.
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Konvergenz 
 
 ```{figure} images/Balken_FEM_04.png
@@ -396,23 +397,23 @@ Die Schnittkraft in der analytischen Lösung zeigt einen stückweise linearen Ve
 width: 600px
 name: BalkenFEM04
 ---
-Konvergenzverhalten der FEM Lösung für die das Schnittmoment und die Querkraft.
+Konvergenzverhalten der FEM-Lösung für das Schnittmoment und die Querkraft.
 ```
 
-Allgemein zeigt sich, dass die FEM Lösung mit zunehmender Anzahl an Elementen gegen die analytische Lösung konvergiert. Dabei ist festzuhalten, dass die Konvergenz des Schnittmomentes schneller ist als die Konvergenz der Querkraft. Dies zeigt sich auch im doppelt logarithmischen Diagramm {numref}`BalkenFEM05`. Beide Kurven zeigen eine lineare Abhängigkeit, jedoch ist die Steigung der Konvergenzkurve für das Schnittmoment größer als die Steigung der Konvergenzkurve für die Querkraft.
+Allgemein zeigt sich, dass die FEM-Lösung mit zunehmender Anzahl an Elementen gegen die analytische Lösung konvergiert. Dabei ist festzuhalten, dass die Konvergenz des Schnittmoments schneller ist als die Konvergenz der Querkraft. Dies zeigt sich auch im doppelt logarithmischen Diagramm {numref}`BalkenFEM05`. Beide Kurven zeigen eine lineare Abhängigkeit, jedoch ist die Steigung der Konvergenzkurve für das Schnittmoment größer als die Steigung der Konvergenzkurve für die Querkraft.
 
 ```{figure} images/Balken_FEM_05.png
 ---
 width: 600px
 name: BalkenFEM05
 ---
-Konvergenzverhalten der FEM Lösung für die das Schnittmoment und die Querkraft im doppelt logarithmischen Diagramm.
+Konvergenzverhalten der FEM-Lösung für das Schnittmoment und die Querkraft im doppelt logarithmischen Diagramm.
 ```
 
 
 ## Interaktives Notebook
 
-Basierend auf der präsentierten Theorie wurde ein Jupyter Notebook erstellt. Dieses kann man ohne Systemvorraussetzungen im Browser ausführen:
+Basierend auf der präsentierten Theorie wurde ein Jupyter Notebook erstellt. Dieses kann man ohne Systemvoraussetzungen im Browser ausführen:
 
 Balken FEM for Binder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/steffenbeese/FEM_I_Notebooks/main?urlpath=%2Fdoc%2Ftree%2FNotebook_BalkenFEM.ipynb)
 
@@ -429,7 +430,7 @@ Balken FEM for Binder [![Binder](https://mybinder.org/badge_logo.svg)](https://m
 - Welche Aussage ist richtig:
   - [ ] Das Schnittmoment ist linear im Element.
   - [ ] Die Schnittkraft ist linear im Element.
-  - [ ] Die Verschiebung ist über die Elementgrenzen stetig
-  - [ ] Die Ableitung der Verschiebung ist über die Elementgrenzen stetig
+  - [ ] Die Verschiebung ist über die Elementgrenzen stetig.
+  - [ ] Die Ableitung der Verschiebung ist über die Elementgrenzen stetig.
 
 ```

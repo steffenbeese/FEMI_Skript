@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2. Die Finite Elemente Methode &#8212; Finite Elemente Methode 1</title>
+    <title>2. Die Finite-Elemente-Methode &#8212; Finite Elemente Methode 1</title>
   
   
   
@@ -183,9 +183,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Die Finite Elemente Methode</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Die Finite-Elemente-Methode</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="FEM.html">2.1. Von der starken zur schwachen Form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1dFEM.html">2.2. Die Schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1dFEM.html">2.2. Die schwache Form am Beispiel des Stabes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="BalkenFEM.html">2.3. Die Balken-FEM</a></li>
 </ul>
 </details></li>
@@ -204,14 +204,32 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Praktische Hinweise zur Anwendung der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.3. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Zeitabhängige Problemstellungen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter6/Overview.html">5. Zeitabhängige Problemstellungen in der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/TransienteDynamik.html">5.1. Transiente Dynamik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/Modalanalyse.html">5.2. Modalanalysen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/W%C3%A4rmeleitung.html">5.3. Wärmeleitung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Nichtlineare FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter5/Overview.html">6. Einführung in die nichtlineare FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/GeometrischeNichtlinearit%C3%A4t.html">6.1. Geometrische Nichtlinearität</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/MaterielleNichtlinearit%C3%A4t.html">6.2. Materielle Nichtlinearität</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/Kontakt.html">6.3. Kontakt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/WeitereNichtlineareEffekte.html">6.4. Weitere Nichtlineare Effekte</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">7. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -392,7 +410,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Die Finite Elemente Methode</h1>
+    <h1>Die Finite-Elemente-Methode</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -407,8 +425,8 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="die-finite-elemente-methode">
-<h1><span class="section-number">2. </span>Die Finite Elemente Methode<a class="headerlink" href="#die-finite-elemente-methode" title="Link to this heading">#</a></h1>
-<p>In den nachfolgenden Abschnitten werden die Grundzüge der Finiten Elemente Methode eingeführt. Bei dieser Einführung handelt es sich um eine Ingenieurwissenschaftliche Darstellung. Auf mathematische Anforderungen und Restriktionen wird nur bei Bedarf eingegangen. Für eine mathematisch rigorose Herleitung sei an dieser Stelle auf das Buch von Braess <span id="id1">[<a class="reference internal" href="../../quellen.html#id14" title="Dietrich Braess. Finite elemente: Theorie, schnelle löser und anwendungen in der elastizitätstheorie. Springer-Verlag, 2013.">Braess, 2013</a>]</span> verwiesen.</p>
+<h1><span class="section-number">2. </span>Die Finite-Elemente-Methode<a class="headerlink" href="#die-finite-elemente-methode" title="Link to this heading">#</a></h1>
+<p>In den nachfolgenden Abschnitten werden die Grundzüge der Finite-Elemente-Methode eingeführt. Bei dieser Einführung handelt es sich um eine ingenieurwissenschaftliche Darstellung. Auf mathematische Anforderungen und Restriktionen wird nur bei Bedarf eingegangen. Für eine mathematisch rigorose Herleitung sei an dieser Stelle auf das Buch von Braess <span id="id1">[<a class="reference internal" href="../../quellen.html#id14" title="Dietrich Braess. Finite elemente: Theorie, schnelle löser und anwendungen in der elastizitätstheorie. Springer-Verlag, 2013.">Braess, 2013</a>]</span> verwiesen.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>

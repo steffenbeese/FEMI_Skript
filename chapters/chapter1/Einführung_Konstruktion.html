@@ -183,9 +183,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite-Elemente-Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.1. Von der starken zur schwachen Form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die Schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die schwache Form am Beispiel des Stabes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter2/BalkenFEM.html">2.3. Die Balken-FEM</a></li>
 </ul>
 </details></li>
@@ -204,14 +204,32 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Praktische Hinweise zur Anwendung der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Modalanalyse.html">4.3. Modalanalyse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.4. Vernetzung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.3. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Zeitabhängige Problemstellungen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter6/Overview.html">5. Zeitabhängige Problemstellungen in der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/TransienteDynamik.html">5.1. Transiente Dynamik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/Modalanalyse.html">5.2. Modalanalysen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/W%C3%A4rmeleitung.html">5.3. Wärmeleitung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Nichtlineare FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter5/Overview.html">6. Einführung in die nichtlineare FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/GeometrischeNichtlinearit%C3%A4t.html">6.1. Geometrische Nichtlinearität</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/MaterielleNichtlinearit%C3%A4t.html">6.2. Materielle Nichtlinearität</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/Kontakt.html">6.3. Kontakt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/WeitereNichtlineareEffekte.html">6.4. Weitere Nichtlineare Effekte</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">7. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -429,18 +447,17 @@
 <p><span class="caption-number">Abb. 1.1 </span><span class="caption-text">Einordnung numerischer Simulation in den Konstruktionsprozess nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span></span><a class="headerlink" href="#konstruktionsprozess" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Finite-Elemente-Programme spielen eine wichtige Rolle bei der Untersuchung realer Tragwerke und technischer Aufgabenstellungen. Dieses leistungsfähige Tool ermöglicht es beispielsweise, die Integrität einer Pkw-Karosserie oder eines Rahmentragwerks zu analysieren, indem die Simulation eines Crash-Vorgangs durchgeführt wird oder die Traglast eines Bauteils berechnet wird. Für die virtuelle Produktentwicklung und eine prototypenfreie (oder prototypenarme) Entwicklung ist die Finite Elemente Methode aus den Entwicklungsabteilungen nicht mehr wegzudenken.</p>
+<p>Finite-Elemente-Programme spielen eine wichtige Rolle bei der Untersuchung realer Tragwerke und technischer Aufgabenstellungen. Dieses leistungsfähige Tool ermöglicht es beispielsweise, die Integrität einer Pkw-Karosserie oder eines Rahmentragwerks zu analysieren, indem die Simulation eines Crash-Vorgangs durchgeführt wird oder die Traglast eines Bauteils berechnet wird. Für die virtuelle Produktentwicklung und eine prototypenfreie (oder prototypenarme) Entwicklung ist die Finite-Elemente-Methode aus den Entwicklungsabteilungen nicht mehr wegzudenken.</p>
 <p>Der Weg zu einer validen FE-Simulation ist mehrstufig und interdisziplinär. In Abbildung <a class="reference internal" href="#konstruktionsprozess"><span class="std std-numref">Abb. 1.1</span></a> sind die eigentlichen Schritte, die die Finite-Elemente-Methode betreffen, durch einen dicken Rahmen gekennzeichnet. Die vor- und nachgelagerte Prozesskette sollte von dem/der berechnenden Ingenieur/in eng begleitet werden, denn die Ergebnisse einer Simulation können nur so gut sein wie die Eingangsdaten: <strong>Garbage in, garbage out</strong>.</p>
-<p>Zu erst wird die reale Struktur und ihre Belastung definiert und anschließend in geeigneter Weise abstrahiert:</p>
+<p>Zunächst wird die reale Struktur und ihre Belastung definiert und anschließend in geeigneter Weise abstrahiert:</p>
 <ul class="simple">
-<li><p>genügt eine 2D Berechnung oder gar eine 1D Berechnung</p></li>
-<li><p>Welche geometrischen Details fließen in die Simulation ein</p></li>
+<li><p>Genügt eine 2D-Berechnung oder gar eine 1D-Berechnung?</p></li>
+<li><p>Welche geometrischen Details fließen in die Simulation ein?</p></li>
 <li><p>Kann ich die tatsächliche Last abstrahieren?</p></li>
 <li><p>etc.</p></li>
 </ul>
 <p>Das resultierende mechanische Modell ist somit eine idealisierte Darstellung der realen Problemstellung. Es geht darum, unwichtige Details wegzulassen, um die Berechnungen effizient und fokussiert zu halten, während gleichzeitig alle relevanten Belastungen präzise definiert werden müssen.</p>
-<p>Auf die Modellierung folgt die Diskretisierung in finite Elemente. Dies sind kleine standardisierte geometrische Objekte, auf denen die physikalischen Modellgleichungen gelöst werden. Mehr hierzu in späteren Kapiteln.
-Die Diskretisierung wird über sogenannte <em>Preprozessoren</em> generiert. In modernen FE Softwarepaketen sind diese Programmeinheiten integriert. Für gesonderte Diskretisierungsanforderungen gibt es jedoch auch Spezialsofware wie:</p>
+<p>Auf die Modellierung folgt die Diskretisierung in finite Elemente. Dies sind kleine, standardisierte geometrische Objekte, auf denen die physikalischen Modellgleichungen gelöst werden. Mehr hierzu in späteren Kapiteln. Die Diskretisierung wird über sogenannte <em>Preprozessoren</em> generiert. In modernen FE-Softwarepaketen sind diese Programmeinheiten integriert. Für gesonderte Diskretisierungsanforderungen gibt es jedoch auch Spezialsoftware wie:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://altair.com/hypermesh/">Hypermesh</a></p></li>
 <li><p><a class="reference external" href="https://www.beta-cae.com/">Ansa</a></p></li>
@@ -448,7 +465,7 @@ Die Diskretisierung wird über sogenannte <em>Preprozessoren</em> generiert. In 
 </ul>
 <p>um nur einige zu nennen.
 Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite Elemente. Auch die Belastungen müssen aus dem mechanischen Modell diskretisiert werden.</p>
-<p>Das erstellte Finite-Elemente-Modell dient als Grundlage für die weiterführenden Berechnungen mit der gewählten FEM-Software - dem <em>Prozessor</em>. Innerhalb des Programms wird aus den Eingabedaten ein, in der Regel nichlineares, Gleichungssystem generiert und gelöst, das schließlich Aufschluss über relevante Größen wie Verschiebungen, Dehnungen, Spannungen, Wärmefluss, Temperaturverteilung gibt. Da die Menge an Ergebnisdaten bei großen Problemen erheblich sein kann, sind <em>Postprozessoren</em> unverzichtbar, um eine übersichtliche und grafische Auswertung zu gewährleisten. Auch diese sind in kommerziellen FE-Systemen integriert und auch hier haben sich für bestimmte Anwendungsfälle spezialisierte Softwarelösungen etabliert:</p>
+<p>Das erstellte Finite-Elemente-Modell dient als Grundlage für die weiterführenden Berechnungen mit der gewählten FEM-Software - dem <em>Prozessor</em>. Innerhalb des Programms wird aus den Eingabedaten ein, in der Regel nichtlineares, Gleichungssystem generiert und gelöst, das schließlich Aufschluss über relevante Größen wie Verschiebungen, Dehnungen, Spannungen, Wärmefluss und Temperaturverteilung gibt. Da die Menge an Ergebnisdaten bei großen Problemen erheblich sein kann, sind <em>Postprozessoren</em> unverzichtbar, um eine übersichtliche und grafische Auswertung zu gewährleisten. Auch diese sind in kommerziellen FE-Systemen integriert, und auch hier haben sich für bestimmte Anwendungsfälle spezialisierte Softwarelösungen etabliert:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.paraview.org/">Paraview</a></p></li>
 <li><p><a class="reference external" href="https://tecplot.com/">Tecplot</a></p></li>
@@ -458,6 +475,7 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 <p>um auch hier nur einige zu nennen.</p>
 <p>Der wichtigste Schritt für den/die Entwicklungsingenieur/in bei der FE-Simulation ist die anschließende Auswertung und Bewertung der Ergebnisse. Man sollte den Resultaten stets mit einem gewissen Maß an Skepsis begegnen und entsprechende Kontrollen hinsichtlich Plausibilität und Größenordnung durchführen. Dies kann durch Vergleiche mit Einfachmodellen und experimentellen Untersuchungen unterstützt werden.</p>
 <p>Letztlich muss der/die Anwender/in die Resultate im Kontext der technischen Aufgabe interpretieren. Sollten die Ergebnisse nicht zufriedenstellend sein, kann es notwendig sein, die Rechnung zu wiederholen. Dies kann Änderungen im Finite-Elemente-Modell, der Idealisierung der Struktur oder der Festlegung der Belastungen nach sich ziehen. Nur durch diese iterative Vorgehensweise lässt sich ein genaues und verlässliches Bild des untersuchten technischen Systems gewinnen.</p>
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 <!-- - **Nutzung von Finite-Elemente-Programmen**
   - Anwendung zur Untersuchung realer Tragwerke unter technischen Aufgabenstellungen
   - Beispiele für reale Strukturen: Pkw-Karosserie, Stockwerkrahmen
@@ -496,7 +514,7 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 <p>Die Definition eines Systems umfasst mehrere wesentliche Schritte:</p>
 <ol class="arabic simple">
 <li><p><strong>Identifikation der Systemgrenzen</strong>: Hier wird festgelegt, was zum System gehört und was nicht. Diese Abgrenzung ist entscheidend, um den Fokus der Analyse zu bestimmen und irrelevante Einflüsse auszuschließen.</p></li>
-<li><p><strong>Bestimmung der Systemelemente</strong>: In diesem Schritt werden die Komponenten identifiziert, die Teil des Systems sind. Diese Komponenten können physikalische Objekte, biologische Organismen, soziale Gruppen,  technische Bauteile, etc. sein.</p></li>
+<li><p><strong>Bestimmung der Systemelemente</strong>: In diesem Schritt werden die Komponenten identifiziert, die Teil des Systems sind. Diese Komponenten können physikalische Objekte, biologische Organismen, soziale Gruppen, technische Bauteile etc. sein.</p></li>
 <li><p><strong>Beschreibung der Beziehungen zwischen den Systemelementen</strong>: Hier wird untersucht, wie die einzelnen Komponenten miteinander interagieren.</p></li>
 </ol>
 <p>Ein gut definiertes System ist entscheidend für die Genauigkeit und Zuverlässigkeit der Simulationsergebnisse. Nur wenn alle relevanten Komponenten und deren Interaktionen korrekt erfasst und modelliert werden, können valide Aussagen über das Systemverhalten getroffen werden.</p>
@@ -504,13 +522,14 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 <p>In der numerischen Simulation wird der Zustand eines Systems durch eine Reihe von Zustandsgrößen oder Zustandsvariablen beschrieben. Diese Variablen repräsentieren die Eigenschaften des Systems zu einem bestimmten Zeitpunkt.</p>
 <ul class="simple">
 <li><p><strong>Zustand</strong>: Der Zustand eines Systems ist eine vollständige Beschreibung des Systems zu einem bestimmten Zeitpunkt. Er umfasst alle relevanten Informationen, die notwendig sind, um das Verhalten des Systems zu verstehen und vorherzusagen. Der Zustand ist somit eine Momentaufnahme des Systems, die alle wesentlichen Eigenschaften und Charakteristika beinhaltet.</p></li>
-<li><p><strong>Zustandsgröße / Zustandsvariable</strong>: Eine Zustandsgröße ist eine messbare Eigenschaft des Systems, die den Zustand des Systems beschreibt. Beispiele für Zustandsgrößen sind Temperatur, Druck, Spannung und Verformung. Diese Größen sind oft physikalische Messwerte, die direkt beobachtet oder gemessen werden können. Es handelt sich bei Zustandsvariablen zudem meist um Felder, dass heißt sie haben eine räumliche und zeitliche Abhängigkeit.</p></li>
+<li><p><strong>Zustandsgröße / Zustandsvariable</strong>: Eine Zustandsgröße ist eine messbare Eigenschaft des Systems, die den Zustand des Systems beschreibt. Beispiele für Zustandsgrößen sind Temperatur, Druck, Spannung und Verformung. Diese Größen sind oft physikalische Messwerte, die direkt beobachtet oder gemessen werden können. Es handelt sich bei Zustandsvariablen zudem meist um Felder, das heißt, sie haben eine räumliche und zeitliche Abhängigkeit.</p></li>
 <li><p><strong>Systemverhalten</strong>: Das Systemverhalten beschreibt, wie sich das System im Laufe der Zeit entwickelt. Es umfasst die Dynamik und die Reaktionen des Systems auf äußere Einflüsse und interne Prozesse. Das Systemverhalten ist somit die zeitliche Entwicklung des Zustands des Systems und kann durch die zeitliche Abfolge von Punkten im Zustandsraum beschrieben werden.</p></li>
 </ul>
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 </section>
 <section id="klassifikation-von-systemen">
 <h2><span class="section-number">1.2. </span>Klassifikation von Systemen<a class="headerlink" href="#klassifikation-von-systemen" title="Link to this heading">#</a></h2>
-<p>System können nach verschiedenen Ordnungskriterien klassifiziert werden. In der nachfolgenden Tabelle sind die wichtigsten Kriterien und deren Beschreibung aufgeführt.</p>
+<p>Systeme können nach verschiedenen Ordnungskriterien klassifiziert werden. In der nachfolgenden Tabelle sind die wichtigsten Kriterien und deren Beschreibung aufgeführt.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Klassifikation</strong></p></th>
@@ -562,6 +581,7 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 <p><strong>Anforderungen an Modelle</strong></p>
 <p>Modelle müssen original- und realitätsnah sein, um charakteristische Eigenschaften und Verhalten des Originals genau zu beschreiben. Der Modellzweck hängt von den Lebensphasen des Produkts ab, und es ist wichtig, ein angemessenes Aufwand-/Nutzen-Verhältnis zu gewährleisten. Der Aufwand für Modellierung und Analyse ist eng mit dem Detaillierungsgrad (Granularität) des Modells verbunden. Eine sehr genaue Modellierung ist nicht immer notwendig; Unsicherheiten können den Nutzen eines detaillierten Modells in Frage stellen.</p>
 <p>Das Modellverhalten muss im Gültigkeitsbereich dem realen Systemverhalten entsprechen, um die Modellgültigkeit zu gewährleisten. Das Verhalten resultiert aus den Eigenschaften der Modellelemente und deren Verknüpfungen. Bei mehreren geeigneten Modellierungsansätzen sollte die einfachste Methode bevorzugt werden, um die Modelleffizienz zu maximieren. Es gibt keine allgemeinen Regeln für die Herleitung eines einfachen, effizienten und gültigen Modells; vielmehr sind Erfahrung und Vorwissen entscheidend.</p>
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 </section>
 <section id="modellbildung">
 <h2><span class="section-number">1.4. </span>Modellbildung<a class="headerlink" href="#modellbildung" title="Link to this heading">#</a></h2>
@@ -579,7 +599,7 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 <p>Die Modellabstraktion ist ein zentraler Bestandteil der Ingenieurwissenschaft, da sie die Realität einer Berechnung zugänglich macht. Durch die Abstraktion werden irrelevante Details vernachlässigt, während die relevanten Details erhalten bleiben. Das Ziel ist es, ein Modellergebnis zu erzielen, das eine hohe Relevanz für die Lösung der realen Problemstellung aufweist.</p>
 <p><strong>Modellabstraktion als Grundlage für Analyse und Design</strong></p>
 <p>Ein Modell dient als Grundlage für die Analyse und das Design von Systemen. Durch die Konzentration auf die spezifischsten und wichtigsten Merkmale und die Abstraktion von unwichtigen Eigenschaften und Details wird die Komplexität der Problemstellung reduziert. Diese Vereinfachung ist bereits ein Ziel der Analyse, da sie die Handhabbarkeit der Problemstellung ermöglicht. Ohne eine solche Vereinfachung wären viele Problemstellungen innerhalb der praktischen Beschränkungen von Zeit und Ressourcen äußerst komplex zu simulieren oder nicht effektiv zu analysieren.</p>
-<p><strong>Vorteile einfacherer Modelle</strong></p>
+<p><strong>Vorteile einfacher Modelle</strong></p>
 <p>Einfachere Modelle sind von Natur aus leichter zu entwickeln, zu verstehen und zu modifizieren. Dies ist besonders wertvoll in iterativen Designprozessen, in denen häufige Aktualisierungen von Modellen erforderlich sind. Abstrakte Modelle können als gemeinsame Sprache für Ingenieure aus verschiedenen Disziplinen oder mit unterschiedlichem Fachwissen dienen. Sie reduzieren Missverständnisse und ermöglichen eine effektivere Zusammenarbeit in Ingenieurprojekten.</p>
 <p>Darüber hinaus erfordern einfachere Modelle weniger Rechenleistung und Zeit für die Lösung. Dies ermöglicht mehr Iterationen, Sensitivitätsanalysen und die Untersuchung von Designalternativen innerhalb angemessener Zeitrahmen. Die Vereinfachung durch Modellabstraktion trägt somit wesentlich zur Effizienz und Effektivität des gesamten Design- und Analyseprozesses bei.</p>
 <figure class="align-default" id="id5">
@@ -596,13 +616,14 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 <li><p>Welche Sichtweisen auf das zu untersuchende Original (Systemaspekte, Bewertungskriterien) sind für den Modellzweck notwendig?</p></li>
 <li><p>Welche Eigenschaften müssen für die gewünschte Bewertung (z. B. zur Eigenschaftsabsicherung) herangezogen werden?</p></li>
 <li><p>Welche Effekte (Details) müssen daher berücksichtigt oder können vernachlässigt werden?</p></li>
-<li><p>Welche Testsituationen sind zu untersuchen („Lastfälle“, Testszenarien, „use cases“)?</p></li>
+<li><p>Welche Testsituationen sind zu untersuchen („Lastfälle“, Testszenarien, „Use Cases“)?</p></li>
 <li><p>Welche Parameter bzw. Zustandsgrößen eines mathematischen Modells werden als vorgegeben (Parameter), welche als Zustandsvariablen betrachtet?</p></li>
 <li><p>Welche Ergebnisse sind zur Klärung der Fragestellungen erforderlich und in welcher Form sollen die Ergebnisdaten aufbereitet und dokumentiert werden (Ergebnisdarstellung und Dokumentation)?</p></li>
 <li><p>Welche Relevanz und Signifikanz haben die zu erwartenden Ergebnisse in Bezug auf die Fragestellungen? Wird die Fragestellung durch die Ergebnisse auch wirklich beantwortet?</p></li>
 </ul>
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 <p><strong>Verifikation und Validierung</strong></p>
-<p>Jedes Modell stellt lediglich eine mehr oder weniger genaue Annäherung an das Original (z.B. ein reales System) dar. Daher ist es nach der Modellentwicklung notwendig zu überprüfen, ob das Modell mit seinen Idealisierungen das zu untersuchende Original ausreichend genau abbildet. Die Verifikation untersucht, ob sich das Modell grundsätzlich plausibel verhält, und bezieht sich dabei auf das Modellverhalten, unabhängig von Vergleichen mit einem konkreten Original. Die Modell-Verifikation betrifft somit die Überprüfung der Plausibilität des Modellverhaltens an sich, also für „fiktive“ Originale. Die Validierung hingegen liefert eine Aussage darüber, ob das erstellte Modell konkrete Originale hinreichend beschreibt und in welchem Bereich das Modell gültig ist (Grenzen des Modells).</p>
+<p>Jedes Modell stellt lediglich eine mehr oder weniger genaue Annäherung an das Original (z.B. ein reales System) dar. Daher ist es nach der Modellentwicklung notwendig, zu überprüfen, ob das Modell mit seinen Idealisierungen das zu untersuchende Original ausreichend genau abbildet. Die Verifikation untersucht, ob sich das Modell grundsätzlich plausibel verhält, und bezieht sich dabei auf das Modellverhalten, unabhängig von Vergleichen mit einem konkreten Original. Die Modellverifikation betrifft somit die Überprüfung der Plausibilität des Modellverhaltens an sich, also für „fiktive“ Originale. Die Validierung hingegen liefert eine Aussage darüber, ob das erstellte Modell konkrete Originale hinreichend beschreibt und in welchem Bereich das Modell gültig ist (Grenzen des Modells).</p>
 </section>
 <section id="ansatze-zur-abstraktion-mechanischer-modelle">
 <h2><span class="section-number">1.5. </span>Ansätze zur Abstraktion mechanischer Modelle<a class="headerlink" href="#ansatze-zur-abstraktion-mechanischer-modelle" title="Link to this heading">#</a></h2>
@@ -611,12 +632,12 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 <li><p>Vereinfachung der Geometrie</p>
 <ul class="simple">
 <li><p>Abstraktion durch einfachere geometrische Grundkörper</p></li>
-<li><p>Komplexer Maschinenrahmen als Skelettstruktur aus Balken oder ein dünnwandiges Druckgefäß als Schale modelliert werden</p></li>
+<li><p>Komplexe Maschinenrahmen als Skelettstruktur aus Balken oder ein dünnwandiges Druckgefäß als Schale modelliert werden</p></li>
 </ul>
 </li>
 <li><p>Dimensionsreduktion</p>
 <ul class="simple">
-<li><p>Übergang von einer 3D-Darstellung zu einer 2D- (ebener Spannungszustand, ebener Dehnungszustand, rotationssymmetrisch) oder sogar 1D-Darstellung (Balken, Stäbe)</p></li>
+<li><p>Übergang von einer 3D-Darstellung zu einer 2D-Darstellung (ebener Spannungszustand, ebener Dehnungszustand, rotationssymmetrisch) oder sogar 1D-Darstellung (Balken, Stäbe)</p></li>
 </ul>
 </li>
 <li><p>Vereinfachung der Materialeigenschaften</p>
@@ -627,7 +648,7 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 <li><p>Abstraktion der Randbedingungen</p>
 <ul class="simple">
 <li><p>Darstellung komplexer Lagerungen oder Lasten durch idealisierte Randbedingungen</p></li>
-<li><p>Z. B. feste, gelenkige oder rollende Lagerungen, oder durch die Verwendung von Punktlasten oder verteilten Lasten</p></li>
+<li><p>Z. B. feste, gelenkige oder rollende Lagerungen oder durch die Verwendung von Punktlasten oder verteilten Lasten</p></li>
 </ul>
 </li>
 <li><p>Systemebenenabstraktion</p>
@@ -639,6 +660,7 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 </li>
 <li><p>Vereinfachte physikalische Bilanzgleichung</p></li>
 </ol>
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 <div class="warning admonition">
 <p class="admonition-title">Fragen zum Kapitel</p>
 <p><strong>Allgemeine Verständnisfragen zur numerischen Simulation</strong></p>
@@ -646,18 +668,18 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 <li><p>Was sind mögliche Zielstellungen der numerischen Simulation im Konstruktionsprozess?</p></li>
 <li><p>Erläutern Sie den Begriff „Garbage in, garbage out“ im Kontext von Finite-Elemente-Simulationen.</p></li>
 <li><p>Beschreiben Sie die Schritte, die vor einer FE-Simulation durchgeführt werden müssen.</p></li>
-<li><p>Nennen Sie zwei Kriterien für die Wahl zwischen einer 1D-, 2D- oder 3D-Finite-Elemente-Berechnung?</p></li>
+<li><p>Nennen Sie zwei Kriterien für die Wahl zwischen einer 1D-, 2D- oder 3D-Finite-Elemente-Berechnung.</p></li>
 </ul>
 <p><strong>Zum Thema Systembegriff</strong></p>
 <ul class="simple">
 <li><p>Wie wird ein System definiert und welche Elemente umfasst es?</p></li>
 <li><p>Was sind die wesentlichen Schritte bei der Definition eines Systems?</p></li>
-<li><p>Was versteht man unter Zustand, Zustandsgröße in der numerischen Simulation?</p></li>
+<li><p>Was versteht man unter Zustand und Zustandsgröße in der numerischen Simulation?</p></li>
 </ul>
 <p><strong>Zur Klassifikation von Systemen</strong></p>
 <ul class="simple">
-<li><p>Nennen Sie 3 Kriterien zur Klassifikation von Systemenverhalten und beschreiben Sie diese.</p></li>
-<li><p>Warum ist die Kenntnis über das Systemverhalten wichtig für die Simulation?</p></li>
+<li><p>Nennen Sie drei Kriterien zur Klassifikation von Systemverhalten und beschreiben Sie diese.</p></li>
+<li><p>Warum ist das Wissen über das Systemverhalten wichtig für die Simulation?</p></li>
 </ul>
 <p><strong>Über den Modellbegriff</strong></p>
 <ul class="simple">
@@ -667,7 +689,7 @@ Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite El
 </ul>
 <p><strong>Zum Modellbildungsprozess</strong></p>
 <ul class="simple">
-<li><p>Nennen Sie die wesentlichen Schritte im Modellbildungsprozess</p></li>
+<li><p>Nennen Sie die wesentlichen Schritte im Modellbildungsprozess.</p></li>
 <li><p>Welche Bedeutung haben Verifikation und Validierung in der Modellbildung?</p></li>
 </ul>
 <p><strong>Ansätze zur Abstraktion mechanischer Modelle</strong></p>

@@ -24,7 +24,7 @@ Betrachten wir die schwache Form der Impulsbilanz:
 \int_{\mathcal{B}} \delta\eb\T  \bm{\sigma} \dV = \int_{\mathcal{B}} \delta \bm{u}\T \rho \bm{b} \dV + \int_{\partial\mathcal{B}} \delta \bm{u}\T  \bm{t} \dA \; .
 ```
 
-Das die Ableitung der Testfunktion $\delta \bm{u}$ und der Verschiebung $\bm{u}$ berechnet werden muss, wurde bereits im vergangenen Abschnitt erläutert. Zusätzlich muss der Term $\delta\eb\T  \bm{\sigma}$ über das gesamte Volumen des Körpers $\mathcal{B}$ integriert werden. Dabei wird in der Finite-Elemente-Methode die Integration über das Volumen des Körpers $\mathcal{B}$ in eine Summe über die Volumen der Elemente $\mathcal{B}^e$ zerlegt:
+Dass die Ableitung der Testfunktion $\delta \bm{u}$ und der Verschiebung $\bm{u}$ berechnet werden muss, wurde bereits im vergangenen Abschnitt erläutert. Zusätzlich muss der Term $\delta\eb\T  \bm{\sigma}$ über das gesamte Volumen des Körpers $\mathcal{B}$ integriert werden. Dabei wird in der Finite-Elemente-Methode die Integration über das Volumen des Körpers $\mathcal{B}$ in eine Summe über die Volumen der Elemente $\mathcal{B}^e$ zerlegt:
 
 ```{math}
 \int_{\mathcal{B}} \delta\eb\T  \bm{\sigma} \dV = \bigcup_{e=1}^{n_{\text{el}}} \int_{\mathcal{B}^e} \delta\eb\T  \bm{\sigma} \dV_e \; .
@@ -36,14 +36,13 @@ Nun kann die Integration auf Elementebene durchgeführt werden. Diese sind aber 
 \int_{\mathcal{B}^e} \delta\eb\T  \bm{\sigma} \dV_e = \int_{\mathcal{B}_{\square}} \delta\eb\T  \bm{\sigma} \left| \bm{J} \right| \dV_{\square} \; .
 ```
 
-Dabei ist $\left| \bm{J} \right|$ der Determinante der Jacobi-Matrix $\bm{J}$, die die Transformation von $\mathcal{B}_{\square}$ nach $\mathcal{B}^e$ beschreibt. Damit können wir die Funktion $\delta\eb\T  \bm{\sigma}$ jetzt über eine sehr einfache Geometrie integrieren. Sowohl der Integrand $\delta\eb\T  \bm{\sigma}$ als auch die Determinante der Jacobi-Matrix $\left| \bm{J} \right|$ sind in der Regel nicht konstant, ja sogar gebrochen rationale Funktionen. Die Integrale können daher nicht analytisch gelöst werden. Die bisherige exakte Transformation des Intergrals muss nun durch eine numerische Integration ersetzt approximiert werden. Die numerischen Integrationsformeln werden im Folgenden auch als *Quadraturformeln* bezeichnet. Allgemein gilt für eine Quadraturformel:
+Dabei ist $\left| \bm{J} \right|$ die Determinante der Jacobi-Matrix $\bm{J}$, die die Transformation von $\mathcal{B}_{\square}$ nach $\mathcal{B}^e$ beschreibt. Damit können wir die Funktion $\delta\eb\T  \bm{\sigma}$ jetzt über eine sehr einfache Geometrie integrieren. Sowohl der Integrand $\delta\eb\T  \bm{\sigma}$ als auch die Determinante der Jacobi-Matrix $\left| \bm{J} \right|$ sind in der Regel nicht konstant, ja sogar gebrochen rationale Funktionen. Die Integrale können daher nicht analytisch gelöst werden. Die bisherige exakte Transformation des Integrals muss nun durch eine numerische Integration approximiert werden. Die numerischen Integrationsformeln werden im Folgenden auch als *Quadraturformeln* bezeichnet. Allgemein gilt für eine Quadraturformel:
 
 ```{math}
 \int_{\mathcal{B}_{\square}} f(\bm{\xi}) \dV_{\square} \approx \sum_{i=1}^{n_{\text{qp}}} w_i f(\bm{\xi}_i) \; .
 ```
 
-Die Integration der Funktion $f(\bm{\xi})$ über das Gebiet $\mathcal{B}_{\square}$ wird also ersetzt durch eine Summe über die Funktionswerte $f(\bm{\xi}_i)$ an den Integrationspunkten $\bm{\xi}_i$ multipliziert mit den Gewichten $w_i$. Die Anzahl der Integrationspunkte $n_{\text{qp}}$ hängt von der gewünschten Genauigkeit der Integration ab. Die Integrationspunkte und Gewichte sind für die im vorangegangenen Abschnitt beschriebenen Elemente in Tabellen zusammengestellt. Die Genauigkeit der Integration hängt maßgeblich von der Form der Funktion $f(\bm{\xi})$ ab. Allgemein gilt, dass die Genauigkeit der Integration mit der Anzahl der Integrationspunkte steigt. Die in den FE-Programmen meißt verwendeten Integrationspunkte und Gewichte entsprechen den Gauß-Quadraturregeln oder sind zumindest an diese angelehnt. Bei der Gauß-Quadraturregel werden die Integrationspunkte so gewählt, dass die Integration einer Polynomfunktion $f(\bm{\xi})$ bis zu einem bestimmten Grad genau ist. Die Gewichte $w_i$ sind so gewählt, dass die Summe der Gewichte gleich der Fläche des Integrationsgebiets ist. Mit einer Integrationsordnung $m$ kann mit der Gauss-Quadratur ein Polynom $(2m − 1)$-ten Grades exakt integriert werden.
-Betrachten wir erneut die schwache Form und schreiben den Integranden $\delta\eb\T  \bm{\sigma}$ als $\delta\eb\T  \bm{\sigma} = \delta\eb\T  \mathbb{C} \eb$, dann sehen wir, dass rechts und links der Materialtangente $\mathbb{C}$ die die räumliche Ableitung von $\bm{u}_h$ und $\delta\bm{u}_h$ steht. Wenn wir nun quadratische Formfunktionen verwenden, dann ist die Ableitung der Formfunktionen zumindest in einer Koordinatenrichtung weiterhin quadratisch. Durch die Multiplikation im Integranden müssen wir also ein Polynom 4. Grades integrieren. Nach der obigen Definition ist hierfür eine Quadraturfomel 3. Grades erforderlich. 
+Die Integration der Funktion $f(\bm{\xi})$ über das Gebiet $\mathcal{B}_{\square}$ wird also ersetzt durch eine Summe über die Funktionswerte $f(\bm{\xi}_i)$ an den Integrationspunkten $\bm{\xi}_i$, multipliziert mit den Gewichten $w_i$. Die Anzahl der Integrationspunkte $n_{\text{qp}}$ hängt von der gewünschten Genauigkeit der Integration ab. Die Integrationspunkte und Gewichte sind für die im vorangegangenen Abschnitt beschriebenen Elemente in Tabellen zusammengestellt. Die Genauigkeit der Integration hängt maßgeblich von der Form der Funktion $f(\bm{\xi})$ ab. Allgemein gilt, dass die Genauigkeit der Integration mit der Anzahl der Integrationspunkte steigt. Die in den FE-Programmen meist verwendeten Integrationspunkte und Gewichte entsprechen den Gauß-Quadraturregeln oder sind zumindest an diese angelehnt. Bei der Gauß-Quadraturregel werden die Integrationspunkte so gewählt, dass die Integration einer Polynomfunktion $f(\bm{\xi})$ bis zu einem bestimmten Grad genau ist. Die Gewichte $w_i$ sind so gewählt, dass die Summe der Gewichte gleich der Fläche des Integrationsgebiets ist. Mit einer Integrationsordnung $m$ kann mit der Gauß-Quadratur ein Polynom $(2m - 1)$-ten Grades exakt integriert werden. Betrachten wir erneut die schwache Form und schreiben den Integranden $\delta\eb\T  \bm{\sigma}$ als $\delta\eb\T  \bm{\sigma} = \delta\eb\T  \mathbb{C} \eb$, dann sehen wir, dass rechts und links der Materialtangente $\mathbb{C}$ die räumliche Ableitung von $\bm{u}_h$ und $\delta\bm{u}_h$ steht. Wenn wir nun quadratische Formfunktionen verwenden, dann ist die Ableitung der Formfunktionen zumindest in einer Koordinatenrichtung weiterhin quadratisch. Durch die Multiplikation im Integranden müssen wir also ein Polynom 4. Grades integrieren. Nach der obigen Definition ist hierfür eine Quadraturformel 3. Grades erforderlich. 
 
 ```{admonition} Notwendige Ordnung der Integration
 :class: tip
@@ -81,17 +80,17 @@ name: triQuadrature
 alt: triQuadrature
 width: 500px
 ---
-2D-Gauß-Quadraturformeln für Dreickselementen verschiedener Ordnung $m$ nach {cite}`wriggers2008nonlinear`.
+2D-Gauß-Quadraturformeln für Dreieckselemente verschiedener Ordnung $m$ nach {cite}`wriggers2008nonlinear`.
 ```
 
 ## Beispiel: 1D-Integration
 
-Wir möchte das Polynom $f(x) = \frac{1}{2} x^4 + 6x + 4$ über das Intervall $[-1,1]$ integrieren. Die exakte Lösung ist:
+Wir möchten das Polynom $f(x) = \frac{1}{2} x^4 + 6x + 4$ über das Intervall $[-1,1]$ integrieren. Die exakte Lösung ist:
 \begin{equation*}
-\int_{-1}^{1} (\frac{1}{2} x^4 + 6x + 4) \, \mathrm{d}x = \left[\frac{1}{10} x^5+2x^3+4x \right]_{-1}^{1} = 12.2
+\int_{-1}^{1} \left(\frac{1}{2} x^4 + 6x + 4\right) \, \mathrm{d}x = \left[\frac{1}{10} x^5+2x^3+4x \right]_{-1}^{1} = 12.2
 \end{equation*}
 
-Da wir im Interval $[-1,1]$ integrieren, können wir direkt die Gauß-Quadraturformeln verwenden. Wir müssen nicht die Jacobideterminante berechnen. 
+Da wir im Intervall $[-1,1]$ integrieren, können wir direkt die Gauß-Quadraturformeln verwenden. Wir müssen nicht die Jacobideterminante berechnen. 
 Verwenden wir jetzt eine Integrationsordnung mit einem Integrationspunkt, so ergibt sich:
 \begin{align*}
 \xi_p &= 0  & w_p &= 2 \\
@@ -130,7 +129,7 @@ Erst eine Integrationsordnung mit drei Integrationspunkten liefert das exakte Er
 - Welche Aussage ist richtig?
   - [ ] Eine Erhöhung der Integrationsordnung führt zu einer höheren Genauigkeit.
   - [ ] Eine Erhöhung der Integrationsordnung führt zu einer höheren Anzahl an Integrationspunkten.
-  - [ ] Bei zu wenigen Integrationspunkten verhält sich das Element zu "weich"
+  - [ ] Bei zu wenigen Integrationspunkten verhält sich das Element zu "weich".
   - [ ] Unzulässige Null-Energiemodi sind ein Indikator für zu wenige Integrationspunkte.
-  - [ ] Ist die notwendige Anzahl an Integrationspunkten erreicht führt auch eine Erhöhung der Integrationsordnung nicht zu einer besseren Konvergenz.
+  - [ ] Ist die notwendige Anzahl an Integrationspunkten erreicht, führt auch eine Erhöhung der Integrationsordnung nicht zu einer besseren Konvergenz.
 ```

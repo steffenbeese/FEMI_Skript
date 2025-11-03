@@ -183,9 +183,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite-Elemente-Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.1. Von der starken zur schwachen Form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die Schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die schwache Form am Beispiel des Stabes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter2/BalkenFEM.html">2.3. Die Balken-FEM</a></li>
 </ul>
 </details></li>
@@ -199,16 +199,37 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskretisierung</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Diskretisierung.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.1. Fehlerquellen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Praktische Hinweise zur Anwendung der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.3. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Zeitabhängige Problemstellungen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter6/Overview.html">5. Zeitabhängige Problemstellungen in der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/TransienteDynamik.html">5.1. Transiente Dynamik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/Modalanalyse.html">5.2. Modalanalysen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/W%C3%A4rmeleitung.html">5.3. Wärmeleitung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Nichtlineare FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter5/Overview.html">6. Einführung in die nichtlineare FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/GeometrischeNichtlinearit%C3%A4t.html">6.1. Geometrische Nichtlinearität</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/MaterielleNichtlinearit%C3%A4t.html">6.2. Materielle Nichtlinearität</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/Kontakt.html">6.3. Kontakt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/WeitereNichtlineareEffekte.html">6.4. Weitere Nichtlineare Effekte</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">7. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -420,22 +441,22 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="ansatzfunktionen">
 <h1><span class="section-number">3.4. </span>Ansatzfunktionen<a class="headerlink" href="#ansatzfunktionen" title="Link to this heading">#</a></h1>
-<p>Um verzerrungsfreie Starrkörperbewegungen sowie konstante Verzerrungszustände beschreiben zu können, und dabei ein räumlich isotropes Verformungsverhalten zu approximieren, müssen die Ansatzfunktionen vollständig sein.
+<p>Um verzerrungsfreie Starrkörperbewegungen sowie konstante Verzerrungszustände beschreiben zu können und dabei ein räumlich isotropes Verformungsverhalten zu approximieren, müssen die Ansatzfunktionen vollständig sein.
 Für ein ebenes Dreieckselement bedeutet dies z.B.</p>
 <div class="math notranslate nohighlight" id="equation-ansatzfunktionencompletetriangle">
 <span class="eqno">(3.7)<a class="headerlink" href="#equation-ansatzfunktionencompletetriangle" title="Link to this equation">#</a></span>\[\begin{align}
 u(\xi,\eta) &amp;= \underbrace{\underbrace{ a_1 + a_2 \xi + a_3 \eta}_{\text{3 Knoten Dreieck}} + a_4 \xi^2 + a_5 \eta^2 + a_6 \xi \eta}_{\text{6 Knoten Dreieck}} \; .
 \end{align}\]</div>
-<p>Hier sind für ein 3-Knoten-Dreieck Element alle linearen Terme enthalten, für ein 6-Knoten-Dreieck Element sind auch die quadratischen Terme und bilinearen Terme enthalten.
+<p>Hier sind für ein 3-Knoten-Dreieckselement alle linearen Terme enthalten, für ein 6-Knoten-Dreieckselement sind auch die quadratischen und bilinearen Terme enthalten.
 Illustriert kann man sich am besten ein pascalsches Dreieck wie in Abbildung <a class="reference internal" href="#pascaltriangle"><span class="std std-numref">Abb. 3.10</span></a> vorstellen.</p>
 <figure class="align-default" id="pascaltriangle">
 <a class="reference internal image-reference" href="../../_images/Taylor_PascalTriangle.png"><img alt="Pascalsches Dreieck für Dreieckselemente" src="../../_images/Taylor_PascalTriangle.png" style="width: 45%;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.10 </span><span class="caption-text">Pascal’sches Dreieck für Dreieckselemte (<span id="id1">[<a class="reference internal" href="../../quellen.html#id3" title="Olgierd Cecil Zienkiewicz, Robert Leroy Taylor, and Jian Z Zhu. The finite element method: its basis and fundamentals. Elsevier, 2005.">Zienkiewicz <em>et al.</em>, 2005</a>]</span>)</span><a class="headerlink" href="#pascaltriangle" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 3.10 </span><span class="caption-text">Pascal’sches Dreieck für Dreieckselemente (<span id="id1">[<a class="reference internal" href="../../quellen.html#id3" title="Olgierd Cecil Zienkiewicz, Robert Leroy Taylor, and Jian Z Zhu. The finite element method: its basis and fundamentals. Elsevier, 2005.">Zienkiewicz <em>et al.</em>, 2005</a>]</span>)</span><a class="headerlink" href="#pascaltriangle" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Analog kann dazu man ein vollständiges Viereckselement definieren:</p>
+<p>Analog kann dazu ein vollständiges Viereckselement definiert werden:</p>
 <div class="math notranslate nohighlight" id="equation-ansatzfunktionencompletequad">
 <span class="eqno">(3.8)<a class="headerlink" href="#equation-ansatzfunktionencompletequad" title="Link to this equation">#</a></span>\[\begin{align}
 u(\xi,\eta) &amp;= \underbrace{\underbrace{ a_1 + a_2 \xi + a_3 \eta + a_4 \xi \eta}_{\text{4 Knoten Viereck}} + a_5 \xi^2 + a_6 \eta^2 + a_7 \xi^2 \eta + a_8 \xi \eta^2}_{\text{8 Knoten Viereck}} \; .
@@ -450,7 +471,7 @@ u(\xi,\eta) &amp;= \underbrace{\underbrace{ a_1 + a_2 \xi + a_3 \eta + a_4 \xi \
 </figure>
 <section id="formfunktionen-fur-c-0-elemente">
 <h2><span class="section-number">3.4.1. </span>Formfunktionen für <span class="math notranslate nohighlight">\(C^0\)</span>-Elemente<a class="headerlink" href="#formfunktionen-fur-c-0-elemente" title="Link to this heading">#</a></h2>
-<p>Nachfolgend werden kurz die Ansatzfunktionen für 1D, 2D und 3D Elemente mit Lagrange-Polynomen vorgestellt:</p>
+<p>Nachfolgend werden kurz die Ansatzfunktionen für 1D-, 2D- und 3D-Elemente mit Lagrange-Polynomen vorgestellt:</p>
 <section id="d-formfunktionen">
 <h3><span class="section-number">3.4.1.1. </span>1D Formfunktionen<a class="headerlink" href="#d-formfunktionen" title="Link to this heading">#</a></h3>
 <figure class="align-default" id="linearelements">
@@ -614,7 +635,7 @@ N_3 &amp;= \frac{1}{4} (1 + \xi)(1 + \eta) &amp; N_4 &amp;= \frac{1}{4} (1 - \xi
 <p><span class="caption-number">Abb. 3.15 </span><span class="caption-text">Bilineare Formfunktionen für 2D-Rechteck-Elemente.</span><a class="headerlink" href="#quadelementsq4n" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Um ein vollständiges Element der Ordnung 2 zu erhalten benötigt man 9 Knoten beim Rechteck-Element. Die entsprechenden Formfunktionen lauten:</p>
+<p>Um ein vollständiges Element der Ordnung 2 zu erhalten, benötigt man 9 Knoten beim Rechteck-Element. Die entsprechenden Formfunktionen lauten:</p>
 <div class="math notranslate nohighlight" id="equation-2d-formfunktionen-q9">
 <span class="eqno">(3.12)<a class="headerlink" href="#equation-2d-formfunktionen-q9" title="Link to this equation">#</a></span>\[\begin{split}\begin{align*}
 N_1 &amp;= \frac{1}{4} \xi \eta (\xi - 1)(\eta - 1) &amp; N_2 &amp;= \frac{1}{2} (1 - \xi^2) (1 - \eta) \\
@@ -646,7 +667,7 @@ N_8(\xi ,\eta ) &amp; =\frac{1}{2} \left(1-\eta ^2\right) (1-\xi )
 <p><span class="caption-number">Abb. 3.17 </span><span class="caption-text">Biquadratische Serendipity-Formfunktionen für 2D-Rechteck-Elemente (Q2S).</span><a class="headerlink" href="#quadelementsq8n" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Eine weiter Möglichkeit der zweidimensionalen Vernetzung ist die Verwendung von Dreiecken. In den gebräulichen FEM-Programmen werden dabei Dreiecke mit 3 oder 6 Knoten implementiert. Diese sind in <a class="reference internal" href="#triangleelements"><span class="std std-numref">Abb. 3.18</span></a> dargestellt.</p>
+<p>Eine weitere Möglichkeit der zweidimensionalen Vernetzung ist die Verwendung von Dreiecken. In den gebräuchlichen FEM-Programmen werden dabei Dreiecke mit 3 oder 6 Knoten implementiert. Diese sind in <a class="reference internal" href="#triangleelements"><span class="std std-numref">Abb. 3.18</span></a> dargestellt.</p>
 <figure class="align-default" id="triangleelements">
 <a class="reference internal image-reference" href="../../_images/TriangleElements.png"><img alt="triangleElements" src="../../_images/TriangleElements.png" style="width: 500px;" />
 </a>
@@ -654,7 +675,7 @@ N_8(\xi ,\eta ) &amp; =\frac{1}{2} \left(1-\eta ^2\right) (1-\xi )
 <p><span class="caption-number">Abb. 3.18 </span><span class="caption-text">Dreieck-Elemente mit linearen (T1) und quadratischen (T2) Formfunktionen.</span><a class="headerlink" href="#triangleelements" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Die linearen Dreieck-Elemente (T1) sind die einfachsten Elemente und werden in der Literatur häufig als „konstant“ bezeichnet. Dies bezieht sich auf die abgeleiteten Größen (z.B. Spannungen, Dehnungen, etc.). Diese werden als konstant dargestellt. Die Formfunktionen lauten:</p>
+<p>Die linearen Dreieck-Elemente (T1) sind die einfachsten Elemente und werden in der Literatur häufig als „konstant“ bezeichnet. Dies bezieht sich auf die abgeleiteten Größen (z.B. Spannungen, Dehnungen, etc.), die als konstant dargestellt werden. Die Formfunktionen lauten:</p>
 <div class="math notranslate nohighlight" id="equation-2d-formfunktionen-t1">
 <span class="eqno">(3.14)<a class="headerlink" href="#equation-2d-formfunktionen-t1" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
 \lambda &amp; = 1 - \xi - \eta &amp; N_1(\xi ,\eta ) &amp; = \lambda \\
@@ -682,7 +703,7 @@ N_6(\xi ,\eta ) &amp; = 4\lambda \eta
 <a class="reference internal image-reference" href="../../_images/HexElements.png"><img alt="HexElements" src="../../_images/HexElements.png" style="width: 500px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.20 </span><span class="caption-text">3D Hexaeder Elemente mit linearer (8 Knoten) und quadratischer (27 Knoten) Approximation. Zusätzlich ist das 20-Knoten Hexaeder Serendipity-Element gezeigt.</span><a class="headerlink" href="#hexelements" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 3.20 </span><span class="caption-text">3D-Hexaeder-Elemente mit linearer (8 Knoten) und quadratischer (27 Knoten) Approximation. Zusätzlich ist das 20-Knoten-Hexaeder-Serendipity-Element gezeigt.</span><a class="headerlink" href="#hexelements" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Im 3D-Fall werden die Formfunktionen für Hexaeder-Elemente als Tensorprodukt der 1D-Formfunktionen definiert. Für ein 3D-Hexaeder-Element mit 8 Knoten (lineares Element) sind die Formfunktionen:</p>
@@ -702,7 +723,7 @@ N_7 &amp;= \frac{1}{8} (1 + \xi)(1 + \eta)(1 + \zeta) &amp; N_8 &amp;= \frac{1}{
 <p><span class="caption-number">Abb. 3.21 </span><span class="caption-text">Tetraedrische Elemente mit linearen (Tet1) und quadratischen (Tet2) Formfunktionen.</span><a class="headerlink" href="#tetraelements" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Die linearen Tetraederelemente (T4) sind die einfachsten und werden häufig als „konstante“ Elemente in der Literatur bezeichnet, wobei sich auf die abgeleiteten Größen (z.B. Spannungen, Dehnungen, etc.) bezieht. Die Formfunktionen lauten:</p>
+<p>Die linearen Tetraederelemente (T4) sind die einfachsten und werden häufig als „konstante“ Elemente in der Literatur bezeichnet, wobei sich dies auf die abgeleiteten Größen (z.B. Spannungen, Dehnungen, etc.) bezieht. Die Formfunktionen lauten:</p>
 <div class="math notranslate nohighlight" id="equation-3d-shapefunctions-t4">
 <span class="eqno">(3.17)<a class="headerlink" href="#equation-3d-shapefunctions-t4" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
 \lambda &amp;= 1 - \xi - \eta - \zeta &amp; N_1(\xi ,\eta ,\zeta ) &amp;= \lambda \\
@@ -724,12 +745,12 @@ N_{10}(\xi ,\eta ,\zeta ) &amp;= 4\eta \zeta
 <ul class="simple">
 <li><p>Wieviele Knoten hat ein Tetraeder-Element mit linearen Ansatzfunktionen?</p></li>
 <li><p>Wieviele Knoten hat ein Viereck-Element mit quadratischen Ansatzfunktionen?</p></li>
-<li><p>Eine wichtige Eigenschaft der gezeigten Formfunktionen ist, dass sie nur am zugehörigen Knoten den Wert 1 annehmen. An allen anderen Knoten ist der Wert 0. Was bedeuted dies für den Knotenfreiheitsgrad bzgl. seiner physikalischen Deutbarkeit?</p></li>
+<li><p>Eine wichtige Eigenschaft der gezeigten Formfunktionen ist, dass sie nur am zugehörigen Knoten den Wert 1 annehmen. An allen anderen Knoten ist der Wert 0. Was bedeutet dies für den Knotenfreiheitsgrad bzgl. seiner physikalischen Deutbarkeit?</p></li>
 <li><p>Welche Aussage ist richtig?</p>
 <ul>
-<li><p>[ ] Bei Formfunktionen mit quadratischen Polynomgrad ist der Verlauf der Dehnungen im Element quadratisch.</p></li>
-<li><p>[ ] Bei Formfunktionen mit linearen Verlauf sind die Verschiebungen im Element linear.</p></li>
-<li><p>[ ] Die Dehnungen sind über die Elementränder hinweg stetig für Formfunktionen mit quadratischen Polynomgrad.</p></li>
+<li><p>[ ] Bei Formfunktionen mit quadratischem Polynomgrad ist der Verlauf der Dehnungen im Element quadratisch.</p></li>
+<li><p>[ ] Bei Formfunktionen mit linearem Verlauf sind die Verschiebungen im Element linear.</p></li>
+<li><p>[ ] Die Dehnungen sind über die Elementränder hinweg stetig für Formfunktionen mit quadratischem Polynomgrad.</p></li>
 <li><p>[ ] Die Summe der Ansatzfunktionen im Element ist stets 1.</p></li>
 </ul>
 </li>

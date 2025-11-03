@@ -18,7 +18,7 @@ kernelspec:
 
 # Ansatzfunktionen
 
-Um verzerrungsfreie Starrkörperbewegungen sowie konstante Verzerrungszustände beschreiben zu können, und dabei ein räumlich isotropes Verformungsverhalten zu approximieren, müssen die Ansatzfunktionen vollständig sein. 
+Um verzerrungsfreie Starrkörperbewegungen sowie konstante Verzerrungszustände beschreiben zu können und dabei ein räumlich isotropes Verformungsverhalten zu approximieren, müssen die Ansatzfunktionen vollständig sein. 
 Für ein ebenes Dreieckselement bedeutet dies z.B.
 ```{math}	
 :label: ansatzfunktionenCompleteTriangle
@@ -26,7 +26,7 @@ Für ein ebenes Dreieckselement bedeutet dies z.B.
 u(\xi,\eta) &= \underbrace{\underbrace{ a_1 + a_2 \xi + a_3 \eta}_{\text{3 Knoten Dreieck}} + a_4 \xi^2 + a_5 \eta^2 + a_6 \xi \eta}_{\text{6 Knoten Dreieck}} \; .
 \end{align}
 ```
-Hier sind für ein 3-Knoten-Dreieck Element alle linearen Terme enthalten, für ein 6-Knoten-Dreieck Element sind auch die quadratischen Terme und bilinearen Terme enthalten. 
+Hier sind für ein 3-Knoten-Dreieckselement alle linearen Terme enthalten, für ein 6-Knoten-Dreieckselement sind auch die quadratischen und bilinearen Terme enthalten. 
 Illustriert kann man sich am besten ein pascalsches Dreieck wie in Abbildung {numref}`pascaltriangle` vorstellen.
 
 ```{figure} images/Taylor_PascalTriangle.png
@@ -35,10 +35,10 @@ name: pascaltriangle
 alt: Pascalsches Dreieck für Dreieckselemente
 width: 45%
 ---
-Pascal'sches Dreieck für Dreieckselemte ({cite}`zienkiewicz2005finite`)
+Pascal'sches Dreieck für Dreieckselemente ({cite}`zienkiewicz2005finite`)
 ```
 
-Analog kann dazu man ein vollständiges Viereckselement definieren:
+Analog kann dazu ein vollständiges Viereckselement definiert werden:
 ```{math}		
 :label: ansatzfunktionenCompleteQuad
 \begin{align}
@@ -59,7 +59,7 @@ Pascalsches Dreieck für Rechteckelemente ({cite}`zienkiewicz2005finite`). Grau 
 
 ## Formfunktionen für $C^0$-Elemente
 
-Nachfolgend werden kurz die Ansatzfunktionen für 1D, 2D und 3D Elemente mit Lagrange-Polynomen vorgestellt:
+Nachfolgend werden kurz die Ansatzfunktionen für 1D-, 2D- und 3D-Elemente mit Lagrange-Polynomen vorgestellt:
 
 ### 1D Formfunktionen
 
@@ -240,7 +240,7 @@ width: 500px
 Bilineare Formfunktionen für 2D-Rechteck-Elemente.
 ```
 
-Um ein vollständiges Element der Ordnung 2 zu erhalten benötigt man 9 Knoten beim Rechteck-Element. Die entsprechenden Formfunktionen lauten:
+Um ein vollständiges Element der Ordnung 2 zu erhalten, benötigt man 9 Knoten beim Rechteck-Element. Die entsprechenden Formfunktionen lauten:
 
 ```{math}	
 :label: 2D_Formfunktionen_Q9
@@ -285,7 +285,7 @@ width: 500px
 Biquadratische Serendipity-Formfunktionen für 2D-Rechteck-Elemente (Q2S).
 ```
 
-Eine weiter Möglichkeit der zweidimensionalen Vernetzung ist die Verwendung von Dreiecken. In den gebräulichen FEM-Programmen werden dabei Dreiecke mit 3 oder 6 Knoten implementiert. Diese sind in {numref}`triangleElements` dargestellt.
+Eine weitere Möglichkeit der zweidimensionalen Vernetzung ist die Verwendung von Dreiecken. In den gebräuchlichen FEM-Programmen werden dabei Dreiecke mit 3 oder 6 Knoten implementiert. Diese sind in {numref}`triangleElements` dargestellt.
 
 ```{figure} images/TriangleElements.png
 ---
@@ -296,7 +296,7 @@ width: 500px
 Dreieck-Elemente mit linearen (T1) und quadratischen (T2) Formfunktionen.
 ```
 
-Die linearen Dreieck-Elemente (T1) sind die einfachsten Elemente und werden in der Literatur häufig als "konstant" bezeichnet. Dies bezieht sich auf die abgeleiteten Größen (z.B. Spannungen, Dehnungen, etc.). Diese werden als konstant dargestellt. Die Formfunktionen lauten:
+Die linearen Dreieck-Elemente (T1) sind die einfachsten Elemente und werden in der Literatur häufig als "konstant" bezeichnet. Dies bezieht sich auf die abgeleiteten Größen (z.B. Spannungen, Dehnungen, etc.), die als konstant dargestellt werden. Die Formfunktionen lauten:
 
 ```{math}	
 :label: 2D_Formfunktionen_T1
@@ -338,7 +338,7 @@ name: hexElements
 alt: HexElements
 width: 500px
 ---
-3D Hexaeder Elemente mit linearer (8 Knoten) und quadratischer (27 Knoten) Approximation. Zusätzlich ist das 20-Knoten Hexaeder Serendipity-Element gezeigt.
+3D-Hexaeder-Elemente mit linearer (8 Knoten) und quadratischer (27 Knoten) Approximation. Zusätzlich ist das 20-Knoten-Hexaeder-Serendipity-Element gezeigt.
 ```
 
 Im 3D-Fall werden die Formfunktionen für Hexaeder-Elemente als Tensorprodukt der 1D-Formfunktionen definiert. Für ein 3D-Hexaeder-Element mit 8 Knoten (lineares Element) sind die Formfunktionen:
@@ -368,7 +368,7 @@ width: 500px
 Tetraedrische Elemente mit linearen (Tet1) und quadratischen (Tet2) Formfunktionen.
 ```
 
-Die linearen Tetraederelemente (T4) sind die einfachsten und werden häufig als "konstante" Elemente in der Literatur bezeichnet, wobei sich auf die abgeleiteten Größen (z.B. Spannungen, Dehnungen, etc.) bezieht. Die Formfunktionen lauten:
+Die linearen Tetraederelemente (T4) sind die einfachsten und werden häufig als "konstante" Elemente in der Literatur bezeichnet, wobei sich dies auf die abgeleiteten Größen (z.B. Spannungen, Dehnungen, etc.) bezieht. Die Formfunktionen lauten:
 
 ```{math}	
 :label: 3D_ShapeFunctions_T4
@@ -401,10 +401,10 @@ N_{10}(\xi ,\eta ,\zeta ) &= 4\eta \zeta
 
 - Wieviele Knoten hat ein Tetraeder-Element mit linearen Ansatzfunktionen?
 - Wieviele Knoten hat ein Viereck-Element mit quadratischen Ansatzfunktionen?
-- Eine wichtige Eigenschaft der gezeigten Formfunktionen ist, dass sie nur am zugehörigen Knoten den Wert 1 annehmen. An allen anderen Knoten ist der Wert 0. Was bedeuted dies für den Knotenfreiheitsgrad bzgl. seiner physikalischen Deutbarkeit?
+- Eine wichtige Eigenschaft der gezeigten Formfunktionen ist, dass sie nur am zugehörigen Knoten den Wert 1 annehmen. An allen anderen Knoten ist der Wert 0. Was bedeutet dies für den Knotenfreiheitsgrad bzgl. seiner physikalischen Deutbarkeit?
 - Welche Aussage ist richtig?
-  - [ ] Bei Formfunktionen mit quadratischen Polynomgrad ist der Verlauf der Dehnungen im Element quadratisch.
-  - [ ] Bei Formfunktionen mit linearen Verlauf sind die Verschiebungen im Element linear.
-  - [ ] Die Dehnungen sind über die Elementränder hinweg stetig für Formfunktionen mit quadratischen Polynomgrad.
+  - [ ] Bei Formfunktionen mit quadratischem Polynomgrad ist der Verlauf der Dehnungen im Element quadratisch.
+  - [ ] Bei Formfunktionen mit linearem Verlauf sind die Verschiebungen im Element linear.
+  - [ ] Die Dehnungen sind über die Elementränder hinweg stetig für Formfunktionen mit quadratischem Polynomgrad.
   - [ ] Die Summe der Ansatzfunktionen im Element ist stets 1.
 ```

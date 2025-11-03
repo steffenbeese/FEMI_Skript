@@ -20,12 +20,12 @@ Die numerische Mechanik bedient sich computergestützter Techniken zur Ermittlun
 - Kontinuierliche Modelle
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Diskrete Modelle
 
 Diskrete Modelle der Mechanik basieren auf massebehafteten, starren Massepunkten oder Körpern, die durch Kraftpotentiale oder Federverbindungen miteinander in Wechselwirkung stehen. Solche Potentiale werden verwendet, um Interaktionen zwischen atomaren Partikeln (Molekulardynamik) oder Planeten (Gravitationsgesetze) zu modellieren. 
 
-Ein weiteres Anwendungsgebiet in der diskreten Modellierung der Mechanik sind Mechanismen: Systeme aus kinematisch verbundenen, starren Körpern, verbunden durch Kontakte und diskret modellierte elastische Feder- und Dämpferelementen. Beispiele hierfür sind industrielle Fertigungsmaschinen oder der Mechanismus eines Kugelschreibers, von Spannelementen oder Fahrwerken.
+Ein weiteres Anwendungsgebiet in der diskreten Modellierung der Mechanik sind Mechanismen: Systeme aus kinematisch verbundenen, starren Körpern, die durch Kontakte und diskret modellierte elastische Feder- und Dämpferelemente verbunden sind. Beispiele hierfür sind industrielle Fertigungsmaschinen oder der Mechanismus eines Kugelschreibers, von Spannelementen oder Fahrwerken.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -44,28 +44,28 @@ Die mathematische Beschreibung solcher Modelle resultiert typischerweise in eine
 \boldsymbol{M} \ddot{\boldsymbol{x}} + \boldsymbol{D} \dot{\boldsymbol{x}} + \boldsymbol{K} \boldsymbol{x} = \boldsymbol{f}(t)
 \end{equation}
 
-Hierbei repräsentiert $\boldsymbol{x}$ die Position des Massepunktes im Raum und $\ddot{\boldsymbol{x}}$ dessen Beschleunigung. Die Trägheitsmatrix $\boldsymbol{M}$ approximiert die Massenträgheit der Körper, während die Steifigkeitsmatrix $\boldsymbol{K}$ die elastischen Bindungen darstellt. Die Matrix $\boldsymbol{D}$ führt Dämpfungsterme in das System ein und $\boldsymbol{f}(t)$ sind äußere zeitabhängige Kräfte.
+Hierbei repräsentiert $\boldsymbol{x}$ die Position des Massepunkts im Raum und $\ddot{\boldsymbol{x}}$ dessen Beschleunigung. Die Trägheitsmatrix $\boldsymbol{M}$ approximiert die Massenträgheit der Körper, während die Steifigkeitsmatrix $\boldsymbol{K}$ die elastischen Bindungen darstellt. Die Matrix $\boldsymbol{D}$ führt Dämpfungsterme in das System ein und $\boldsymbol{f}(t)$ sind äußere zeitabhängige Kräfte.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-Bei Mechanismen kommen oft Nebenbedingungen wie Kontaktbedingungen oder Regelungsalgorithmen hinzu, was zu Differential-Algebraischen-Gleichungssystemen (DAE) führt.
+Bei Mechanismen kommen oft Nebenbedingungen wie Kontaktbedingungen oder Regelungsalgorithmen hinzu, was zu Differential-Algebraischen Gleichungssystemen (DAE) führt.
 
 Die Herausforderung in der diskreten Mechanik liegt in der Modellierung: Das System muss abstrahiert, Gleichungen und Bedingungen formuliert und für den Rechner aufbereitet werden. Die numerische Aufgabe besteht dann hauptsächlich darin, die Bewegungsgleichungen über die Zeit zu integrieren. In der Festkörpermechanik sind zwei Methoden etabliert:
 
-- Molekular-Dynamik Simulation (MDS) {cite}`grotendorst2009multiscale`
+- Molekulardynamik-Simulation (MDS) {cite}`grotendorst2009multiscale`
 - Mehr-Körper-Simulation (MKS) {cite}`shabana1997flexible`
 
 Für strömungsmechanische Fragestellungen sind ebenfalls Partikelmethoden wie die Gitter-Boltzmann-Methode etabliert.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ### Anwendungen für MKS
 
-Die hier gezeigten Beispiele stammen aus der freien MKS-Software der TU-München [MBSim](https://www.mbsim-env.de/)
+Die hier gezeigten Beispiele stammen aus der freien MKS-Software der TU München [MBSim](https://www.mbsim-env.de/)
 
 <iframe width="640" height="480" src="https://www.mbsim-env.de/static/home/videos/xml_planetary_gear.317ba38de10c.webm" frameborder="0" allowfullscreen></iframe>
 
-**Mehrkörpersimulation eines Planeten Getriebe**
+**Mehrkörpersimulation eines Planetengetriebes**
 
 <iframe width="640" height="480" src="https://www.mbsim-env.de/static/home/videos/xml_spinning_plate.c5e942e12401.webm" frameborder="0" allowfullscreen></iframe>
 
@@ -90,23 +90,23 @@ Unser Fokus liegt auf der Finite-Elemente-Methode (FEM), wobei auch die Finite-D
 
 In der Fluidmechanik hat sich die FEM aufgrund der besonderen Beschaffenheit der Differentialgleichungen nicht durchgesetzt, was ebenfalls thematisiert wird. In diesem Gebiet sind traditionell die Finite-Differenzen-Methode und heute vermehrt die Finite-Volumen-Methode gebräuchlich.
 
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ```{admonition} Fragen zum Kapitel
 :class: warning
 
-**Diskrete Modell**
+**Diskrete Modelle**
 
 - Wie treten Körper innerhalb der diskreten Mechanik in Interaktion?
 - Welche Gleichung ist die Grundlage der Simulation von  Mehrkörpersystemen?
 - Welche zwei Methoden sind in der diskreten Mechanik etabliert?
 - Was ist die numerische Herausforderung in der diskreten Mechanik?
-- Welche Ingenieur-technische Herausforderung gilt es in der diskreten Mechanik zu bewältigen?
+- Welche ingenieurtechnische Herausforderung gilt es in der diskreten Mechanik zu bewältigen?
 
 **Kontinuierliche Modelle**
-- Welcher Gleichungstyp liegen den kontinuierlichen Modellen der Mechanik zugrunde?  
+- Welcher Gleichungstyp liegt den kontinuierlichen Modellen der Mechanik zugrunde?  
 - Was ist korrekt?
   - [ ] Die kontinuierlichen Modelle sind die Grundlage der FEM.
-  - [ ] In den kontinuierlichen Modellen werden komplexe zwischen-atomare Interaktionen berücksichtigt.
+  - [ ] In den kontinuierlichen Modellen werden komplexe zwischenatomare Interaktionen berücksichtigt.
   - [ ] Das Material wird als homogen angesehen.
   - [ ] Die FEM ist besonders für die Fluidmechanik geeignet. 
 

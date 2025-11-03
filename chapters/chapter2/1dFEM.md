@@ -38,7 +38,7 @@ jupytext:
 $ -->
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-# Die Schwache Form am Beispiel des Stabes
+# Die schwache Form am Beispiel des Stabes
 
 ```{figure} images/Stab.png
 ---
@@ -95,7 +95,7 @@ Ersetzen wir nun $\delta u^{\prime}=\delta \e$ und $u^{\prime}=\e$ und setzen di
 
 ## Das Verfahren von Ritz
 
-Als Einführung in die Finite-Element-Methoden beginnen wir mit dem Verfahren, welches von Walter Ritz (1878 - 1909) eingeführt wurde. Dies fußt auf dem Prinzip der virtuellen Arbeit, formuliert als $\delta U − \delta W = 0$, wobei $\delta U$ für die Arbeit der inneren Kräfte und $\delta W$ für die der äußeren Kräfte steht. Für einen einfachen Stab ergibt sich die obige schwache Form {eq}`stabdglsimple_weak2`.
+Als Einführung in die Finite-Elemente-Methoden beginnen wir mit dem Verfahren, welches von Walter Ritz (1878 - 1909) eingeführt wurde. Dies fußt auf dem Prinzip der virtuellen Arbeit, formuliert als $\delta U − \delta W = 0$, wobei $\delta U$ für die Arbeit der inneren Kräfte und $\delta W$ für die der äußeren Kräfte steht. Für einen einfachen Stab ergibt sich die obige schwache Form {eq}`stabdglsimple_weak2`.
 
 Der nächste Schritt ist die Aufstellung einer Näherungslösung $u_h$ für das Verschiebungsfeld $u$, zum Beispiel durch eine quadratische Funktion:
 
@@ -164,7 +164,7 @@ Man kann leicht erkennen, dass mit diesem quadratischen Ansatz die analytische L
 :class: warning
 Ein Problem beim Ritz'schen Verfahren ist die Wahl der Ansatzfunktion. Diese muss die Randbedingungen erfüllen und die Stetigkeitsanforderungen der schwachen Form. Für komplexere Probleme ist die Wahl der Ansatzfunktion nicht trivial und oft auch nicht möglich.
 ```
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Finite Elemente Formulierung für den Stab
 
 ### Diskretisierung der schwachen Form
@@ -185,14 +185,14 @@ Als Beispiel hierfür dient die im Bild {numref}`stabelement` dargestellte Diskr
 ```{admonition} Allgemeines zu Finiten Elementen
 :class: tip
 
-Ein Finites Element besteht in dem vorliegenden Beispiel aus 2 Knoten. Sowohl die Knoten, als auch die Elemente werden im Allgemeinen nummeriert, damit man sie eindeutig ansprechen kann. Im Bild sind die Elementnummern in den rechteckigen Kästen neben dem Element eingetragen. Die Knotennummer sind in den Kreisen neben den Knoten dargestellt. Die Knoten sind die Träger der primären Feldvariablen (hier: Verschiebung $u$) und Ziel der Finiten Elemente Berechnung ist die Bestimmung der primären Variablen, auch Freiheitsgrade (English: Degree of freedom **Dof**) an den Knoten. Im Bild {numref}`stabelement` auf der rechten Seite ist ein einzelnes Stabelement dargestellt. Das Stabelement hat 2 lokale Knoten und um die Verschiebung an diesen Knoten eindeutig zuzuordnen verwenden wir die Notation:
+Ein finites Element besteht in dem vorliegenden Beispiel aus 2 Knoten. Sowohl die Knoten als auch die Elemente werden im Allgemeinen nummeriert, damit man sie eindeutig ansprechen kann. Im Bild sind die Elementnummern in den rechteckigen Kästen neben dem Element eingetragen. Die Knotennummern sind in den Kreisen neben den Knoten dargestellt. Die Knoten sind die Träger der primären Feldvariablen (hier: Verschiebung $u$), und das Ziel der Finite-Elemente-Berechnung ist die Bestimmung der primären Variablen, auch Freiheitsgrade (englisch: Degree of freedom **Dof**) an den Knoten. Im Bild {numref}`stabelement` auf der rechten Seite ist ein einzelnes Stabelement dargestellt. Das Stabelement hat 2 lokale Knoten, und um die Verschiebung an diesen Knoten eindeutig zuzuordnen, verwenden wir die Notation:
 
 $
-u_1^{e} \text{ Verschiebung u am lokalen Knoten 1 von Element e}
+u_1^{e} \text{ Verschiebung } u \text{ am lokalen Knoten 1 von Element } e
 $
 
 $
-u_2^{e} \text{ Verschiebung u am lokalen Knoten 2 von Element e}
+u_2^{e} \text{ Verschiebung } u \text{ am lokalen Knoten 2 von Element } e
 $
 ```
 
@@ -209,7 +209,7 @@ Auf diesen Elementen werden dann einfache Ansatzfunktionen verwendet, welche ein
  \end{align}
 ```
 
-hierbei wurde das lokale Koordinatensystem $\xi = \frac{x}{\ell_e} \; \in \; [0,1]$  eingeführt, damit der gewählte Ansatz für alle Stabelmenete, unabhängig der Stablänge $\ell_e$ gültig ist. In der Matrixschreibweise erhält man für den Ausdruck {eq}`LinearDisplacementAnsatz`:
+Hierbei wurde das lokale Koordinatensystem $\xi = \frac{x}{\ell_e} \; \in \; [0,1]$  eingeführt, damit der gewählte Ansatz für alle Stabelemente, unabhängig von der Stablänge $\ell_e$, gültig ist. In der Matrixschreibweise erhält man für den Ausdruck {eq}`LinearDisplacementAnsatz`:
 
 ```{math}
 :label: LinearDisplacementAnsatz2
@@ -280,7 +280,7 @@ ax.legend([r"$N_1(\xi)$", r"$N_2(\xi)$"])
 ```
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-Zur Berechnung des Prinzips der virtuellen Verrückungen bzw. der schwachen Form wird zusätzlich die Ableitung des Ansatzes für $u_h$ benötigt. Diese repräsentiert die Dehnung des Stabes $\e = \Dd{u}{x}$. Da der Ansatz über die normalisierte Koordinate $\xi$ bestimmt wurde berechnet sich die Ableitung über die Kettenregel:
+Zur Berechnung des Prinzips der virtuellen Verrückungen bzw. der schwachen Form wird zusätzlich die Ableitung des Ansatzes für $u_h$ benötigt. Diese repräsentiert die Dehnung des Stabes $\e = \Dd{u}{x}$. Da der Ansatz über die normalisierte Koordinate $\xi$ bestimmt wurde, berechnet sich die Ableitung über die Kettenregel:
 
 ```{math}
 \e_h = \Dd{u_h}{x} = \Dd{u_h}{\xi} \underbrace{\Dd{\xi}{x}}_{\frac{1}{\ell_e}} = \frac{1}{\ell_e} \begin{bmatrix} -1 & 1 \end{bmatrix} \begin{bmatrix} u_1^{(e)} \\ u_2^{(e)}\end{bmatrix} 
@@ -301,8 +301,7 @@ Betrachten wir nun das Prinzip der virtuellen Verrückungen in Gleichung {eq}`st
  \end{align}
 ```
 
-und setzen hier unseren gewählten Ansatz für $u$, $\e$, $\delta u$ und $\delta \e$ ein, dann erhalten wir die folgende Gleichung:
-
+Setzen wir hier unseren gewählten Ansatz für $u$, $\e$, $\delta u$ und $\delta \e$ ein, dann erhalten wir die folgende Gleichung:
 
 ```{math}
 :label: stabFEM1
@@ -311,7 +310,7 @@ und setzen hier unseren gewählten Ansatz für $u$, $\e$, $\delta u$ und $\delta
  - \textcolor{red}{\int_0^{1} \begin{bmatrix} (1-\xi) & \xi \end{bmatrix} \begin{bmatrix} \delta u_1^{(e)} \\ \delta u_2^{(e)}\end{bmatrix}  n A \ell_e \d \xi} - \textcolor{blue}{\begin{bmatrix} \delta u_1^{(e)} & \delta u_2^{(e)}\end{bmatrix} \begin{bmatrix} S_1^{(e)} \\ S_2^{(e)} \end{bmatrix}}  = 0\; 
 \end{align}
 ```
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 Die Variation der Knotenverschiebung $\delta u_I$ und die Knotenverschiebung $u_I$ sind nicht abhängig von $\xi$ und können somit aus dem Integranden herausgezogen werden:
@@ -354,7 +353,7 @@ Damit wurde die Differentialgleichung 2. Ordnung in eine algebraische Gleichung 
 
 Das Ziel dieses Abschnitts ist es, die Entwicklung der Gleichungen für das Gesamtsystem aus den Elementsteifigkeitsmatrizen zu beschreiben. Wir werden die Assemblierungoperationen vorstellen, die hierfür verwendet werden. Diese Operationen sind ein fester Bestandteil der Finite-Elemente-Methode (FEM) und kommen selbst bei den komplexesten Problemen zum Einsatz. Daher ist es wesentlich, diese Verfahren zu beherrschen, um die FEM zu erlernen.
 
-Die Elemente im unserem dargestellten Beispiel ({numref}`stabelement`) werden mit den Nummern 1 und 2 bezeichnet, während die Knoten von 1 bis 3 nummeriert sind; weder die Knoten noch die Elemente müssen in einem FEM-Netz in einer bestimmten Reihenfolge nummeriert sein. Wir kommen hierzu nochmal später in der Vorlesung.
+Die Elemente in unserem dargestellten Beispiel ({numref}`stabelement`) werden mit den Nummern 1 und 2 bezeichnet, während die Knoten von 1 bis 3 nummeriert sind; weder die Knoten noch die Elemente müssen in einem FEM-Netz in einer bestimmten Reihenfolge nummeriert sein. Wir kommen hierzu nochmal später in der Vorlesung.
 
 Beachten Sie, dass die Kraftgrößen der Elemente $S_i^{(e)}$ mit den Indizes 1 und 2 versehen sind. Dies sind die lokalen Knotennummern. Die Knoten des Netzes sind die globalen Knotennummern. Die lokalen Knotennummern eines Stabelements sind immer in der positiven $\xi$-Richtung mit 1, 2 nummeriert. Die globalen Knotennummern hingegen sind willkürlich.
 
@@ -444,7 +443,7 @@ u_3
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 
-Es bleibt noch übrig die Stabkräfte (innere Kräfte) $S_i$ mit den externen Kräften in Beziehung zu setzen. Für jeden Knoten kann das Kräftegleichgewicht aufgestellt werden:
+Es bleibt noch übrig, die Stabkräfte (innere Kräfte) $S_i$ mit den externen Kräften in Beziehung zu setzen. Für jeden Knoten kann das Kräftegleichgewicht aufgestellt werden:
 
 ```{math}
 :label: stabFEM8
@@ -494,12 +493,12 @@ u_3
 
 ```{admonition} Direkte Assemblierung
 :class: tip
-Innerhalb einer FE-Software werden die entsprechenden Matrizen natürlich nicht explizit zunächst auf die Größe der globalen Matrix "aufgeblasen" um sie später zu addieren. Über die Zuordnung von lokaler zur globalen Knotennummer kann dies effizient direkt erfolgen.
+Innerhalb einer FE-Software werden die entsprechenden Matrizen natürlich nicht explizit zunächst auf die Größe der globalen Matrix "aufgeblasen", um sie später zu addieren. Über die Zuordnung von lokaler zur globalen Knotennummer kann dies effizient direkt erfolgen.
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ### Lösung des Gleichungssystems
 
 In der vorliegenden Form ist die Systemsteifigkeitsmatrix singulär und daher kann das lineare Gleichungssystem so nicht gelöst werden. Das bedeutet aus physikalischer Sicht, dass das System in der Lage ist, Starrkörperbewegungen durchzuführen. Um dieses Problem zu beheben, müssen die kinematischen Randbedingungen integriert werden. Dies geschieht durch Partitionierung des linearen Gleichungssystems. Dabei ordnen wir die Verschiebungsgrößen in bekannte $\bar{\bm{u}}$ und unbekannte $\bm{u}$ Größen:
@@ -616,12 +615,10 @@ u_1 \\ u_2
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ### Berechnung der Schnittgrößen
 
-Die Schnittgrößen $N^{(i)}=\sigma^{(i)} A$ werden in einer Nachlaufrechnung (Postprocessing) mittels des Materialmodell $\sigma^{(i)}=E\e^{(i)}$ bestimmt. Dabei sind die Schnittkräfte:
-
-
+Die Schnittgrößen $N^{(i)}=\sigma^{(i)} A$ werden in einer Nachlaufrechnung (Postprocessing) mittels des Materialmodells $\sigma^{(i)}=E\e^{(i)}$ bestimmt. Dabei sind die Schnittkräfte:
 
 ```{math}
 :label: postproc
@@ -746,6 +743,7 @@ Im rechten Teil von Abbildung {numref}`FE-compare` wird die FE-Approximation fü
 
 Die Genauigkeit dieser Näherungslösung kann augenscheinlich gesteigert werden, indem man die Anzahl der Elemente erhöht. Dies führt dazu, dass die Sprünge im Verlauf der Schnittkräfte bestehen bleiben, aber kleiner ausfallen. Um eine qualitativ signifikante Verbesserung zu erzielen, empfiehlt es sich, Elemente mit quadratischen Ansatzfunktionen für das Verschiebungsfeld zu nutzen. In diesem Fall wird bereits mit einem einzigen Element, das über drei Knotenpunkte verfügt, die exakte Lösung erlangt. In dieser Situation wäre dann die FEM äquivalent dem Ritz'schen Verfahren.
 
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ### Konvergenz der Ergebnisse
 
 ```{figure} images/Stab_Normalkraft_refined.png
@@ -756,20 +754,19 @@ name: stabelement_refined
 Ergebnisse für die Normalspannung in einem Stab unter Eigengewicht mit einer erhöhten Netzfeinheit.
 ```
 
-Bei einer immer feiner werdenen Diskretisierung des Stabes, konvergiert die Lösung gegen die analytische Lösung. Dennoch liegen wie in Abbildung {numref}`stabelement_refined` zu sehen, immernoch Spannungssprünge an den Elementgrenzen vor. Betrachtet man die Fehler der Spannungsergebnisse, so zeigt sich, dass dieser Fehler mit steigender Anzahl an Freihheitsgraden abnimmt. Dies ist in Abbildung {numref}`stabelement_error` zu sehen. Im doppelt logaritmischen Maßstab erhält man eine Gerade für die Abnahme des Fehlers. Auch bei der verwendung von Ansatzfunktionen höherer Ordnung reduziert sich der Fehler nur linear im doppeltlogarithmischen Maßstab. Die Steigung ist jedoch höher, sodass im Allgemeinen mit einer verbesserten Konvergenz zu rechnen ist.
-
+Bei einer immer feiner werdenden Diskretisierung des Stabes konvergiert die Lösung gegen die analytische Lösung. Dennoch liegen, wie in Abbildung {numref}`stabelement_refined` zu sehen, immer noch Spannungssprünge an den Elementgrenzen vor. Betrachtet man die Fehler der Spannungsergebnisse, so zeigt sich, dass dieser Fehler mit steigender Anzahl an Freiheitsgraden abnimmt. Dies ist in Abbildung {numref}`stabelement_error` zu sehen. Im doppelt logarithmischen Maßstab erhält man eine Gerade für die Abnahme des Fehlers. Auch bei der Verwendung von Ansatzfunktionen höherer Ordnung reduziert sich der Fehler nur linear im doppelt logarithmischen Maßstab. Die Steigung ist jedoch höher, sodass im Allgemeinen mit einer verbesserten Konvergenz zu rechnen ist.
 
 ```{figure} images/Stab_error_convergence.png
 ---
 width: 600px
 name: stabelement_error
 ---
-Konvergenz der Spannungsergebniss in einem Stab unter Eigengewicht mit steigender Anzahl an Freihheitsgraden.
+Konvergenz der Spannungsergebnisse in einem Stab unter Eigengewicht mit steigender Anzahl an Freiheitsgraden.
 ```
 
-## Interactives Notebook
+## Interaktives Notebook
 
-asierend auf der präsentierten Theorie wurde ein Jupyter Notebook erstellt. Dieses kann man ohne Systemvorraussetzungen im Browser ausführen:
+Basierend auf der präsentierten Theorie wurde ein Jupyter Notebook erstellt. Dieses kann man ohne Systemvoraussetzungen im Browser ausführen:
 
 StabFEM for Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/steffenbeese/FEM_I_Notebooks/main?urlpath=%2Fdoc%2Ftree%2FNotebook_StabFEM.ipynb)
 
@@ -781,7 +778,7 @@ StabFEM for Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://myb
 **StabFEM**
 
 - Was unterscheidet das Verfahren von Ritz von der FEM?
-- Welches Problem hat man beim Verfahren von Ritz bezüglich der Anssatzfunktion?
+- Welches Problem hat man beim Verfahren von Ritz bezüglich der Ansatzfunktion?
 - Skizzieren Sie die Formfunktionen für ein lineares Stabelement mit 2 Knoten.
 - Auf Elementebene werden die Steifigkeitsmatrizen und die Lastvektoren berechnet. Was passiert danach mit diesen Größen?
 - Das globale Gleichungssystem kann nicht gelöst werden. Die Steifigkeitsmatrix ist singulär. Was könnte der Grund dafür sein?

@@ -64,7 +64,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter3/Postprocessing';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="4. Diskretisierung" href="../chapter4/Diskretisierung.html" />
+    <link rel="next" title="4. Praktische Hinweise zur Anwendung der FEM" href="../chapter4/Overview.html" />
     <link rel="prev" title="3.5. Integration" href="Integration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
@@ -181,9 +181,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite-Elemente-Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.1. Von der starken zur schwachen Form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die Schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die schwache Form am Beispiel des Stabes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter2/BalkenFEM.html">2.3. Die Balken-FEM</a></li>
 </ul>
 </details></li>
@@ -197,16 +197,37 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskretisierung</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Diskretisierung.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.1. Fehlerquellen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Praktische Hinweise zur Anwendung der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.3. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Zeitabhängige Problemstellungen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter6/Overview.html">5. Zeitabhängige Problemstellungen in der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/TransienteDynamik.html">5.1. Transiente Dynamik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/Modalanalyse.html">5.2. Modalanalysen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/W%C3%A4rmeleitung.html">5.3. Wärmeleitung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Nichtlineare FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter5/Overview.html">6. Einführung in die nichtlineare FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/GeometrischeNichtlinearit%C3%A4t.html">6.1. Geometrische Nichtlinearität</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/MaterielleNichtlinearit%C3%A4t.html">6.2. Materielle Nichtlinearität</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/Kontakt.html">6.3. Kontakt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/WeitereNichtlineareEffekte.html">6.4. Weitere Nichtlineare Effekte</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">7. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -474,10 +495,10 @@ Um die an den Gaußpunkten berechneten Werte der sekundären Größen an den Kno
 Es existieren verschiedene Methoden zur Extrapolation von Gaußpunktwerten zu den Knoten, die jeweils unterschiedliche Implikationen für die Ergebnisdarstellung und -genauigkeit haben:</p>
 <ul class="simple">
 <li><p><strong>Zentroidaler Wert (Centroidal Value):</strong> Bei dieser einfachen Methode wird der Durchschnitt der Gaußpunkt-Ergebnisse über alle Gaußpunkte eines Elements berechnet und dieser gemittelte Wert allen Knoten des jeweiligen Elements zugewiesen. Dies führt zu einer sehr starken Glättung der Ergebnisse innerhalb eines Elements.</p></li>
-<li><p><strong>Nodalwerte, extrapoliert von Gaußpunkten (Nodal Values Extrapolated from Gauss Points):</strong> Diese Methode verwendet lineare Formfunktionen, um die Gaußpunktwerte zu den Knoten zu extrapolieren. Die Extrapolation entspricht einem Least-Squares-Fit. Sie wird im Allgemeinen für die Mehrheit der linearen Materialmodelle bevorzugt. Eine wichtige Einschränkung ist jedoch, dass diese Option für nichtlineare Materialien unter Umständen nicht gültig ist, da die Extrapolation von Gaußpunktspannungen zu den Knoten zu nodal Spannungen führen könnte, die die Materialgrenzen überschreiten, was physikalisch inkorrekt wäre.</p></li>
+<li><p><strong>Nodalwerte, extrapoliert von Gaußpunkten (Nodal Values Extrapolated from Gauss Points):</strong> Diese Methode verwendet lineare Formfunktionen, um die Gaußpunktwerte zu den Knoten zu extrapolieren. Die Extrapolation entspricht einem Least-Squares-Fit. Sie wird im Allgemeinen für die Mehrheit der linearen Materialmodelle bevorzugt. Eine wichtige Einschränkung ist jedoch, dass diese Option für nichtlineare Materialien unter Umständen nicht gültig ist, da die Extrapolation von Gaußpunktspannungen zu den Knoten zu nodalen Spannungen führen könnte, die die Materialgrenzen überschreiten, was physikalisch inkorrekt wäre.</p></li>
 <li><p><strong>Gaußpunktwerte direkt an Knoten platziert (Gauss Point Values Placed at Nodes):</strong> Hierbei wird jedes Gaußpunkt-Ergebnis direkt seinem nächstgelegenen Knoten zugewiesen, ohne weitere Extrapolation. Diese Option ist in der Regel am zuverlässigsten für nichtlineare Materialien, da die direkt zugewiesenen Knotenwerte niemals die Materialgrenzen überschreiten werden.</p></li>
 </ul>
-<p>Die grundlegende Natur sekundärer Größen als „abgeleitete“ Größen hat weitreichende Auswirkungen auf ihre Genauigkeit. Während primäre Größen direkt aus der Lösung der Gleichgewichtsgleichungen resultieren , werden sekundäre Größen durch Rücksubstitution aus den primären Größen berechnet. Da die FEM eine Näherungstechnik ist, propagieren Fehler in den primären Größen und können sich in den abgeleiteten sekundären Größen sogar verstärken, was zu einer höheren Fehleranfälligkeit führt (Siehe Konvergenzanalyse der Querkraft bei der Balken FEM). Die Wahl der Extrapolationsmethode ist somit nicht willkürlich, sondern hängt maßgeblich vom Materialmodell ab. Eine lineare Extrapolation kann für nichtlineare Materialien physikalisch unmögliche Ergebnisse liefern, was eine konservativere, direkte Zuweisung erforderlich macht. Dies verdeutlicht die Notwendigkeit, das zugrunde liegende Materialverhalten und dessen Wechselwirkung mit den numerischen Methoden genau zu verstehen, da dies die Gültigkeit und den physikalischen Realismus der postprozessierten Ergebnisse direkt beeinflusst.</p>
+<p>Die grundlegende Natur sekundärer Größen als „abgeleitete“ Größen hat weitreichende Auswirkungen auf ihre Genauigkeit. Während primäre Größen direkt aus der Lösung der Gleichgewichtsgleichungen resultieren, werden sekundäre Größen durch Rücksubstitution aus den primären Größen berechnet. Da die FEM eine Näherungstechnik ist, propagieren Fehler in den primären Größen und können sich in den abgeleiteten sekundären Größen sogar verstärken, was zu einer höheren Fehleranfälligkeit führt (siehe Konvergenzanalyse der Querkraft bei der Balken-FEM). Die Wahl der Extrapolationsmethode ist somit nicht willkürlich, sondern hängt maßgeblich vom Materialmodell ab. Eine lineare Extrapolation kann für nichtlineare Materialien physikalisch unmögliche Ergebnisse liefern, was eine konservativere, direkte Zuweisung erforderlich macht. Dies verdeutlicht die Notwendigkeit, das zugrunde liegende Materialverhalten und dessen Wechselwirkung mit den numerischen Methoden genau zu verstehen, da dies die Gültigkeit und den physikalischen Realismus der postprozessierten Ergebnisse direkt beeinflusst.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-left"><p>Methode</p></th>
@@ -560,11 +581,11 @@ Es existieren verschiedene Methoden zur Extrapolation von Gaußpunktwerten zu de
       </div>
     </a>
     <a class="right-next"
-       href="../chapter4/Diskretisierung.html"
+       href="../chapter4/Overview.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Diskretisierung</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Praktische Hinweise zur Anwendung der FEM</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

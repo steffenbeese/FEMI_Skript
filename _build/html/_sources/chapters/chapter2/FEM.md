@@ -43,7 +43,7 @@ $ -->
 
 # Von der starken zur schwachen Form
 
-Für die in Kapitel 1 eingeführten Randwertprobleme (Massenbilanz, Impulsbilanz und Energiebilanz) wird in diesem Kapitel die theoretischen Grundlagen der Finite Elemente Methode beschrieben. Für jedes der genannten Probleme ist der Ausgangspunkte die **starke** Form der beschreibenden partiellen Differentialgleichung. Am Beispiel der Impulsbilanz soll exemplarisch die zugehörige **schwache** Form hergeleitet werden. Die Begrifflichkeit stark und schwach bezieht sich hierbei auf die Stetigkeits- und Differenzierbarkeitsanforderungen der gesuchten Lösung $\bm{u}$. Die starke Form hat somit **immer** höhere Anforderungen an die Lösung.
+Für die in Kapitel 1 eingeführten Randwertprobleme (Massenbilanz, Impulsbilanz und Energiebilanz) werden in diesem Kapitel die theoretischen Grundlagen der Finite Elemente Methode beschrieben. Für jedes der genannten Probleme ist der Ausgangspunkt die **starke** Form der beschreibenden partiellen Differentialgleichung. Am Beispiel der Impulsbilanz soll exemplarisch die zugehörige **schwache** Form hergeleitet werden. Die Begriffe stark und schwach beziehen sich hierbei auf die Stetigkeits- und Differenzierbarkeitsanforderungen der gesuchten Lösung $\bm{u}$. Die starke Form hat somit **immer** höhere Anforderungen an die Lösung.
 
 ```{figure} ../chapter1/images/Impulsbilanz.jpg
 ---
@@ -74,7 +74,7 @@ Dieser Schritt bedeutet, dass wir im Weiteren versuchen werden, die gekoppelten 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 
-Als nächstes integrieren wir die Gleichung {eq}`weakform_02` partiell. Dafür wenden wir zunächst die Produktregel auf den Divergenzterm an: 
+Als Nächstes integrieren wir die Gleichung {eq}`weakform_02` partiell. Dafür wenden wir zunächst die Produktregel auf den Divergenzterm an: 
 
 ```{math}
 :label: divergenzsatz
@@ -86,7 +86,7 @@ Der Wechsel vom Divergenz-Operator zum Gradienten-Operator im zweiten Term auf d
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 
-Nun lässt sich mit dem Gauß'schen Ingegralsatz der erste Term auf der rechten Seite von Gleichung {eq}`divergenzsatz` als Integral über den Rand formulieren:
+Nun lässt sich mit dem Gauß'schen Integralsatz der erste Term auf der rechten Seite von Gleichung {eq}`divergenzsatz` als Integral über den Rand formulieren:
 
 ```{math}
 :label: gaussIntegralTheorem
@@ -104,10 +104,10 @@ Dieses Resultat wird jetzt wieder in Gleichung {eq}`weakform_02` eingesetzt und 
 ```{admonition} Was haben wir damit erreicht?
 :class: tip
 
-- der Oberflächenterm in {eq}`weakform_03` entspricht den Kraftrandbedingungen 
-- der Term auf der linken Seite in {eq}`weakform_03` enthält nur noch Ableitungen 1. Ordnung von $\bm{u}$, während in {eq}`weakform_01` Ableitungen 2. Ordnung gefordert wurden $\rightarrow$ schwächere Anforderungen an $\bm{u}$!
+- Der Oberflächenterm in {eq}`weakform_03` entspricht den Kraftrandbedingungen 
+- Der Term auf der linken Seite in {eq}`weakform_03` enthält nur noch Ableitungen 1. Ordnung von $\bm{u}$, während in {eq}`weakform_01` Ableitungen 2. Ordnung gefordert wurden $\rightarrow$ schwächere Anforderungen an $\bm{u}$!
 - Gleichung {eq}`weakform_03` ist exakt das Prinzip der virtuellen Verrückungen
-  -  virtuelle Arbeit der Spannungen an den Verzerrungen ist gleich der virtuelle Arbeit der eingeprägten Volumenkräfte plus die virtuelle Arbeit der Oberflächenkräfte
+  -  Virtuelle Arbeit der Spannungen an den Verzerrungen ist gleich der virtuellen Arbeit der eingeprägten Volumenkräfte plus die virtuelle Arbeit der Oberflächenkräfte
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}

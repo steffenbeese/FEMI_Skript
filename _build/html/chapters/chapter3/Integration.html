@@ -183,9 +183,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite Elemente Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite-Elemente-Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.1. Von der starken zur schwachen Form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die Schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die schwache Form am Beispiel des Stabes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../chapter2/BalkenFEM.html">2.3. Die Balken-FEM</a></li>
 </ul>
 </details></li>
@@ -199,16 +199,37 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Diskretisierung</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Diskretisierung.html">4. Diskretisierung</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.1. Fehlerquellen</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Praktische Hinweise zur Anwendung der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.3. Vernetzung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Zeitabhängige Problemstellungen</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter6/Overview.html">5. Zeitabhängige Problemstellungen in der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/TransienteDynamik.html">5.1. Transiente Dynamik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/Modalanalyse.html">5.2. Modalanalysen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter6/W%C3%A4rmeleitung.html">5.3. Wärmeleitung</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Nichtlineare FEM</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter5/Overview.html">6. Einführung in die nichtlineare FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/GeometrischeNichtlinearit%C3%A4t.html">6.1. Geometrische Nichtlinearität</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/MaterielleNichtlinearit%C3%A4t.html">6.2. Materielle Nichtlinearität</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/Kontakt.html">6.3. Kontakt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter5/WeitereNichtlineareEffekte.html">6.4. Weitere Nichtlineare Effekte</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">5. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">7. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -418,17 +439,16 @@
 <p>Betrachten wir die schwache Form der Impulsbilanz:</p>
 <div class="math notranslate nohighlight">
 \[\int_{\mathcal{B}} \delta\eb\T  \bm{\sigma} \dV = \int_{\mathcal{B}} \delta \bm{u}\T \rho \bm{b} \dV + \int_{\partial\mathcal{B}} \delta \bm{u}\T  \bm{t} \dA \; .\]</div>
-<p>Das die Ableitung der Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}\)</span> und der Verschiebung <span class="math notranslate nohighlight">\(\bm{u}\)</span> berechnet werden muss, wurde bereits im vergangenen Abschnitt erläutert. Zusätzlich muss der Term <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> über das gesamte Volumen des Körpers <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> integriert werden. Dabei wird in der Finite-Elemente-Methode die Integration über das Volumen des Körpers <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> in eine Summe über die Volumen der Elemente <span class="math notranslate nohighlight">\(\mathcal{B}^e\)</span> zerlegt:</p>
+<p>Dass die Ableitung der Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}\)</span> und der Verschiebung <span class="math notranslate nohighlight">\(\bm{u}\)</span> berechnet werden muss, wurde bereits im vergangenen Abschnitt erläutert. Zusätzlich muss der Term <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> über das gesamte Volumen des Körpers <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> integriert werden. Dabei wird in der Finite-Elemente-Methode die Integration über das Volumen des Körpers <span class="math notranslate nohighlight">\(\mathcal{B}\)</span> in eine Summe über die Volumen der Elemente <span class="math notranslate nohighlight">\(\mathcal{B}^e\)</span> zerlegt:</p>
 <div class="math notranslate nohighlight">
 \[\int_{\mathcal{B}} \delta\eb\T  \bm{\sigma} \dV = \bigcup_{e=1}^{n_{\text{el}}} \int_{\mathcal{B}^e} \delta\eb\T  \bm{\sigma} \dV_e \; .\]</div>
 <p>Nun kann die Integration auf Elementebene durchgeführt werden. Diese sind aber in der Regel krummlinig berandet und die Integration über das Volumen eines Elements <span class="math notranslate nohighlight">\(\mathcal{B}^e\)</span> ist nicht trivial. Daher wird die Integration über das Volumen des Elements <span class="math notranslate nohighlight">\(\mathcal{B}^e\)</span> in eine Integration über das Volumen des Referenzelements <span class="math notranslate nohighlight">\(\mathcal{B}_{\square}\)</span> umgewandelt:</p>
 <div class="math notranslate nohighlight">
 \[\int_{\mathcal{B}^e} \delta\eb\T  \bm{\sigma} \dV_e = \int_{\mathcal{B}_{\square}} \delta\eb\T  \bm{\sigma} \left| \bm{J} \right| \dV_{\square} \; .\]</div>
-<p>Dabei ist <span class="math notranslate nohighlight">\(\left| \bm{J} \right|\)</span> der Determinante der Jacobi-Matrix <span class="math notranslate nohighlight">\(\bm{J}\)</span>, die die Transformation von <span class="math notranslate nohighlight">\(\mathcal{B}_{\square}\)</span> nach <span class="math notranslate nohighlight">\(\mathcal{B}^e\)</span> beschreibt. Damit können wir die Funktion <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> jetzt über eine sehr einfache Geometrie integrieren. Sowohl der Integrand <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> als auch die Determinante der Jacobi-Matrix <span class="math notranslate nohighlight">\(\left| \bm{J} \right|\)</span> sind in der Regel nicht konstant, ja sogar gebrochen rationale Funktionen. Die Integrale können daher nicht analytisch gelöst werden. Die bisherige exakte Transformation des Intergrals muss nun durch eine numerische Integration ersetzt approximiert werden. Die numerischen Integrationsformeln werden im Folgenden auch als <em>Quadraturformeln</em> bezeichnet. Allgemein gilt für eine Quadraturformel:</p>
+<p>Dabei ist <span class="math notranslate nohighlight">\(\left| \bm{J} \right|\)</span> die Determinante der Jacobi-Matrix <span class="math notranslate nohighlight">\(\bm{J}\)</span>, die die Transformation von <span class="math notranslate nohighlight">\(\mathcal{B}_{\square}\)</span> nach <span class="math notranslate nohighlight">\(\mathcal{B}^e\)</span> beschreibt. Damit können wir die Funktion <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> jetzt über eine sehr einfache Geometrie integrieren. Sowohl der Integrand <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> als auch die Determinante der Jacobi-Matrix <span class="math notranslate nohighlight">\(\left| \bm{J} \right|\)</span> sind in der Regel nicht konstant, ja sogar gebrochen rationale Funktionen. Die Integrale können daher nicht analytisch gelöst werden. Die bisherige exakte Transformation des Integrals muss nun durch eine numerische Integration approximiert werden. Die numerischen Integrationsformeln werden im Folgenden auch als <em>Quadraturformeln</em> bezeichnet. Allgemein gilt für eine Quadraturformel:</p>
 <div class="math notranslate nohighlight">
 \[\int_{\mathcal{B}_{\square}} f(\bm{\xi}) \dV_{\square} \approx \sum_{i=1}^{n_{\text{qp}}} w_i f(\bm{\xi}_i) \; .\]</div>
-<p>Die Integration der Funktion <span class="math notranslate nohighlight">\(f(\bm{\xi})\)</span> über das Gebiet <span class="math notranslate nohighlight">\(\mathcal{B}_{\square}\)</span> wird also ersetzt durch eine Summe über die Funktionswerte <span class="math notranslate nohighlight">\(f(\bm{\xi}_i)\)</span> an den Integrationspunkten <span class="math notranslate nohighlight">\(\bm{\xi}_i\)</span> multipliziert mit den Gewichten <span class="math notranslate nohighlight">\(w_i\)</span>. Die Anzahl der Integrationspunkte <span class="math notranslate nohighlight">\(n_{\text{qp}}\)</span> hängt von der gewünschten Genauigkeit der Integration ab. Die Integrationspunkte und Gewichte sind für die im vorangegangenen Abschnitt beschriebenen Elemente in Tabellen zusammengestellt. Die Genauigkeit der Integration hängt maßgeblich von der Form der Funktion <span class="math notranslate nohighlight">\(f(\bm{\xi})\)</span> ab. Allgemein gilt, dass die Genauigkeit der Integration mit der Anzahl der Integrationspunkte steigt. Die in den FE-Programmen meißt verwendeten Integrationspunkte und Gewichte entsprechen den Gauß-Quadraturregeln oder sind zumindest an diese angelehnt. Bei der Gauß-Quadraturregel werden die Integrationspunkte so gewählt, dass die Integration einer Polynomfunktion <span class="math notranslate nohighlight">\(f(\bm{\xi})\)</span> bis zu einem bestimmten Grad genau ist. Die Gewichte <span class="math notranslate nohighlight">\(w_i\)</span> sind so gewählt, dass die Summe der Gewichte gleich der Fläche des Integrationsgebiets ist. Mit einer Integrationsordnung <span class="math notranslate nohighlight">\(m\)</span> kann mit der Gauss-Quadratur ein Polynom <span class="math notranslate nohighlight">\((2m − 1)\)</span>-ten Grades exakt integriert werden.
-Betrachten wir erneut die schwache Form und schreiben den Integranden <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> als <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma} = \delta\eb\T  \mathbb{C} \eb\)</span>, dann sehen wir, dass rechts und links der Materialtangente <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> die die räumliche Ableitung von <span class="math notranslate nohighlight">\(\bm{u}_h\)</span> und <span class="math notranslate nohighlight">\(\delta\bm{u}_h\)</span> steht. Wenn wir nun quadratische Formfunktionen verwenden, dann ist die Ableitung der Formfunktionen zumindest in einer Koordinatenrichtung weiterhin quadratisch. Durch die Multiplikation im Integranden müssen wir also ein Polynom 4. Grades integrieren. Nach der obigen Definition ist hierfür eine Quadraturfomel 3. Grades erforderlich.</p>
+<p>Die Integration der Funktion <span class="math notranslate nohighlight">\(f(\bm{\xi})\)</span> über das Gebiet <span class="math notranslate nohighlight">\(\mathcal{B}_{\square}\)</span> wird also ersetzt durch eine Summe über die Funktionswerte <span class="math notranslate nohighlight">\(f(\bm{\xi}_i)\)</span> an den Integrationspunkten <span class="math notranslate nohighlight">\(\bm{\xi}_i\)</span>, multipliziert mit den Gewichten <span class="math notranslate nohighlight">\(w_i\)</span>. Die Anzahl der Integrationspunkte <span class="math notranslate nohighlight">\(n_{\text{qp}}\)</span> hängt von der gewünschten Genauigkeit der Integration ab. Die Integrationspunkte und Gewichte sind für die im vorangegangenen Abschnitt beschriebenen Elemente in Tabellen zusammengestellt. Die Genauigkeit der Integration hängt maßgeblich von der Form der Funktion <span class="math notranslate nohighlight">\(f(\bm{\xi})\)</span> ab. Allgemein gilt, dass die Genauigkeit der Integration mit der Anzahl der Integrationspunkte steigt. Die in den FE-Programmen meist verwendeten Integrationspunkte und Gewichte entsprechen den Gauß-Quadraturregeln oder sind zumindest an diese angelehnt. Bei der Gauß-Quadraturregel werden die Integrationspunkte so gewählt, dass die Integration einer Polynomfunktion <span class="math notranslate nohighlight">\(f(\bm{\xi})\)</span> bis zu einem bestimmten Grad genau ist. Die Gewichte <span class="math notranslate nohighlight">\(w_i\)</span> sind so gewählt, dass die Summe der Gewichte gleich der Fläche des Integrationsgebiets ist. Mit einer Integrationsordnung <span class="math notranslate nohighlight">\(m\)</span> kann mit der Gauß-Quadratur ein Polynom <span class="math notranslate nohighlight">\((2m - 1)\)</span>-ten Grades exakt integriert werden. Betrachten wir erneut die schwache Form und schreiben den Integranden <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma}\)</span> als <span class="math notranslate nohighlight">\(\delta\eb\T  \bm{\sigma} = \delta\eb\T  \mathbb{C} \eb\)</span>, dann sehen wir, dass rechts und links der Materialtangente <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> die räumliche Ableitung von <span class="math notranslate nohighlight">\(\bm{u}_h\)</span> und <span class="math notranslate nohighlight">\(\delta\bm{u}_h\)</span> steht. Wenn wir nun quadratische Formfunktionen verwenden, dann ist die Ableitung der Formfunktionen zumindest in einer Koordinatenrichtung weiterhin quadratisch. Durch die Multiplikation im Integranden müssen wir also ein Polynom 4. Grades integrieren. Nach der obigen Definition ist hierfür eine Quadraturformel 3. Grades erforderlich.</p>
 <div class="tip admonition">
 <p class="admonition-title">Notwendige Ordnung der Integration</p>
 <p>Für die Integration der Steifigkeitsmatrix der FEM mit Elementen mit Formfunktionen der Ordnung <span class="math notranslate nohighlight">\(n\)</span> ist eine Quadraturformel der Ordnung:</p>
@@ -457,17 +477,17 @@ Betrachten wir erneut die schwache Form und schreiben den Integranden <span clas
 <a class="reference internal image-reference" href="../../_images/Wriggers_GQ_03.png"><img alt="triQuadrature" src="../../_images/Wriggers_GQ_03.png" style="width: 500px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.24 </span><span class="caption-text">2D-Gauß-Quadraturformeln für Dreickselementen verschiedener Ordnung <span class="math notranslate nohighlight">\(m\)</span> nach <span id="id3">[<a class="reference internal" href="../../quellen.html#id9" title="Peter Wriggers. Nonlinear finite element methods. Springer Science &amp; Business Media, 2008.">Wriggers, 2008</a>]</span>.</span><a class="headerlink" href="#triquadrature" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 3.24 </span><span class="caption-text">2D-Gauß-Quadraturformeln für Dreieckselemente verschiedener Ordnung <span class="math notranslate nohighlight">\(m\)</span> nach <span id="id3">[<a class="reference internal" href="../../quellen.html#id9" title="Peter Wriggers. Nonlinear finite element methods. Springer Science &amp; Business Media, 2008.">Wriggers, 2008</a>]</span>.</span><a class="headerlink" href="#triquadrature" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="beispiel-1d-integration">
 <h2><span class="section-number">3.5.1. </span>Beispiel: 1D-Integration<a class="headerlink" href="#beispiel-1d-integration" title="Link to this heading">#</a></h2>
-<p>Wir möchte das Polynom <span class="math notranslate nohighlight">\(f(x) = \frac{1}{2} x^4 + 6x + 4\)</span> über das Intervall <span class="math notranslate nohighlight">\([-1,1]\)</span> integrieren. Die exakte Lösung ist:</p>
+<p>Wir möchten das Polynom <span class="math notranslate nohighlight">\(f(x) = \frac{1}{2} x^4 + 6x + 4\)</span> über das Intervall <span class="math notranslate nohighlight">\([-1,1]\)</span> integrieren. Die exakte Lösung ist:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-\int_{-1}^{1} (\frac{1}{2} x^4 + 6x + 4) \, \mathrm{d}x = \left[\frac{1}{10} x^5+2x^3+4x \right]_{-1}^{1} = 12.2
+\int_{-1}^{1} \left(\frac{1}{2} x^4 + 6x + 4\right) \, \mathrm{d}x = \left[\frac{1}{10} x^5+2x^3+4x \right]_{-1}^{1} = 12.2
 \end{equation*}\]</div>
-<p>Da wir im Interval <span class="math notranslate nohighlight">\([-1,1]\)</span> integrieren, können wir direkt die Gauß-Quadraturformeln verwenden. Wir müssen nicht die Jacobideterminante berechnen.
+<p>Da wir im Intervall <span class="math notranslate nohighlight">\([-1,1]\)</span> integrieren, können wir direkt die Gauß-Quadraturformeln verwenden. Wir müssen nicht die Jacobideterminante berechnen.
 Verwenden wir jetzt eine Integrationsordnung mit einem Integrationspunkt, so ergibt sich:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -502,9 +522,9 @@ Verwenden wir jetzt eine Integrationsordnung mit einem Integrationspunkt, so erg
 <ul>
 <li><p>[ ] Eine Erhöhung der Integrationsordnung führt zu einer höheren Genauigkeit.</p></li>
 <li><p>[ ] Eine Erhöhung der Integrationsordnung führt zu einer höheren Anzahl an Integrationspunkten.</p></li>
-<li><p>[ ] Bei zu wenigen Integrationspunkten verhält sich das Element zu „weich“</p></li>
+<li><p>[ ] Bei zu wenigen Integrationspunkten verhält sich das Element zu „weich“.</p></li>
 <li><p>[ ] Unzulässige Null-Energiemodi sind ein Indikator für zu wenige Integrationspunkte.</p></li>
-<li><p>[ ] Ist die notwendige Anzahl an Integrationspunkten erreicht führt auch eine Erhöhung der Integrationsordnung nicht zu einer besseren Konvergenz.</p></li>
+<li><p>[ ] Ist die notwendige Anzahl an Integrationspunkten erreicht, führt auch eine Erhöhung der Integrationsordnung nicht zu einer besseren Konvergenz.</p></li>
 </ul>
 </li>
 </ul>

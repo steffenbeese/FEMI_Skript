@@ -23,20 +23,19 @@ Einordnung numerischer Simulation in den Konstruktionsprozess nach {cite}`knothe
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-Finite-Elemente-Programme spielen eine wichtige Rolle bei der Untersuchung realer Tragwerke und technischer Aufgabenstellungen. Dieses leistungsfähige Tool ermöglicht es beispielsweise, die Integrität einer Pkw-Karosserie oder eines Rahmentragwerks zu analysieren, indem die Simulation eines Crash-Vorgangs durchgeführt wird oder die Traglast eines Bauteils berechnet wird. Für die virtuelle Produktentwicklung und eine prototypenfreie (oder prototypenarme) Entwicklung ist die Finite Elemente Methode aus den Entwicklungsabteilungen nicht mehr wegzudenken.
+Finite-Elemente-Programme spielen eine wichtige Rolle bei der Untersuchung realer Tragwerke und technischer Aufgabenstellungen. Dieses leistungsfähige Tool ermöglicht es beispielsweise, die Integrität einer Pkw-Karosserie oder eines Rahmentragwerks zu analysieren, indem die Simulation eines Crash-Vorgangs durchgeführt wird oder die Traglast eines Bauteils berechnet wird. Für die virtuelle Produktentwicklung und eine prototypenfreie (oder prototypenarme) Entwicklung ist die Finite-Elemente-Methode aus den Entwicklungsabteilungen nicht mehr wegzudenken.
 
 Der Weg zu einer validen FE-Simulation ist mehrstufig und interdisziplinär. In Abbildung {numref}`konstruktionsprozess` sind die eigentlichen Schritte, die die Finite-Elemente-Methode betreffen, durch einen dicken Rahmen gekennzeichnet. Die vor- und nachgelagerte Prozesskette sollte von dem/der berechnenden Ingenieur/in eng begleitet werden, denn die Ergebnisse einer Simulation können nur so gut sein wie die Eingangsdaten: **Garbage in, garbage out**.
 
-Zu erst wird die reale Struktur und ihre Belastung definiert und anschließend in geeigneter Weise abstrahiert:
-  - genügt eine 2D Berechnung oder gar eine 1D Berechnung
-  - Welche geometrischen Details fließen in die Simulation ein
+Zunächst wird die reale Struktur und ihre Belastung definiert und anschließend in geeigneter Weise abstrahiert:
+  - Genügt eine 2D-Berechnung oder gar eine 1D-Berechnung?
+  - Welche geometrischen Details fließen in die Simulation ein?
   - Kann ich die tatsächliche Last abstrahieren?
   - etc.
 
 Das resultierende mechanische Modell ist somit eine idealisierte Darstellung der realen Problemstellung. Es geht darum, unwichtige Details wegzulassen, um die Berechnungen effizient und fokussiert zu halten, während gleichzeitig alle relevanten Belastungen präzise definiert werden müssen.
 
-Auf die Modellierung folgt die Diskretisierung in finite Elemente. Dies sind kleine standardisierte geometrische Objekte, auf denen die physikalischen Modellgleichungen gelöst werden. Mehr hierzu in späteren Kapiteln.
-Die Diskretisierung wird über sogenannte *Preprozessoren* generiert. In modernen FE Softwarepaketen sind diese Programmeinheiten integriert. Für gesonderte Diskretisierungsanforderungen gibt es jedoch auch Spezialsofware wie:
+Auf die Modellierung folgt die Diskretisierung in finite Elemente. Dies sind kleine, standardisierte geometrische Objekte, auf denen die physikalischen Modellgleichungen gelöst werden. Mehr hierzu in späteren Kapiteln. Die Diskretisierung wird über sogenannte *Preprozessoren* generiert. In modernen FE-Softwarepaketen sind diese Programmeinheiten integriert. Für gesonderte Diskretisierungsanforderungen gibt es jedoch auch Spezialsoftware wie:
  - [Hypermesh](https://altair.com/hypermesh/)
  - [Ansa](https://www.beta-cae.com/)
  - [Gmsh](https://gmsh.info/) 
@@ -44,7 +43,7 @@ Die Diskretisierung wird über sogenannte *Preprozessoren* generiert. In moderne
 um nur einige zu nennen.
 Zur Diskretisierung gehört nicht nur die Unterteilung des Gebietes in Finite Elemente. Auch die Belastungen müssen aus dem mechanischen Modell diskretisiert werden.
 
-Das erstellte Finite-Elemente-Modell dient als Grundlage für die weiterführenden Berechnungen mit der gewählten FEM-Software - dem *Prozessor*. Innerhalb des Programms wird aus den Eingabedaten ein, in der Regel nichlineares, Gleichungssystem generiert und gelöst, das schließlich Aufschluss über relevante Größen wie Verschiebungen, Dehnungen, Spannungen, Wärmefluss, Temperaturverteilung gibt. Da die Menge an Ergebnisdaten bei großen Problemen erheblich sein kann, sind *Postprozessoren* unverzichtbar, um eine übersichtliche und grafische Auswertung zu gewährleisten. Auch diese sind in kommerziellen FE-Systemen integriert und auch hier haben sich für bestimmte Anwendungsfälle spezialisierte Softwarelösungen etabliert:
+Das erstellte Finite-Elemente-Modell dient als Grundlage für die weiterführenden Berechnungen mit der gewählten FEM-Software - dem *Prozessor*. Innerhalb des Programms wird aus den Eingabedaten ein, in der Regel nichtlineares, Gleichungssystem generiert und gelöst, das schließlich Aufschluss über relevante Größen wie Verschiebungen, Dehnungen, Spannungen, Wärmefluss und Temperaturverteilung gibt. Da die Menge an Ergebnisdaten bei großen Problemen erheblich sein kann, sind *Postprozessoren* unverzichtbar, um eine übersichtliche und grafische Auswertung zu gewährleisten. Auch diese sind in kommerziellen FE-Systemen integriert, und auch hier haben sich für bestimmte Anwendungsfälle spezialisierte Softwarelösungen etabliert:
   - [Paraview](https://www.paraview.org/)
   - [Tecplot](https://tecplot.com/)
   - [Ansa](https://www.beta-cae.com/)
@@ -55,6 +54,8 @@ um auch hier nur einige zu nennen.
 Der wichtigste Schritt für den/die Entwicklungsingenieur/in bei der FE-Simulation ist die anschließende Auswertung und Bewertung der Ergebnisse. Man sollte den Resultaten stets mit einem gewissen Maß an Skepsis begegnen und entsprechende Kontrollen hinsichtlich Plausibilität und Größenordnung durchführen. Dies kann durch Vergleiche mit Einfachmodellen und experimentellen Untersuchungen unterstützt werden.
 
 Letztlich muss der/die Anwender/in die Resultate im Kontext der technischen Aufgabe interpretieren. Sollten die Ergebnisse nicht zufriedenstellend sein, kann es notwendig sein, die Rechnung zu wiederholen. Dies kann Änderungen im Finite-Elemente-Modell, der Idealisierung der Struktur oder der Festlegung der Belastungen nach sich ziehen. Nur durch diese iterative Vorgehensweise lässt sich ein genaues und verlässliches Bild des untersuchten technischen Systems gewinnen.
+
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 
 <!-- - **Nutzung von Finite-Elemente-Programmen**
   - Anwendung zur Untersuchung realer Tragwerke unter technischen Aufgabenstellungen
@@ -95,7 +96,7 @@ Die Definition eines Systems umfasst mehrere wesentliche Schritte:
 
 1. **Identifikation der Systemgrenzen**: Hier wird festgelegt, was zum System gehört und was nicht. Diese Abgrenzung ist entscheidend, um den Fokus der Analyse zu bestimmen und irrelevante Einflüsse auszuschließen.
 
-2. **Bestimmung der Systemelemente**: In diesem Schritt werden die Komponenten identifiziert, die Teil des Systems sind. Diese Komponenten können physikalische Objekte, biologische Organismen, soziale Gruppen,  technische Bauteile, etc. sein.
+2. **Bestimmung der Systemelemente**: In diesem Schritt werden die Komponenten identifiziert, die Teil des Systems sind. Diese Komponenten können physikalische Objekte, biologische Organismen, soziale Gruppen, technische Bauteile etc. sein.
 
 3. **Beschreibung der Beziehungen zwischen den Systemelementen**: Hier wird untersucht, wie die einzelnen Komponenten miteinander interagieren. 
 
@@ -107,14 +108,14 @@ In der numerischen Simulation wird der Zustand eines Systems durch eine Reihe vo
 
 - **Zustand**: Der Zustand eines Systems ist eine vollständige Beschreibung des Systems zu einem bestimmten Zeitpunkt. Er umfasst alle relevanten Informationen, die notwendig sind, um das Verhalten des Systems zu verstehen und vorherzusagen. Der Zustand ist somit eine Momentaufnahme des Systems, die alle wesentlichen Eigenschaften und Charakteristika beinhaltet.
 
-- **Zustandsgröße / Zustandsvariable**: Eine Zustandsgröße ist eine messbare Eigenschaft des Systems, die den Zustand des Systems beschreibt. Beispiele für Zustandsgrößen sind Temperatur, Druck, Spannung und Verformung. Diese Größen sind oft physikalische Messwerte, die direkt beobachtet oder gemessen werden können. Es handelt sich bei Zustandsvariablen zudem meist um Felder, dass heißt sie haben eine räumliche und zeitliche Abhängigkeit.
+- **Zustandsgröße / Zustandsvariable**: Eine Zustandsgröße ist eine messbare Eigenschaft des Systems, die den Zustand des Systems beschreibt. Beispiele für Zustandsgrößen sind Temperatur, Druck, Spannung und Verformung. Diese Größen sind oft physikalische Messwerte, die direkt beobachtet oder gemessen werden können. Es handelt sich bei Zustandsvariablen zudem meist um Felder, das heißt, sie haben eine räumliche und zeitliche Abhängigkeit.
 
 - **Systemverhalten**: Das Systemverhalten beschreibt, wie sich das System im Laufe der Zeit entwickelt. Es umfasst die Dynamik und die Reaktionen des Systems auf äußere Einflüsse und interne Prozesse. Das Systemverhalten ist somit die zeitliche Entwicklung des Zustands des Systems und kann durch die zeitliche Abfolge von Punkten im Zustandsraum beschrieben werden.
 
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Klassifikation von Systemen
 
-System können nach verschiedenen Ordnungskriterien klassifiziert werden. In der nachfolgenden Tabelle sind die wichtigsten Kriterien und deren Beschreibung aufgeführt.
+Systeme können nach verschiedenen Ordnungskriterien klassifiziert werden. In der nachfolgenden Tabelle sind die wichtigsten Kriterien und deren Beschreibung aufgeführt.
 
 | **Klassifikation** | **Beschreibung** |
 |----------------|--------------|
@@ -151,6 +152,7 @@ Modelle müssen original- und realitätsnah sein, um charakteristische Eigenscha
 
 Das Modellverhalten muss im Gültigkeitsbereich dem realen Systemverhalten entsprechen, um die Modellgültigkeit zu gewährleisten. Das Verhalten resultiert aus den Eigenschaften der Modellelemente und deren Verknüpfungen. Bei mehreren geeigneten Modellierungsansätzen sollte die einfachste Methode bevorzugt werden, um die Modelleffizienz zu maximieren. Es gibt keine allgemeinen Regeln für die Herleitung eines einfachen, effizienten und gültigen Modells; vielmehr sind Erfahrung und Vorwissen entscheidend.
 
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ## Modellbildung
 
 ```{admonition} Ziel der Modellbildung
@@ -172,7 +174,7 @@ Die Modellabstraktion ist ein zentraler Bestandteil der Ingenieurwissenschaft, d
 
 Ein Modell dient als Grundlage für die Analyse und das Design von Systemen. Durch die Konzentration auf die spezifischsten und wichtigsten Merkmale und die Abstraktion von unwichtigen Eigenschaften und Details wird die Komplexität der Problemstellung reduziert. Diese Vereinfachung ist bereits ein Ziel der Analyse, da sie die Handhabbarkeit der Problemstellung ermöglicht. Ohne eine solche Vereinfachung wären viele Problemstellungen innerhalb der praktischen Beschränkungen von Zeit und Ressourcen äußerst komplex zu simulieren oder nicht effektiv zu analysieren.
 
-**Vorteile einfacherer Modelle**
+**Vorteile einfacher Modelle**
 
 Einfachere Modelle sind von Natur aus leichter zu entwickeln, zu verstehen und zu modifizieren. Dies ist besonders wertvoll in iterativen Designprozessen, in denen häufige Aktualisierungen von Modellen erforderlich sind. Abstrakte Modelle können als gemeinsame Sprache für Ingenieure aus verschiedenen Disziplinen oder mit unterschiedlichem Fachwissen dienen. Sie reduzieren Missverständnisse und ermöglichen eine effektivere Zusammenarbeit in Ingenieurprojekten.
 
@@ -192,14 +194,15 @@ In Abbildung {numref}`modellbildung` ist der Modellbildungsprozess dargestellt. 
 - Welche Sichtweisen auf das zu untersuchende Original (Systemaspekte, Bewertungskriterien) sind für den Modellzweck notwendig?
 - Welche Eigenschaften müssen für die gewünschte Bewertung (z. B. zur Eigenschaftsabsicherung) herangezogen werden? 
 - Welche Effekte (Details) müssen daher berücksichtigt oder können vernachlässigt werden? 
-- Welche Testsituationen sind zu untersuchen („Lastfälle“, Testszenarien, „use cases“)? 
+- Welche Testsituationen sind zu untersuchen („Lastfälle“, Testszenarien, „Use Cases“)? 
 - Welche Parameter bzw. Zustandsgrößen eines mathematischen Modells werden als vorgegeben (Parameter), welche als Zustandsvariablen betrachtet?
 - Welche Ergebnisse sind zur Klärung der Fragestellungen erforderlich und in welcher Form sollen die Ergebnisdaten aufbereitet und dokumentiert werden (Ergebnisdarstellung und Dokumentation)? 
 - Welche Relevanz und Signifikanz haben die zu erwartenden Ergebnisse in Bezug auf die Fragestellungen? Wird die Fragestellung durch die Ergebnisse auch wirklich beantwortet?
 
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 **Verifikation und Validierung**
 
-Jedes Modell stellt lediglich eine mehr oder weniger genaue Annäherung an das Original (z.B. ein reales System) dar. Daher ist es nach der Modellentwicklung notwendig zu überprüfen, ob das Modell mit seinen Idealisierungen das zu untersuchende Original ausreichend genau abbildet. Die Verifikation untersucht, ob sich das Modell grundsätzlich plausibel verhält, und bezieht sich dabei auf das Modellverhalten, unabhängig von Vergleichen mit einem konkreten Original. Die Modell-Verifikation betrifft somit die Überprüfung der Plausibilität des Modellverhaltens an sich, also für „fiktive“ Originale. Die Validierung hingegen liefert eine Aussage darüber, ob das erstellte Modell konkrete Originale hinreichend beschreibt und in welchem Bereich das Modell gültig ist (Grenzen des Modells).
+Jedes Modell stellt lediglich eine mehr oder weniger genaue Annäherung an das Original (z.B. ein reales System) dar. Daher ist es nach der Modellentwicklung notwendig, zu überprüfen, ob das Modell mit seinen Idealisierungen das zu untersuchende Original ausreichend genau abbildet. Die Verifikation untersucht, ob sich das Modell grundsätzlich plausibel verhält, und bezieht sich dabei auf das Modellverhalten, unabhängig von Vergleichen mit einem konkreten Original. Die Modellverifikation betrifft somit die Überprüfung der Plausibilität des Modellverhaltens an sich, also für „fiktive“ Originale. Die Validierung hingegen liefert eine Aussage darüber, ob das erstellte Modell konkrete Originale hinreichend beschreibt und in welchem Bereich das Modell gültig ist (Grenzen des Modells).
 
 ## Ansätze zur Abstraktion mechanischer Modelle
 
@@ -208,17 +211,17 @@ Zur Abstraktion mechanischer Modelle können folgende Ansätze angewendet werden
 
 1. Vereinfachung der Geometrie
    - Abstraktion durch einfachere geometrische Grundkörper
-   - Komplexer Maschinenrahmen als Skelettstruktur aus Balken oder ein dünnwandiges Druckgefäß als Schale modelliert werden
+   - Komplexe Maschinenrahmen als Skelettstruktur aus Balken oder ein dünnwandiges Druckgefäß als Schale modelliert werden
 
 2. Dimensionsreduktion
-   - Übergang von einer 3D-Darstellung zu einer 2D- (ebener Spannungszustand, ebener Dehnungszustand, rotationssymmetrisch) oder sogar 1D-Darstellung (Balken, Stäbe)
+   - Übergang von einer 3D-Darstellung zu einer 2D-Darstellung (ebener Spannungszustand, ebener Dehnungszustand, rotationssymmetrisch) oder sogar 1D-Darstellung (Balken, Stäbe)
 
 3. Vereinfachung der Materialeigenschaften
    - Wenn angemessen, linear-elastische Materialmodelle anstelle komplexerer nichtlinearer oder anisotroper Modelle
 
 4. Abstraktion der Randbedingungen
    - Darstellung komplexer Lagerungen oder Lasten durch idealisierte Randbedingungen
-   - Z. B. feste, gelenkige oder rollende Lagerungen, oder durch die Verwendung von Punktlasten oder verteilten Lasten
+   - Z. B. feste, gelenkige oder rollende Lagerungen oder durch die Verwendung von Punktlasten oder verteilten Lasten
 
 5. Systemebenenabstraktion
    - Subsysteme oder Komponenten werden als Black Boxes mit definierten Ein- und Ausgängen modelliert
@@ -228,7 +231,7 @@ Zur Abstraktion mechanischer Modelle können folgende Ansätze angewendet werden
 6. Vereinfachte physikalische Bilanzgleichung
 
 
-
+<!-- -+-+-+-+-+-+-AI-SPLIT  -->
 ```{admonition} Fragen zum Kapitel
 :class: warning
 
@@ -237,19 +240,18 @@ Zur Abstraktion mechanischer Modelle können folgende Ansätze angewendet werden
 - Was sind mögliche Zielstellungen der numerischen Simulation im Konstruktionsprozess?
 - Erläutern Sie den Begriff "Garbage in, garbage out" im Kontext von Finite-Elemente-Simulationen.
 - Beschreiben Sie die Schritte, die vor einer FE-Simulation durchgeführt werden müssen.
-- Nennen Sie zwei Kriterien für die Wahl zwischen einer 1D-, 2D- oder 3D-Finite-Elemente-Berechnung?
-
+- Nennen Sie zwei Kriterien für die Wahl zwischen einer 1D-, 2D- oder 3D-Finite-Elemente-Berechnung.
 
 **Zum Thema Systembegriff**
 
 - Wie wird ein System definiert und welche Elemente umfasst es?
 - Was sind die wesentlichen Schritte bei der Definition eines Systems?
-- Was versteht man unter Zustand, Zustandsgröße in der numerischen Simulation?
+- Was versteht man unter Zustand und Zustandsgröße in der numerischen Simulation?
 
 **Zur Klassifikation von Systemen**
 
-- Nennen Sie 3 Kriterien zur Klassifikation von Systemenverhalten und beschreiben Sie diese.
-- Warum ist die Kenntnis über das Systemverhalten wichtig für die Simulation? 
+- Nennen Sie drei Kriterien zur Klassifikation von Systemverhalten und beschreiben Sie diese.
+- Warum ist das Wissen über das Systemverhalten wichtig für die Simulation?
 
 **Über den Modellbegriff**
 
@@ -259,7 +261,7 @@ Zur Abstraktion mechanischer Modelle können folgende Ansätze angewendet werden
 
 **Zum Modellbildungsprozess**
 
-- Nennen Sie die wesentlichen Schritte im Modellbildungsprozess 
+- Nennen Sie die wesentlichen Schritte im Modellbildungsprozess.
 - Welche Bedeutung haben Verifikation und Validierung in der Modellbildung?
 
 **Ansätze zur Abstraktion mechanischer Modelle**

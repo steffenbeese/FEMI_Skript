@@ -37,8 +37,24 @@ parts:
       sections: 
       - file: chapters/chapter4/Symmetrie
       - file: chapters/chapter4/Fehlerquellen
-      - file: chapters/chapter4/Modalanalyse
       - file: chapters/chapter4/Vernetzung
+- caption: Zeitabhängige Problemstellungen
+  numbered: true
+  chapters:
+    - file : chapters/chapter6/Overview
+      sections: 
+      - file: chapters/chapter6/TransienteDynamik
+      - file: chapters/chapter6/Modalanalyse
+      - file: chapters/chapter6/Wärmeleitung
+- caption: Einführung in die Nichtlineare FEM
+  numbered: true
+  chapters:
+  - file: chapters/chapter5/Overview
+    sections:
+    - file: chapters/chapter5/GeometrischeNichtlinearität
+    - file: chapters/chapter5/MaterielleNichtlinearität
+    - file: chapters/chapter5/Kontakt
+    - file: chapters/chapter5/WeitereNichtlineareEffekte
 
 # - file: chapters/chapter2/isoparametrischeFEM
 # - caption: Diskretisierung

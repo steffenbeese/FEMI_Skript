@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. Isoparametrische FEM &#8212; Finite Elemente Methode 1</title>
+    <title>7. Isoparametrische FEM &#8212; Finite Elemente Methode 1</title>
   
   
   
@@ -66,8 +66,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter3/isoparametrischeFEM';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="3.4. Ansatzfunktionen" href="Ansatzfunktionen.html" />
-    <link rel="prev" title="2.3. Die Balken-FEM" href="../chapter2/BalkenFEM.html" />
+    <link rel="next" title="8. Ansatzfunktionen" href="Ansatzfunktionen.html" />
+    <link rel="prev" title="6. Die Balken-FEM" href="../chapter2/BalkenFEM.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -173,63 +173,54 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/elasticity.html">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/strukturgleichungen.html">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter1/Feldgleichungen.html">2. Kontinuierliche Modelle am Beispiel der Elastizitätstheorie</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Modellklassifikation.html">2.1. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Loesungsverfahren.html">2.2. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/elasticity.html">2.3. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/strukturgleichungen.html">2.4. Grundgleichungen einfacher Strukturelemente</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter2/overview.html">2. Die Finite-Elemente-Methode</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/FEM.html">2.1. Von der starken zur schwachen Form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/1dFEM.html">2.2. Die schwache Form am Beispiel des Stabes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter2/BalkenFEM.html">2.3. Die Balken-FEM</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/overview.html">3. Die Finite-Elemente-Methode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/FEM.html">4. Von der starken zur schwachen Form</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/1dFEM.html">5. Die schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter2/BalkenFEM.html">6. Die Balken-FEM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. Isoparametrische FEM</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Ansatzfunktionen.html">3.4. Ansatzfunktionen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Integration.html">3.5. Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Postprocessing.html">3.6. Postprocessing</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Isoparametrische FEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ansatzfunktionen.html">8. Ansatzfunktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Integration.html">9. Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Postprocessing.html">10. Postprocessing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Praktische Hinweise zur Anwendung der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.3. Vernetzung</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4/Overview.html">11. Praktische Hinweise zur Anwendung der FEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4/Symmetrie.html">12. Symmetrie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4/Fehlerquellen.html">13. Fehlerquellen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4/Vernetzung.html">14. Vernetzung</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Zeitabhängige Problemstellungen</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter6/Overview.html">5. Zeitabhängige Problemstellungen in der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter6/TransienteDynamik.html">5.1. Transiente Dynamik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter6/Modalanalyse.html">5.2. Modalanalysen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter6/W%C3%A4rmeleitung.html">5.3. Wärmeleitung</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter6/Overview.html">15. Zeitabhängige Problemstellungen in der FEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter6/TransienteDynamik.html">16. Transiente Dynamik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter6/Modalanalyse.html">17. Modalanalysen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter6/W%C3%A4rmeleitung.html">18. Wärmeleitung</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Nichtlineare FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter5/Overview.html">6. Einführung in die nichtlineare FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter5/GeometrischeNichtlinearit%C3%A4t.html">6.1. Geometrische Nichtlinearität</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter5/MaterielleNichtlinearit%C3%A4t.html">6.2. Materielle Nichtlinearität</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter5/Kontakt.html">6.3. Kontakt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter5/WeitereNichtlineareEffekte.html">6.4. Weitere Nichtlineare Effekte</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter5/Overview.html">19. Einführung in die nichtlineare FEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter5/GeometrischeNichtlinearit%C3%A4t.html">20. Geometrische Nichtlinearität</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter5/MaterielleNichtlinearit%C3%A4t.html">21. Materielle Nichtlinearität</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter5/Kontakt.html">22. Kontakt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter5/WeitereNichtlineareEffekte.html">23. Weitere Nichtlineare Effekte</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">7. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">24. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -422,9 +413,9 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begriffsklarung">3.1. Begriffsklärung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-raumlichen-ableitungen">3.2. Berechnung der räumlichen Ableitungen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anforderungen-an-den-finite-elemente-ansatz">3.3. Anforderungen an den Finite-Elemente-Ansatz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begriffsklarung">7.1. Begriffsklärung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-raumlichen-ableitungen">7.2. Berechnung der räumlichen Ableitungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anforderungen-an-den-finite-elemente-ansatz">7.3. Anforderungen an den Finite-Elemente-Ansatz</a></li>
 </ul>
             </nav>
         </div>
@@ -437,34 +428,34 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="isoparametrische-fem">
-<h1><span class="section-number">3. </span>Isoparametrische FEM<a class="headerlink" href="#isoparametrische-fem" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">7. </span>Isoparametrische FEM<a class="headerlink" href="#isoparametrische-fem" title="Link to this heading">#</a></h1>
 <figure class="align-default" id="isogeom">
 <a class="reference internal image-reference" href="../../_images/Nackenhorst_01.png"><img alt="../../_images/Nackenhorst_01.png" src="../../_images/Nackenhorst_01.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.1 </span><span class="caption-text">Geometrieapproximation am Beispiel der Diskretisierung eines Eisenbahnrades <span id="id1">[<a class="reference internal" href="../../quellen.html#id17" title="Prof. Dr.-Ing. Udo Nackenhorst. Numerische mechanik. 2022. Vorlesungsskript, Sommersemester.">Nackenhorst, 2022</a>]</span>.</span><a class="headerlink" href="#isogeom" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 7.1 </span><span class="caption-text">Geometrieapproximation am Beispiel der Diskretisierung eines Eisenbahnrades <span id="id1">[<a class="reference internal" href="../../quellen.html#id17" title="Prof. Dr.-Ing. Udo Nackenhorst. Numerische mechanik. 2022. Vorlesungsskript, Sommersemester.">Nackenhorst, 2022</a>]</span>.</span><a class="headerlink" href="#isogeom" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Die isoparametrische Finite-Elemente-Methode ist heute der gängige Standard in FEA-Software. Erstmals erwähnt wurde die isoparametrische Finite-Elemente-Methode von I.C. Taig (britischer Luftfahrtingenieur) im Jahre 1958. Die Methode bildet die Grundlage, um komplizierte Geometrien mit gekrümmten Rändern zu modellieren. Als Beispiel sei hier die Diskretisierung in Abbildung <a class="reference internal" href="#isogeom"><span class="std std-numref">Abb. 3.1</span></a> eines Eisenbahnrades gezeigt. In den nächsten Abschnitten werden einige Aspekte der isoparametrischen Finite-Elemente-Methode erläutert. Für einen umfassenderen Einblick sei auf die Standardwerke von <span id="id2">[<a class="reference internal" href="../../quellen.html#id3" title="Olgierd Cecil Zienkiewicz, Robert Leroy Taylor, and Jian Z Zhu. The finite element method: its basis and fundamentals. Elsevier, 2005.">Zienkiewicz <em>et al.</em>, 2005</a>]</span>, <span id="id3">[<a class="reference internal" href="../../quellen.html#id18" title="Thomas JR Hughes. The finite element method: linear static and dynamic finite element analysis. Courier Corporation, 2003.">Hughes, 2003</a>]</span> oder <span id="id4">[<a class="reference internal" href="../../quellen.html#id19" title="Klaus-Jürgen Bathe. Finite element procedures. Klaus-Jurgen Bathe, 2006.">Bathe, 2006</a>]</span> verwiesen.</p>
+<p>Die isoparametrische Finite-Elemente-Methode ist heute der gängige Standard in FEA-Software. Erstmals erwähnt wurde die isoparametrische Finite-Elemente-Methode von I.C. Taig (britischer Luftfahrtingenieur) im Jahre 1958. Die Methode bildet die Grundlage, um komplizierte Geometrien mit gekrümmten Rändern zu modellieren. Als Beispiel sei hier die Diskretisierung in Abbildung <a class="reference internal" href="#isogeom"><span class="std std-numref">Abb. 7.1</span></a> eines Eisenbahnrades gezeigt. In den nächsten Abschnitten werden einige Aspekte der isoparametrischen Finite-Elemente-Methode erläutert. Für einen umfassenderen Einblick sei auf die Standardwerke von <span id="id2">[<a class="reference internal" href="../../quellen.html#id3" title="Olgierd Cecil Zienkiewicz, Robert Leroy Taylor, and Jian Z Zhu. The finite element method: its basis and fundamentals. Elsevier, 2005.">Zienkiewicz <em>et al.</em>, 2005</a>]</span>, <span id="id3">[<a class="reference internal" href="../../quellen.html#id18" title="Thomas JR Hughes. The finite element method: linear static and dynamic finite element analysis. Courier Corporation, 2003.">Hughes, 2003</a>]</span> oder <span id="id4">[<a class="reference internal" href="../../quellen.html#id19" title="Klaus-Jürgen Bathe. Finite element procedures. Klaus-Jurgen Bathe, 2006.">Bathe, 2006</a>]</span> verwiesen.</p>
 <section id="begriffsklarung">
-<h2><span class="section-number">3.1. </span>Begriffsklärung<a class="headerlink" href="#begriffsklarung" title="Link to this heading">#</a></h2>
-<p>In der schwachen Form <a class="reference internal" href="../chapter2/FEM.html#equation-weakform-03">(2.5)</a> werden die Felder <span class="math notranslate nohighlight">\(\bm{u}_h\)</span>, <span class="math notranslate nohighlight">\(\delta\bm{u}_h\)</span> und die Koordinaten <span class="math notranslate nohighlight">\(\bm{x}\)</span> sowie deren räumliche Ableitungen berechnet. Das Aufstellen der Ansatzfunktionen für diese Felder ist für komplexe Geometrien nicht trivial. Daher werden die Ansatzfunktionen in einem sogenannten Elternelement definiert. Dieses wird dann auf die reale Geometrie abgebildet. Diese Abbildung wird als isoparametrische Abbildung bezeichnet. Die Abbildung wird durch die sogenannten Formfunktionen <span class="math notranslate nohighlight">\(\bm{N}\)</span> beschrieben. Diese Formfunktionen sind in der Regel Polynome und werden in einem sogenannten Elternelement definiert. Dieses Elternelement ist ein einfaches geometrisches Objekt, wie z.B. ein Einheitsquadrat oder ein Einheitsdreieck. Die Formfunktionen sind in diesem Elternelement definiert und werden dann auf die reale Geometrie abgebildet. Dies ist in Abbildung <a class="reference internal" href="#isoparamtericmapping"><span class="std std-numref">Abb. 3.2</span></a> für den zweidimensionalen Fall eines Rechteckelementes dargestellt.</p>
+<h2><span class="section-number">7.1. </span>Begriffsklärung<a class="headerlink" href="#begriffsklarung" title="Link to this heading">#</a></h2>
+<p>In der schwachen Form <a class="reference internal" href="../chapter2/FEM.html#equation-weakform-03">(4.5)</a> werden die Felder <span class="math notranslate nohighlight">\(\bm{u}_h\)</span>, <span class="math notranslate nohighlight">\(\delta\bm{u}_h\)</span> und die Koordinaten <span class="math notranslate nohighlight">\(\bm{x}\)</span> sowie deren räumliche Ableitungen berechnet. Das Aufstellen der Ansatzfunktionen für diese Felder ist für komplexe Geometrien nicht trivial. Daher werden die Ansatzfunktionen in einem sogenannten Elternelement definiert. Dieses wird dann auf die reale Geometrie abgebildet. Diese Abbildung wird als isoparametrische Abbildung bezeichnet. Die Abbildung wird durch die sogenannten Formfunktionen <span class="math notranslate nohighlight">\(\bm{N}\)</span> beschrieben. Diese Formfunktionen sind in der Regel Polynome und werden in einem sogenannten Elternelement definiert. Dieses Elternelement ist ein einfaches geometrisches Objekt, wie z.B. ein Einheitsquadrat oder ein Einheitsdreieck. Die Formfunktionen sind in diesem Elternelement definiert und werden dann auf die reale Geometrie abgebildet. Dies ist in Abbildung <a class="reference internal" href="#isoparamtericmapping"><span class="std std-numref">Abb. 7.2</span></a> für den zweidimensionalen Fall eines Rechteckelementes dargestellt.</p>
 <figure class="align-default" id="isoparamtericmapping">
 <a class="reference internal image-reference" href="../../_images/Taylor_isoQuad.png"><img alt="../../_images/Taylor_isoQuad.png" src="../../_images/Taylor_isoQuad.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.2 </span><span class="caption-text">Abbildung des Elternelementes auf die reale Geometrie (<span id="id5">[<a class="reference internal" href="../../quellen.html#id3" title="Olgierd Cecil Zienkiewicz, Robert Leroy Taylor, and Jian Z Zhu. The finite element method: its basis and fundamentals. Elsevier, 2005.">Zienkiewicz <em>et al.</em>, 2005</a>]</span>).</span><a class="headerlink" href="#isoparamtericmapping" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 7.2 </span><span class="caption-text">Abbildung des Elternelementes auf die reale Geometrie (<span id="id5">[<a class="reference internal" href="../../quellen.html#id3" title="Olgierd Cecil Zienkiewicz, Robert Leroy Taylor, and Jian Z Zhu. The finite element method: its basis and fundamentals. Elsevier, 2005.">Zienkiewicz <em>et al.</em>, 2005</a>]</span>).</span><a class="headerlink" href="#isoparamtericmapping" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Die Abbildung des Elternelementes auf die reale Geometrie entspricht einer Koordinatentransformation. Das Elternelement wird mit den Koordinaten <span class="math notranslate nohighlight">\(\xi\)</span>, <span class="math notranslate nohighlight">\(\eta\)</span> und <span class="math notranslate nohighlight">\(\zeta\)</span> beschrieben, während die reale Geometrie mit den Koordinaten <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> und <span class="math notranslate nohighlight">\(z\)</span> beschrieben wird. Die Transformation wird durch die Abbildung <span class="math notranslate nohighlight">\(\bm{x}_h = \bm{x}_h(\xi, \eta, \zeta)\)</span> beschrieben:</p>
 <div class="math notranslate nohighlight" id="equation-geometric-mapping">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-geometric-mapping" title="Link to this equation">#</a></span>\[\begin{equation}
+<span class="eqno">(7.1)<a class="headerlink" href="#equation-geometric-mapping" title="Link to this equation">#</a></span>\[\begin{equation}
 \bm{x}_h = \sum_{i=1}^{n} N_I(\bm{\xi}) \hat{\bm{x}}_I
 \end{equation}\]</div>
 <p>Hierbei ist <span class="math notranslate nohighlight">\(\hat{\bm{x}}_I\)</span> der Vektor der Knotenkoordinaten und <span class="math notranslate nohighlight">\(N_I(\bm{\xi})\)</span> die Formfunktionen des Elternelementes. Die Formfunktionen sind in der Regel Lagrange-Polynome, die die Knoten des Elternelementes interpolieren. Die Formfunktionen sind somit stückweise linear, quadratisch oder kubisch, je nach Art des Elternelementes.</p>
 <p>Wird für die Testfunktion <span class="math notranslate nohighlight">\(\delta \bm{u}_h\)</span> und die Verschiebung <span class="math notranslate nohighlight">\(\delta\bm{u}_h\)</span>, sowie die diskrete Darstellung der Geometrie <span class="math notranslate nohighlight">\(\bm{x}_h\)</span> der gleiche Ansatz verwendet, so spricht man von einem isoparametrischen Element:</p>
 <div class="math notranslate nohighlight" id="equation-isoparametric">
-<span class="eqno">(3.2)<a class="headerlink" href="#equation-isoparametric" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+<span class="eqno">(7.2)<a class="headerlink" href="#equation-isoparametric" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
   \delta \bm{u}_h &amp;= \sum_{I=1}^{n} N_I(\bm{\xi}) \delta \hat{\bm{u}}_I \\
   \bm{u}_h &amp;= \sum_{i=1}^{n} N_I(\bm{\xi}) \hat{\bm{u}}_I \\
   \bm{x}_h &amp;= \sum_{i=1}^{n} N_I(\bm{\xi}) \hat{\bm{x}}_I
@@ -480,15 +471,15 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
 </div>
 </section>
 <section id="berechnung-der-raumlichen-ableitungen">
-<h2><span class="section-number">3.2. </span>Berechnung der räumlichen Ableitungen<a class="headerlink" href="#berechnung-der-raumlichen-ableitungen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.2. </span>Berechnung der räumlichen Ableitungen<a class="headerlink" href="#berechnung-der-raumlichen-ableitungen" title="Link to this heading">#</a></h2>
 <p>Möchte man ein diskretisiertes Feld, z.B. <span class="math notranslate nohighlight">\(\bm{u}_h\)</span>, ableiten, so muss man über die Kettenregel die Formfunktionen ableiten:</p>
 <div class="math notranslate nohighlight" id="equation-ableitungformfunktion">
-<span class="eqno">(3.3)<a class="headerlink" href="#equation-ableitungformfunktion" title="Link to this equation">#</a></span>\[\begin{align}
+<span class="eqno">(7.3)<a class="headerlink" href="#equation-ableitungformfunktion" title="Link to this equation">#</a></span>\[\begin{align}
 \Pd{\bm{u}_h}{\bm{x}} = \sum_{I=1}^{n} \Pd{N_I}{\bm{\xi}} \Pd{\bm{\xi}}{\bm{x}}  \hat{\bm{u}}_I \;.
 \end{align}\]</div>
-<p>In dieser Gleichung ist <span class="math notranslate nohighlight">\(\Pd{\bm{\xi}}{\bm{x}}\)</span> jedoch unbekannt. Über die parametrische Darstellung der Geometrie <a class="reference internal" href="#equation-geometric-mapping">(3.1)</a> kann man jedoch die Ableitung <span class="math notranslate nohighlight">\(\Pd{\bm{\xi}}{\bm{x}}\)</span> berechnen:</p>
+<p>In dieser Gleichung ist <span class="math notranslate nohighlight">\(\Pd{\bm{\xi}}{\bm{x}}\)</span> jedoch unbekannt. Über die parametrische Darstellung der Geometrie <a class="reference internal" href="#equation-geometric-mapping">(7.1)</a> kann man jedoch die Ableitung <span class="math notranslate nohighlight">\(\Pd{\bm{\xi}}{\bm{x}}\)</span> berechnen:</p>
 <div class="math notranslate nohighlight" id="equation-ableitungformfunktion-02">
-<span class="eqno">(3.4)<a class="headerlink" href="#equation-ableitungformfunktion-02" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+<span class="eqno">(7.4)<a class="headerlink" href="#equation-ableitungformfunktion-02" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
 \bm{J} := \Pd{\bm{x}}{\bm{\xi}} &amp; = \begin{pmatrix}
 \Pd{x}{\xi} &amp; \Pd{x}{\eta} &amp; \Pd{x}{\zeta} \\
 \Pd{y}{\xi} &amp; \Pd{y}{\eta} &amp; \Pd{y}{\zeta} \\
@@ -499,17 +490,17 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
 \end{align}\end{split}\]</div>
 <p>Hier wurde die <strong>Jacobi-Matrix</strong> <span class="math notranslate nohighlight">\(\bm{J}\)</span> eingeführt. Zur Berechnung der räumlichen Ableitungen der Formfunktionen werden diese einfach mit der inversen Jacobi-Matrix multipliziert:</p>
 <div class="math notranslate nohighlight" id="equation-ableitungformfunktion-03">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-ableitungformfunktion-03" title="Link to this equation">#</a></span>\[\Pd{N_I}{\bm{x}} = \Pd{N_I}{\bm{\xi}} \Pd{\bm{\xi}}{\bm{x}} = \Pd{N_I}{\bm{\xi}} \bm{J}^{-1} \; .\]</div>
+<span class="eqno">(7.5)<a class="headerlink" href="#equation-ableitungformfunktion-03" title="Link to this equation">#</a></span>\[\Pd{N_I}{\bm{x}} = \Pd{N_I}{\bm{\xi}} \Pd{\bm{\xi}}{\bm{x}} = \Pd{N_I}{\bm{\xi}} \bm{J}^{-1} \; .\]</div>
 <div class="tip admonition">
 <p class="admonition-title">Bedeutung der Jacobi-Matrix</p>
 <p>Die Determinante der Jacobi-Matrix <span class="math notranslate nohighlight">\(\det(\bm{J})\)</span> wird als <strong>Jacobian</strong> bezeichnet und stellt ein wichtiges Maß für die Qualität der Elementform dar. Eine Jacobi-Determinante von Null bedeutet, dass die Elementform singulär ist und die Ableitung der Formfunktionen nicht mehr eindeutig definiert ist. Es ist daher wichtig, dass die Jacobi-Determinante in dem gesamten Element positiv ist. Eine Jacobi-Determinante in der Nähe von 1 ist ideal, während Werte weit von 1 entfernt auf verzerrte Elemente hinweisen. Negative Werte der Jacobi-Determinante sind ebenfalls problematisch und sollten vermieden werden. Hier hat sich das Element selbst durchdrungen. Solche Elemente fügen dem System Energie hinzu und verfälschen die Lösung maßgeblich.</p>
 </div>
 </section>
 <section id="anforderungen-an-den-finite-elemente-ansatz">
-<h2><span class="section-number">3.3. </span>Anforderungen an den Finite-Elemente-Ansatz<a class="headerlink" href="#anforderungen-an-den-finite-elemente-ansatz" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">7.3. </span>Anforderungen an den Finite-Elemente-Ansatz<a class="headerlink" href="#anforderungen-an-den-finite-elemente-ansatz" title="Link to this heading">#</a></h2>
 <p>Um die Finite-Elemente-Methode (FEM) effektiv anzuwenden, müssen die Formfunktionen bestimmte Anforderungen erfüllen:</p>
 <p><strong>Kontinuität</strong>:</p>
-<p>Die Formfunktionen müssen im gesamten Bereich stetig vom Grad <span class="math notranslate nohighlight">\(C^{n-1}\)</span> sein, wobei <span class="math notranslate nohighlight">\(n\)</span> die höchste Ableitung ist, die in der schwachen Formulierung <a class="reference internal" href="../chapter2/FEM.html#equation-weakform-03">(2.5)</a> vorkommt. Beispielsweise erfordert die Elastizitätstheorie <span class="math notranslate nohighlight">\(n=1\)</span>, was bedeutet, dass der Ansatz <span class="math notranslate nohighlight">\(C^0\)</span>-stetig sein muss. Insbesondere muss diese Stetigkeit über die Elementgrenzen hinweg gewährleistet sein. Beim Balkenelement trat die Krümmung (2. Ableitung der Durchbiegung) in der schwachen Form auf. Deshalb muss der Ansatz für das Balkenelement <span class="math notranslate nohighlight">\(C^1\)</span>-stetig sein.</p>
+<p>Die Formfunktionen müssen im gesamten Bereich stetig vom Grad <span class="math notranslate nohighlight">\(C^{n-1}\)</span> sein, wobei <span class="math notranslate nohighlight">\(n\)</span> die höchste Ableitung ist, die in der schwachen Formulierung <a class="reference internal" href="../chapter2/FEM.html#equation-weakform-03">(4.5)</a> vorkommt. Beispielsweise erfordert die Elastizitätstheorie <span class="math notranslate nohighlight">\(n=1\)</span>, was bedeutet, dass der Ansatz <span class="math notranslate nohighlight">\(C^0\)</span>-stetig sein muss. Insbesondere muss diese Stetigkeit über die Elementgrenzen hinweg gewährleistet sein. Beim Balkenelement trat die Krümmung (2. Ableitung der Durchbiegung) in der schwachen Form auf. Deshalb muss der Ansatz für das Balkenelement <span class="math notranslate nohighlight">\(C^1\)</span>-stetig sein.</p>
 <p><strong>Vollständigkeit</strong>:</p>
 <p>Die Formfunktionen müssen die exakte Lösung approximieren können, wenn die Anzahl der Elemente gegen unendlich geht. Dies stellt sicher, dass die numerische Lösung mit zunehmender Verfeinerung des Netzes immer genauer wird.</p>
 <p><strong>Eindeutigkeit</strong>:</p>
@@ -520,7 +511,7 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
 <a class="reference internal image-reference" href="../../_images/NonConforming_Mesh_01.png"><img alt="../../_images/NonConforming_Mesh_01.png" src="../../_images/NonConforming_Mesh_01.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.3 </span><span class="caption-text">Verletzung der Stetigkeitsanforderung in der Finite-Elemente-Methode.</span><a class="headerlink" href="#stetigkeit-01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 7.3 </span><span class="caption-text">Verletzung der Stetigkeitsanforderung in der Finite-Elemente-Methode.</span><a class="headerlink" href="#stetigkeit-01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Die Forderung der Stetigkeit über die Elementgrenzen hinweg wird über eine konforme Vernetzung sichergestellt. Ein typisches Beispiel zur Veranschaulichung dieser Anforderung ist die Elementierung mit 4-Knoten-Rechteckelementen. Betrachten wir eine eingespannte Scheibe, die einer Zugbelastung ausgesetzt ist. Um die Schnittkräfte genauer zu erfassen, wird das Netz in Richtung der Einspannung verfeinert. Dies soll die Behinderung der Querkontraktion besser erfassen. Allerdings führt diese Netzverfeinerung in einigen Fällen zu unzulässigen Klaffungen im deformierten Netz.</p>
@@ -529,7 +520,7 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
 <a class="reference internal image-reference" href="../../_images/NonConforming_Mesh_02.png"><img alt="../../_images/NonConforming_Mesh_02.png" src="../../_images/NonConforming_Mesh_02.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.4 </span><span class="caption-text">Verschiebungsfeld bei einer nicht-konformen Netzstruktur.</span><a class="headerlink" href="#stetigkeit-02" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 7.4 </span><span class="caption-text">Verschiebungsfeld bei einer nicht-konformen Netzstruktur.</span><a class="headerlink" href="#stetigkeit-02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Diese lokalen Störungen klingen jedoch mit ausreichend großem Abstand ab, wie es das Prinzip von St. Venant beschreibt. Dieses Prinzip besagt, dass die Auswirkungen von lokalen Unregelmäßigkeiten in der Belastung oder Geometrie mit zunehmendem Abstand von der Störungsquelle abnehmen. Daher sind die Auswirkungen der Inkompatibilitäten auf die Gesamtlösung begrenzt.</p>
@@ -538,7 +529,7 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
 <a class="reference internal image-reference" href="../../_images/NonConforming_Mesh_03.png"><img alt="../../_images/NonConforming_Mesh_03.png" src="../../_images/NonConforming_Mesh_03.png" style="width: 400px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.5 </span><span class="caption-text">Verletzung der Stetigkeitsanforderung in der Finite-Elemente-Methode durch Verwendung von Elementen mit unterschiedlicher Ordnung.</span><a class="headerlink" href="#stetigkeit-03" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 7.5 </span><span class="caption-text">Verletzung der Stetigkeitsanforderung in der Finite-Elemente-Methode durch Verwendung von Elementen mit unterschiedlicher Ordnung.</span><a class="headerlink" href="#stetigkeit-03" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Auch hier ist die resultierende Verschiebung nicht korrekt. Eigentlich sollte die Verschiebung linear sein, was jedoch nicht der Fall ist.</p>
@@ -546,16 +537,16 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
 <a class="reference internal image-reference" href="../../_images/NonConforming_Mesh_04.png"><img alt="../../_images/NonConforming_Mesh_04.png" src="../../_images/NonConforming_Mesh_04.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.6 </span><span class="caption-text">Verletzung der Stetigkeitsanforderung in der Finite-Elemente-Methode durch Verwendung von Elementen mit unterschiedlicher Ordnung - Resultierendes Verschiebungsfeld.</span><a class="headerlink" href="#stetigkeit-04" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 7.6 </span><span class="caption-text">Verletzung der Stetigkeitsanforderung in der Finite-Elemente-Methode durch Verwendung von Elementen mit unterschiedlicher Ordnung - Resultierendes Verschiebungsfeld.</span><a class="headerlink" href="#stetigkeit-04" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Die Stetigkeitsanforderung ist von großer praktischer Bedeutung, da sie sicherstellt, dass die numerische Lösung physikalisch sinnvoll und mathematisch korrekt ist. Eine konforme Vernetzung, bei der die Knoten korrekt zugeordnet sind, ist entscheidend, um die Genauigkeit der FEM-Lösungen zu gewährleisten.</p>
-<p>Um eine lokale Verfeinerung zu erzielen, kann man entweder spezielle Elemente verwenden (bei denen die entsprechenden Knoten angelegt wurden) oder man fügt eine entsprechende Zwischenschicht, wie in Abbildung <a class="reference internal" href="#stetigkeit-05"><span class="std std-numref">Abb. 3.7</span></a>, ein.</p>
+<p>Um eine lokale Verfeinerung zu erzielen, kann man entweder spezielle Elemente verwenden (bei denen die entsprechenden Knoten angelegt wurden) oder man fügt eine entsprechende Zwischenschicht, wie in Abbildung <a class="reference internal" href="#stetigkeit-05"><span class="std std-numref">Abb. 7.7</span></a>, ein.</p>
 <figure class="align-default" id="stetigkeit-05">
 <a class="reference internal image-reference" href="../../_images/Conforming_Mesh_01.png"><img alt="../../_images/Conforming_Mesh_01.png" src="../../_images/Conforming_Mesh_01.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.7 </span><span class="caption-text">Übergangselementschicht zur lokalen Verfeinerung.</span><a class="headerlink" href="#stetigkeit-05" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 7.7 </span><span class="caption-text">Übergangselementschicht zur lokalen Verfeinerung.</span><a class="headerlink" href="#stetigkeit-05" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Hierbei wird das Verschiebungsfeld durch die Zwischenschicht korrekt wiedergegeben.</p>
@@ -563,22 +554,22 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
 <a class="reference internal image-reference" href="../../_images/Conforming_Mesh_02.png"><img alt="../../_images/Conforming_Mesh_02.png" src="../../_images/Conforming_Mesh_02.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.8 </span><span class="caption-text">Übergangselementschicht zur lokalen Verfeinerung - Verschiebungsfeld.</span><a class="headerlink" href="#stetigkeit-06" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 7.8 </span><span class="caption-text">Übergangselementschicht zur lokalen Verfeinerung - Verschiebungsfeld.</span><a class="headerlink" href="#stetigkeit-06" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Ein zentraler Aspekt der Vollständigkeit in der Finite-Elemente-Methode ist die Fähigkeit, Starrkörperverschiebungen darzustellen. Die Starrkörperverschiebung <span class="math notranslate nohighlight">\(\bm{u}_c = \bm{c}\)</span> muss durch die Ansatzfunktionen <span class="math notranslate nohighlight">\(\bm{N}_I(\bm{\xi})\)</span> exakt wiedergegeben werden können. Der mathematische Ausdruck dafür ist:</p>
 <div class="math notranslate nohighlight" id="equation-completeness">
-<span class="eqno">(3.6)<a class="headerlink" href="#equation-completeness" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
+<span class="eqno">(7.6)<a class="headerlink" href="#equation-completeness" title="Link to this equation">#</a></span>\[\begin{split}\begin{align}
 \bm{u}_c &amp; = \sum_{I=1}^{n} N_I(\bm{\xi}) \hat{\bm{u}}_I  = \sum_{I=1}^{n} N_I(\bm{\xi}) {\bm{c}} = \bm{c} \sum_{I=1}^{n} N_I(\bm{\xi}) \\
 \Rightarrow \qquad 1 &amp;= \sum_{I=1}^{n} N_I(\bm{\xi}) 
 \end{align}\end{split}\]</div>
 <p>Diese Eigenschaft wird in der Literatur als <strong>Partitions of Unity</strong> bezeichnet. Die praktische Relevanz dieser Eigenschaft liegt darin, dass in Tragstrukturen die Lösung in einen Anteil der Starrkörperverschiebung und einen Anteil, der Dehnungen hervorruft, aufgeteilt werden kann. Ein Beispiel hierfür ist ein Balken: Am freien Ende ist die Verschiebung am größten, der Balken jedoch erfährt hier am wenigsten Dehnung. Eine praktische Überprüfung besteht darin, dass Starrkörperverschiebungen keine Dehnungen/Spannungen hervorrufen dürfen.</p>
-<p>Ein weiteres Beispiel zur Überprüfung der Vollständigkeit ist die Darstellbarkeit konstanter Dehnungszustände (Patch-Test). Ist ein Element in der Lage, einen konstanten Dehnungszustand darzustellen, so ist auch ein praktischer Nachweis der Konvergenz der Elementformulierung bei Verfeinerung der Vernetzung gegeben. Dies kann man sich einfach am Beispiel in Abbildung <a class="reference internal" href="#konvergenzpatchtest"><span class="std std-numref">Abb. 3.9</span></a> verdeutlichen. Hier werden die Schnittkräfte in einen konstanten Anteil und einen linear veränderlichen unterteilt. Mit steigender Elementanzahl wird der konstante Term der Schnittkraft dominant und ist somit der maßgebliche Anteil für die Konvergenz.</p>
+<p>Ein weiteres Beispiel zur Überprüfung der Vollständigkeit ist die Darstellbarkeit konstanter Dehnungszustände (Patch-Test). Ist ein Element in der Lage, einen konstanten Dehnungszustand darzustellen, so ist auch ein praktischer Nachweis der Konvergenz der Elementformulierung bei Verfeinerung der Vernetzung gegeben. Dies kann man sich einfach am Beispiel in Abbildung <a class="reference internal" href="#konvergenzpatchtest"><span class="std std-numref">Abb. 7.9</span></a> verdeutlichen. Hier werden die Schnittkräfte in einen konstanten Anteil und einen linear veränderlichen unterteilt. Mit steigender Elementanzahl wird der konstante Term der Schnittkraft dominant und ist somit der maßgebliche Anteil für die Konvergenz.</p>
 <figure class="align-default" id="konvergenzpatchtest">
 <a class="reference internal image-reference" href="../../_images/Knothe_02.png"><img alt="../../_images/Knothe_02.png" src="../../_images/Knothe_02.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-number">Abb. 3.9 </span><span class="caption-text">Mit steigender Elementanzahl wird der konstante Term der Schnittkraft dominant (<span id="id6">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span>).</span><a class="headerlink" href="#konvergenzpatchtest" title="Link to this image">#</a></p>
+<p><span class="caption-number">Abb. 7.9 </span><span class="caption-text">Mit steigender Elementanzahl wird der konstante Term der Schnittkraft dominant (<span id="id6">[<a class="reference internal" href="../../quellen.html#id4" title="Klaus Knothe and Heribert Wessels. Finite elemente. Volume 2. Springer, 1991.">Knothe and Wessels, 1991</a>]</span>).</span><a class="headerlink" href="#konvergenzpatchtest" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="warning admonition">
@@ -603,8 +594,6 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
 </ul>
 </div>
 </section>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -643,7 +632,7 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">2.3. </span>Die Balken-FEM</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Die Balken-FEM</p>
       </div>
     </a>
     <a class="right-next"
@@ -651,7 +640,7 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">3.4. </span>Ansatzfunktionen</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Ansatzfunktionen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -672,9 +661,9 @@ Beide Konzepte haben sich in der Praxis nicht durchgesetzt, wobei die superparam
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begriffsklarung">3.1. Begriffsklärung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-raumlichen-ableitungen">3.2. Berechnung der räumlichen Ableitungen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anforderungen-an-den-finite-elemente-ansatz">3.3. Anforderungen an den Finite-Elemente-Ansatz</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#begriffsklarung">7.1. Begriffsklärung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnung-der-raumlichen-ableitungen">7.2. Berechnung der räumlichen Ableitungen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anforderungen-an-den-finite-elemente-ansatz">7.3. Anforderungen an den Finite-Elemente-Ansatz</a></li>
 </ul>
   </nav></div>
 

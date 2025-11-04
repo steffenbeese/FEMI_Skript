@@ -1,0 +1,95 @@
+\begin{thebibliography}{17}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bathe(2006)]{bathe2006finite}
+K.-J. Bathe.
+\newblock \emph{Finite element procedures}.
+\newblock Klaus-Jurgen Bathe, 2006.
+
+\bibitem[Braess(2013)]{braess2013finite}
+D.~Braess.
+\newblock \emph{Finite elemente: Theorie, schnelle l{\" o}ser und anwendungen in der elastizit{\" a}tstheorie}.
+\newblock Springer-Verlag, 2013.
+
+\bibitem[Chaves(2013)]{chaves2013notes}
+E.~W. Chaves.
+\newblock \emph{Notes on continuum mechanics}.
+\newblock Springer Science & Business Media, 2013.
+
+\bibitem[Ehrlenspiel and Meerkamm(2013)]{ehrlenspiel2013integrierte}
+K.~Ehrlenspiel and H.~Meerkamm.
+\newblock Integrierte produktentwicklung: Denkabl{\" a}ufe, methodeneinsatz.
+\newblock \emph{Hanser, Zusammenarbeit}, 2013.
+
+\bibitem[Featherstone(2014)]{featherstone2014rigid}
+R.~Featherstone.
+\newblock \emph{Rigid body dynamics algorithms}.
+\newblock Springer, 2014.
+
+\bibitem[Gross et~al.(2007)Gross, Hauger, Schr{\" o}der, and Wall]{gross2007technische}
+D.~Gross, W.~Hauger, J.~Schr{\" o}der, and W.~A. Wall.
+\newblock \emph{Technische {Mechanik}: Band 2: Elastostatik}.
+\newblock Springer, 2007.
+
+\bibitem[Grotendorst et~al.(2009)Grotendorst, Attig, Bl{\" u}gel, and Marx]{grotendorst2009multiscale}
+J.~Grotendorst, N.~Attig, S.~Bl{\" u}gel, and D.~Marx.
+\newblock Multiscale simulation methods in molecular sciences.
+\newblock \emph{Lecture Notes, NIC Series}, 42:\penalty0 145, 2009.
+\newblock URL \url{https://juser.fz-juelich.de/record/3737/files/nic-series-volume42.pdf}.
+
+\bibitem[Haupt(2013)]{haupt2013continuum}
+P.~Haupt.
+\newblock \emph{Continuum mechanics and theory of materials}.
+\newblock Springer Science & Business Media, 2013.
+
+\bibitem[Hughes(2003)]{hughes2003finite}
+T.~J. Hughes.
+\newblock \emph{The finite element method: linear static and dynamic finite element analysis}.
+\newblock Courier Corporation, 2003.
+
+\bibitem[Knothe and Wessels(1991)]{knothe1991finite}
+K.~Knothe and H.~Wessels.
+\newblock \emph{Finite elemente}, volume~2.
+\newblock Springer, 1991.
+
+\bibitem[Nackenhorst(2022)]{numerische_mechanik_2022}
+P.~D.-I.~U. Nackenhorst.
+\newblock Numerische {Mechanik}, 2022.
+\newblock Vorlesungsskript, Sommersemester.
+
+\bibitem[Nagel et~al.(2016)Nagel, G{\" o}rke, Moerman, and Kolditz]{nagel2016advantages}
+T.~Nagel, U.-J. G{\" o}rke, K.~M. Moerman, and O.~Kolditz.
+\newblock On advantages of the {Kelvin} mapping in finite element implementations of deformation processes.
+\newblock \emph{Environmental Earth Sciences}, 75:\penalty0 1--11, 2016.
+
+\bibitem[Shabana(1997)]{shabana1997flexible}
+A.~A. Shabana.
+\newblock Flexible multibody dynamics: review of past and recent developments.
+\newblock \emph{Multibody system dynamics}, 1:\penalty0 189--222, 1997.
+\newblock URL \url{https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=83ab06769ba4d9ea6a300799675760db2bf69ac9}.
+
+\bibitem[Vajna et~al.(2009)Vajna, Weber, Bley, and Zeman]{vajna2009cax}
+S.~Vajna, C.~Weber, H.~Bley, and K.~Zeman.
+\newblock \emph{CAx f{\" u}r {Ingenieure}: eine praxisbezogene {Einf}{\" u}hrung}.
+\newblock Springer-Verlag, 2009.
+
+\bibitem[Wriggers(2008)]{wriggers2008nonlinear}
+P.~Wriggers.
+\newblock \emph{Nonlinear finite element methods}.
+\newblock Springer Science & Business Media, 2008.
+
+\bibitem[Wriggers et~al.(2006)Wriggers, Nackenhorst, Beuermann, Spiess, and L{\" o}hnert]{wriggers2006technische}
+P.~Wriggers, U.~Nackenhorst, S.~Beuermann, H.~Spiess, and S.~L{\" o}hnert.
+\newblock \emph{Technische {Mechanik} {Kompakt}}.
+\newblock Springer, 2006.
+
+\bibitem[Zienkiewicz et~al.(2005)Zienkiewicz, Taylor, and Zhu]{zienkiewicz2005finite}
+O.~C. Zienkiewicz, R.~L. Taylor, and J.~Z. Zhu.
+\newblock \emph{The finite element method: its basis and fundamentals}.
+\newblock Elsevier, 2005.
+
+\end{thebibliography}

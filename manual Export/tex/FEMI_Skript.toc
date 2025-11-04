@@ -1,0 +1,82 @@
+\contentsline {chapter}{\numberline {1}Modul: Einführung in die FEM}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Einführung}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Numerische Simulation im Konstruktionsprozess}{1}{subsection.1.1.1}%
+\contentsline {subsubsection}{Der Systembegriff}{2}{section*.3}%
+\contentsline {subsubsection}{Klassifikation von Systemen}{3}{section*.4}%
+\contentsline {subsubsection}{Der Modellbegriff}{4}{section*.6}%
+\contentsline {subsubsection}{Modellbildung}{4}{section*.7}%
+\contentsline {subsubsection}{Ansätze zur Abstraktion mechanischer Modelle}{6}{section*.10}%
+\contentsline {subsubsection}{Numerische Modelle in der Mechanik}{7}{section*.11}%
+\contentsline {paragraph}{Diskrete Modelle}{8}{section*.12}%
+\contentsline {subparagraph}{Anwendungen für MKS}{8}{section*.14}%
+\contentsline {paragraph}{Kontinuierliche Modelle}{9}{section*.15}%
+\contentsline {subsubsection}{Numerische Lösungsverfahren}{9}{section*.16}%
+\contentsline {paragraph}{Finite Differenzen Methode (FDM)}{10}{section*.17}%
+\contentsline {paragraph}{Finite Volumen Methode (FVM)}{10}{section*.18}%
+\contentsline {paragraph}{Randelemente Methode (BEM)}{11}{section*.19}%
+\contentsline {paragraph}{Finite Elemente Methode (FEM)}{11}{section*.20}%
+\contentsline {paragraph}{Zusammenfassung}{12}{figure.caption.22}%
+\contentsline {subsubsection}{Mathematische Modellbildung in der Kontinuumstheorie}{14}{section*.23}%
+\contentsline {paragraph}{Notation}{14}{section*.24}%
+\contentsline {paragraph}{Bilanzgleichungen der Kontinuumsmechanik}{14}{section*.25}%
+\contentsline {subparagraph}{Massenerhaltung}{14}{figure.caption.27}%
+\contentsline {subparagraph}{Impulserhaltung}{16}{figure.caption.29}%
+\contentsline {subparagraph}{Energieerhaltung}{17}{section*.30}%
+\contentsline {subparagraph}{Zusammenfassung}{18}{section*.31}%
+\contentsline {paragraph}{Kinematik}{18}{section*.32}%
+\contentsline {paragraph}{Materialmodell}{18}{section*.33}%
+\contentsline {subparagraph}{Wärmeleitung}{18}{section*.35}%
+\contentsline {subparagraph}{Durchströmung}{20}{section*.36}%
+\contentsline {subparagraph}{Lineare Elastizität}{20}{section*.37}%
+\contentsline {subparagraph}{Ebener Verzerrungszustand}{22}{figure.caption.39}%
+\contentsline {subparagraph}{Ebener Spannungszustand}{23}{figure.caption.41}%
+\contentsline {subparagraph}{Rotationssymmetrie}{25}{figure.caption.44}%
+\contentsline {paragraph}{Zusammenfassung}{26}{section*.45}%
+\contentsline {subsubsection}{Grundgleichungen einfacher Strukturelemente}{27}{section*.46}%
+\contentsline {paragraph}{Differentialgleichung des Stabes}{27}{section*.48}%
+\contentsline {paragraph}{Differentialgleichung des Balkens}{27}{section*.50}%
+\contentsline {section}{\numberline {1.2}Theorie der Finiten Elemente Methode}{29}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Die Finite-Elemente-Methode}{29}{subsection.1.2.1}%
+\contentsline {subsubsection}{Von der starken zur schwachen Form}{29}{section*.52}%
+\contentsline {subsubsection}{Die schwache Form am Beispiel des Stabes}{31}{section*.54}%
+\contentsline {paragraph}{Das Verfahren von Ritz}{32}{section*.56}%
+\contentsline {paragraph}{Finite Elemente Formulierung für den Stab}{33}{section*.57}%
+\contentsline {subparagraph}{Diskretisierung der schwachen Form}{33}{figure.caption.59}%
+\contentsline {subparagraph}{Assemblierung der Finiten Elemente}{35}{section*.60}%
+\contentsline {subparagraph}{Lösung des Gleichungssystems}{37}{section*.61}%
+\contentsline {subparagraph}{Berechnung der Schnittgrö$\beta $en}{37}{section*.62}%
+\contentsline {subparagraph}{Diskussion der Ergebnisse}{38}{section*.63}%
+\contentsline {subparagraph}{Konvergenz der Ergebnisse}{38}{figure.caption.65}%
+\contentsline {paragraph}{Interaktives Notebook}{39}{section*.67}%
+\contentsline {subsubsection}{Die Balken-FEM}{39}{section*.68}%
+\contentsline {paragraph}{Ansatzfunktionen}{40}{figure.caption.71}%
+\contentsline {paragraph}{Elementsteifigkeitsmatrix (Diskretisierung Term 1 in Gleichung (\ref {weakBalken_01}) )}{41}{section*.72}%
+\contentsline {paragraph}{Diskretisierung der Streckenlast}{42}{section*.73}%
+\contentsline {paragraph}{Beispiel der Balken FEM}{42}{figure.caption.75}%
+\contentsline {paragraph}{Ergebnisse der FEM-Berechnung}{44}{figure.caption.78}%
+\contentsline {paragraph}{Konvergenz}{44}{figure.caption.82}%
+\contentsline {paragraph}{Interaktives Notebook}{44}{section*.84}%
+\contentsline {section}{\numberline {1.3}Isoparametrische FEM}{46}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Isoparametrische FEM}{46}{subsection.1.3.1}%
+\contentsline {subsubsection}{Begriffsklärung}{47}{section*.86}%
+\contentsline {subsubsection}{Berechnung der räumlichen Ableitungen}{48}{section*.88}%
+\contentsline {subsubsection}{Anforderungen an den Finite-Elemente-Ansatz}{49}{section*.89}%
+\contentsline {subsubsection}{Ansatzfunktionen}{53}{section*.97}%
+\contentsline {paragraph}{Formfunktionen für $C^0$-Elemente}{54}{section*.100}%
+\contentsline {subparagraph}{1D Formfunktionen}{54}{figure.caption.102}%
+\contentsline {subparagraph}{2D Formfunktionen}{54}{figure.caption.104}%
+\contentsline {subparagraph}{3D Formfunktionen}{58}{figure.caption.111}%
+\contentsline {subsubsection}{Integration}{59}{section*.113}%
+\contentsline {paragraph}{Beispiel: 1D-Integration}{61}{section*.117}%
+\contentsline {subsubsection}{Postprocessing}{63}{section*.118}%
+\contentsline {paragraph}{Postprocessing primärer Grö$\beta $en}{63}{section*.120}%
+\contentsline {paragraph}{Postprocessing sekundärer Grö$\beta $en}{64}{figure.caption.122}%
+\contentsline {section}{\numberline {1.4}Praktisches zur Anwendung der FEM}{66}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Praktische Hinweise zur Anwendung der FEM}{66}{subsection.1.4.1}%
+\contentsline {subsubsection}{Symmetrie}{66}{section*.123}%
+\contentsline {subsubsection}{Fehlerquellen}{66}{section*.124}%
+\contentsline {subsubsection}{Vernetzung}{66}{section*.125}%
+\contentsline {chapter}{\numberline {2}Modul: Spezielle Gebiete der FEM}{67}{chapter.2}%
+\contentsline {subsubsection}{Modalanalyse}{67}{section*.126}%
+\contentsline {chapter}{\numberline {3}Quellenverzeichnis}{68}{chapter.3}%
+\contentsline {subsection}{\numberline {3.0.1}Quellenverzeichnis}{68}{subsection.3.0.1}%

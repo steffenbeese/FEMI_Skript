@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.7
+    jupytext_version: 1.17.0
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -65,14 +65,13 @@ $$
 
 Als Formfunktionen $N_I$ werden die Hermite-Polynome verwendet. Diese lauten:
 
-$$
+
 \begin{align}
   N_1 &= 1-3\xi^2+2\xi^3 \\ 
   N_2 &= (\xi-2\xi^2+\xi^3)\ell_e \\ 
   N_3 &= 3\xi^2-2\xi^3 \\ 
   N_4 &= (-\xi^2+\xi^3)\ell_e
 \end{align}
-$$
 
 ```{code-cell}
 ---
@@ -123,13 +122,13 @@ $$
 
 Wenn wir uns nun den ersten Term der schwachen Form herausgreifen und die Ableitungen bilden lauten diese:
 
-$$
+
 \begin{align*}
  EI_y \int_L \delta w'' w'' \text{ dx}  & = EI_y \int_0^1   \frac{\text{d}^2 N_I}{\text{dx dx}} \delta \hat{w}_I \frac{\text{d}^2 N_J}{\text{dx dx}} \hat{w}_J \ell_e \text{ d} \xi  \\
  & = \delta \hat{w}_I \frac{EI_y}{\ell_e^3} \int_0^1   N_I''N_J''    \text{ d} \xi \hat{w}_J \\
  & =\delta \hat{w}_I \boldsymbol{K}_{IJ} \hat{w}_J
 \end{align*}
-$$
+
 
 Die Steifigkeitsmatrix $\boldsymbol{K}_{IJ}$ wollen wir jetzt interaktiv berechnen.
 
@@ -163,13 +162,12 @@ N
 ### Berechnung der Ableitungen
 
 Siehe schwache Form:
-$$
+
 \begin{align*}
  EI_y \int_L \delta w'' w'' \text{ dx}  & = EI_y \int_0^1   \frac{\text{d}^2 N_I}{\text{dx dx}} \delta \hat{w}_I \frac{\text{d}^2 N_J}{\text{dx dx}} \hat{w}_J \ell_e \text{ d} \xi  \\
  & = \delta \hat{w}_I \frac{EI_y}{\ell_e^3} \int_0^1   \textcolor{red}{N_I''N_J''}    \text{ d} \xi \hat{w}_J \\
  & =\delta \hat{w}_I \boldsymbol{K}_{IJ} \hat{w}_J
 \end{align*}
-$$
 
 ```{code-cell}
 ---
@@ -196,13 +194,12 @@ dNdxidxidxi
 ### Bildung des Integranten
 
 Siehe schwache Form:
-$$
+
 \begin{align*}
  EI_y \int_L \delta w'' w'' \text{ dx}  & = EI_y \int_0^1   \frac{\text{d}^2 N_I}{\text{dx dx}} \delta \hat{w}_I \frac{\text{d}^2 N_J}{\text{dx dx}} \hat{w}_J \ell_e \text{ d} \xi  \\
  & = \delta \hat{w}_I \frac{EI_y}{\ell_e^3} \int_0^1 \textcolor{red}   {N_I''N_J''    }\text{ d} \xi \hat{w}_J \\
  & =\delta \hat{w}_I \boldsymbol{K}_{IJ} \hat{w}_J
 \end{align*}
-$$
 
 ```{code-cell}
 ---
@@ -219,13 +216,12 @@ integrant
 ### Integration
 
 Siehe schwache Form:
-$$
+
 \begin{align*}
  EI_y \int_L \delta w'' w'' \text{ dx}  & = EI_y \int_0^1   \frac{\text{d}^2 N_I}{\text{dx dx}} \delta \hat{w}_I \frac{\text{d}^2 N_J}{\text{dx dx}} \hat{w}_J \ell_e \text{ d} \xi  \\
  & = \delta \hat{w}_I \textcolor{red}   {\frac{EI_y}{\ell_e^3} \int_0^1 N_I''N_J''    \text{ d} \xi} \hat{w}_J \\
  & =\delta \hat{w}_I \boldsymbol{K}_{IJ} \hat{w}_J
 \end{align*}
-$$
 
 ```{code-cell}
 ---
@@ -250,7 +246,7 @@ $$
 
 Dies wird jetzt in die schwache Form eingesetzt:
 
-$$
+
 \begin{align*}
 \int_L  \delta w q(x) \text{ dx} & = \int_L N_I(\xi) \delta \hat{w}_I q_h(\xi) \text{ dx} \\
 & = \delta \hat{w}_I \, \int_0^1 \begin{pmatrix}
@@ -260,7 +256,7 @@ $$
  N_4  \end{pmatrix}  \begin{pmatrix} 1-\xi & \xi \end{pmatrix} \begin{pmatrix} \hat{q}_1 \\ \hat{q}_2 \end{pmatrix}  \ell_e \text{ d} \xi \\
  & = \delta \hat{w}_I \boldsymbol{F}_Q \\
 \end{align*} 
-$$
+
 
 Den Vektor der Streckenlasten $\boldsymbol{F}_Q$ berechnen wir nun interaktiv.
 
@@ -281,7 +277,7 @@ Nq*qh
 
 ### Bildung des Integranten
 
-$$
+
 \begin{align*}
 \int_L  \delta w q(x) \text{ dx} & = \int_L N_I(\xi) \delta \hat{w}_I q_h(\xi) \text{ dx} \\
 & = \delta \hat{w}_I \, \int_0^1 \textcolor{red}{\begin{pmatrix}
@@ -290,8 +286,7 @@ $$
  N_3 \\ 
  N_4  \end{pmatrix}  \begin{pmatrix} 1-\xi & \xi \end{pmatrix} \begin{pmatrix} \hat{q}_1 \\ \hat{q}_2 \end{pmatrix}  \ell_e }\text{ d} \xi \\
  & = \delta \hat{w}_I \boldsymbol{F}_Q \\
-\end{align*} 
-$$
+\end{align*}
 
 ```{code-cell}
 ---
@@ -307,7 +302,7 @@ integrantq
 
 ### Integrieren der Funktion
 
-$$
+
 \begin{align*}
 \int_L  \delta w q(x) \text{ dx} & = \int_L N_I(\xi) \delta \hat{w}_I q_h(\xi) \text{ dx} \\
 & = \delta \hat{w}_I \, \textcolor{red}{\int_0^1 \begin{pmatrix}
@@ -316,8 +311,7 @@ $$
  N_3 \\ 
  N_4  \end{pmatrix}  \begin{pmatrix} 1-\xi & \xi \end{pmatrix} \begin{pmatrix} \hat{q}_1 \\ \hat{q}_2 \end{pmatrix}  \ell_e \text{ d} \xi} \\
  & = \delta \hat{w}_I \boldsymbol{F}_Q \\
-\end{align*} 
-$$
+\end{align*}
 
 ```{code-cell}
 ---
@@ -345,12 +339,11 @@ $$
 
 Auch die Schnittgrößen können analytisch einfach bestimmt werden:
 
-$$
+
 \begin{align*}
 EI w'' & =-M(x) =  \frac{q_{0} x \left(\ell - x\right)}{2} \\
 EI w'''' &= -Q(x) = q_{0} \left(\frac{\ell}{2} - x\right)
 \end{align*}
-$$
 
 ```{code-cell}
 ---

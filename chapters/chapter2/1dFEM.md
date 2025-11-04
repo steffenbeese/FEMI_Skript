@@ -42,7 +42,7 @@ $ -->
 
 ```{figure} images/Stab.png
 ---
-height: 400px
+width: 400px
 name: stab_fig
 ---
 Stab unter Eigengewicht und externer Kraft.
@@ -367,7 +367,6 @@ Wir versuchen nun, die lokalen Kräfte $S_i^{(e)}$ für das Element 1 mit den gl
 
 ```{math}
 :label: stabFEM5
-\begin{align}
 \begin{bmatrix}
 0 \\
 S_2^{(1)}\\
@@ -384,8 +383,7 @@ S_1^{(1)}
 u_1 \\
 u_2\\
 u_3
-\end{bmatrix}
-\end{align} \; .
+\end{bmatrix} \; .
 ```
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -393,7 +391,6 @@ Dazu haben wir lediglich das Elementgleichungssystem {eq}`stabFEM3` genommen und
 
 ```{math}
 :label: stabFEM6
-\begin{align}
 \begin{bmatrix}
 S_2^{(2)} \\
 S_1^{(2)} \\
@@ -411,7 +408,7 @@ u_1 \\
 u_2\\
 u_3
 \end{bmatrix}
-\end{align} \; .
+\; .
 ```
 
 Nun liegen uns zwei Gleichungssysteme vor, welche sich auf die gleichen Freiheitsgrade beziehen. Durch eine Addition erhalten wir schließlich:
@@ -419,7 +416,6 @@ Nun liegen uns zwei Gleichungssysteme vor, welche sich auf die gleichen Freiheit
 
 ```{math}
 :label: stabFEM7
-\begin{align}
 \begin{bmatrix}
 S_2^{(2)} \\
 S_1^{(2)} + S_2^{(1)} \\
@@ -437,7 +433,7 @@ u_1 \\
 u_2\\
 u_3
 \end{bmatrix}
-\end{align} \; .
+\; .
 ```
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
@@ -470,7 +466,6 @@ Somit können wir die inneren Stabkräfte durch die externen Lasten $\bm{F}\rs{e
 
 ```{math}
 :label: stabFEM9
-\begin{align}
 \begin{bmatrix}
 F \\
 0 \\
@@ -488,7 +483,7 @@ u_1 \\
 u_2\\
 u_3
 \end{bmatrix}
-\end{align} \; .
+ \; .
 ```
 
 ```{admonition} Direkte Assemblierung

@@ -1,0 +1,134 @@
+% Created with jtex v.1.0.20
+\documentclass[a4paper,11pt,oneside]{book}
+\usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{changepage}
+\usepackage{framed}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{symbols}
+\usepackage{cancel}
+
+\bibliographystyle{abbrvnat}
+
+% Make list items more compact
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%  imports  %%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{url}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\hypersetup{
+  colorlinks,
+  linkcolor={black},
+  citecolor={black},
+  urlcolor={black}
+}
+
+% Style quotes
+\definecolor{darkblue}{rgb}{0.0, 0.0, 0.55}
+\definecolor{quoteshade}{rgb}{0.95, 0.95, 1}
+\renewenvironment{quote}{%
+  \def\FrameCommand{%
+    \hspace{1pt}%
+    {\color{darkblue}\vrule width 2pt}%
+    {\color{quoteshade}\vrule width 4pt}%
+    \colorbox{quoteshade}%
+  }%
+  \MakeFramed {\advance\hsize-\width \FrameRestore}%
+  \noindent\hspace{-8pt}% disable indenting first paragraph
+  \begin{adjustwidth}{0pt}{0pt}% adjust as needed
+  \vspace{2pt}\vspace{2pt}%
+}
+{%
+  \vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+\title{\Huge \textbf{Skript FEM I + II}}
+\author{\textsc{Prof. Dr.-Ing Steffen Beese}}
+
+\begin{document}
+\sloppy
+
+\frontmatter
+\maketitle
+
+\tableofcontents
+% \listoffigures
+% \listoftables
+
+\mainmatter
+
+% \include{preface.tex}
+% \include{acknowledgements.tex}
+
+\chapter{Modul: Einführung in die FEM}
+
+\section{Einführung}
+
+\input{FEMI_Skript-einf-hrung-konstruktion}
+
+\input{FEMI_Skript-einf-hrung-modellklassifikation}
+
+\input{FEMI_Skript-einf-hrung-loesungsverfahren}
+
+\input{FEMI_Skript-elasticity}
+
+\input{FEMI_Skript-strukturgleichungen}
+
+\section{Theorie der Finiten Elemente Methode}
+
+\input{FEMI_Skript-overview}
+
+\input{FEMI_Skript-fem}
+
+\input{FEMI_Skript-dfem}
+
+\input{FEMI_Skript-balkenfem}
+
+\section{Isoparametrische FEM}
+
+\input{FEMI_Skript-isoparametrischefem}
+
+\input{FEMI_Skript-ansatzfunktionen}
+
+\input{FEMI_Skript-integration}
+
+\input{FEMI_Skript-postprocessing}
+
+\section{Praktisches zur Anwendung der FEM}
+
+\input{FEMI_Skript-overview-1}
+
+\input{FEMI_Skript-symmetrie}
+
+\input{FEMI_Skript-fehlerquellen}
+
+\input{FEMI_Skript-vernetzung}
+
+\chapter{Modul: Spezielle Gebiete der FEM}
+
+\input{FEMI_Skript-modalanalyse}
+
+\chapter{Quellenverzeichnis}
+
+
+\input{FEMI_Skript-quellen}
+
+
+
+
+\bibliography{main.bib}
+
+\end{document}

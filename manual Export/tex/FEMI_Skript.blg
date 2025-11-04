@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: FEMI_Skript.aux
+The style file: abbrvnat.bst
+Database file #1: main.bib
+You've used 17 entries,
+            2773 wiz_defined-function locations,
+            673 strings with 6908 characters,
+and the built_in function-call counts, 6368 in all, are:
+= -- 503
+> -- 366
+< -- 12
++ -- 128
+- -- 111
+* -- 453
+:= -- 1035
+add.period$ -- 53
+call.type$ -- 17
+change.case$ -- 76
+chr.to.int$ -- 17
+cite$ -- 34
+duplicate$ -- 340
+empty$ -- 563
+format.name$ -- 132
+if$ -- 1307
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 28
+newline$ -- 95
+num.names$ -- 68
+pop$ -- 216
+preamble$ -- 1
+purify$ -- 71
+quote$ -- 0
+skip$ -- 235
+stack$ -- 0
+substring$ -- 84
+swap$ -- 18
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 127
+warning$ -- 0
+while$ -- 56
+width$ -- 0
+write$ -- 219

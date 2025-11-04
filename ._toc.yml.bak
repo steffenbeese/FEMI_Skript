@@ -1,0 +1,74 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Einführung
+  numbered: true
+  chapters:
+  - file: chapters/chapter1/Einführung_Konstruktion
+    sections:
+      - file: chapters/chapter1/Einführung_Modellklassifikation
+      - file: chapters/chapter1/Einführung_Loesungsverfahren
+      - file: chapters/chapter1/elasticity
+      - file: chapters/chapter1/strukturgleichungen
+- caption: Theorie der Finiten Elemente Methode
+  numbered: true
+  chapters:
+  - file: chapters/chapter2/overview
+    sections:
+    - file: chapters/chapter2/FEM
+    - file: chapters/chapter2/1dFEM
+    - file: chapters/chapter2/BalkenFEM
+- caption: Isoparametrische FEM
+  numbered: true
+  chapters:
+  - file : chapters/chapter3/isoparametrischeFEM
+    sections: 
+    - file: chapters/chapter3/Ansatzfunktionen
+    - file: chapters/chapter3/Integration
+    - file: chapters/chapter3/Postprocessing
+
+- caption: Praktisches zur Anwendung der FEM
+  numbered: true
+  chapters:
+    - file : chapters/chapter4/Overview
+      sections: 
+      - file: chapters/chapter4/Symmetrie
+      - file: chapters/chapter4/Fehlerquellen
+      - file: chapters/chapter4/Vernetzung
+- caption: Zeitabhängige Problemstellungen
+  numbered: true
+  chapters:
+    - file : chapters/chapter6/Overview
+      sections: 
+      - file: chapters/chapter6/TransienteDynamik
+      - file: chapters/chapter6/Modalanalyse
+      - file: chapters/chapter6/Wärmeleitung
+- caption: Einführung in die Nichtlineare FEM
+  numbered: true
+  chapters:
+  - file: chapters/chapter5/Overview
+    sections:
+    - file: chapters/chapter5/GeometrischeNichtlinearität
+    - file: chapters/chapter5/MaterielleNichtlinearität
+    - file: chapters/chapter5/Kontakt
+    - file: chapters/chapter5/WeitereNichtlineareEffekte
+
+# - file: chapters/chapter2/isoparametrischeFEM
+# - caption: Diskretisierung
+#   numbered: true
+#   chapters:
+#   - file: chapters/chapter3/Discretization
+#     sections:
+#     - file: chapters/chapter3/Elementtopologie
+
+- caption: Quellenverzeichnis
+  numbered: true
+  chapters:
+  - file: quellen
+
+#- caption: Die Finite Elemente Methode
+#  numbered: true
+  

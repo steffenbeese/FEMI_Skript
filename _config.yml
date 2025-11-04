@@ -5,6 +5,7 @@ title: Finite Elemente Methode 1
 author: Prof. Dr.-Ing. Steffen Beese
 logo: logo.jpeg
 copyright: "2025"
+date: "2025-11-11"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -100,7 +101,6 @@ sphinx:
           "dX": "\\; \\textrm{ d}X"
           "dY": "\\; \\textrm{ d}Y"
           "dZ": "\\; \\textrm{ d}Z"
-          "dxi": "\\; \\textrm{ d}\\xi"
           "deta": "\\; \\textrm{ d}\\eta"
           "dzeta": "\\; \\textrm{ d}\\zeta"
           "Ibt": "\\int_{\\mathcal{B}_t}"
@@ -174,6 +174,6 @@ sphinx:
       preamble: |
         \usepackage{symbols}        
 
-execute:
-  execute_notebooks: cache
-  run_in_temp: true
+# execute:
+#   execute_notebooks: cache
+#   run_in_temp: true

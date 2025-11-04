@@ -169,11 +169,11 @@ $$
 
 unter Einhaltung der Anfangs- und Randbedingungen:
 
-$$
+\begin{align}
 p(\bm{x},t=t_0) & = \tilde{p}_0 \qquad &\forall \bm{x} \in \mathcal{B}& \\
 p(\bm{x},t) & = \tilde{p} \qquad &\forall \bm{x} \in \partial \mathcal{B}_p& \\
 \varrho \bm{v}\T \bm{n} & = \tilde{q}_m \qquad &\forall \bm{x} \in \partial\mathcal{B}_m&
-$$
+\end{align}
 
 erfüllt ist.
 ```
@@ -215,11 +215,11 @@ $$
 
 unter Einhaltung der Anfangs- und Randbedingungen:
 
-$$
+\begin{align}
 \bm{u}(\bm{x},t=t_0) & = \tilde{\bm{u}}_0 \qquad &\forall \bm{x} \in \mathcal{B}& \\
 \bm{u}(\bm{x},t) & = \tilde{\bm{u}} \qquad &\forall \bm{x} \in \partial \mathcal{B}_u& \\
 \bm{\sigma}\T \bm{n} & = \tilde{\bm{t}} \qquad &\forall \bm{x} \in \partial\mathcal{B}_{\sigma}&
-$$
+\end{align}
 
 erfüllt ist.
 ```
@@ -261,11 +261,11 @@ $$
 
 unter Einhaltung der Anfangs- und Randbedingungen:
 
-$$
+\begin{align}
 \theta(\bm{x},t=t_0) & = \tilde{\theta}_0 \qquad &\forall \bm{x} \in \mathcal{B}& \\
 \theta(\bm{x},t) & = \tilde{\theta} \qquad &\forall \bm{x} \in \partial \mathcal{B}_{\theta}& \\
 \bm{q}\T \bm{n} & = \tilde{\bm{q}} \qquad &\forall \bm{x} \in \partial\mathcal{B}_q&
-$$
+\end{align}
 
 erfüllt ist.
 ```
@@ -508,7 +508,7 @@ $$
 | $\sigma_{ij}=\mathbb{C}_{ijkl}\epsilon_{kl}$| $\bm{\sigma} = \bm{C} \bm{\epsilon}$ |
 | $\mathcal{E}=\sigma_{ij}\epsilon_{ij}$| $ \mathcal{E} = \bm{\sigma}\T\bm{\epsilon}$|
 
-$$
+\begin{align}
 \mathbb{C}_{ijkl} \quad \rightarrow \quad \bm{C}=\begin{bmatrix}
 C_{1111} & C_{1122} & C_{1133} & \sqrt{2}C_{1112} & \sqrt{2}C_{1123} & \sqrt{2}C_{1113} \\
 C_{2211} & C_{2222} & C_{2233} & \sqrt{2}C_{2212} & \sqrt{2}C_{2223} & \sqrt{2}C_{2213} \\
@@ -517,7 +517,7 @@ C_{3311} & C_{3322} & C_{3333} & \sqrt{2}C_{3312} & \sqrt{2}C_{3323} & \sqrt{2}C
 \sqrt{2}C_{2311} & \sqrt{2}C_{2322} & \sqrt{2}C_{2333} & 2C_{2312} & 2C_{2323} & 2C_{2313} \\
 \sqrt{2}C_{1311} & \sqrt{2}C_{1322} & \sqrt{2}C_{1333} & 2C_{1312} & 2C_{1323} & 2C_{1313} \\ 
 \end{bmatrix} 
-$$
+\end{align}
 
 ```
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2.1. Numerische Modelle in der Mechanik &#8212; Finite Elemente Methode 1</title>
+    <title>2. Kontinuierliche Modelle am Beispiel der Elastizitätstheorie &#8212; Finite Elemente Methode 1</title>
   
   
   
@@ -63,11 +63,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1], "tbf": ["\\textbf{#1}", 1], "tit": ["\\textit{#1}", 1], "tsl": ["\\textsl{#1}", 1], "tsc": ["\\textsc{#1}", 1], "ttt": ["\\texttt{#1}", 1], "trm": ["\\textrm{#1}", 1], "tsf": ["\\textsf{#1}", 1], "tup": ["\\textup{#1}", 1], "mbf": ["\\mathbf{#1}", 1], "mit": ["\\mathit{#1}", 1], "msf": ["\\mathsf{#1}", 1], "mrm": ["\\mathrm{#1}", 1], "mtt": ["\\mathtt{#1}", 1], "dcdot": "\\mathbf{:}", "pha": ["#1^{\\alpha}", 1], "Pha": ["#1_{\\alpha}", 1], "phb": ["#1^{\\beta}", 1], "Phb": ["#1_{\\beta}", 1], "phu": ["#1^{\\textrm{#2}}", 2], "Phu": ["#1_{\\textrm{#2}}", 2], "phuR": ["#1^{\\textrm{#2R}}", 2], "phaR": ["#1^{\\alpha R}", 1], "phbR": ["#1^{\\beta R}", 1], "setC": "\\left\\{S,G,L,l\\right\\}", "tot": "^{ \\textrm{tot} }", "Grad": ["\\textrm{Grad}\\left(#1\\right)", 1], "grad": ["\\textrm{grad}\\left(#1\\right)", 1], "Div": ["\\textrm{Div} \\left(#1\\right)", 1], "div": ["\\textrm{div} \\left(#1\\right)", 1], "Lin": "\\textrm{Lin}", "intd": "\\ \\textrm{d}", "la": "\\, \\leftarrow \\,", "dV": "\\; \\textrm{d}V", "dViso": "\\; \\textrm{d}V_{\\square}", "dA": "\\; \\textrm{d}A", "da": "\\; \\textrm{d}a", "dx": "\\; \\textrm{ d}x", "dxi": "\\; \\textrm{ d}\\xi", "d": "\\; \\textrm{ d}", "dy": "\\; \\textrm{ d}y", "dz": "\\; \\textrm{ d}z", "dX": "\\; \\textrm{ d}X", "dY": "\\; \\textrm{ d}Y", "dZ": "\\; \\textrm{ d}Z", "deta": "\\; \\textrm{ d}\\eta", "dzeta": "\\; \\textrm{ d}\\zeta", "Ibt": "\\int_{\\mathcal{B}_t}", "Ist": "\\int_{\\Gamma_t}", "Ibref": "\\int_{\\mathcal{B}\\rs{0}}", "Isref": "\\int_{\\Gamma\\rs{0}}", "sref": "{\\Gamma\\rs{0}}", "Bref": "{\\mathcal{B}\\rs{0}}", "Ibiso": "\\int_{\\mathcal{B}_{\\square}}", "siso": "{\\Gamma_{\\square}}", "Mtd": ["\\left(#1\\right)^{,}", 1], "Mtda": ["\\left(#1\\right)^{,}_{\\alpha}", 1], "Mtdu": ["\\left(#1\\right)^{,}_{\\textrm{#2}}", 2], "td": ["\\dot{#1}", 1], "tdd": ["\\ddot{#1}", 1], "Pd": ["\\frac{\\partial #1}{\\partial #2}", 2], "Dd": ["\\frac{\\text{d }  #1}{\\text{d } #2}", 2], "dt": ["#1 ^{\\bullet}", 1], "hist": "\\mid_{\\tau=0}^t", "rom": ["\\textrm{#1}", 1], "rp": ["^{ \\textrm{#1} }", 1], "rs": ["_{ \\textrm{#1} }", 1], "T": "^{ \\textrm{T} }", "mT": "^{ -\\textrm{T} }", "dev": "_{ \\textrm{dev} }", "sph": "_{ \\textrm{sph} }", "hyd": "_{ \\textrm{hyd} }", "iso": "_{ \\textrm{iso} }", "vol": "_{ \\textrm{vol} }", "vM": "_{ \\textrm{vM} }", "sym": "_{ \\textrm{sym} }", "dil": "_{ \\textrm{dil} }", "ln": ["\\textrm{ln}\\left(#1\\right)", 1], "uft": "\\mathfrak{\\boldsymbol{u}}", "Pext": "\\mathcal{P}\\rp{ext}", "Pint": "\\mathcal{P}\\rp{int}", "Cg": "\\boldsymbol{C}", "detC": "\\det \\Cg", "F": "\\bm{F}", "s": "\\bm{\\sigma}", "ie": "\\rp{e}", "ipl": "\\rp{p}", "e": "\\varepsilon", "eb": "\\bm{\\varepsilon}", "ee": ["\\e\\ie", 0], "ep": ["\\e\\ipl", 0], "E": "\\bm{E}", "Ee": ["\\E\\ie", 0], "Ep": ["\\E\\ipl", 0], "Fe": ["\\bm{\\F}\\ie", 0], "Fp": ["\\bm{\\F}\\ipl", 0], "Cge": "\\tilde{\\Cg}\\ie", "Cgp": ["\\Cg\\ipl", 0], "Se": "\\tilde{\\bm{S}}\\ie", "Me": "\\tilde{\\bm{M}}\\ie", "Lp": "\\tilde{\\bm{L}}\\ipl", "Dp": "\\tilde{\\bm{D}}\\ipl", "sw": "\\rs{sw}", "IV": "\\bm{Y}", "iv": "Y", "psiCap": "\\psi\\rs{cap}", "psiCapcv": "\\psi\\rs{cap-cv}", "psiAd": "\\psi\\rs{ad}", "pCap": "p\\rs{cap}", "pCapcv": "p\\rs{cap-cv}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter1/Einführung_Modellklassifikation';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter1/Feldgleichungen';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="2.2. Numerische Lösungsverfahren" href="Einf%C3%BChrung_Loesungsverfahren.html" />
-    <link rel="prev" title="2. Kontinuierliche Modelle am Beispiel der Elastizitätstheorie" href="Feldgleichungen.html" />
+    <link rel="next" title="2.1. Numerische Modelle in der Mechanik" href="Einf%C3%BChrung_Modellklassifikation.html" />
+    <link rel="prev" title="1. Numerische Simulation im Konstruktionsprozess" href="Einf%C3%BChrung_Konstruktion.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -174,8 +174,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="Feldgleichungen.html">2. Kontinuierliche Modelle am Beispiel der Elastizitätstheorie</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.1. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Kontinuierliche Modelle am Beispiel der Elastizitätstheorie</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Modellklassifikation.html">2.1. Numerische Modelle in der Mechanik</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Einf%C3%BChrung_Loesungsverfahren.html">2.2. Numerische Lösungsverfahren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="elasticity.html">2.3. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
 <li class="toctree-l2"><a class="reference internal" href="strukturgleichungen.html">2.4. Grundgleichungen einfacher Strukturelemente</a></li>
@@ -297,7 +297,7 @@
       
       
       
-      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter1/Einführung_Modellklassifikation.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/steffenbeese/FEMI_Tutorial/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter1/Feldgleichungen.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Öffnen Sie ein Problem"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -327,7 +327,7 @@
       
       
       
-      <li><a href="../../_sources/chapters/chapter1/Einführung_Modellklassifikation.md" target="_blank"
+      <li><a href="../../_sources/chapters/chapter1/Feldgleichungen.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Quelldatei herunterladen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -390,9 +390,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -403,23 +401,11 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Numerische Modelle in der Mechanik</h1>
+    <h1>Kontinuierliche Modelle am Beispiel der Elastizitätstheorie</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Inhalt </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskrete-modelle">2.1.1. Diskrete Modelle</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungen-fur-mks">2.1.1.1. Anwendungen für MKS</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kontinuierliche-modelle">2.1.2. Kontinuierliche Modelle</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -429,79 +415,10 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="numerische-modelle-in-der-mechanik">
-<h1><span class="section-number">2.1. </span>Numerische Modelle in der Mechanik<a class="headerlink" href="#numerische-modelle-in-der-mechanik" title="Link to this heading">#</a></h1>
-<p>Die numerische Mechanik bedient sich computergestützter Techniken zur Ermittlung von Näherungslösungen für Differentialgleichungen, die physikalische Problemstellungen beschreiben. Es wird zwischen zwei Hauptarten der Modellbildung unterschieden:</p>
-<ul class="simple">
-<li><p>Diskrete Modelle</p></li>
-<li><p>Kontinuierliche Modelle</p></li>
-</ul>
-<!-- -+-+-+-+-+-+-AI-SPLIT  -->
-<section id="diskrete-modelle">
-<h2><span class="section-number">2.1.1. </span>Diskrete Modelle<a class="headerlink" href="#diskrete-modelle" title="Link to this heading">#</a></h2>
-<p>Diskrete Modelle der Mechanik basieren auf massebehafteten, starren Massepunkten oder Körpern, die durch Kraftpotentiale oder Federverbindungen miteinander in Wechselwirkung stehen. Solche Potentiale werden verwendet, um Interaktionen zwischen atomaren Partikeln (Molekulardynamik) oder Planeten (Gravitationsgesetze) zu modellieren.</p>
-<p>Ein weiteres Anwendungsgebiet in der diskreten Modellierung der Mechanik sind Mechanismen: Systeme aus kinematisch verbundenen, starren Körpern, die durch Kontakte und diskret modellierte elastische Feder- und Dämpferelemente verbunden sind. Beispiele hierfür sind industrielle Fertigungsmaschinen oder der Mechanismus eines Kugelschreibers, von Spannelementen oder Fahrwerken.</p>
-<figure class="align-default" id="mks">
-<a class="reference internal image-reference" href="../../_images/MKS_Robot.png"><img alt="../../_images/MKS_Robot.png" src="../../_images/MKS_Robot.png" style="height: 300px;" />
-</a>
-<figcaption>
-<p><span class="caption-number">Abb. 2.1 </span><span class="caption-text">Mehrkörperproblem eines zweiarmigen Roboters nach <span id="id1">[<a class="reference internal" href="../../quellen.html#id11" title="Roy Featherstone. Rigid body dynamics algorithms. Springer, 2014.">Featherstone, 2014</a>]</span></span><a class="headerlink" href="#mks" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Die mathematische Beschreibung solcher Modelle resultiert typischerweise in einem System gekoppelter Bewegungsgleichungen:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b59e4aa-92b3-49b8-b0b2-04c9a5617d09">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-5b59e4aa-92b3-49b8-b0b2-04c9a5617d09" title="Permalink to this equation">#</a></span>\[\begin{equation}
-\boldsymbol{M} \ddot{\boldsymbol{x}} + \boldsymbol{D} \dot{\boldsymbol{x}} + \boldsymbol{K} \boldsymbol{x} = \boldsymbol{f}(t)
-\end{equation}\]</div>
-<p>Hierbei repräsentiert <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span> die Position des Massepunkts im Raum und <span class="math notranslate nohighlight">\(\ddot{\boldsymbol{x}}\)</span> dessen Beschleunigung. Die Trägheitsmatrix <span class="math notranslate nohighlight">\(\boldsymbol{M}\)</span> approximiert die Massenträgheit der Körper, während die Steifigkeitsmatrix <span class="math notranslate nohighlight">\(\boldsymbol{K}\)</span> die elastischen Bindungen darstellt. Die Matrix <span class="math notranslate nohighlight">\(\boldsymbol{D}\)</span> führt Dämpfungsterme in das System ein und <span class="math notranslate nohighlight">\(\boldsymbol{f}(t)\)</span> sind äußere zeitabhängige Kräfte.</p>
-<p>Bei Mechanismen kommen oft Nebenbedingungen wie Kontaktbedingungen oder Regelungsalgorithmen hinzu, was zu Differential-Algebraischen Gleichungssystemen (DAE) führt.</p>
-<p>Die Herausforderung in der diskreten Mechanik liegt in der Modellierung: Das System muss abstrahiert, Gleichungen und Bedingungen formuliert und für den Rechner aufbereitet werden. Die numerische Aufgabe besteht dann hauptsächlich darin, die Bewegungsgleichungen über die Zeit zu integrieren. In der Festkörpermechanik sind zwei Methoden etabliert:</p>
-<ul class="simple">
-<li><p>Molekulardynamik-Simulation (MDS) <span id="id2">[<a class="reference internal" href="../../quellen.html#id5" title="Johannes Grotendorst, Norbert Attig, Stefan Blügel, and Dominik Marx. Multiscale simulation methods in molecular sciences. Lecture Notes, NIC Series, 42:145, 2009. URL: https://juser.fz-juelich.de/record/3737/files/nic-series-volume42.pdf.">Grotendorst <em>et al.</em>, 2009</a>]</span></p></li>
-<li><p>Mehr-Körper-Simulation (MKS) <span id="id3">[<a class="reference internal" href="../../quellen.html#id6" title="Ahmed A Shabana. Flexible multibody dynamics: review of past and recent developments. Multibody system dynamics, 1:189–222, 1997. URL: https://citeseerx.ist.psu.edu/document?repid=rep1&amp;type=pdf&amp;doi=83ab06769ba4d9ea6a300799675760db2bf69ac9.">Shabana, 1997</a>]</span></p></li>
-</ul>
-<p>Für strömungsmechanische Fragestellungen sind ebenfalls Partikelmethoden wie die Gitter-Boltzmann-Methode etabliert.</p>
-<!-- -+-+-+-+-+-+-AI-SPLIT  -->
-<section id="anwendungen-fur-mks">
-<h3><span class="section-number">2.1.1.1. </span>Anwendungen für MKS<a class="headerlink" href="#anwendungen-fur-mks" title="Link to this heading">#</a></h3>
-<p>Die hier gezeigten Beispiele stammen aus der freien MKS-Software der TU München <a class="reference external" href="https://www.mbsim-env.de/">MBSim</a></p>
-<iframe width="640" height="480" src="https://www.mbsim-env.de/static/home/videos/xml_planetary_gear.317ba38de10c.webm" frameborder="0" allowfullscreen></iframe>
-<p><strong>Mehrkörpersimulation eines Planetengetriebes</strong></p>
-<iframe width="640" height="480" src="https://www.mbsim-env.de/static/home/videos/xml_spinning_plate.c5e942e12401.webm" frameborder="0" allowfullscreen></iframe>
-<p><strong>Mehrkörpersimulation eines rotierenden Tellers</strong></p>
-</section>
-</section>
-<section id="kontinuierliche-modelle">
-<h2><span class="section-number">2.1.2. </span>Kontinuierliche Modelle<a class="headerlink" href="#kontinuierliche-modelle" title="Link to this heading">#</a></h2>
-<p>Die Modellbildung in diesem Bereich geht von einem gleichförmigen (homogenen) Materialverhalten aus. Feinheiten der komplexen atomaren Interaktionen, wie sie beispielsweise in Kristallstrukturen auftreten und auf sehr kleinen zeitlichen sowie räumlichen Skalen stattfinden, werden hierbei im Sinne einer statistischen Mittelwertbildung vereinfacht dargestellt. Die zugrundeliegende Vorstellung ist die eines Kontinuums, dessen Charakteristika mithilfe von partiellen Differentialgleichungen (Feldgleichungen) räumlich und zeitlich erfasst werden können. Dieses Feld gehört zur Disziplin der Kontinuumsmechanik.</p>
-<p>In dieser Lehrveranstaltung konzentrieren wir uns auf die Behandlung dieser Feldgleichungen und ihre näherungsweise Lösung durch numerische Verfahren, insbesondere für Fragestellungen der linearen Elastizitätslehre. Es sollte jedoch erwähnt werden, dass vergleichbare Feldtheorien auch in anderen Bereichen, wie zum Beispiel bei elektromagnetischen Feldern, Anwendung finden und die Methoden entsprechend adaptiert werden können.</p>
-<p>Unser Fokus liegt auf der Finite-Elemente-Methode (FEM), wobei auch die Finite-Differenzen-Methode am Rande behandelt wird. Die Finite-Elemente-Methode gilt aktuell als das effektivste Verfahren zur näherungsweisen Lösung partieller Differentialgleichungen in der Festkörpermechanik. Kommerzielle Softwarelösungen sind weit verbreitet und werden industriell genutzt. Ein wesentliches Lernziel dieses Kurses ist es daher, ein fundiertes Verständnis für die Finite-Elemente-Methode zu entwickeln, um sie sachgemäß in der Praxis anwenden zu können.</p>
-<p>In der Fluidmechanik hat sich die FEM aufgrund der besonderen Beschaffenheit der Differentialgleichungen nicht durchgesetzt, was ebenfalls thematisiert wird. In diesem Gebiet sind traditionell die Finite-Differenzen-Methode und heute vermehrt die Finite-Volumen-Methode gebräuchlich.</p>
-<!-- -+-+-+-+-+-+-AI-SPLIT  -->
-<div class="warning admonition">
-<p class="admonition-title">Fragen zum Kapitel</p>
-<p><strong>Diskrete Modelle</strong></p>
-<ul class="simple">
-<li><p>Wie treten Körper innerhalb der diskreten Mechanik in Interaktion?</p></li>
-<li><p>Welche Gleichung ist die Grundlage der Simulation von  Mehrkörpersystemen?</p></li>
-<li><p>Welche zwei Methoden sind in der diskreten Mechanik etabliert?</p></li>
-<li><p>Was ist die numerische Herausforderung in der diskreten Mechanik?</p></li>
-<li><p>Welche ingenieurtechnische Herausforderung gilt es in der diskreten Mechanik zu bewältigen?</p></li>
-</ul>
-<p><strong>Kontinuierliche Modelle</strong></p>
-<ul class="simple">
-<li><p>Welcher Gleichungstyp liegt den kontinuierlichen Modellen der Mechanik zugrunde?</p></li>
-<li><p>Was ist korrekt?</p>
-<ul>
-<li><p>[ ] Die kontinuierlichen Modelle sind die Grundlage der FEM.</p></li>
-<li><p>[ ] In den kontinuierlichen Modellen werden komplexe zwischenatomare Interaktionen berücksichtigt.</p></li>
-<li><p>[ ] Das Material wird als homogen angesehen.</p></li>
-<li><p>[ ] Die FEM ist besonders für die Fluidmechanik geeignet.</p></li>
-</ul>
-</li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="kontinuierliche-modelle-am-beispiel-der-elastizitatstheorie">
+<h1><span class="section-number">2. </span>Kontinuierliche Modelle am Beispiel der Elastizitätstheorie<a class="headerlink" href="#kontinuierliche-modelle-am-beispiel-der-elastizitatstheorie" title="Link to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
 </div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -535,20 +452,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Feldgleichungen.html"
+       href="Einf%C3%BChrung_Konstruktion.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>Kontinuierliche Modelle am Beispiel der Elastizitätstheorie</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Numerische Simulation im Konstruktionsprozess</p>
       </div>
     </a>
     <a class="right-next"
-       href="Einf%C3%BChrung_Loesungsverfahren.html"
+       href="Einf%C3%BChrung_Modellklassifikation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">2.2. </span>Numerische Lösungsverfahren</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Numerische Modelle in der Mechanik</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -558,26 +475,6 @@
             </div>
             
             
-              
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Inhalt
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskrete-modelle">2.1.1. Diskrete Modelle</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anwendungen-fur-mks">2.1.1.1. Anwendungen für MKS</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kontinuierliche-modelle">2.1.2. Kontinuierliche Modelle</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

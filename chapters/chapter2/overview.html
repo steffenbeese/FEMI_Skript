@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2. Die Finite-Elemente-Methode &#8212; Finite Elemente Methode 1</title>
+    <title>3. Die Finite-Elemente-Methode &#8212; Finite Elemente Methode 1</title>
   
   
   
@@ -61,13 +61,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"tex": {"macros": {"bm": ["\\boldsymbol{#1}", 1], "tbf": ["\\textbf{#1}", 1], "tit": ["\\textit{#1}", 1], "tsl": ["\\textsl{#1}", 1], "tsc": ["\\textsc{#1}", 1], "ttt": ["\\texttt{#1}", 1], "trm": ["\\textrm{#1}", 1], "tsf": ["\\textsf{#1}", 1], "tup": ["\\textup{#1}", 1], "mbf": ["\\mathbf{#1}", 1], "mit": ["\\mathit{#1}", 1], "msf": ["\\mathsf{#1}", 1], "mrm": ["\\mathrm{#1}", 1], "mtt": ["\\mathtt{#1}", 1], "dcdot": "\\mathbf{:}", "pha": ["#1^{\\alpha}", 1], "Pha": ["#1_{\\alpha}", 1], "phb": ["#1^{\\beta}", 1], "Phb": ["#1_{\\beta}", 1], "phu": ["#1^{\\textrm{#2}}", 2], "Phu": ["#1_{\\textrm{#2}}", 2], "phuR": ["#1^{\\textrm{#2R}}", 2], "phaR": ["#1^{\\alpha R}", 1], "phbR": ["#1^{\\beta R}", 1], "setC": "\\left\\{S,G,L,l\\right\\}", "tot": "^{ \\textrm{tot} }", "Grad": ["\\textrm{Grad}\\left(#1\\right)", 1], "grad": ["\\textrm{grad}\\left(#1\\right)", 1], "Div": ["\\textrm{Div} \\left(#1\\right)", 1], "div": ["\\textrm{div} \\left(#1\\right)", 1], "Lin": "\\textrm{Lin}", "intd": "\\ \\textrm{d}", "la": "\\, \\leftarrow \\,", "dV": "\\; \\textrm{d}V", "dViso": "\\; \\textrm{d}V_{\\square}", "dA": "\\; \\textrm{d}A", "da": "\\; \\textrm{d}a", "dx": "\\; \\textrm{ d}x", "dxi": "\\; \\textrm{ d}\\xi", "d": "\\; \\textrm{ d}", "dy": "\\; \\textrm{ d}y", "dz": "\\; \\textrm{ d}z", "dX": "\\; \\textrm{ d}X", "dY": "\\; \\textrm{ d}Y", "dZ": "\\; \\textrm{ d}Z", "deta": "\\; \\textrm{ d}\\eta", "dzeta": "\\; \\textrm{ d}\\zeta", "Ibt": "\\int_{\\mathcal{B}_t}", "Ist": "\\int_{\\Gamma_t}", "Ibref": "\\int_{\\mathcal{B}\\rs{0}}", "Isref": "\\int_{\\Gamma\\rs{0}}", "sref": "{\\Gamma\\rs{0}}", "Bref": "{\\mathcal{B}\\rs{0}}", "Ibiso": "\\int_{\\mathcal{B}_{\\square}}", "siso": "{\\Gamma_{\\square}}", "Mtd": ["\\left(#1\\right)^{,}", 1], "Mtda": ["\\left(#1\\right)^{,}_{\\alpha}", 1], "Mtdu": ["\\left(#1\\right)^{,}_{\\textrm{#2}}", 2], "td": ["\\dot{#1}", 1], "tdd": ["\\ddot{#1}", 1], "Pd": ["\\frac{\\partial #1}{\\partial #2}", 2], "Dd": ["\\frac{\\text{d }  #1}{\\text{d } #2}", 2], "dt": ["#1 ^{\\bullet}", 1], "hist": "\\mid_{\\tau=0}^t", "rom": ["\\textrm{#1}", 1], "rp": ["^{ \\textrm{#1} }", 1], "rs": ["_{ \\textrm{#1} }", 1], "T": "^{ \\textrm{T} }", "mT": "^{ -\\textrm{T} }", "dev": "_{ \\textrm{dev} }", "sph": "_{ \\textrm{sph} }", "hyd": "_{ \\textrm{hyd} }", "iso": "_{ \\textrm{iso} }", "vol": "_{ \\textrm{vol} }", "vM": "_{ \\textrm{vM} }", "sym": "_{ \\textrm{sym} }", "dil": "_{ \\textrm{dil} }", "ln": ["\\textrm{ln}\\left(#1\\right)", 1], "uft": "\\mathfrak{\\boldsymbol{u}}", "Pext": "\\mathcal{P}\\rp{ext}", "Pint": "\\mathcal{P}\\rp{int}", "Cg": "\\boldsymbol{C}", "detC": "\\det \\Cg", "F": "\\bm{F}", "s": "\\bm{\\sigma}", "ie": "\\rp{e}", "ipl": "\\rp{p}", "e": "\\varepsilon", "eb": "\\bm{\\varepsilon}", "ee": ["\\e\\ie", 0], "ep": ["\\e\\ipl", 0], "E": "\\bm{E}", "Ee": ["\\E\\ie", 0], "Ep": ["\\E\\ipl", 0], "Fe": ["\\bm{\\F}\\ie", 0], "Fp": ["\\bm{\\F}\\ipl", 0], "Cge": "\\tilde{\\Cg}\\ie", "Cgp": ["\\Cg\\ipl", 0], "Se": "\\tilde{\\bm{S}}\\ie", "Me": "\\tilde{\\bm{M}}\\ie", "Lp": "\\tilde{\\bm{L}}\\ipl", "Dp": "\\tilde{\\bm{D}}\\ipl", "sw": "\\rs{sw}", "IV": "\\bm{Y}", "iv": "Y", "psiCap": "\\psi\\rs{cap}", "psiCapcv": "\\psi\\rs{cap-cv}", "psiAd": "\\psi\\rs{ad}", "pCap": "p\\rs{cap}", "pCapcv": "p\\rs{cap-cv}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapters/chapter2/overview';</script>
     <link rel="index" title="Stichwortverzeichnis" href="../../genindex.html" />
     <link rel="search" title="Suche" href="../../search.html" />
-    <link rel="next" title="2.1. Von der starken zur schwachen Form" href="FEM.html" />
-    <link rel="prev" title="1.9. Grundgleichungen einfacher Strukturelemente" href="../chapter1/strukturgleichungen.html" />
+    <link rel="next" title="4. Von der starken zur schwachen Form" href="FEM.html" />
+    <link rel="prev" title="2.4. Grundgleichungen einfacher Strukturelemente" href="../chapter1/strukturgleichungen.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -173,63 +171,54 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Modellklassifikation.html">1.6. Numerische Modelle in der Mechanik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Loesungsverfahren.html">1.7. Numerische Lösungsverfahren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/elasticity.html">1.8. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter1/strukturgleichungen.html">1.9. Grundgleichungen einfacher Strukturelemente</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Konstruktion.html">1. Numerische Simulation im Konstruktionsprozess</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter1/Feldgleichungen.html">2. Kontinuierliche Modelle am Beispiel der Elastizitätstheorie</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Modellklassifikation.html">2.1. Numerische Modelle in der Mechanik</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/Einf%C3%BChrung_Loesungsverfahren.html">2.2. Numerische Lösungsverfahren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/elasticity.html">2.3. Mathematische Modellbildung in der Kontinuumstheorie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chapter1/strukturgleichungen.html">2.4. Grundgleichungen einfacher Strukturelemente</a></li>
 </ul>
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theorie der Finiten Elemente Methode</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Die Finite-Elemente-Methode</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="FEM.html">2.1. Von der starken zur schwachen Form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="1dFEM.html">2.2. Die schwache Form am Beispiel des Stabes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BalkenFEM.html">2.3. Die Balken-FEM</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Die Finite-Elemente-Methode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FEM.html">4. Von der starken zur schwachen Form</a></li>
+<li class="toctree-l1"><a class="reference internal" href="1dFEM.html">5. Die schwache Form am Beispiel des Stabes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BalkenFEM.html">6. Die Balken-FEM</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Isoparametrische FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter3/isoparametrischeFEM.html">3. Isoparametrische FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter3/Ansatzfunktionen.html">3.4. Ansatzfunktionen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter3/Integration.html">3.5. Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter3/Postprocessing.html">3.6. Postprocessing</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/isoparametrischeFEM.html">7. Isoparametrische FEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/Ansatzfunktionen.html">8. Ansatzfunktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/Integration.html">9. Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter3/Postprocessing.html">10. Postprocessing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Praktisches zur Anwendung der FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter4/Overview.html">4. Praktische Hinweise zur Anwendung der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Symmetrie.html">4.1. Symmetrie</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Fehlerquellen.html">4.2. Fehlerquellen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter4/Vernetzung.html">4.3. Vernetzung</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4/Overview.html">11. Praktische Hinweise zur Anwendung der FEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4/Symmetrie.html">12. Symmetrie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4/Fehlerquellen.html">13. Fehlerquellen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter4/Vernetzung.html">14. Vernetzung</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Zeitabhängige Problemstellungen</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter6/Overview.html">5. Zeitabhängige Problemstellungen in der FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter6/TransienteDynamik.html">5.1. Transiente Dynamik</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter6/Modalanalyse.html">5.2. Modalanalysen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter6/W%C3%A4rmeleitung.html">5.3. Wärmeleitung</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter6/Overview.html">15. Zeitabhängige Problemstellungen in der FEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter6/TransienteDynamik.html">16. Transiente Dynamik</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter6/Modalanalyse.html">17. Modalanalysen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter6/W%C3%A4rmeleitung.html">18. Wärmeleitung</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung in die Nichtlineare FEM</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../chapter5/Overview.html">6. Einführung in die nichtlineare FEM</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../chapter5/GeometrischeNichtlinearit%C3%A4t.html">6.1. Geometrische Nichtlinearität</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter5/MaterielleNichtlinearit%C3%A4t.html">6.2. Materielle Nichtlinearität</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter5/Kontakt.html">6.3. Kontakt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../chapter5/WeitereNichtlineareEffekte.html">6.4. Weitere Nichtlineare Effekte</a></li>
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter5/Overview.html">19. Einführung in die nichtlineare FEM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter5/GeometrischeNichtlinearit%C3%A4t.html">20. Geometrische Nichtlinearität</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter5/MaterielleNichtlinearit%C3%A4t.html">21. Materielle Nichtlinearität</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter5/Kontakt.html">22. Kontakt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter5/WeitereNichtlineareEffekte.html">23. Weitere Nichtlineare Effekte</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quellenverzeichnis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">7. Quellenverzeichnis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quellen.html">24. Quellenverzeichnis</a></li>
 </ul>
 
     </div>
@@ -425,10 +414,8 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="die-finite-elemente-methode">
-<h1><span class="section-number">2. </span>Die Finite-Elemente-Methode<a class="headerlink" href="#die-finite-elemente-methode" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Die Finite-Elemente-Methode<a class="headerlink" href="#die-finite-elemente-methode" title="Link to this heading">#</a></h1>
 <p>In den nachfolgenden Abschnitten werden die Grundzüge der Finite-Elemente-Methode eingeführt. Bei dieser Einführung handelt es sich um eine ingenieurwissenschaftliche Darstellung. Auf mathematische Anforderungen und Restriktionen wird nur bei Bedarf eingegangen. Für eine mathematisch rigorose Herleitung sei an dieser Stelle auf das Buch von Braess <span id="id1">[<a class="reference internal" href="../../quellen.html#id14" title="Dietrich Braess. Finite elemente: Theorie, schnelle löser und anwendungen in der elastizitätstheorie. Springer-Verlag, 2013.">Braess, 2013</a>]</span> verwiesen.</p>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -467,7 +454,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">1.9. </span>Grundgleichungen einfacher Strukturelemente</p>
+        <p class="prev-next-title"><span class="section-number">2.4. </span>Grundgleichungen einfacher Strukturelemente</p>
       </div>
     </a>
     <a class="right-next"
@@ -475,7 +462,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Von der starken zur schwachen Form</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Von der starken zur schwachen Form</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

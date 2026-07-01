@@ -1,0 +1,108 @@
+version: 1
+project:
+  title: Finite Elemente Methode 1
+  authors:
+    - name: Prof. Dr.-Ing. Steffen Beese
+  copyright: '2026'
+  github: steffenbeese/FEMI_Tutorial
+  bibliography:
+    - references.bib
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/fem_I_skript.pdf
+    - format: typst
+      template: plain_typst_book
+      output: exports/fem_I_skript_typst.pdf
+      typst:
+        font: Linux
+
+  toc:
+    - file: intro.md
+      level: 0
+
+    - title: Einführung
+      children:
+        - file: chapters/chapter1/Einführung_Konstruktion.md
+          level: 0
+    - title: Modellbildung im Ingenieurwesen
+      children:
+        - file: chapters/chapter1/Feldgleichungen.md
+          level: 0
+          children:
+            - file: chapters/chapter1/Einführung_Modellklassifikation.md
+              level: 1
+            - file: chapters/chapter1/Einführung_Loesungsverfahren.md
+              level: 1
+            - file: chapters/chapter1/elasticity.md
+              level: 1
+            - file: chapters/chapter1/strukturgleichungen.md
+              level: 1
+
+    - title: Theorie der Finiten Elemente Methode
+      children:
+        - file: chapters/chapter2/overview.md
+          level: 0
+        - file: chapters/chapter2/FEM.md
+          level: 0
+        - file: chapters/chapter2/1dFEM.md
+          level: 0
+        - file: chapters/chapter2/BalkenFEM.md
+          level: 0
+
+    - title: Isoparametrische FEM
+      children:
+        - file: chapters/chapter3/isoparametrischeFEM.md
+          level: 0
+        - file: chapters/chapter3/Ansatzfunktionen.md
+          level: 0
+        - file: chapters/chapter3/Integration.md
+          level: 0
+        - file: chapters/chapter3/Postprocessing.md
+          level: 0
+
+    - title: Praktisches zur Anwendung der FEM
+      children:
+        - file: chapters/chapter4/Overview.md
+          level: 0
+        - file: chapters/chapter4/Symmetrie.md
+          level: 0
+        - file: chapters/chapter4/Fehlerquellen.md
+          level: 0
+        - file: chapters/chapter4/Vernetzung.md
+          level: 0
+    - title: Zeitabhängige Problemstellungen
+      children:
+        - file: chapters/chapter6/Overview.md
+          level: 0
+        - file: chapters/chapter6/TransienteDynamik.md
+          level: 0
+        - file: chapters/chapter6/Modalanalyse.md
+          level: 0
+        - file: chapters/chapter6/Wärmeleitung.md
+          level: 0
+
+    - title: Einführung in die Nichtlineare FEM
+      children:
+        - file: chapters/chapter5/Overview.md
+          level: 0
+        - file: chapters/chapter5/GeometrischeNichtlinearität.md
+          level: 0
+        - file: chapters/chapter5/MaterielleNichtlinearität.md
+          level: 0
+        - file: chapters/chapter5/Kontakt.md
+          level: 0
+        - file: chapters/chapter5/WeitereNichtlineareEffekte.md
+          level: 0
+
+    - title: Quellenverzeichnis
+      children:
+        - file: quellen.md
+          level: 0
+site:
+  options:
+    logo: logo.jpeg
+    folders: true
+  template: book-theme
+extends: [math-macros.yml]
+  #  - math-macros.yml

@@ -355,6 +355,147 @@ width: 700px
 Anwendung der expliziten und impliziten Zeitintegration [Ansys Education Resources](https://www.ansys.com/de-de/academic/educators/education-resources/introduction-to-explicit-dynamics-using-ls-dyna)
 ```
 
+### Dämpfung in der Strukturmechanik
+
+In realen Strukturen wird Schwingungsenergie durch verschiedene physikalische Mechanismen dissipiert – etwa durch Materialreibung, Fugendämpfung an Verbindungen, Abstrahlung in angrenzende Medien oder viskose Effekte. Eine exakte Modellierung all dieser Mechanismen ist in der Praxis meist nicht möglich. Daher werden in der FEM vereinfachte Dämpfungsmodelle verwendet, die das globale Dissipationsverhalten der Struktur hinreichend genau abbilden. Die nachfolgenden Ausführungen basieren vornehmlich auf dem Lehrbuch {cite}`bathe2006finite`.
+
+Die allgemeine Bewegungsgleichung lautet:
+
+\begin{equation*}
+\bm{M} \ddot{\bm{u}} + \bm{C} \dot{\bm{u}} + \bm{K} \bm{u} = \bm{f}(t)
+\end{equation*}
+
+Die zentrale Herausforderung besteht darin, die Dämpfungsmatrix $\bm{C}$ geeignet zu bestimmen.
+
+#### Rayleigh-Dämpfung (proportionale Dämpfung)
+
+Das in der Praxis am häufigsten eingesetzte Modell ist die **Rayleigh-Dämpfung** (auch proportionale Dämpfung genannt). Dabei wird die Dämpfungsmatrix als Linearkombination von Massen- und Steifigkeitsmatrix angesetzt:
+
+```{math}
+:label: eq_rayleigh
+\begin{equation}
+\bm{C} = \alpha \, \bm{M} + \beta \, \bm{K}
+\end{equation}
+```
+
+Die Parameter $\alpha$ und $\beta$ werden als **Rayleigh-Koeffizienten** bezeichnet. Dieser Ansatz hat den großen Vorteil, dass die Dämpfungsmatrix mit den Eigenvektoren des ungedämpften Systems diagonalisierbar ist (modale Entkopplung bleibt erhalten).
+
+##### Zusammenhang mit dem modalen Dämpfungsgrad
+
+Für die $i$-te Eigenform mit Eigenkreisfrequenz $\omega_i$ ergibt sich der modale Dämpfungsgrad $\xi_i$ zu:
+
+```{math}
+:label: eq_rayleigh_xi
+\begin{equation}
+\xi_i = \frac{\alpha}{2 \omega_i} + \frac{\beta \, \omega_i}{2}
+\end{equation}
+```
+
+Daraus lassen sich wichtige Eigenschaften ablesen:
+
+- Der **Massenanteil** $\alpha$ dämpft vorwiegend die **niedrigen Frequenzen** (niederfrequente Moden).
+- Der **Steifigkeitsanteil** $\beta$ dämpft vorwiegend die **hohen Frequenzen** (hochfrequente Moden).
+
+##### Bestimmung der Rayleigh-Koeffizienten
+
+In der Regel werden $\alpha$ und $\beta$ so bestimmt, dass für zwei ausgewählte Eigenfrequenzen $\omega_1$ und $\omega_2$ die gewünschten Dämpfungsgrade $\xi_1$ und $\xi_2$ erreicht werden. Aus Gleichung {eq}`eq_rayleigh_xi` folgt das Gleichungssystem:
+
+```{math}
+:label: eq_rayleigh_bestimmung
+\begin{equation}
+\begin{pmatrix} \frac{1}{2\omega_1} & \frac{\omega_1}{2} \\ \frac{1}{2\omega_2} & \frac{\omega_2}{2} \end{pmatrix}
+\begin{pmatrix} \alpha \\ \beta \end{pmatrix}
+=
+\begin{pmatrix} \xi_1 \\ \xi_2 \end{pmatrix}
+\end{equation}
+```
+
+Häufig wird vereinfachend $\xi_1 = \xi_2 = \xi$ angenommen (gleicher Dämpfungsgrad für beide Referenzfrequenzen). Dann ergibt sich:
+
+\begin{align}
+\alpha &= \frac{2 \xi \, \omega_1 \omega_2}{\omega_1 + \omega_2} \\
+\beta &= \frac{2 \xi}{\omega_1 + \omega_2}
+\end{align}
+
+```{important}
+**Praktischer Hinweis:** Die beiden Referenzfrequenzen $\omega_1$ und $\omega_2$ sollten den relevanten Frequenzbereich der Anregung einschließen. Zwischen diesen beiden Frequenzen ist die Dämpfung annähernd konstant. Außerhalb dieses Bereiches weicht der tatsächliche Dämpfungsgrad deutlich vom gewünschten Wert ab – bei sehr niedrigen Frequenzen dominiert der Massenanteil, bei sehr hohen Frequenzen der Steifigkeitsanteil.
+```
+
+##### Sonderfälle der Rayleigh-Dämpfung
+
+| Bezeichnung | Parameter | Wirkung |
+| ----------- | --------- | ------- |
+| Reine Massendämpfung | $\alpha > 0, \; \beta = 0$ | Starke Dämpfung bei niedrigen Frequenzen, hohe Frequenzen nahezu ungedämpft |
+| Reine Steifigkeitsdämpfung | $\alpha = 0, \; \beta > 0$ | Starke Dämpfung bei hohen Frequenzen, niedrige Frequenzen nahezu ungedämpft |
+| Volle Rayleigh-Dämpfung | $\alpha > 0, \; \beta > 0$ | Kontrollierte Dämpfung über einen definierten Frequenzbereich |
+
+
+#### Modale Dämpfung
+
+Bei der modalen Analyse (Modenüberlagerung) wird die Dämpfung häufig nicht über eine explizite Dämpfungsmatrix $\bm{C}$ beschrieben, sondern direkt über **modale Dämpfungsgrade** $\xi_i$ für jede Eigenform $i$. Dieses Vorgehen ist besonders praktisch, weil:
+
+- experimentell bestimmte Dämpfungswerte (z.B. aus Modalanalyse-Messungen) direkt verwendet werden können,
+- für jede Mode ein individueller Dämpfungsgrad vorgegeben werden kann,
+- keine vollbesetzte Dämpfungsmatrix aufgebaut werden muss.
+
+Die entkoppelte modale Bewegungsgleichung für die $i$-te Mode lautet:
+
+\begin{equation*}
+\ddot{y}_i + 2 \xi_i \omega_i \dot{y}_i + \omega_i^2 y_i = \phi_i^T \bm{f}(t)
+\end{equation*}
+
+wobei $y_i$ die modale Koordinate und $\phi_i$ der $i$-te Eigenvektor ist.
+
+```{tip}
+**Typische Dämpfungsgrade** in der Praxis:
+
+| Material / Struktur | Dämpfungsgrad $\xi$ |
+| ------------------- | ------------------- |
+| Stahl (geschweißt) | 0.01 – 0.02 |
+| Stahl (geschraubt) | 0.02 – 0.05 |
+| Aluminium | 0.005 – 0.01 |
+| Beton | 0.02 – 0.05 |
+| Gummi / Elastomere | 0.05 – 0.15 |
+| Verbundwerkstoffe (CFK) | 0.01 – 0.03 |
+```
+
+
+#### Strukturelle Dämpfung (hysteretische Dämpfung)
+
+Ein weiteres in der Praxis relevantes Modell ist die **strukturelle** oder **hysteretische Dämpfung**. Sie wird vor allem in der Frequenzbereichsanalyse (harmonische Analyse) verwendet. Die Dämpfungskraft ist hierbei proportional zur Verschiebung (nicht zur Geschwindigkeit):
+
+\begin{equation*}
+\bm{M} \ddot{\bm{u}} + (1 + i \eta) \bm{K} \bm{u} = \bm{f}(\omega)
+\end{equation*}
+
+wobei $\eta$ der **Verlustfaktor** (loss factor) und $i = \sqrt{-1}$ die imaginäre Einheit ist. Dieses Modell eignet sich gut für Werkstoffe, deren Energiedissipation pro Schwingungszyklus frequenzunabhängig ist (z.B. Metalle bei kleinen Amplituden).
+
+```{important}
+**Achtung:** Die strukturelle Dämpfung ist **nur im Frequenzbereich** physikalisch sinnvoll definiert. Im Zeitbereich ist sie nicht kausal und führt zu nicht-physikalischem Verhalten. Für transiente Analysen muss auf viskose Modelle (Rayleigh, modale Dämpfung) zurückgegriffen werden.
+```
+
+
+#### Empfehlungen für den Berechnungsingenieur
+
+Die Wahl des Dämpfungsmodells hängt vom Analysetyp und den verfügbaren Daten ab:
+
+| Analysetyp | Empfohlenes Modell | Bemerkung |
+| ---------- | ------------------ | --------- |
+| Transiente Analyse (direkte Integration) | Rayleigh-Dämpfung | Einfach zu implementieren, Referenzfrequenzen sorgfältig wählen |
+| Modenüberlagerung (transient oder harmonisch) | Modale Dämpfung | Experimentelle Daten können direkt genutzt werden |
+| Harmonische Analyse (Frequenzbereich) | Strukturelle Dämpfung oder modale Dämpfung | Verlustfaktor $\eta \approx 2\xi$ für kleine Dämpfung |
+| Crash / Hochdynamik (explizit) | Massen-Dämpfung oder keine Dämpfung | Numerische Dissipation oft ausreichend |
+
+```{warning}
+**Häufige Fehlerquellen in der Praxis:**
+
+1. **Zu hohe Rayleigh-Dämpfung bei hohen Frequenzen:** Wenn $\beta$ zu groß gewählt wird, werden hochfrequente Moden überdämpft. Dies kann physikalisch relevante Antworten unterdrücken.
+2. **Referenzfrequenzen außerhalb des Anregungsbereichs:** Die Rayleigh-Koeffizienten sollten immer auf den relevanten Frequenzbereich der Anregung abgestimmt sein.
+3. **Verwechslung von $\xi$ und $\eta$:** Für kleine Dämpfung gilt näherungsweise $\eta \approx 2\xi$. Diese Umrechnung wird in der Praxis häufig benötigt, wenn Herstellerdaten als Verlustfaktor angegeben sind.
+4. **Vernachlässigung der Dämpfung:** Insbesondere bei Resonanzproblemen führt das Weglassen der Dämpfung zu unrealistisch hohen Amplituden.
+```
+
+
 ### Beispiel: Sprungbrett mit impliziter Zeitintegration
 
 In diesem Beispiel wird die Bewegung eines Sprungbretts nach einem Sprung simuliert. Die Kraft von 500 N wird innerhalb von 0,1 s aufgebracht und danach innerhalb 0,1 s wieder abgebaut. Die Simulation wird mit einer impliziten Zeitintegration vom **Newmark**-Typ durchgeführt. 

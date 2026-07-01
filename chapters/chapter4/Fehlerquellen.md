@@ -17,3 +17,16 @@ kernelspec:
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 # Fehlerquellen
+
+- die FEM ist eines der genausten numerischen Verfahren welches derzeit bekannt ist
+- Es kann flexibel auf eine Vielzahl von Problemstellungen angepasst werden
+- 
+
+## Modellierung
+
+## Preprocessing
+
+## Processing
+
+## Postprocessing
+

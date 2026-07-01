@@ -11,7 +11,6 @@ kernelspec:
   language: python
   name: python3
 ---
-
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 # Modalanalysen
@@ -33,7 +32,7 @@ Grundlage für die Modalanalyse ist die Impulsbilanz (Bewegungsgleichung) {eq}`F
 \bm{M} \ddot{\bm{u}} + \bm{C} \dot{\bm{u}} + \bm{K} \bm{u} = \bm{f}(t) \; .
 \end{equation*}
 
-Als Unbekannte für die Bewegungsgleichung sind für alle Punkte $\bm{x}$ im Raum und das betrachtete Zeitinterval $[t_0, t_1]$ die Verschiebungen $\bm{u}(\bm{x}, t)$, die Geschwindigkeiten $\dot{\bm{u}}(\bm{x}, t)$ und die Beschleunigungen $\ddot{\bm{u}}(\bm{x}, t)$ gesucht. 
+Als Unbekannte für die Bewegungsgleichung sind für alle Punkte $\bm{x}$ im Raum und das betrachtete Zeitinterval $[t_0, t_1]$ die Verschiebungen $\bm{u}(\bm{x}, t)$, die Geschwindigkeiten $\dot{\bm{u}}(\bm{x}, t)$ und die Beschleunigungen $\ddot{\bm{u}}(\bm{x}, t)$ gesucht.
 
 Bei der Modalanalyse wird davon ausgegangen, dass die Lösung der Impulsbilanz {eq}`FEM_dynamisch` eine harmonische Funktion ist:
 
@@ -53,7 +52,7 @@ width: 500px
 Eindimensionaler Feder-Massenschwinger mit Dämpfung.
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 ---
 mystnb:
   figure:
@@ -108,8 +107,7 @@ ax.annotate('', xy=(0, 0), xytext=(-phi+0.5*np.pi*omega, 0),
 ax.annotate(r'$\theta$', xy=(-phi+0.4*np.pi*omega, 0.1*A), fontsize=12);
 ```
 
-Man kann sich das Verhalten der Struktur so vorstellen, als ob jeder Knoten des Systems als ein Feder-Masse-System interpretiert werden kann. Jede Masse schwingt mit der gleichen Frequenz und Phase, aber mit einer anderen Amplitude. 
-
+Man kann sich das Verhalten der Struktur so vorstellen, als ob jeder Knoten des Systems als ein Feder-Masse-System interpretiert werden kann. Jede Masse schwingt mit der gleichen Frequenz und Phase, aber mit einer anderen Amplitude.
 
 ```{figure} images/Modal_Ansys_01.png
 ---
@@ -141,12 +139,9 @@ so ergibt sich daa Gleichungssystem:
 \left( \bm{K} - \omega^2 \bm{M} \right) \bm{\phi} = \bm{0} \; .
 \end{equation}
 
-Dies ist ein klassisches Eigenwertproblem mit den Eigenwerten $\omega_i^2$ und den Eigenvektoren $\bm{\phi}_i$. 
+Dies ist ein klassisches Eigenwertproblem mit den Eigenwerten $\omega_i^2$ und den Eigenvektoren $\bm{\phi}_i$.
 
-
-
-
-```{admonition} Beispiel für Eigenwert-Problem für einfache Feder-Masse-Systeme
+```{admonition}
 :class: dropdown
 
 Stellen Sie die Bewegungsgleichungen für das dargestellte System auf und bestimmen Sie die Eigenfrequenzen und Eigenvektoren.
@@ -177,7 +172,6 @@ Stellen Sie die Bewegungsgleichungen für das dargestellte System auf und bestim
 
 Die Bestimmung der Eigenfrequenzen und Moden basiert auf Gleichung {eq}`FEMLinearDynamics` am diskretisierten FE-System. Dies bedeutet gleichzeitig, dass man genauso viele Moden und Eigenfrequenzen findet wie es Freiheitsgrade im System gibt. Sind durch die Randbedingungen Starrkörperbewegungen nicht unterdrückt ergeben sich "0"-Eigenfrequenzen und Moden. Deshalb ist es wichtig auf die Unverschieblichkeit des Systems zu achten. Die Berechnung aller Eigenfrequenzen und -moden ist ressourcenintensiv und im allgemeinen nicht zielführend. Man stelle sich zum Beispiel die Stimmgabel in Abbildung vor:
 
-
 ```{figure} images/Stimmgabel.png
 ---
 name: Stimmgabel
@@ -191,14 +185,14 @@ Hier sind wir nur an den kleinsten Eigenfrequenzen interessiert. Das dargestellt
 
 Für die dargestellte Struktur liefert Ansys folgende 6 ersten Eigenfrequenzen:
 
-| Mode | Eigenfrequenz in Hz|
-| ---- | ------------- |
-| 1 |	306,16 |
-| 2 |	318,05 |
-| 3 |	511,91 |
-| 4 |	536,35 |
-| 5 |	2087,6 |
-| 6 |	2113,5 |
+| Mode | Eigenfrequenz in Hz |
+| ---- | ------------------- |
+| 1    | 306,16              |
+| 2    | 318,05              |
+| 3    | 511,91              |
+| 4    | 536,35              |
+| 5    | 2087,6              |
+| 6    | 2113,5              |
 
 ```{figure} images/Stimmgabel_Mode.png
 ---
@@ -229,19 +223,18 @@ Hierbei ist $\bm{M}$ wieder die Massenmatrix und $\bm{D}$ ein Vektor, welcher f�
           ***** PARTICIPATION FACTOR CALCULATION *****  Y  DIRECTION
                                                                                   CUMULATIVE     RATIO EFF.MASS
   MODE   FREQUENCY       PERIOD      PARTIC.FACTOR     RATIO    EFFECTIVE MASS   MASS FRACTION   TO TOTAL MASS
-     1     306.162       0.32662E-02   0.72527E-02    1.000000    0.526020E-04    0.784215        0.598442    
+     1     306.162       0.32662E-02   0.72527E-02    1.000000    0.526020E-04    0.784215        0.598442  
      2     318.052       0.31441E-02   0.16450E-07    0.000002    0.270589E-15    0.784215        0.307844E-11
      3     511.911       0.19535E-02   0.52910E-05    0.000730    0.279943E-10    0.784215        0.318486E-06
      4     536.349       0.18645E-02  -0.20278E-08    0.000000    0.411180E-17    0.784215        0.467792E-13
      5     2087.59       0.47902E-03  -0.73383E-07    0.000010    0.538513E-14    0.784215        0.612656E-10
-     6     2113.47       0.47316E-03  -0.38045E-02    0.524558    0.144740E-04     1.00000        0.164668    
+     6     2113.47       0.47316E-03  -0.38045E-02    0.524558    0.144740E-04     1.00000        0.164668  
  -----------------------------------------------------------------------------------------------------------------
 ```
 
 Die effektive Masse in y-Richtung für Mode 1 gibt an, wie viel Masse bei Mode 1 in y-Richtung bewegt wird. Mode 1,6 und 3 sind maßgeblich für die Bewegung in y-Richtung.
 
-
-```{admonition} Effektive Masse des einfachen Feder-Masse-Systems
+```{admonition}
 :class: dropdown
 
 Für das dargestellte System haben wir bereits die Eigenwerte und Eigenvektoren bestimmt. 
@@ -300,10 +293,115 @@ Die Grundidee der Modenüberlagerung ist die Darstellung des Verschiebungsansatz
 \end{equation}
 ```
 
-Dabei kommen nicht alle möglichen Moden zum Einsatz, sondern nur ein reduzierter Satz. Setzt man nun den Verschiebungsansatz {eq}`msupansatz` in die harmonische Bewegungsgleichung ein, so wird die Anzahl der Unbekannten drastisch reduziert. Es muss nicht mehr bzgl. der Knotenfreiheitsgrade gelöst werden, sondern nur noch nach den unbekannten Faktoren $y_i$.
+Dabei kommen nicht alle möglichen Moden zum Einsatz, sondern nur ein reduzierter Satz von $m \ll n$ Moden, wobei $n$ die Anzahl der Freiheitsgrade des Systems ist. In Matrixschreibweise lässt sich der Ansatz kompakt formulieren als:
+
+```{math}
+:label: msupmatrix
+\begin{equation}
+\bm{u}_h = \bm{\Phi} \, \bm{y}(t)
+\end{equation}
+```
+
+mit der Modalmatrix $\bm{\Phi} = [\bm{\phi}_1, \bm{\phi}_2, \dots, \bm{\phi}_m] \in \mathbb{R}^{n \times m}$ und dem Vektor der modalen Koordinaten $\bm{y}(t) = [y_1(t), y_2(t), \dots, y_m(t)]^T$. Entsprechend ergeben sich die Zeitableitungen:
+
+\begin{align}
+\dot{\bm{u}}_h &= \bm{\Phi} \, \dot{\bm{y}}(t) \\
+\ddot{\bm{u}}_h &= \bm{\Phi} \, \ddot{\bm{y}}(t) \; .
+\end{align}
+
+### Einsetzen in die Bewegungsgleichung
+
+Ausgangspunkt ist die vollständige FEM-Bewegungsgleichung {eq}`FEM_dynamisch`:
+
+\begin{equation}
+\bm{M} \ddot{\bm{u}} + \bm{C} \dot{\bm{u}} + \bm{K} \bm{u} = \bm{f}(t) \; .
+\end{equation}
+
+Einsetzen des Ansatzes {eq}`msupmatrix` liefert:
+
+```{math}
+:label: msup_eingesetzt
+\begin{equation}
+\bm{M} \bm{\Phi} \, \ddot{\bm{y}} + \bm{C} \bm{\Phi} \, \dot{\bm{y}} + \bm{K} \bm{\Phi} \, \bm{y} = \bm{f}(t) \; .
+\end{equation}
+```
+
+Dieses Gleichungssystem hat $n$ Gleichungen, aber nur $m$ Unbekannte. Um ein bestimmtes System zu erhalten, wird {eq}`msup_eingesetzt` von links mit $\bm{\Phi}^T$ multipliziert (Galerkin-Projektion):
+
+```{math}
+:label: msup_projiziert
+\begin{equation}
+\underbrace{\bm{\Phi}^T \bm{M} \bm{\Phi}}_{\tilde{\bm{M}}} \, \ddot{\bm{y}} + \underbrace{\bm{\Phi}^T \bm{C} \bm{\Phi}}_{\tilde{\bm{C}}} \, \dot{\bm{y}} + \underbrace{\bm{\Phi}^T \bm{K} \bm{\Phi}}_{\tilde{\bm{K}}} \, \bm{y} = \underbrace{\bm{\Phi}^T \bm{f}(t)}_{\tilde{\bm{f}}(t)} \; .
+\end{equation}
+```
+
+Das resultierende System hat nun nur noch die Dimension $m \times m$ anstatt $n \times n$.
+
+### Orthogonalität der Eigenvektoren
+
+Die Eigenvektoren $\bm{\phi}_i$ besitzen die wichtige Eigenschaft der **Orthogonalität** bezüglich der Massen- und Steifigkeitsmatrix:
+
+```{math}
+:label: orthogonalitaet
+\begin{align}
+\bm{\phi}_i^T \bm{M} \bm{\phi}_j &= 0 \quad \text{für } i \neq j \\
+\bm{\phi}_i^T \bm{K} \bm{\phi}_j &= 0 \quad \text{für } i \neq j \; .
+\end{align}
+```
+
+Dadurch werden die projizierten Matrizen $\tilde{\bm{M}}$ und $\tilde{\bm{K}}$ zu **Diagonalmatrizen**:
+
+\begin{align}
+\tilde{\bm{M}} = \bm{\Phi}^T \bm{M} \bm{\Phi} &= \text{diag}(\tilde{m}_1, \tilde{m}_2, \dots, \tilde{m}_m) \\
+\tilde{\bm{K}} = \bm{\Phi}^T \bm{K} \bm{\Phi} &= \text{diag}(\tilde{k}_1, \tilde{k}_2, \dots, \tilde{k}_m)
+\end{align}
+
+mit den modalen Massen $\tilde{m}_i = \bm{\phi}_i^T \bm{M} \bm{\phi}_i$ und den modalen Steifigkeiten $\tilde{k}_i = \bm{\phi}_i^T \bm{K} \bm{\phi}_i = \omega_i^2 \tilde{m}_i$.
+
+Nimmt man zusätzlich eine **Rayleigh-Dämpfung** an, d.h. $\bm{C} = \alpha \bm{M} + \beta \bm{K}$, so ist auch $\tilde{\bm{C}}$ eine Diagonalmatrix, da:
+
+\begin{equation}
+\tilde{\bm{C}} = \bm{\Phi}^T \bm{C} \bm{\Phi} = \alpha \, \tilde{\bm{M}} + \beta \, \tilde{\bm{K}} = \text{diag}(\tilde{c}_1, \tilde{c}_2, \dots, \tilde{c}_m) \; .
+\end{equation}
+
+### Entkoppelte modale Gleichungen
+
+Durch die Diagonalstruktur aller drei Matrizen **entkoppelt** das System {eq}`msup_projiziert` vollständig in $m$ unabhängige skalare Differentialgleichungen:
+
+```{math}
+:label: msup_entkoppelt
+\begin{equation}
+\tilde{m}_i \, \ddot{y}_i + \tilde{c}_i \, \dot{y}_i + \tilde{k}_i \, y_i = \tilde{f}_i(t) \quad \text{für } i = 1, 2, \dots, m
+\end{equation}
+```
+
+mit der modalen Kraft $\tilde{f}_i(t) = \bm{\phi}_i^T \bm{f}(t)$. Division durch die modale Masse $\tilde{m}_i$ ergibt die Standardform:
+
+```{math}
+:label: msup_standard
+\begin{equation}
+\ddot{y}_i + 2 \zeta_i \omega_i \, \dot{y}_i + \omega_i^2 \, y_i = \frac{\tilde{f}_i(t)}{\tilde{m}_i}
+\end{equation}
+```
+
+mit dem modalen Dämpfungsgrad $\zeta_i = \frac{\tilde{c}_i}{2 \omega_i \tilde{m}_i}$. Jede dieser Gleichungen entspricht einem gedämpften Einmassenschwinger und kann unabhängig von den anderen zeitlich integriert werden.
+
+```{admonition} Zusammenfassung des Verfahrens
+:class: tip
+
+1. **Modalanalyse:** Löse das Eigenwertproblem $(\bm{K} - \omega_i^2 \bm{M})\bm{\phi}_i = \bm{0}$ und bestimme die $m$ relevanten Eigenmoden.
+2. **Projektion:** Berechne die modalen Größen $\tilde{m}_i$, $\tilde{k}_i$, $\tilde{c}_i$ und $\tilde{f}_i(t)$.
+3. **Integration:** Löse die $m$ entkoppelten skalaren Gleichungen {eq}`msup_standard` nach $y_i(t)$.
+4. **Rücktransformation:** Berechne die physikalischen Verschiebungen über $\bm{u}_h(t) = \sum_i^m \bm{\phi}_i \, y_i(t)$.
+
+Anstatt ein gekoppeltes System mit $n$ Freiheitsgraden zu lösen, werden nur $m \ll n$ skalare Gleichungen integriert. Der Rechenaufwand reduziert sich damit drastisch.
+```
+
+Details zum Verfahren findet man in dem Lehrwerk {cite}`bathe2006finite`.
+
+
 
 Die Modenüberlagerung ist nachfolgend am Beispiel eines Sprungbrettes gezeigt und wird mit der vollen transienten Lösung verglichen. Siehe hierzu [Transiente Berechnung](./TransienteDynamik.md#beispiel-sprungbrett-mit-impliziter-zeitintegration)
-
 
 ```{figure} images/Vergleich_MSUP_NM.png
 ---
@@ -318,13 +416,10 @@ Vergleich der Modenüberlagerung mit der transienten Berechnung.
 
 Die Modenüberlagerungstechnik wird nicht nur für die transiente Berechnung verwendet, sondern kann auch für eine harmonische Berechnung genutzt werden. Harmonische Berechnungen liegen vor, wenn eine oder mehrere sinusförmige Kräfte $F_i= \hat{F}_i \sin(\omega t+ \phi_i)$ mit gleicher Frequenz $\omega$ angeregt werden. Die Lösung der harmonischen Bewegungsgleichung liefert dann die Amplitude der Verschiebung $u$ und die Phase $\phi_i$ über der Frequenz $\omega$. Anstatt die volle harmonische Bewegungsgleichung zu lösen kann hier wieder die Modenüberlagerung eingesetzt werden.
 
-
-
-
 ### Beispiel: Zwei Kompressoren auf einem Rahmen
 
 ```{figure} images/Kompressoren.png
----
+--- 
 name: Kompressoren
 alt: Kompressoren mit harmonischer Anregung
 width: 500px
@@ -332,9 +427,8 @@ width: 500px
 Darstellung des Kompressorenmodells und der harmonischen Anregung.
 ```
 
-
-Zwei Kompressoren werden auf einem Rahmen montiert. Idealisiert werden die beiden Kompressoren durch Quader dargestellt. Dies ist auch für praktische Fragestellungen möglich. Jedoch sollte man darauf achten, dass die Trägheitseigenschaften der Kompressoren nicht zu stark von den Trägheitseigenschaften des Ersatzmodells abweichen. 
-Am rechten Kompressor greift eine Harmonische Kraft in vertikaler Richtung an. Gelöst wird diese Problemstellung zum einen mit einer vollen harmonischen Berechnung und mit der Modenüberlagerungstechnik mit 10 Basismoden. Bei der vollen harmonischen Berechnung wird das gesamte System bei jeder untersuchten Frequenz vollständig gelöst. Hingegen bei der Modenüberlagerungstechnik wird nur die Approximation gelöst, welches einen deutlich geringeren Rechenaufwand darstellt. Das Ergebnis der Frequenzanalyse ist in Abbildung {numref}`Frequenzgang` dargestellt. 
+Zwei Kompressoren werden auf einem Rahmen montiert. Idealisiert werden die beiden Kompressoren durch Quader dargestellt. Dies ist auch für praktische Fragestellungen möglich. Jedoch sollte man darauf achten, dass die Trägheitseigenschaften der Kompressoren nicht zu stark von den Trägheitseigenschaften des Ersatzmodells abweichen.
+Am rechten Kompressor greift eine Harmonische Kraft in vertikaler Richtung an. Gelöst wird diese Problemstellung zum einen mit einer vollen harmonischen Berechnung und mit der Modenüberlagerungstechnik mit 10 Basismoden. Bei der vollen harmonischen Berechnung wird das gesamte System bei jeder untersuchten Frequenz vollständig gelöst. Hingegen bei der Modenüberlagerungstechnik wird nur die Approximation gelöst, welches einen deutlich geringeren Rechenaufwand darstellt. Das Ergebnis der Frequenzanalyse ist in Abbildung {numref}`Frequenzgang` dargestellt.
 
 ```{figure} images/Frequenzgang_harmonsicher_Anregung.png
 ---
@@ -344,14 +438,25 @@ width: 700px
 ---
 Frequenzgang der vertikalen Verschiebung eines Kompressors bei harmonischer Anregung.
 ```
-Die größten Verschiebungen ergeben sich bei der Frequenz von 40 Hz auf. 
+
+Die größten Verschiebungen ergeben sich bei der Frequenz von 40 Hz auf.
 
 Die kritischen Frequenzen werden auch bei der Modenüberlagerungstechnik gut erfasst. Die Amplituden der Resonanzen sind jedoch etwas kleiner als bei der vollen harmonischen Berechnung. Dies liegt vor allen an der reduzierten Anzahl der Basismoden.
 
+### Vor- und Nachteile der Modalen Superposition
+
+| Vorteile | Nachteile |
+| -------- | --------- |
+| Deutlich geringerer Rechenaufwand durch Reduktion auf $m \ll n$ Freiheitsgrade | Nur für **lineare** Systeme anwendbar |
+| Entkopplung in unabhängige skalare Gleichungen ermöglicht einfache Zeitintegration | Genauigkeit hängt von der Anzahl der berücksichtigten Moden ab |
+| Effizient für transiente und harmonische Berechnungen | Hohe Frequenzanteile werden bei zu wenigen Moden nicht erfasst |
+| Physikalische Interpretation der Ergebnisse durch modale Koordinaten | Dämpfung muss speziell modelliert werden (z. B. Rayleigh-Dämpfung) |
+| Wiederverwendbarkeit der Modalbasis für verschiedene Lastfälle | Nichtlineare Effekte (Kontakt, Plastizität, große Verformungen) können nicht abgebildet werden |
+| Einfache Identifikation dominanter Moden über effektive Massen | Zusätzlicher Aufwand für vorgeschaltete Modalanalyse |
 
 ## Zusammenfassung
 
-```{admonition} Zusammenfassung
+```{admonition}
 :class: tip
 - Modalanalyse identifiziert Eigenschwingungen und Eigenformen (Eigenmoden) **linearer**, mechanischer Systeme.
 - Klassisches Eigenwertproblem löst Eigenfrequenzen/-formen - wird iterativ gelöst

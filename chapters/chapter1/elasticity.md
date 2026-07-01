@@ -84,7 +84,7 @@ Die Massenerhaltung besagt, dass die Masse eines geschlossenen Systems konstant 
 
 ```{math}
 :label: Massenbilanz
-\dot{\varrho} +  \div{\varrho {\bm{v}}} = 0
+\dot{\varrho} +  \Div{\varrho {\bm{v}}} = 0
 ```
 
 Hier ist $\varrho$ die Dichte und $\bm{v}$ die Geschwindigkeit des Materials. Die zeitliche Ableitung einer Größe $\square$ wird durch einen Punkt über der Größe dargestellt: $\td{\square}$.
@@ -97,7 +97,7 @@ Formuliert man die Massenbilanz für Fluide, dann ist die Massendichte eine Funk
 
 ```{math}
 :label: Massenbilanz2
- \underbrace{\Pd{\varrho}{p}}_{=:\frac{\varrho}{\kappa}} \td{p} + \div{\varrho {\bm{v}}} = 0 \; .
+ \underbrace{\Pd{\varrho}{p}}_{=:\frac{\varrho}{\kappa}} \td{p} + \Div{\varrho {\bm{v}}} = 0 \; .
 ```
 
 Die primäre Größe, nach der die partielle Differentialgleichung gelöst wird, ist damit der Druck $p$. Als sekundäre Größe bezeichnet man Feldgrößen, die von den primären Größen abgeleitet sind. Im Fall der Massenbilanz des Fluids ist dies die Geschwindigkeit der Materialpartikel $\bm{v}$. Die Gleichungen {eq}`Massenbilanz` und {eq}`Massenbilanz2` beschreiben, wie sich die bilanzierte Größe ($p$) in der Zeit verändert; eine Information über den absoluten Wert der Größe erhält man erst mit der Einführung von Anfangs- und Randwerten:
@@ -119,7 +119,7 @@ Diese Art der mathematischen Problemstellung nennt man Anfangsrandwertproblem (I
 Bestimme das Druckfeld $p(\bm{x},t): \mathcal{B} \times [t_0,t] \rightarrow \mathcal{R}^1$, sodass für alle materiellen Punkte $\bm{x} \, \in \, \mathcal{B}$ zu jedem Zeitpunkt $t \, \in \, [t_0,t]$ die Bilanzgleichung:
 
 $$
-\frac{\varrho}{\kappa} \td{p} + \div{\varrho {\bm{v}}} = 0 
+\frac{\varrho}{\kappa} \td{p} + \Div{\varrho {\bm{v}}} = 0 
 $$
 
 unter Einhaltung der Anfangs- und Randbedingungen:
@@ -147,7 +147,7 @@ Körper $\mathcal{B}$ unter Einwirkung der externen Oberflächenkraft $\tilde{\b
 Die Impulserhaltung, oft formuliert als Newtons zweites Gesetz, besagt, dass die Änderung des Impulses $\rho \bm{v}$ eines Körpers gleich der Summe der auf ihn wirkenden Kräfte ist. Für ein Kontinuum wird dies durch die Cauchy-Bewegungsgleichungen ausgedrückt:
 
 \begin{equation}
- \varrho \td{\bm{v}} =\div{\bm{\sigma}} + \rho \bm{b}
+ \varrho \td{\bm{v}} =\Div{\bm{\sigma}} + \rho \bm{b}
 \end{equation}
 
 $\boldsymbol{\sigma}$ steht hierbei für den Spannungstensor und $\mathbf{b}$ für die Volumenkraft pro Masseneinheit.
@@ -165,7 +165,7 @@ Die primäre Feldgröße dieses Anfangsrandwertproblems ist die Verschiebung $\b
 Bestimme das Verschiebungsfeld $\bm{u}(\bm{x},t): \mathcal{B} \times [t_0,t] \rightarrow \mathcal{R}^3$, sodass für alle materiellen Punkte $\bm{x} \, \in \, \mathcal{B}$ zu jedem Zeitpunkt $t \, \in \, [t_0,t]$ die Bilanzgleichung:
 
 $$
-\varrho \td{\bm{v}} =\div{\bm{\sigma}} + \rho \bm{b} 
+\varrho \td{\bm{v}} =\Div{\bm{\sigma}} + \rho \bm{b} 
 $$
 
 unter Einhaltung der Anfangs- und Randbedingungen:
@@ -187,7 +187,7 @@ Die Energieerhaltung stellt sicher, dass die gesamte Energie in einem abgeschlos
 
 ```{math}
 :label: 1HS_01
-\rho \Mtd{e} = \bm{\sigma}\T \td{\bm{\epsilon}} - \div{\bm{q}} + \varrho r
+\rho \Mtd{e} = \bm{\sigma}\T \td{\bm{\epsilon}} - \Div{\bm{q}} + \varrho r
 ```
 
 Hier ist $e$ die spezifische innere Energie, $\bm{q}$ der Wärmeflussvektor und $r$ die Wärmequelle pro Masseneinheit.
@@ -199,7 +199,7 @@ Die skalare Energiebilanzgleichung dient zur Berechnung des Temperaturfeldes $\t
 Vernachlässigt man die Kopplung zwischen Verschiebung und Temperatur, erhält man aus Gleichung {eq}`1HS_01` die bekannte instationäre Wärmeleitungsgleichung:
 
 \begin{equation}
-\varrho c_e \Pd{\theta}{t} + \div{\bm{q}} - \varrho r = 0
+\varrho c_e \Pd{\theta}{t} + \Div{\bm{q}} - \varrho r = 0
 \end{equation}
 
 Hier ist die primäre Variable die Temperatur $\theta(\bm{x},t)$ und die sekundäre Variable der Wärmeflussvektor $\bm{q}(\bm{x},t)$. Gemeinsam mit den Rand- und Anfangsbedingungen erhält man das Anfangsrandwertproblem:
@@ -211,7 +211,7 @@ Hier ist die primäre Variable die Temperatur $\theta(\bm{x},t)$ und die sekund�
 Bestimme das Temperaturfeld $\theta(\bm{x},t): \mathcal{B} \times [t_0,t] \rightarrow \mathcal{R}^1$, sodass für alle materiellen Punkte $\bm{x} \, \in \, \mathcal{B}$ zu jedem Zeitpunkt $t \, \in \, [t_0,t]$ die Bilanzgleichung:
 
 $$
-\varrho c_e \Pd{\theta}{t} + \div{\bm{q}} - \varrho r = 0
+\varrho c_e \Pd{\theta}{t} + \Div{\bm{q}} - \varrho r = 0
 $$
 
 unter Einhaltung der Anfangs- und Randbedingungen:

@@ -85,7 +85,7 @@ width: 500px
 
 ## Beispiel: 1D-Integration
 
-Wir möchten das Polynom $f(x) = \frac{1}{2} x^4 + 6x + 4$ über das Intervall $[-1,1]$ integrieren. Die exakte Lösung ist:
+Wir möchten das Polynom $f(x) = \frac{1}{2} x^4 + 6x^2 + 4$ über das Intervall $[-1,1]$ integrieren. Die exakte Lösung ist:
 \begin{equation*}
 \int_{-1}^{1} \left(\frac{1}{2} x^4 + 6x + 4\right) \, \mathrm{d}x = \left[\frac{1}{10} x^5+2x^3+4x \right]_{-1}^{1} = 12.2
 \end{equation*}

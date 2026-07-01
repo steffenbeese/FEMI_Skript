@@ -24,7 +24,7 @@ jupytext:
 \newcommand{\deta}{\; \text{ d}\eta}
 \newcommand{\dzeta}{\; \text{ d}\zeta}
 \newcommand{\grad}[1]{\text{grad}\left(#1\right)}
-\renewcommand{\div}[1]{\text{div} \left(#1\right)}
+\renewcommand{\Div}[1]{\text{div} \left(#1\right)}
 \newcommand{\td}[1]{\dot{#1}}
 \newcommand{\tdd}[1]{\ddot{#1}}
 \newcommand{\T}{\rp{T}}

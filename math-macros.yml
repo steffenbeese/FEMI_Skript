@@ -1,0 +1,136 @@
+version: 1
+
+project:
+  math:
+    # --- Text / Fonts (als Alias mit 1 Argument) ---
+    \tbf: '\textbf{#1}'
+    \tit: '\textit{#1}'
+    \tsl: '\textsl{#1}'
+    \tsc: '\textsc{#1}'
+    \ttt: '\texttt{#1}'
+    \trm: '\textrm{#1}'
+    \tsf: '\textsf{#1}'
+    \tup: '\textup{#1}'
+
+    \mbf: '\mathbf{#1}'
+    \mit: '\mathit{#1}'
+    \msf: '\mathsf{#1}'
+    \mrm: '\mathrm{#1}'
+    \mtt: '\mathtt{#1}'
+
+    \dcdot: '\mathbf{:}'
+    \bm: '\boldsymbol{#1}'
+
+    # --- Basic helpers ---
+    \tr: '\text{tr}\left(#1\right)'
+    \mattwo: '\begin{pmatrix} #1 & #2 \\ #3 & #4\end{pmatrix}'
+
+    \setC: '\left\{S,G,L,l\right\}'
+    \tot: '^{\textrm{tot}}'
+
+    # --- Operators (keine Überladung möglich -> op-Variante + Funktionsvariante) ---
+    \Gradop: '\textrm{Grad}\,'
+    \Grad: '\textrm{Grad}\left(#1\right)'
+    \grad: '\textrm{grad}\left(#1\right)'
+
+    \Divop: '\textrm{Div}\,'
+    \Div: '\textrm{Div}\left(#1\right)'
+
+    # ACHTUNG: \div ist in LaTeX/MathJax "÷" -> deshalb umbenennen:
+    \divop: '\textrm{div}\,'
+    \divg: '\textrm{div}\left(#1\right)'
+
+    \Lin: '\textrm{Lin}\,'
+    \la: '\,\leftarrow\,'
+    \rom: '\textrm{#1}'
+    \rp: '^{\textrm{#1}}'
+    \rs: '_{\textrm{#1}}'
+    \T: '^{\textrm{T}}'
+    \mT: '^{\textrm{-T}}'
+
+    # Differentiale (ich setze hier direkt textrm{d}, statt rom{d} zu verschachteln)
+    \intd: '\,\textrm{d}'
+
+    # Infinitesimal elements
+    \d: '\;\textrm{d}'
+    \dV: '\;\textrm{d}V'
+    \dViso: '\;\textrm{d}V_{\square}'
+    \dA: '\;\textrm{d}A'
+    \da: '\;\textrm{d}a'
+    \dx: '\;\textrm{d}x'
+    \dy: '\;\textrm{d}y'
+    \dz: '\;\textrm{d}z'
+    \dX: '\;\textrm{d}X'
+    \dY: '\;\textrm{d}Y'
+    \dZ: '\;\textrm{d}Z'
+    \dxi: '\;\textrm{d}\xi'
+    \deta: '\;\textrm{d}\eta'
+    \dzeta: '\;\textrm{d}\zeta'
+
+    # Integrals
+    \Ibt: '\int_{\mathcal{B}_t}'
+    \Ist: '\int_{\Gamma_t}'
+    \Ibref: '\int_{\mathcal{B}\rs{0}}'
+    \Isref: '\int_{\Gamma\rs{0}}'
+    \sref: '{\Gamma\rs{0}}'
+    \Bref: '{\mathcal{B}\rs{0}}'
+    \Ibiso: '\int_{\mathcal{B}_{\square}}'
+    \siso: '{\Gamma_{\square}}'
+
+    # Material time derivative etc.
+    \Mtd: '\left(#1\right)^{,}'
+    \td: '\dot{#1}'
+    \Mtda: '\left(#1\right)^{,}_{\alpha}'
+    \Mtdu: '\left(#1\right)^{,}_{\trm{#2}}'
+    \Pd: '\frac{\partial #1}{\partial #2}'
+    \Dd: '\frac{\d #1}{\d #2}'
+    \dt: '#1^{\bullet}'
+    \pr: '^{\prime}'
+    \hist: '\mid_{\tau=0}^t'
+
+    # Deviatoric etc.
+    \dev: '\rs{dev}'
+    \sph: '\rs{sph}'
+    \hyd: '\rs{hyd}'
+    \iso: '\rs{iso}'
+    \vol: '\rs{vol}'
+    \vM: '\rs{vM}'
+    \sym: '\rs{sym}'
+    \dil: '\rs{dil}'
+
+    # ACHTUNG: \ln nicht überschreiben -> umbenennen:
+    \lnf: '\textrm{ln}\left(#1\right)'
+
+    # Combined fields / FEM
+    \uft: '\mathfrak{\boldsymbol{u}}'
+    \Pext: '\mathcal{P}\rp{ext}'
+    \Pint: '\mathcal{P}\rp{int}'
+
+    # Kinematics
+    \Cg: '\boldsymbol{C}'
+    \detC: '\det \Cg'
+    \F: '\bm{F}'
+    \s: '\bm{\sigma}'
+    \sb: '\bm{\sigma}'
+    \ie: '\rp{e}'
+    \ipl: '\rp{p}'
+    \e: '\varepsilon'
+    \eb: '\bm{\e}'
+    \ee: '{\eb}\ie'
+    \ep: '{\eb}\ipl'
+    \E: '\bm{E}'
+    \Ee: '\E\ie'
+    \Ep: '\E\ipl'
+    \Fe: '\bm{\F}\ie'
+    \Fp: '\bm{\F}\ipl'
+    \Cge: '\tilde{\Cg}\ie'
+    \Cgp: '\Cg\ipl'
+    \Se: '\tilde{\bm{S}}\ie'
+    \Me: '\tilde{\bm{M}}\ie'
+    \Lp: '\tilde{\bm{L}}\ipl'
+    \Dp: '\tilde{\bm{D}}\ipl'
+    \sw: '\rs{sw}'
+
+    # Inner variables
+    \IV: '\bm{Y}'
+    \iv: 'Y'

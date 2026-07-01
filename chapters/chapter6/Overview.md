@@ -74,7 +74,7 @@ Grundlage der stukturmechanischen transienten Berechnungen ist die Impulsbilanz:
 
 ```{math}
 :label: Impulsbilanz_dynamisch
-\varrho \ddot{\bm{u}} =\div{\bm{\sigma}} + \rho \bm{b} 
+\varrho \ddot{\bm{u}} =\Div{\bm{\sigma}} + \rho \bm{b} 
 ```
 
 Hierbei stellt der Term auf der linken Seite die Trägheitskräfte dar. Durch die Bildung der schwachen Form und anschließende Diskretisierung erhält man im FEM-Kontext folgendes Differentialgleichungssystem:

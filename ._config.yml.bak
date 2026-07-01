@@ -5,6 +5,7 @@ title: Finite Elemente Methode 1
 author: Prof. Dr.-Ing. Steffen Beese
 logo: logo.jpeg
 copyright: "2025"
+date: "2025-11-11"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

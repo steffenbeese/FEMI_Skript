@@ -27,7 +27,7 @@ jupytext:
 \newcommand{\deta}{\; \text{ d}\eta}
 \newcommand{\dzeta}{\; \text{ d}\zeta}
 \newcommand{\grad}[1]{\text{grad}\left(#1\right)}
-\renewcommand{\div}[1]{\text{div} \left(#1\right)}
+\renewcommand{\Div}[1]{\text{div} \left(#1\right)}
 \newcommand{\td}[1]{\dot{#1}}
 \newcommand{\tdd}[1]{\ddot{#1}}
 \newcommand{\T}{\rp{T}}
@@ -62,13 +62,13 @@ Ausgangspunkt für die exemplarische Herleitung ist die Impulsbilanz in der quas
 
 ```{math}
 :label: weakform_01
-0 = \div{\bm{\sigma}} + \rho \bm{b} 
+0 = \Div{\bm{\sigma}} + \rho \bm{b} 
 ```
 Diese starke Form wird jetzt mit einer beliebigen vektorwertigen Testfunktion $\delta \bm{u}$ multipliziert und über das betrachtete Gebiet $\mathcal{B}$ (den betrachteten Körper) integriert.
 
 ```{math}
 :label: weakform_02
-0 = \int_{\mathcal{B}} \delta  \bm{u}\T \left(\div{\bm{\sigma}} + \rho \bm{b} \right) \dV
+0 = \int_{\mathcal{B}} \delta  \bm{u}\T \left(\Div{\bm{\sigma}} + \rho \bm{b} \right) \dV
 ```
 
 Dieser Schritt bedeutet, dass wir im Weiteren versuchen werden, die gekoppelten partiellen Differentialgleichungen nicht punktuell exakt zu erfüllen, sondern im gewichteten integralen Mittel. Für elastomechanische Problemstellungen kann die Testfunktion $\delta \bm{u}$ als virtuelle Verschiebung aufgefasst werden, und die Gleichung {eq}`weakform_02` als das bekannte Prinzip der virtuellen Verschiebung angesehen werden. Das hier gezeigte Vorgehen ist jedoch unabhängig von der Elastostatik allgemeingültig.
@@ -80,7 +80,7 @@ Als Nächstes integrieren wir die Gleichung {eq}`weakform_02` partiell. Dafür w
 
 ```{math}
 :label: divergenzsatz
-\int_{\mathcal{B}} \delta \bm{u}\T \div{\bm{\sigma}} \dV = \int_{\mathcal{B}} \div{\delta \bm{u}\T \bm{\sigma}} \dV -\int_{\mathcal{B}} \underbrace{\grad{\delta\bm{u}\T}}_{\delta \bm{\eb}}\bm{\sigma} \dV \; . 
+\int_{\mathcal{B}} \delta \bm{u}\T \Div{\bm{\sigma}} \dV = \int_{\mathcal{B}} \Div{\delta \bm{u}\T \bm{\sigma}} \dV -\int_{\mathcal{B}} \underbrace{\grad{\delta\bm{u}\T}}_{\delta \bm{\eb}}\bm{\sigma} \dV \; . 
 ```
 
 Der Wechsel vom Divergenz-Operator zum Gradienten-Operator im zweiten Term auf der rechten Seite lässt sich schlüssig damit erklären, dass das Resultat ein Skalar sein soll. Während die Divergenz eines Vektors einen Skalar liefert, ergibt der Gradient eines Vektors einen Tensor zweiter Ordnung. Dieser Tensor wird dann in einer doppelten skalaren Multiplikation mit einem weiteren Tensor zweiter Ordnung verknüpft, was letztlich zu einem skalaren Ergebnis führt.
@@ -92,7 +92,7 @@ Nun lässt sich mit dem Gauß'schen Integralsatz der erste Term auf der rechten 
 
 ```{math}
 :label: gaussIntegralTheorem
-\int_{\mathcal{B}} \div{\delta \bm{u}\T  \bm{\sigma}} \dV = \int_{\partial\mathcal{B}} \delta \bm{u}\T \bm{\sigma}  \bm{n} \dA = \int_{\partial\mathcal{B}} \delta \bm{u}\T \bm{t} \dA \; . 
+\int_{\mathcal{B}} \Div{\delta \bm{u}\T  \bm{\sigma}} \dV = \int_{\partial\mathcal{B}} \delta \bm{u}\T \bm{\sigma}  \bm{n} \dA = \int_{\partial\mathcal{B}} \delta \bm{u}\T \bm{t} \dA \; . 
 ```
 
 Dieses Resultat wird jetzt wieder in Gleichung {eq}`weakform_02` eingesetzt und wir erhalten:

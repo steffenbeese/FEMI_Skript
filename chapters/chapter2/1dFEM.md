@@ -772,7 +772,7 @@ StabFEM for Binder: [![Binder](https://mybinder.org/badge_logo.svg)](https://myb
 
 **StabFEM**
 
-- Was unterscheidet das Verfahren von Ritz von der FEM?
+- **Was unterscheidet das Verfahren von Ritz von der FEM?**
 - Welches Problem hat man beim Verfahren von Ritz bezüglich der Ansatzfunktion?
 - Skizzieren Sie die Formfunktionen für ein lineares Stabelement mit 2 Knoten.
 - Auf Elementebene werden die Steifigkeitsmatrizen und die Lastvektoren berechnet. Was passiert danach mit diesen Größen?

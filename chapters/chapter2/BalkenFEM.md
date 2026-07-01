@@ -423,7 +423,7 @@ Balken FEM for Binder [![Binder](https://mybinder.org/badge_logo.svg)](https://m
 
 **Balken FEM**
 
-- Welche physikalische Interpretation haben die Knotenfreiheitsgrade beim Balkenelement?
+- **Welche physikalische Interpretation haben die Knotenfreiheitsgrade beim Balkenelement?**
 
 - Wie gut ist die Lösung der Balken-FEM bzgl. der Verschiebungen im Vergleich zur analytischen Lösung?
 

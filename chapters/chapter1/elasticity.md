@@ -722,8 +722,8 @@ Eindeutig lösbar wird das Modell zudem erst, wenn die Randbedingungen entsprech
 
 - Nennen Sie die für die Strukturmechanik wesentliche Feldgleichung.
 - Nennen Sie drei verschiedene Feldgleichungen.
-- Welche Feldgröße wird mit der Impulsbilanz berechnet?
-- Welche Feldgröße wird mit der Energiebilanz berechnet?
+- **Welche Feldgröße wird mit der Impulsbilanz berechnet?**
+- **Welche Feldgröße wird mit der Energiebilanz berechnet?**
 - Welche Feldgröße wird mit der Massenbilanz berechnet?
 - Was ist der Unterschied zwischen primären und sekundären Feldgrößen?
 - Welche Aussage ist richtig:
@@ -734,25 +734,25 @@ Eindeutig lösbar wird das Modell zudem erst, wenn die Randbedingungen entsprech
    - [ ] Die Bilanzgleichungen sind materialunabhängige physikalische Prinzipien.
    - [ ] Zur Lösung der Bilanzgleichungen benötigt man noch weitere Restriktionen.
 
-- Welche Arten von Randbedingungen werden in der Mechanik von Festkörpern unterschieden?
-- Ist eine Kraftrandbedingung eine *Neumann*-Randbedingung oder eine *Dirichlet*-Randbedingung?
-- Ist eine Verschiebungsrandbedingung eine *Neumann*-Randbedingung oder eine *Dirichlet*-Randbedingung?
+- **Welche Arten von Randbedingungen werden in der Mechanik von Festkörpern unterschieden?**
+- **Ist eine Kraftrandbedingung eine *Neumann*-Randbedingung oder eine *Dirichlet*-Randbedingung?**
+- **Ist eine Verschiebungsrandbedingung eine *Neumann*-Randbedingung oder eine *Dirichlet*-Randbedingung?**
 
 <!-- -+-+-+-+-+-+-AI-SPLIT  -->
 **Kinematik**
 
-- Welche Aussage ist richtig:
+- **Welche Aussage ist richtig:**
    - [ ] Die Dehnung ist der symmetrische Anteil des Verschiebungsgradienten.
    - [ ] Die Spannung ist der symmetrische Anteil des Verschiebungsgradienten.
    - [ ] Die Ingenieursdehnungen sollten nur in einem Dehnungsbereich von < 10 % eingesetzt werden.
-   - [ ] Starrkörperrotationen rufen keine Ingenieurdehnungen (und auch keine Spannungen) hervor.
+   - [ ] Starrkörperrotationen rufen keine Ingenieurdehnungen (und auch keine Spannungen) hervor
 
 **Materialgleichung**
 
-- Warum brauchen wir Materialgleichungen? (2 Gründe nennen)
+- **Warum brauchen wir Materialgleichungen? (2 Gründe nennen)**
 - Nennen Sie eine Klasse von Materialien entsprechend ihres Materialverhaltens für strukturmechanische Problemstellungen.
 - In welche Richtung fließt die Temperatur bei der Fourierschen Wärmeleitung?
-- Was bedeutet isotropes Materialverhalten?
+- **Was bedeutet isotropes Materialverhalten?**
 - Wie viele Materialparameter sind nötig, um das Verhalten von linearen, isotropen und elastischen Materialien zu beschreiben?
 - Liegt bei Karosserieteilen eher ein ebener Spannungs- oder ein ebener Verzerrungszustand vor?
 

@@ -399,10 +399,10 @@ N_{10}(\xi ,\eta ,\zeta ) &= 4\eta \zeta
 
 **Ansatzfunktionen**
 
-- Wieviele Knoten hat ein Tetraeder-Element mit linearen Ansatzfunktionen?
-- Wieviele Knoten hat ein Viereck-Element mit quadratischen Ansatzfunktionen?
+- **Wieviele Knoten hat ein Tetraeder-Element mit linearen Ansatzfunktionen?**
+- **Wieviele Knoten hat ein Viereck-Element mit quadratischen Ansatzfunktionen?**
 - Eine wichtige Eigenschaft der gezeigten Formfunktionen ist, dass sie nur am zugehörigen Knoten den Wert 1 annehmen. An allen anderen Knoten ist der Wert 0. Was bedeutet dies für den Knotenfreiheitsgrad bzgl. seiner physikalischen Deutbarkeit?
-- Welche Aussage ist richtig?
+- **Welche Aussage ist richtig?**
   - [ ] Bei Formfunktionen mit quadratischem Polynomgrad ist der Verlauf der Dehnungen im Element quadratisch.
   - [ ] Bei Formfunktionen mit linearem Verlauf sind die Verschiebungen im Element linear.
   - [ ] Die Dehnungen sind über die Elementränder hinweg stetig für Formfunktionen mit quadratischem Polynomgrad.

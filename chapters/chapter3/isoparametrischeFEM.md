@@ -233,16 +233,16 @@ Mit steigender Elementanzahl wird der konstante Term der Schnittkraft dominant (
 
 **Isoparametrische FEM**
 
-- Welche Aussagen sind zutreffend?
+- **Welche Aussagen sind zutreffend?**
   - [ ] Bei der isoparametrischen FEM wird die schwache Form auf einem uniformen Elternelement gebildet und danach auf die reale Geometrie transformiert.
   - [ ] Bei der isoparametrischen FEM werden die gleichen Ansätze bezüglich Geometrie und Verschiebung gewählt.
   - [ ] Bei der subparametrischen FEM wird die Geometrie mit einem niedrigeren Polynomgrad als die Verschiebung approximiert.
   - [ ] Nur die isoparametrische FEM ist gesichert konvergent.
-- Über welches Maß kann man die Qualität eines FE-Netzes quantifizieren?
-- Ist ein Element mit einer Jacobi-Determinante $\det \boldsymbol{J} < 0 $ für die Berechnung zulässig? 
-- Welche Anforderungen muss ein Finite-Element-Ansatz erfüllen, damit die Lösung gegen die analytische Lösung konvergiert?
-- Wie kann man die Forderung der Kontinuität des Ansatzes bei der Vernetzung verletzen?
-- Warum ist es wichtig, dass ein Finites Element Starrkörperverschiebungen korrekt darstellt?
+- **Über welches Maß kann man die Qualität eines FE-Netzes quantifizieren?**
+- **Ist ein Element mit einer Jacobi-Determinante $\det \boldsymbol{J} < 0 $ für die Berechnung zulässig? **
+- **Welche Anforderungen muss ein Finite-Element-Ansatz erfüllen, damit die Lösung gegen die analytische Lösung konvergiert?**
+- **Wie kann man die Forderung der Kontinuität des Ansatzes bei der Vernetzung verletzen?**
+- **Warum ist es wichtig, dass ein Finites Element Starrkörperverschiebungen korrekt darstellt?**
 - Was ist ein Patch-Test? Was wird damit untersucht?
 - Was bedeutet der Begriff *Partition of Unity*? 
 

@@ -238,9 +238,9 @@ Zur Abstraktion mechanischer Modelle können folgende Ansätze angewendet werden
 **Allgemeine Verständnisfragen zur numerischen Simulation**
 
 - Was sind mögliche Zielstellungen der numerischen Simulation im Konstruktionsprozess?
-- Erläutern Sie den Begriff "Garbage in, garbage out" im Kontext von Finite-Elemente-Simulationen.
-- Beschreiben Sie die Schritte, die vor einer FE-Simulation durchgeführt werden müssen.
-- Nennen Sie zwei Kriterien für die Wahl zwischen einer 1D-, 2D- oder 3D-Finite-Elemente-Berechnung.
+- **Erläutern Sie den Begriff "Garbage in, garbage out" im Kontext von Finite-Elemente-Simulationen.**
+- **Beschreiben Sie die Schritte, die vor einer FE-Simulation durchgeführt werden müssen.**
+- **Nennen Sie zwei Kriterien für die Wahl zwischen einer 1D-, 2D- oder 3D-Finite-Elemente-Berechnung.**
 
 **Zum Thema Systembegriff**
 
@@ -250,30 +250,30 @@ Zur Abstraktion mechanischer Modelle können folgende Ansätze angewendet werden
 
 **Zur Klassifikation von Systemen**
 
-- Nennen Sie drei Kriterien zur Klassifikation von Systemverhalten und beschreiben Sie diese.
-- Warum ist das Wissen über das Systemverhalten wichtig für die Simulation?
+- **Nennen Sie drei Kriterien zur Klassifikation von Systemverhalten und beschreiben Sie diese.**
+- **Warum ist das Wissen über das Systemverhalten wichtig für die Simulation?**
 
 **Über den Modellbegriff**
 
-- Welche Anforderungen sollten Modelle erfüllen?
+- **Welche Anforderungen sollten Modelle erfüllen?**
 - Erklären Sie den Begriff "Modellabstraktion" und dessen Bedeutung im Ingenieurwesen.
-- Welche Vorteile bieten einfachere Modelle gegenüber komplexeren Modellen während des Design- und Analyseprozesses?
+- **Welche Vorteile bieten einfachere Modelle gegenüber komplexeren Modellen während des Design- und Analyseprozesses?**
 
 **Zum Modellbildungsprozess**
 
 - Nennen Sie die wesentlichen Schritte im Modellbildungsprozess.
-- Welche Bedeutung haben Verifikation und Validierung in der Modellbildung?
+- **Welche Bedeutung haben Verifikation und Validierung in der Modellbildung?**
 
 **Ansätze zur Abstraktion mechanischer Modelle**
 
 - Nennen Sie drei Ansätze zur Abstraktion mechanischer Modelle und erklären Sie diese kurz.
-- Was versteht man unter Dimensionsreduktion und wann wird sie angewendet?
+- **Was versteht man unter Dimensionsreduktion und wann wird sie angewendet?**
 - In welchen Situationen ist eine Vereinfachung der Materialeigenschaften angebracht?
 
 **Vertiefende Fragen zur Reflexion**
 
-- Was ist der Unterschied zwischen der Verifikation und der Validierung eines Modells?
-- Was sind die Konsequenzen einer unzureichenden Modellvalidierung?
-- Wie kann eine kritische Bewertung der Ergebnisse einer FE-Simulation erfolgen?
+- **Was ist der Unterschied zwischen der Verifikation und der Validierung eines Modells?**
+- **Was sind die Konsequenzen einer unzureichenden Modellvalidierung?**
+- **Wie kann eine kritische Bewertung der Ergebnisse einer FE-Simulation erfolgen?**
 
 ```

@@ -81,9 +81,9 @@ Die grundlegende Natur sekundärer Größen als "abgeleitete" Größen hat weitr
 
 **Postprocessing**
 
-- Was sind primäre Größen der FEM in der Strukturmechanik und in der Wärmeleitung? 
-- Wo liegen die primären Größen vor?
-- Wo liegen die sekundären Größen bei der FEM vor?
+- **Was sind primäre Größen der FEM in der Strukturmechanik und in der Wärmeleitung?** 
+- **Wo liegen die primären Größen vor?**
+- **Wo liegen die sekundären Größen bei der FEM vor?**
 - Warum werden sekundäre Größen an Gauß-Integrationspunkten berechnet und nicht direkt an den Knoten?
 - Welche Methoden existieren, um sekundäre Größen von Gaußpunkten zu den Knoten zu extrapolieren?
 - Was ist ein Indikator für eine konvergierte Lösung einer sekundären Größe?

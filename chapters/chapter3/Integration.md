@@ -125,8 +125,8 @@ Erst eine Integrationsordnung mit drei Integrationspunkten liefert das exakte Er
 
 - Warum müssen wir die schwache Form der Impulsbilanz numerisch integrieren?
 - Wie lautet die allgemeine Formel für die Quadratur einer Funktion $f(x)$ über ein Referenzgebiet?
-- Wie lässt sich die Genauigkeit der numerischen Integration erhöhen?
-- Welche Aussage ist richtig?
+- **Wie lässt sich die Genauigkeit der numerischen Integration erhöhen?**
+- **Welche Aussage ist richtig?**
   - [ ] Eine Erhöhung der Integrationsordnung führt zu einer höheren Genauigkeit.
   - [ ] Eine Erhöhung der Integrationsordnung führt zu einer höheren Anzahl an Integrationspunkten.
   - [ ] Bei zu wenigen Integrationspunkten verhält sich das Element zu "weich".

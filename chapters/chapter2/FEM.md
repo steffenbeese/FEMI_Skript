@@ -14,7 +14,7 @@ jupytext:
 \newcommand{\MtdFull}[1]{\frac{D \, #1}{D \, t}}
 \newcommand{\Pd}[2]{\frac{\partial #1}{\partial #2}}
 \newcommand{\d}{\text{d} }
-\newcommand{\Dd}[2]{\frac{\d #1}{\d #2}}
+\newcommand{\Dd}[2]{\frac{\dif#1}{\dif#2}}
 \newcommand{\dt}[1]{#1 ^{\bullet}}
 \newcommand{\dV}{\; \text{d}V}
 \newcommand{\dA}{\; \text{d}A}
@@ -35,7 +35,7 @@ jupytext:
 \newcommand{\e}{\epsilon}
 \newcommand{\eb}{\bm{\e}}
 \newcommand{\s}{\sigma}
-\newcommand{\sb}{\bm{\sigma}}
+\newcommand{\sbs}{\bm{\sigma}}
 $ -->
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}

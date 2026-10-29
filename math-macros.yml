@@ -52,7 +52,7 @@ project:
     \intd: '\,\textrm{d}'
 
     # Infinitesimal elements
-    \d: '\;\textrm{d}'
+    \dif: '\;\textrm{d}'
     \dV: '\;\textrm{d}V'
     \dViso: '\;\textrm{d}V_{\square}'
     \dA: '\;\textrm{d}A'
@@ -83,7 +83,7 @@ project:
     \Mtda: '\left(#1\right)^{,}_{\alpha}'
     \Mtdu: '\left(#1\right)^{,}_{\trm{#2}}'
     \Pd: '\frac{\partial #1}{\partial #2}'
-    \Dd: '\frac{\d #1}{\d #2}'
+    \Dd: '\frac{\dif #1}{\dif #2}'
     \dt: '#1^{\bullet}'
     \pr: '^{\prime}'
     \hist: '\mid_{\tau=0}^t'
@@ -111,7 +111,7 @@ project:
     \detC: '\det \Cg'
     \F: '\bm{F}'
     \s: '\bm{\sigma}'
-    \sb: '\bm{\sigma}'
+    \sbs: '\bm{\sigma}'
     \ie: '\rp{e}'
     \ipl: '\rp{p}'
     \e: '\varepsilon'

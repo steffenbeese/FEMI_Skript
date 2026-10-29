@@ -33,7 +33,7 @@ $
 \newcommand{\e}{\epsilon}
 \newcommand{\eb}{\bm{\e}}
 \newcommand{\s}{\sigma}
-\newcommand{\sb}{\bm{\sigma}}
+\newcommand{\sbs}{\bm{\sigma}}
 $
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}

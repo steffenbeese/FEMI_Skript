@@ -504,7 +504,7 @@ Es muss betont werden, dass die Variablen (Last, Querschnitt, Material) entlang 
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-Um die konstitutive Beziehung $\sb(\eb)$ zu erhalten, starten wir vom generalisierten Hook'schen Gesetz {eq}`generalHook3`, indem wir alle Spalten mit korrespondierenden 0-Dehnungen eliminieren:
+Um die konstitutive Beziehung $\sbs(\eb)$ zu erhalten, starten wir vom generalisierten Hook'schen Gesetz {eq}`generalHook3`, indem wir alle Spalten mit korrespondierenden 0-Dehnungen eliminieren:
 
 ```{math}
 :label: evz1

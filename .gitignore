@@ -18,3 +18,37 @@ _build
 
 # MyST build outputs
 _build
+
+# --- LaTeX/Build-Hilfsdateien (ergänzt für Sync) ---
+*.aux
+*.lof
+*.lot
+*.log
+*.out
+*.toc
+*.nav
+*.snm
+*.vrb
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.idx
+*.ilg
+*.ind
+*.lol
+*-SAVE-ERROR
+# --- Jupyter / Python ---
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+# --- Editor / OS ---
+*~
+*.autosave.xopp
+.DS_Store
+Thumbs.db
+*:Zone.Identifier

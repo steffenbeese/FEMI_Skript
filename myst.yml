@@ -11,6 +11,10 @@ project:
     - format: pdf
       template: plain_latex_book
       output: exports/fem_I_skript.pdf
+      options:
+        logo: logo.jpeg
+      article_preamble: |
+        \mainmatter
     - format: typst
       template: plain_typst_book
       output: exports/fem_I_skript_typst.pdf

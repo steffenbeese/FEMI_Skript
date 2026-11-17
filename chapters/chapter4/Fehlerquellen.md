@@ -96,5 +96,14 @@ Praktische Gegenmaßnahmen:
 
 Die meisten FEM-Fehler sind nicht reine Solverfehler, sondern Modellierungsfehler mit numerischen Symptomen. Gute Ergebnisse entstehen durch sauberes Pre-Processing, robuste Lösungseinstellungen und kritisches Post-Processing.
 
+```{admonition} Fragen zum Kapitel
+:class: warning
+
+1. Welche drei Prozessschritte werden zur Einordnung von FEM-Fehlern unterschieden?
+2. **Welche typischen Anzeichen deuten auf Starrkörperverschiebungen im Modell hin?**
+3. Warum dürfen Warnungen zu negativen Eigenwerten nicht einfach ignoriert werden?
+4. Was passiert, wenn Steifigkeiten künstlich unrealistisch hoch gesetzt werden?
+5. Nennen Sie zwei typische Ursachen für entartete Elemente und zwei Gegenmaßnahmen dagegen.
+```
 
 

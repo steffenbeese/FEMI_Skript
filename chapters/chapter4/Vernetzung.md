@@ -117,3 +117,13 @@ Die Vernetzung ist kein reiner Preprocessing-Nebenschritt, sondern ein wesentlic
 
 Damit wird die Grundlage geschaffen, dass FEM-Ergebnisse nicht nur numerisch stabil, sondern auch ingenieurmäßig belastbar sind.
 
+```{admonition} Fragen zum Kapitel
+:class: warning
+
+1. Was ist das Ziel der Vernetzung in einer FEM-Analyse?
+2. **Welche zwei Grundtypen von Gittern werden unterschieden, und worin unterscheiden sie sich?**
+3. Was beschreibt die Advancing Front Method im Kern?
+4. Welche Eigenschaft kennzeichnet die Delaunay-Triangulierung bei unstrukturierten 3D-Netzen?
+5. **Nennen Sie zwei typische Fehler bei der Vernetzung und erklären Sie, warum sie die FEM-Ergebnisse beeinflussen können.**
+```
+
